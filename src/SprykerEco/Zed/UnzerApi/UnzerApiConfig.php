@@ -2,7 +2,8 @@
 
 namespace SprykerEco\Zed\UnzerApi;
 
-class UnzerApiConfig
-{
+use Spryker\Zed\Kernel\AbstractBundleConfig;
 
+class UnzerApiConfig extends AbstractBundleConfig
+{
 }
