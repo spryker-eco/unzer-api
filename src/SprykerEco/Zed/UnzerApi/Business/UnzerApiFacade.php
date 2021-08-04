@@ -10,6 +10,4 @@ use Spryker\Zed\Kernel\Business\AbstractFacade;
 class UnzerApiFacade extends AbstractFacade implements UnzerApiFacadeInterface
 {
 
-    //TODO Implement UnzerApiFacadeInterface
-
 }

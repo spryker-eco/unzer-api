@@ -11,6 +11,4 @@ use Spryker\Zed\Kernel\Business\AbstractBusinessFactory;
 class UnzerApiBusinessFactory extends AbstractBusinessFactory
 {
 
-    //TODO Add factory methods
-
 }
