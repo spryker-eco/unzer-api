@@ -5,6 +5,14 @@
           namespace="Orm\Zed\UnzerApi\Persistence"
           package="src.Orm.Zed.UnzerApi.Persistence">
 
-    <!-- TODO define your tables here -->
+    <table name="spy_payment_unzer_api_log">
+        <column name="id_payment_unzer_api_log" required="true" type="INTEGER" primaryKey="true" autoIncrement="true"/>
+        <column name="request" required="true" type="LONGVARCHAR"/>
+        <column name="response" required="true" type="LONGVARCHAR"/>
+        <column name="is_success" required="true" type="BOOLEAN"/>
+        <behavior name="timestampable"/>
+
+        <id-method-parameter value="spy_payment_unzer_api_log_pk_seq"/>
+    </table>
 
 </database>
