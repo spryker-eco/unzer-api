@@ -11,5 +11,4 @@ use Codeception\Actor;
 
 class UnzerApiBusinessTester extends Actor
 {
-
 }
