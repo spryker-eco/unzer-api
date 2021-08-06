@@ -12,6 +12,9 @@ namespace SprykerEco\Shared\UnzerApi;
  */
 interface UnzerApiConstants
 {
+    public const UNZER_PRIVATE_KEY = 'UNZERAPI:UNZER_PRIVATE_KEY';
+    public const UNZER_PUBLIC_KEY = 'UNZERAPI:UNZER_PRIVATE_KEY';
+
     public const WEBHOOK_RESOURCE_URL = 'UNZERAPI:WEBHOOK_RESOURCE_URL';
     public const BASKET_RESOURCE_URL = 'UNZERAPI:BASKET_RESOURCE_URL';
     public const CUSTOMER_RESOURCE_URL = 'UNZERAPI:CUSTOMER_RESOURCE_URL';

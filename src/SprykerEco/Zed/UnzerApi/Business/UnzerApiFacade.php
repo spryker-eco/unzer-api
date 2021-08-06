@@ -7,11 +7,42 @@
 
 namespace SprykerEco\Zed\UnzerApi\Business;
 
+use Generated\Shared\Transfer\UnzerApiRequestTransfer;
+use Generated\Shared\Transfer\UnzerApiResponseTransfer;
 use Spryker\Zed\Kernel\Business\AbstractFacade;
 
 /**
- * @method \Pyz\Zed\UnzerApi\Business\UnzerApiBusinessFactory getFactory()
+ * @api
+ *
+ * @method \SprykerEco\Zed\UnzerApi\Business\UnzerApiBusinessFactory getFactory()
  */
 class UnzerApiFacade extends AbstractFacade implements UnzerApiFacadeInterface
 {
+    /**
+     * {@inheritDoc}
+     *
+     * @api
+     *
+     * @param \Generated\Shared\Transfer\UnzerApiRequestTransfer $unzerApiRequestTransfer
+     *
+     * @return \Generated\Shared\Transfer\UnzerApiResponseTransfer
+     */
+    public function performSetNotificationUrlApiCall(UnzerApiRequestTransfer $unzerApiRequestTransfer): UnzerApiResponseTransfer
+    {
+        return $this->getFactory()->createSetWebhookApiClient()->sendRequest($unzerApiRequestTransfer);
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @api
+     *
+     * @param \Generated\Shared\Transfer\UnzerApiRequestTransfer $unzerApiRequestTransfer
+     *
+     * @return \Generated\Shared\Transfer\UnzerApiResponseTransfer
+     */
+    public function performGetPaymentTypesForKeypairApiCall(UnzerApiRequestTransfer $unzerApiRequestTransfer): UnzerApiResponseTransfer
+    {
+        return new UnzerApiResponseTransfer();
+    }
 }
