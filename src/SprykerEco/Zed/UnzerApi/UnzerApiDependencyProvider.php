@@ -1,16 +1,27 @@
 <?php
 
+/**
+ * MIT License
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace SprykerEco\Zed\UnzerApi;
 
-use SprykerEco\Zed\UnzerApi\Dependency\External\Guzzle\UnzerApiToToGuzzleHttpClientAdapter;
 use Spryker\Zed\Kernel\AbstractBundleDependencyProvider;
 use Spryker\Zed\Kernel\Container;
+use SprykerEco\Zed\UnzerApi\Dependency\External\Guzzle\UnzerApiToToGuzzleHttpClientAdapter;
 use SprykerEco\Zed\UnzerApi\Dependency\Service\UnzerApiToUtilEncodingServiceBridge;
 
 class UnzerApiDependencyProvider extends AbstractBundleDependencyProvider
 {
+    /**
+     * @var string
+     */
     public const SERVICE_UTIL_ENCODING = 'SERVICE_UTIL_ENCODING';
 
+    /**
+     * @var string
+     */
     public const UNZER_API_HTTP_CLIENT = 'UNZER_API_HTTP_CLIENT';
 
     /**

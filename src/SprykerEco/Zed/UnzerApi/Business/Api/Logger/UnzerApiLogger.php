@@ -1,12 +1,17 @@
 <?php
 
+/**
+ * MIT License
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace SprykerEco\Zed\UnzerApi\Business\Api\Logger;
 
 use Generated\Shared\Transfer\PaymentUnzerApiLogTransfer;
 use Generated\Shared\Transfer\UnzerApiRequestTransfer;
 use Generated\Shared\Transfer\UnzerApiResponseTransfer;
-use SprykerEco\Zed\UnzerApi\Persistence\UnzerApiEntityManagerInterface;
 use Spryker\Zed\Kernel\Persistence\EntityManager\TransactionTrait;
+use SprykerEco\Zed\UnzerApi\Persistence\UnzerApiEntityManagerInterface;
 
 class UnzerApiLogger implements UnzerApiLoggerInterface
 {

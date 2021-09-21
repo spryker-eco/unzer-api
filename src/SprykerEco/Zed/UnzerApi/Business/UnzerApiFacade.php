@@ -1,9 +1,12 @@
 <?php
 
+/**
+ * MIT License
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace SprykerEco\Zed\UnzerApi\Business;
 
-use Generated\Shared\Transfer\UnzerApiRequestTransfer;
-use Generated\Shared\Transfer\UnzerApiResponseTransfer;
 use Spryker\Zed\Kernel\Business\AbstractFacade;
 
 /**

@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * MIT License
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace SprykerEco\Zed\UnzerApi\Dependency\External\Guzzle;
 
 use GuzzleHttp\Client;
@@ -12,8 +17,17 @@ use SprykerEco\Zed\UnzerApi\Dependency\External\Guzzle\Response\UnzerApiGuzzleRe
 
 class UnzerApiToToGuzzleHttpClientAdapter implements UnzerApiToGuzzleHttpClientAdapterInterface
 {
+    /**
+     * @var int
+     */
     protected const DEFAULT_TIMEOUT = 40;
+    /**
+     * @var string
+     */
     protected const HEADER_CONTENT_TYPE_KEY = 'Content-Type';
+    /**
+     * @var string
+     */
     protected const HEADER_CONTENT_TYPE_VALUE = 'application/json';
 
     /**
