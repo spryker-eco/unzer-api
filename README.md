@@ -5,6 +5,9 @@
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/spryker-eco/unzer-api/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/spryker-eco/unzer-api/?branch=master)
 [![Build Status](https://scrutinizer-ci.com/g/spryker-eco/unzer-api/badges/build.png?b=master)](https://scrutinizer-ci.com/g/spryker-eco/unzer-api/build-status/master)
 [![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%207.3-8892BF.svg)](https://php.net/)
+
+UnzerApi module provides Unzer API HTTP communication layer.
+
 ## Installation
 ```
 composer require spryker-eco/unzer-api
