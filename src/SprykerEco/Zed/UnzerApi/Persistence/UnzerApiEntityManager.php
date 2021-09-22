@@ -7,6 +7,8 @@
 
 namespace SprykerEco\Zed\UnzerApi\Persistence;
 
+use Generated\Shared\Transfer\PaymentUnzerApiLogTransfer;
+use SprykerEco\Zed\UnzerApi\Persistence\Mapper\UnzerApiPersistenceMapper;
 use Spryker\Zed\Kernel\Persistence\AbstractEntityManager;
 
 /**
@@ -14,4 +16,33 @@ use Spryker\Zed\Kernel\Persistence\AbstractEntityManager;
  */
 class UnzerApiEntityManager extends AbstractEntityManager implements UnzerApiEntityManagerInterface
 {
+    /**
+     * @param \Generated\Shared\Transfer\PaymentUnzerApiLogTransfer $paymentUnzerApiLogTransfer
+     *
+     * @return \Generated\Shared\Transfer\PaymentUnzerApiLogTransfer
+     */
+    public function savePaymentUnzerApiLog(
+        PaymentUnzerApiLogTransfer $paymentUnzerApiLogTransfer
+    ): PaymentUnzerApiLogTransfer {
+        $paymentUnzerApiLogEntity = $this->getFactory()->createPaymentUnzerApiLogEntity();
+
+        $paymentUnzerApiLogEntity->fromArray(
+            $paymentUnzerApiLogTransfer->modifiedToArray()
+        );
+        $paymentUnzerApiLogEntity->save();
+
+        return $this->getMapper()
+            ->mapEntityToPaymentUnzerApiLogTransfer(
+                $paymentUnzerApiLogEntity,
+                $paymentUnzerApiLogTransfer
+            );
+    }
+
+    /**
+     * @return \SprykerEco\Zed\UnzerApi\Persistence\Mapper\UnzerApiPersistenceMapper
+     */
+    protected function getMapper(): UnzerApiPersistenceMapper
+    {
+        return $this->getFactory()->createUnzerApiPersistenceMapper();
+    }
 }

@@ -15,6 +15,8 @@ interface UnzerApiToHttpClientInterface
      * @param string $body
      * @param string $authKey
      *
+     * @throws UnzerApiToHttpClientException
+     *
      * @return \SprykerEco\Zed\UnzerApi\Dependency\External\UnzerApiToHttpResponseInterface
      */
     public function sendRequest(string $url, string $method, string $body, string $authKey): UnzerApiToHttpResponseInterface;

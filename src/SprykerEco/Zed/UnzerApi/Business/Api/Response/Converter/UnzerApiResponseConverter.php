@@ -9,16 +9,16 @@ namespace SprykerEco\Zed\UnzerApi\Business\Api\Response\Converter;
 
 use Generated\Shared\Transfer\UnzerApiErrorResponseTransfer;
 use Generated\Shared\Transfer\UnzerApiResponseTransfer;
-use Spryker\Service\UtilEncoding\UtilEncodingServiceInterface;
 use SprykerEco\Zed\UnzerApi\Business\Api\Response\Mapper\UnzerApiResponseMapperInterface;
-use SprykerEco\Zed\UnzerApi\Dependency\External\Guzzle\Response\UnzerApiResponseInterface;
+use SprykerEco\Zed\UnzerApi\Dependency\External\UnzerApiToHttpResponseInterface;
+use SprykerEco\Zed\UnzerApi\Dependency\Service\UnzerApiToUtilEncodingServiceInterface;
 
 class UnzerApiResponseConverter implements UnzerApiResponseConverterInterface
 {
     /**
-     * @var \Spryker\Service\UtilEncoding\UtilEncodingServiceInterface
+     * @var UnzerApiToUtilEncodingServiceInterface
      */
-    protected $encodingService;
+    protected $utilEncodingService;
 
     /**
      * @var \SprykerEco\Zed\UnzerApi\Business\Api\Response\Mapper\UnzerApiResponseMapperInterface
@@ -26,28 +26,28 @@ class UnzerApiResponseConverter implements UnzerApiResponseConverterInterface
     protected $responseMapper;
 
     /**
-     * @param \Spryker\Service\UtilEncoding\UtilEncodingServiceInterface $encodingService
+     * @param UnzerApiToUtilEncodingServiceInterface $utilEncodingService
      * @param \SprykerEco\Zed\UnzerApi\Business\Api\Response\Mapper\UnzerApiResponseMapperInterface $responseMapper
      */
     public function __construct(
-        UtilEncodingServiceInterface $encodingService,
+        UnzerApiToUtilEncodingServiceInterface $utilEncodingService,
         UnzerApiResponseMapperInterface $responseMapper
     ) {
-        $this->encodingService = $encodingService;
+        $this->utilEncodingService = $utilEncodingService;
         $this->responseMapper = $responseMapper;
     }
 
     /**
-     * @param \SprykerEco\Zed\UnzerApi\Dependency\External\Guzzle\Response\UnzerApiGuzzleResponseInterface $response
+     * @param UnzerApiToHttpResponseInterface $response
      * @param bool $isSuccess
      *
      * @return \Generated\Shared\Transfer\UnzerApiResponseTransfer
      */
     public function convertUnzerApiGuzzleResponseToUnzerApiResponseTransfer(
-        UnzerApiResponseInterface $response,
+        UnzerApiToHttpResponseInterface $response,
         bool $isSuccess = true
     ): UnzerApiResponseTransfer {
-        $responseData = $this->encodingService->decodeJson($response->getResponseBody(), true);
+        $responseData = $this->utilEncodingService->decodeJson($response->getResponseBody(), true);
 
         $responseTransfer = $this->createResponseTransfer($isSuccess);
 

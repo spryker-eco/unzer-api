@@ -8,18 +8,18 @@
 namespace SprykerEco\Zed\UnzerApi\Business\Api\Response\Converter;
 
 use Generated\Shared\Transfer\UnzerApiResponseTransfer;
-use SprykerEco\Zed\UnzerApi\Dependency\External\Guzzle\Response\UnzerApiResponseInterface;
+use SprykerEco\Zed\UnzerApi\Dependency\External\UnzerApiToHttpResponseInterface;
 
 interface UnzerApiResponseConverterInterface
 {
     /**
-     * @param \SprykerEco\Zed\UnzerApi\Dependency\External\Guzzle\Response\UnzerApiResponseInterface $response
+     * @param UnzerApiToHttpResponseInterface $response
      * @param bool $isSuccess
      *
      * @return \Generated\Shared\Transfer\UnzerApiResponseTransfer
      */
     public function convertUnzerApiGuzzleResponseToUnzerApiResponseTransfer(
-        UnzerApiResponseInterface $response,
+        UnzerApiToHttpResponseInterface $response,
         bool $isSuccess = true
     ): UnzerApiResponseTransfer;
 }
