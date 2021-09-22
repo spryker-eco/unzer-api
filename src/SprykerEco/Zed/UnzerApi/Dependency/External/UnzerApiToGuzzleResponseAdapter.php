@@ -5,11 +5,11 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace SprykerEco\Zed\UnzerApi\Dependency\External\Guzzle\Response;
+namespace SprykerEco\Zed\UnzerApi\Dependency\External;
 
 use Psr\Http\Message\StreamInterface;
 
-class UnzerApiGuzzleResponse implements UnzerApiGuzzleResponseInterface
+class UnzerApiToGuzzleResponseAdapter implements UnzerApiToHttpResponseInterface
 {
     /**
      * @var \Psr\Http\Message\StreamInterface|null
@@ -40,7 +40,7 @@ class UnzerApiGuzzleResponse implements UnzerApiGuzzleResponseInterface
     }
 
     /**
-     * @return array
+     * @return array<string, string>
      */
     public function getHeaders(): array
     {

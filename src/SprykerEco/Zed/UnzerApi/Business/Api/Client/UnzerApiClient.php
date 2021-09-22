@@ -1,4 +1,4 @@
-<?php declare(strict_types = 1);
+<?php
 
 /**
  * MIT License
@@ -12,13 +12,13 @@ use Generated\Shared\Transfer\UnzerApiResponseTransfer;
 use SprykerEco\Zed\UnzerApi\Business\Api\Logger\UnzerApiLoggerInterface;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\UnzerApiRequestInterface;
 use SprykerEco\Zed\UnzerApi\Business\Api\Response\Converter\UnzerApiResponseConverterInterface;
-use SprykerEco\Zed\UnzerApi\Dependency\External\Guzzle\Exception\UnzerApiGuzzleRequestException;
-use SprykerEco\Zed\UnzerApi\Dependency\External\Guzzle\UnzerApiToGuzzleHttpClientAdapterInterface;
+use SprykerEco\Zed\UnzerApi\Dependency\External\Guzzle\Exception\UnzerApiHttpRequestException;
+use SprykerEco\Zed\UnzerApi\Dependency\External\Guzzle\UnzerApiToHttpClientAdapterInterface;
 
 class UnzerApiClient implements UnzerApiClientInterface
 {
     /**
-     * @var \SprykerEco\Zed\UnzerApi\Dependency\External\Guzzle\UnzerApiToGuzzleHttpClientAdapterInterface
+     * @var \SprykerEco\Zed\UnzerApi\Dependency\External\Guzzle\UnzerApiToHttpClientAdapterInterface
      */
     protected $guzzleHttpClientAdapter;
 
@@ -38,13 +38,13 @@ class UnzerApiClient implements UnzerApiClientInterface
     protected $unzerApiLogger;
 
     /**
-     * @param \SprykerEco\Zed\UnzerApi\Dependency\External\Guzzle\UnzerApiToGuzzleHttpClientAdapterInterface $guzzleHttpClientAdapter
+     * @param \SprykerEco\Zed\UnzerApi\Dependency\External\Guzzle\UnzerApiToHttpClientAdapterInterface $guzzleHttpClientAdapter
      * @param \SprykerEco\Zed\UnzerApi\Business\Api\Request\UnzerApiRequestInterface $unzerApiRequest
      * @param \SprykerEco\Zed\UnzerApi\Business\Api\Response\Converter\UnzerApiResponseConverterInterface $unzerApiResponseConverter
      * @param \SprykerEco\Zed\UnzerApi\Business\Api\Logger\UnzerApiLoggerInterface $unzerApiLogger
      */
     public function __construct(
-        UnzerApiToGuzzleHttpClientAdapterInterface $guzzleHttpClientAdapter,
+        UnzerApiToHttpClientAdapterInterface $guzzleHttpClientAdapter,
         UnzerApiRequestInterface $unzerApiRequest,
         UnzerApiResponseConverterInterface $unzerApiResponseConverter,
         UnzerApiLoggerInterface $unzerApiLogger
@@ -72,7 +72,7 @@ class UnzerApiClient implements UnzerApiClientInterface
                 $this->unzerApiRequest->getRequestBody($unzerApiRequestTransfer),
                 $this->unzerApiRequest->getAuthorizationKey()
             );
-        } catch (UnzerApiGuzzleRequestException $requestException) {
+        } catch (UnzerApiHttpRequestException $requestException) {
             $isSuccess = false;
             $response = $requestException->getResponse();
         }

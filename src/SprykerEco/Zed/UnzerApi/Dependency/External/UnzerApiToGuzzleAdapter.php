@@ -5,17 +5,14 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace SprykerEco\Zed\UnzerApi\Dependency\External\Guzzle;
+namespace SprykerEco\Zed\UnzerApi\Dependency\External;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\RequestOptions;
 use Psr\Http\Message\ResponseInterface;
-use SprykerEco\Zed\UnzerApi\Dependency\External\Guzzle\Exception\UnzerApiGuzzleRequestException;
-use SprykerEco\Zed\UnzerApi\Dependency\External\Guzzle\Response\UnzerApiGuzzleResponse;
-use SprykerEco\Zed\UnzerApi\Dependency\External\Guzzle\Response\UnzerApiGuzzleResponseInterface;
 
-class UnzerApiToToGuzzleHttpClientAdapter implements UnzerApiToGuzzleHttpClientAdapterInterface
+class UnzerApiToGuzzleAdapter implements UnzerApiToHttpClientInterface
 {
     /**
      * @var int
@@ -51,11 +48,11 @@ class UnzerApiToToGuzzleHttpClientAdapter implements UnzerApiToGuzzleHttpClientA
      * @param string $body
      * @param string $authKey
      *
-     * @throws \SprykerEco\Zed\UnzerApi\Dependency\External\Guzzle\Exception\UnzerApiGuzzleRequestException
+     * @throws \SprykerEco\Zed\UnzerApi\Dependency\External\UnzerApiToHttpClientException
      *
-     * @return \SprykerEco\Zed\UnzerApi\Dependency\External\Guzzle\Response\UnzerApiGuzzleResponseInterface
+     * @return \SprykerEco\Zed\UnzerApi\Dependency\External\UnzerApiToHttpResponseInterface
      */
-    public function sendRequest(string $url, string $method, string $body, string $authKey): UnzerApiGuzzleResponseInterface
+    public function sendRequest(string $url, string $method, string $body, string $authKey): UnzerApiToHttpResponseInterface
     {
         $options = [
             RequestOptions::BODY => $body,
@@ -65,7 +62,7 @@ class UnzerApiToToGuzzleHttpClientAdapter implements UnzerApiToGuzzleHttpClientA
         try {
             $response = $this->guzzleHttpClient->request($method, $url, $options);
         } catch (RequestException $requestException) {
-            throw new UnzerApiGuzzleRequestException(
+            throw new UnzerApiToHttpClientException(
                 $this->createUnzerApiGuzzleResponse($requestException->getResponse()),
                 $requestException->getMessage(),
                 $requestException->getCode(),
@@ -79,15 +76,15 @@ class UnzerApiToToGuzzleHttpClientAdapter implements UnzerApiToGuzzleHttpClientA
     /**
      * @param \Psr\Http\Message\ResponseInterface|null $response
      *
-     * @return \SprykerEco\Zed\UnzerApi\Dependency\External\Guzzle\Response\UnzerApiGuzzleResponse
+     * @return \SprykerEco\Zed\UnzerApi\Dependency\External\UnzerApiToHttpResponseInterface
      */
-    protected function createUnzerApiGuzzleResponse(?ResponseInterface $response): UnzerApiGuzzleResponse
+    protected function createUnzerApiGuzzleResponse(?ResponseInterface $response): UnzerApiToHttpResponseInterface
     {
         if ($response === null) {
-            return new UnzerApiGuzzleResponse();
+            return new UnzerApiToGuzzleResponseAdapter();
         }
 
-        return new UnzerApiGuzzleResponse(
+        return new UnzerApiToGuzzleResponseAdapter(
             $response->getBody(),
             $response->getHeaders()
         );

@@ -10,24 +10,21 @@ namespace SprykerEco\Zed\UnzerApi\Business\Api\Logger;
 use Generated\Shared\Transfer\PaymentUnzerApiLogTransfer;
 use Generated\Shared\Transfer\UnzerApiRequestTransfer;
 use Generated\Shared\Transfer\UnzerApiResponseTransfer;
-use Spryker\Zed\Kernel\Persistence\EntityManager\TransactionTrait;
 use SprykerEco\Zed\UnzerApi\Persistence\UnzerApiEntityManagerInterface;
 
 class UnzerApiLogger implements UnzerApiLoggerInterface
 {
-    use TransactionTrait;
-
     /**
      * @var \SprykerEco\Zed\UnzerApi\Persistence\UnzerApiEntityManagerInterface
      */
-    protected $entityManager;
+    protected $unzerApiEntityManager;
 
     /**
-     * @param \SprykerEco\Zed\UnzerApi\Persistence\UnzerApiEntityManagerInterface $entityManager
+     * @param \SprykerEco\Zed\UnzerApi\Persistence\UnzerApiEntityManagerInterface $unzerApiEntityManager
      */
-    public function __construct(UnzerApiEntityManagerInterface $entityManager)
+    public function __construct(UnzerApiEntityManagerInterface $unzerApiEntityManager)
     {
-        $this->entityManager = $entityManager;
+        $this->unzerApiEntityManager = $unzerApiEntityManager;
     }
 
     /**
@@ -51,9 +48,7 @@ class UnzerApiLogger implements UnzerApiLoggerInterface
             $url
         );
 
-        $this->getTransactionHandler()->handleTransaction(function () use ($paymentUnzerApiLog) {
-            $this->entityManager->savePaymentUnzerApiLog($paymentUnzerApiLog);
-        });
+        $this->unzerApiEntityManager->savePaymentUnzerApiLog($paymentUnzerApiLog);
     }
 
     /**
