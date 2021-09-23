@@ -12,7 +12,7 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\RequestOptions;
 use Psr\Http\Message\ResponseInterface;
 
-class UnzerApiToGuzzleAdapter implements UnzerApiToHttpClientInterface
+class UnzerApiToGuzzleHttpClientAdapter implements UnzerApiToHttpClientInterface
 {
     /**
      * @var int

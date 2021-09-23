@@ -11,19 +11,19 @@ use Generated\Shared\Transfer\UnzerApiErrorResponseTransfer;
 use Generated\Shared\Transfer\UnzerApiResponseTransfer;
 use Spryker\Service\UtilEncoding\UtilEncodingServiceInterface;
 use SprykerEco\Zed\UnzerApi\Business\Api\Response\Mapper\UnzerApiResponseMapperInterface;
-use SprykerEco\Zed\UnzerApi\Dependency\External\Guzzle\Response\UnzerApiResponseInterface;
+use SprykerEco\Zed\UnzerApi\Dependency\External\UnzerApiToHttpResponseInterface;
 
 class UnzerApiResponseConverter implements UnzerApiResponseConverterInterface
 {
     /**
      * @var \Spryker\Service\UtilEncoding\UtilEncodingServiceInterface
      */
-    protected $encodingService;
+    protected $utilEncodingService;
 
     /**
      * @var \SprykerEco\Zed\UnzerApi\Business\Api\Response\Mapper\UnzerApiResponseMapperInterface
      */
-    protected $responseMapper;
+    protected $unzerApiResponseMapper;
 
     /**
      * @param \Spryker\Service\UtilEncoding\UtilEncodingServiceInterface $encodingService
@@ -33,40 +33,40 @@ class UnzerApiResponseConverter implements UnzerApiResponseConverterInterface
         UtilEncodingServiceInterface $encodingService,
         UnzerApiResponseMapperInterface $responseMapper
     ) {
-        $this->encodingService = $encodingService;
-        $this->responseMapper = $responseMapper;
+        $this->utilEncodingService = $encodingService;
+        $this->unzerApiResponseMapper = $responseMapper;
     }
 
     /**
-     * @param \SprykerEco\Zed\UnzerApi\Dependency\External\Guzzle\Response\UnzerApiGuzzleResponseInterface $response
+     * @param UnzerApiToHttpResponseInterface $unzerApiToHttpResponse
      * @param bool $isSuccess
      *
      * @return \Generated\Shared\Transfer\UnzerApiResponseTransfer
      */
     public function convertUnzerApiGuzzleResponseToUnzerApiResponseTransfer(
-        UnzerApiResponseInterface $response,
+        UnzerApiToHttpResponseInterface $unzerApiToHttpResponse,
         bool $isSuccess = true
     ): UnzerApiResponseTransfer {
-        $responseData = $this->encodingService->decodeJson($response->getResponseBody(), true);
+        $responseData = $this->utilEncodingService->decodeJson($unzerApiToHttpResponse->getResponseBody(), true);
 
-        $responseTransfer = $this->createResponseTransfer($isSuccess);
+        $responseTransfer = $this->createUnzerApiResponseTransfer($isSuccess);
 
         if (!$isSuccess) {
             return $this->updateResponseTransferWithError($responseTransfer, $responseData);
         }
 
-        return $this->responseMapper
+        return $this->unzerApiResponseMapper
             ->mapResponseDataToUnzerApiResponseTransfer($responseData, $responseTransfer);
     }
 
     /**
-     * @param \Generated\Shared\Transfer\UnzerApiResponseTransfer $responseTransfer
+     * @param \Generated\Shared\Transfer\UnzerApiResponseTransfer $unzerApiResponseTransfer
      * @param array|null $responseData
      *
      * @return \Generated\Shared\Transfer\UnzerApiResponseTransfer
      */
     protected function updateResponseTransferWithError(
-        UnzerApiResponseTransfer $responseTransfer,
+        UnzerApiResponseTransfer $unzerApiResponseTransfer,
         ?array $responseData
     ): UnzerApiResponseTransfer {
         $errorTransfer = new UnzerApiErrorResponseTransfer();
@@ -75,7 +75,7 @@ class UnzerApiResponseConverter implements UnzerApiResponseConverterInterface
             $errorTransfer->fromArray($responseData, true);
         }
 
-        return $responseTransfer
+        return $unzerApiResponseTransfer
             ->setIsSuccess(false)
             ->setErrorResponse($errorTransfer);
     }
@@ -85,7 +85,7 @@ class UnzerApiResponseConverter implements UnzerApiResponseConverterInterface
      *
      * @return \Generated\Shared\Transfer\UnzerApiResponseTransfer
      */
-    protected function createResponseTransfer(bool $isSuccess): UnzerApiResponseTransfer
+    protected function createUnzerApiResponseTransfer(bool $isSuccess): UnzerApiResponseTransfer
     {
         return (new UnzerApiResponseTransfer())
             ->setIsSuccess($isSuccess);

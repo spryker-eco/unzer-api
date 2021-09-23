@@ -9,7 +9,7 @@ namespace SprykerEco\Zed\UnzerApi;
 
 use Spryker\Zed\Kernel\AbstractBundleDependencyProvider;
 use Spryker\Zed\Kernel\Container;
-use SprykerEco\Zed\UnzerApi\Dependency\External\UnzerApiToGuzzleAdapter;
+use SprykerEco\Zed\UnzerApi\Dependency\External\UnzerApiToGuzzleHttpClientAdapter;
 use SprykerEco\Zed\UnzerApi\Dependency\Service\UnzerApiToUtilEncodingServiceBridge;
 
 class UnzerApiDependencyProvider extends AbstractBundleDependencyProvider
@@ -59,7 +59,7 @@ class UnzerApiDependencyProvider extends AbstractBundleDependencyProvider
     protected function addUnzerApiHttpClient(Container $container): Container
     {
         $container->set(static::UNZER_API_HTTP_CLIENT, function () {
-            return new UnzerApiToGuzzleAdapter();
+            return new UnzerApiToGuzzleHttpClientAdapter();
         });
 
         return $container;
