@@ -49,14 +49,14 @@ class UnzerApiResponseConverter implements UnzerApiResponseConverterInterface
     ): UnzerApiResponseTransfer {
         $responseData = $this->utilEncodingService->decodeJson($httpResponse->getResponseBody(), true);
 
-        $responseTransfer = $this->createUnzerApiResponseTransfer($isSuccess);
+        $unzerApiResponseTransfer = $this->createUnzerApiResponseTransfer($isSuccess);
 
         if (!$isSuccess) {
-            return $this->updateResponseTransferWithError($responseTransfer, $responseData);
+            return $this->updateResponseTransferWithError($unzerApiResponseTransfer, $responseData);
         }
 
         return $this->unzerApiResponseMapper
-            ->mapResponseDataToUnzerApiResponseTransfer($responseData, $responseTransfer);
+            ->mapResponseDataToUnzerApiResponseTransfer($responseData, $unzerApiResponseTransfer);
     }
 
     /**

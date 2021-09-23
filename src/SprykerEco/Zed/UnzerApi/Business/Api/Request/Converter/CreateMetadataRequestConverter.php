@@ -1,0 +1,26 @@
+<?php
+
+namespace SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter;
+
+use Generated\Shared\Transfer\UnzerApiRequestTransfer;
+use SprykerEco\Zed\UnzerApi\Business\Api\Request\UnzerApiRequestConstants;
+
+class CreateMetadataRequestConverter implements UnzerApiRequestConverterInterface
+{
+    /**
+     * @param \Generated\Shared\Transfer\UnzerApiRequestTransfer $unzerApiRequestTransfer
+     *
+     * @return array<string,string>
+     */
+    public function convertRequestTransferToArray(UnzerApiRequestTransfer $unzerApiRequestTransfer): array
+    {
+        $unzerApiCreateMetadataRequestTransfer = $unzerApiRequestTransfer->getCreateMetadataRequestOrFail();
+
+        return [
+            UnzerApiRequestConstants::PARAM_STORE => $unzerApiCreateMetadataRequestTransfer->getStore(),
+            UnzerApiRequestConstants::PARAM_LOCALE => $unzerApiCreateMetadataRequestTransfer->getLocale(),
+            UnzerApiRequestConstants::PARAM_PRICE_MODE => $unzerApiCreateMetadataRequestTransfer->getPriceMode(),
+            UnzerApiRequestConstants::PARAM_CREATED_AT => $unzerApiCreateMetadataRequestTransfer->getCreatedAt(),
+        ];
+    }
+}
