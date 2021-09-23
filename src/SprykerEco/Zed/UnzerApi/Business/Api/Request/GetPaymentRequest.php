@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * MIT License
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace SprykerEco\Zed\UnzerApi\Business\Api\Request;
 
 use Generated\Shared\Transfer\UnzerApiRequestTransfer;
@@ -16,7 +21,8 @@ class GetPaymentRequest extends UnzerApiAbstractRequest implements UnzerApiReque
     {
         return sprintf(
             $this->unzerApiConfig->getUnzerApiGetPayment(),
-            $unzerApiRequestTransfer->getGetPaymentRequest()->getPaymentId());
+            $unzerApiRequestTransfer->getGetPaymentRequest()->getPaymentId()
+        );
     }
 
     /**

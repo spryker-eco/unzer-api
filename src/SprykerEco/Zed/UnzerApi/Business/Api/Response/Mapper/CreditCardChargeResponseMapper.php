@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * MIT License
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace SprykerEco\Zed\UnzerApi\Business\Api\Response\Mapper;
 
 use Generated\Shared\Transfer\UnzerApiCreditCardChargeResponseTransfer;
@@ -18,8 +23,7 @@ class CreditCardChargeResponseMapper implements UnzerApiResponseMapperInterface
     public function mapResponseDataToUnzerApiResponseTransfer(
         array $responseData,
         UnzerApiResponseTransfer $unzerApiResponseTransfer
-    ): UnzerApiResponseTransfer
-    {
+    ): UnzerApiResponseTransfer {
         $unzerApiCreditCardChargeResponseTransfer = (new UnzerApiCreditCardChargeResponseTransfer())
             ->setId($responseData[UnzerApiRequestConstants::PARAM_ID] ?? null)
             ->setIsSuccess($responseData[UnzerApiRequestConstants::PARAM_IS_SUCCESS] ?? null)
@@ -59,8 +63,7 @@ class CreditCardChargeResponseMapper implements UnzerApiResponseMapperInterface
     protected function mapResourcesDataToUnzerApiCreditCardChargeResponseTransfer(
         array $resourceData,
         UnzerApiCreditCardChargeResponseTransfer $unzerApiCreditCardChargeResponseTransfer
-    ): UnzerApiCreditCardChargeResponseTransfer
-    {
+    ): UnzerApiCreditCardChargeResponseTransfer {
         if (empty($resourceData)) {
             return $unzerApiCreditCardChargeResponseTransfer;
         }
@@ -84,8 +87,7 @@ class CreditCardChargeResponseMapper implements UnzerApiResponseMapperInterface
     protected function mapProcessingDataToUnzerApiCreditCardChargeResponseTransfer(
         array $processingData,
         UnzerApiCreditCardChargeResponseTransfer $unzerApiCreditCardChargeResponseTransfer
-    ): UnzerApiCreditCardChargeResponseTransfer
-    {
+    ): UnzerApiCreditCardChargeResponseTransfer {
         if (empty($processingData)) {
             return $unzerApiCreditCardChargeResponseTransfer;
         }
@@ -105,8 +107,7 @@ class CreditCardChargeResponseMapper implements UnzerApiResponseMapperInterface
     protected function mapMessageDataToUnzerApiCreditCardChargeResponseTransfer(
         array $messageData,
         UnzerApiCreditCardChargeResponseTransfer $unzerApiCreditCardChargeResponseTransfer
-    ): UnzerApiCreditCardChargeResponseTransfer
-    {
+    ): UnzerApiCreditCardChargeResponseTransfer {
         if (empty($messageData)) {
             return $unzerApiCreditCardChargeResponseTransfer;
         }

@@ -38,7 +38,7 @@ class UnzerApiResponseConverter implements UnzerApiResponseConverterInterface
     }
 
     /**
-     * @param UnzerApiToHttpResponseInterface $httpResponse
+     * @param \SprykerEco\Zed\UnzerApi\Dependency\External\UnzerApiToHttpResponseInterface $httpResponse
      * @param bool $isSuccess
      *
      * @return \Generated\Shared\Transfer\UnzerApiResponseTransfer

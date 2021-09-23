@@ -1,12 +1,16 @@
 <?php
 
+/**
+ * MIT License
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace SprykerEco\Zed\UnzerApi\Business\Api\Response\Mapper;
 
 use ArrayObject;
 use Generated\Shared\Transfer\UnzerApiChargeResponseTransfer;
 use Generated\Shared\Transfer\UnzerApiPaymentTransactionTransfer;
 use Generated\Shared\Transfer\UnzerApiResponseTransfer;
-use Spryker\Shared\Kernel\Transfer\AbstractTransfer;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\UnzerApiRequestConstants;
 
 class MarketplaceCreditCardChargeResponseMapper implements UnzerApiResponseMapperInterface

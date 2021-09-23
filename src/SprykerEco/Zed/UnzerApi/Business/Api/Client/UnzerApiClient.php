@@ -17,7 +17,7 @@ use SprykerEco\Zed\UnzerApi\Dependency\External\UnzerApiToHttpClientInterface;
 class UnzerApiClient implements UnzerApiClientInterface
 {
     /**
-     * @var UnzerApiToHttpClientInterface
+     * @var \SprykerEco\Zed\UnzerApi\Dependency\External\UnzerApiToHttpClientInterface
      */
     protected $httpClient;
 
@@ -37,7 +37,7 @@ class UnzerApiClient implements UnzerApiClientInterface
     protected $unzerApiLogger;
 
     /**
-     * @param UnzerApiToHttpClientInterface $httpClient
+     * @param \SprykerEco\Zed\UnzerApi\Dependency\External\UnzerApiToHttpClientInterface $httpClient
      * @param \SprykerEco\Zed\UnzerApi\Business\Api\Request\UnzerApiRequestInterface $unzerApiRequest
      * @param \SprykerEco\Zed\UnzerApi\Business\Api\Response\Converter\UnzerApiResponseConverterInterface $unzerApiResponseConverter
      * @param \SprykerEco\Zed\UnzerApi\Business\Api\Logger\UnzerApiLoggerInterface $unzerApiLogger
