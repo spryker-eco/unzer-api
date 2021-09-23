@@ -26,28 +26,28 @@ class UnzerApiResponseConverter implements UnzerApiResponseConverterInterface
     protected $unzerApiResponseMapper;
 
     /**
-     * @param \Spryker\Service\UtilEncoding\UtilEncodingServiceInterface $encodingService
-     * @param \SprykerEco\Zed\UnzerApi\Business\Api\Response\Mapper\UnzerApiResponseMapperInterface $responseMapper
+     * @param \Spryker\Service\UtilEncoding\UtilEncodingServiceInterface $utilEncodingService
+     * @param \SprykerEco\Zed\UnzerApi\Business\Api\Response\Mapper\UnzerApiResponseMapperInterface $unzerApiResponseMapper
      */
     public function __construct(
-        UtilEncodingServiceInterface $encodingService,
-        UnzerApiResponseMapperInterface $responseMapper
+        UtilEncodingServiceInterface $utilEncodingService,
+        UnzerApiResponseMapperInterface $unzerApiResponseMapper
     ) {
-        $this->utilEncodingService = $encodingService;
-        $this->unzerApiResponseMapper = $responseMapper;
+        $this->utilEncodingService = $utilEncodingService;
+        $this->unzerApiResponseMapper = $unzerApiResponseMapper;
     }
 
     /**
-     * @param UnzerApiToHttpResponseInterface $unzerApiToHttpResponse
+     * @param UnzerApiToHttpResponseInterface $httpResponse
      * @param bool $isSuccess
      *
      * @return \Generated\Shared\Transfer\UnzerApiResponseTransfer
      */
     public function convertUnzerApiGuzzleResponseToUnzerApiResponseTransfer(
-        UnzerApiToHttpResponseInterface $unzerApiToHttpResponse,
+        UnzerApiToHttpResponseInterface $httpResponse,
         bool $isSuccess = true
     ): UnzerApiResponseTransfer {
-        $responseData = $this->utilEncodingService->decodeJson($unzerApiToHttpResponse->getResponseBody(), true);
+        $responseData = $this->utilEncodingService->decodeJson($httpResponse->getResponseBody(), true);
 
         $responseTransfer = $this->createUnzerApiResponseTransfer($isSuccess);
 

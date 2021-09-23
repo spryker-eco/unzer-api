@@ -13,13 +13,13 @@ use SprykerEco\Zed\UnzerApi\Dependency\External\UnzerApiToHttpResponseInterface;
 interface UnzerApiResponseConverterInterface
 {
     /**
-     * @param UnzerApiToHttpResponseInterface $unzerApiToHttpResponse
+     * @param UnzerApiToHttpResponseInterface $httpResponse
      * @param bool $isSuccess
      *
      * @return \Generated\Shared\Transfer\UnzerApiResponseTransfer
      */
     public function convertUnzerApiGuzzleResponseToUnzerApiResponseTransfer(
-        UnzerApiToHttpResponseInterface $unzerApiToHttpResponse,
+        UnzerApiToHttpResponseInterface $httpResponse,
         bool $isSuccess = true
     ): UnzerApiResponseTransfer;
 }
