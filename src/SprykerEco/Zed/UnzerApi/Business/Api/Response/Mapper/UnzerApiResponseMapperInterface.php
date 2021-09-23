@@ -13,12 +13,12 @@ interface UnzerApiResponseMapperInterface
 {
     /**
      * @param array $responseData
-     * @param \Generated\Shared\Transfer\UnzerApiResponseTransfer $responseTransfer
+     * @param \Generated\Shared\Transfer\UnzerApiResponseTransfer $unzerApiResponseTransfer
      *
      * @return \Generated\Shared\Transfer\UnzerApiResponseTransfer
      */
     public function mapResponseDataToUnzerApiResponseTransfer(
         array $responseData,
-        UnzerApiResponseTransfer $responseTransfer
+        UnzerApiResponseTransfer $unzerApiResponseTransfer
     ): UnzerApiResponseTransfer;
 }
