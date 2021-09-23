@@ -1,7 +1,14 @@
 <?php
 
+/**
+ * MIT License
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace SprykerEco\Zed\UnzerApi\Business;
 
+use Spryker\Service\UtilEncoding\UtilEncodingServiceInterface;
+use Spryker\Zed\Kernel\Business\AbstractBusinessFactory;
 use SprykerEco\Zed\UnzerApi\Business\Api\Client\UnzerApiClient;
 use SprykerEco\Zed\UnzerApi\Business\Api\Client\UnzerApiClientInterface;
 use SprykerEco\Zed\UnzerApi\Business\Api\Logger\UnzerApiLogger;
@@ -58,8 +65,6 @@ use SprykerEco\Zed\UnzerApi\Business\Api\Response\Mapper\SetWebhookUrlResponseMa
 use SprykerEco\Zed\UnzerApi\Business\Api\Response\Mapper\UnzerApiResponseMapperInterface;
 use SprykerEco\Zed\UnzerApi\Dependency\External\UnzerApiToGuzzleHttpClientAdapter;
 use SprykerEco\Zed\UnzerApi\UnzerApiDependencyProvider;
-use Spryker\Service\UtilEncoding\UtilEncodingServiceInterface;
-use Spryker\Zed\Kernel\Business\AbstractBusinessFactory;
 
 /**
  * @method \SprykerEco\Zed\UnzerApi\UnzerApiConfig getConfig()

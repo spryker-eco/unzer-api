@@ -8,8 +8,8 @@
 namespace SprykerEco\Zed\UnzerApi\Persistence;
 
 use Orm\Zed\UnzerApi\Persistence\SpyPaymentUnzerApiLog;
-use SprykerEco\Zed\UnzerApi\Persistence\Mapper\UnzerApiPersistenceMapper;
 use Spryker\Zed\Kernel\Persistence\AbstractPersistenceFactory;
+use SprykerEco\Zed\UnzerApi\Persistence\Mapper\UnzerApiPersistenceMapper;
 
 /**
  * @method \SprykerEco\Zed\UnzerApi\UnzerApiConfig getConfig()
