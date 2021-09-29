@@ -31,7 +31,7 @@ class RefundRequestConverter implements UnzerApiRequestConverterInterface
     }
 
     /**
-     * @param \ArrayObject|\Generated\Shared\Transfer\UnzerBasketItemTransfer[] $unzerBasketItemTransfers
+     * @param \ArrayObject|array<\Generated\Shared\Transfer\UnzerBasketItemTransfer> $unzerBasketItemTransfers
      *
      * @return array<string>
      */
