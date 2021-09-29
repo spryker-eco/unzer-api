@@ -22,8 +22,6 @@ class UnzerApiPersistenceMapper
         SpyPaymentUnzerApiLog $paymentUnzerApiLogEntity,
         PaymentUnzerApiLogTransfer $paymentUnzerApiLogTransfer
     ): PaymentUnzerApiLogTransfer {
-        $paymentUnzerApiLogTransfer->fromArray($paymentUnzerApiLogEntity->toArray(), true);
-
-        return $paymentUnzerApiLogTransfer;
+        return $paymentUnzerApiLogTransfer->fromArray($paymentUnzerApiLogEntity->toArray(), true);
     }
 }

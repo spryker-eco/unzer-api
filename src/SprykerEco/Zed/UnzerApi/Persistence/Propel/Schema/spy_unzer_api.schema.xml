@@ -3,8 +3,8 @@
 
     <table name="spy_payment_unzer_api_log" idMethod="native" allowPkInsert="true" isCrossRef="true">
         <column name="id_payment_unzer_api_log" required="true" type="INTEGER" primaryKey="true" autoIncrement="true"/>
-        <column name="request_type" required="true" type="VARCHAR" />
-        <column name="url" required="true" type="VARCHAR" />
+        <column name="request_type" required="true" type="VARCHAR" size="255"/>
+        <column name="url" required="true" type="VARCHAR" size="255"/>
         <column name="request" required="true" type="LONGVARCHAR"/>
         <column name="response" required="true" type="LONGVARCHAR"/>
         <column name="is_success" required="true" type="BOOLEAN"/>

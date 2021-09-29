@@ -68,8 +68,7 @@ class MarketplaceAuthorizeResponseMapper implements UnzerApiResponseMapperInterf
             return $unzerApiMarketplaceAuthorizeResponseTransfer;
         }
 
-        $unzerApiMessageTransfer = new UnzerApiMessageTransfer();
-        $unzerApiMessageTransfer
+        $unzerApiMessageTransfer = (new UnzerApiMessageTransfer())
             ->setCode($responseData[UnzerApiRequestConstants::PARAM_CODE] ?? null)
             ->setCustomer($responseData[UnzerApiRequestConstants::PARAM_CUSTOMER] ?? null)
             ->setMerchant($responseData[UnzerApiRequestConstants::PARAM_MERCHANT] ?? null);

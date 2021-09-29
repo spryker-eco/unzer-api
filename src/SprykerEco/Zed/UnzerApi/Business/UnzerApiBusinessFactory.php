@@ -103,7 +103,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new UnzerApiRequestBuilder(
             $this->createSetWebhookUrlRequestConverter(),
-            $this->getUtilEncoding()
+            $this->getUtilEncodingService()
         );
     }
 
@@ -121,7 +121,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     public function createSetWebhookUrlResponseConverter(): UnzerApiResponseConverterInterface
     {
         return new UnzerApiResponseConverter(
-            $this->getUtilEncoding(),
+            $this->getUtilEncodingService(),
             $this->createSetWebhookUrlResponseMapper()
         );
     }
@@ -157,7 +157,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new UnzerApiRequestBuilder(
             $this->createCreateCustomerRequestConverter(),
-            $this->getUtilEncoding()
+            $this->getUtilEncodingService()
         );
     }
 
@@ -175,7 +175,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     public function createCreateCustomerResponseConverter(): UnzerApiResponseConverterInterface
     {
         return new UnzerApiResponseConverter(
-            $this->getUtilEncoding(),
+            $this->getUtilEncodingService(),
             $this->createCreateCustomerResponseMapper()
         );
     }
@@ -211,7 +211,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new UnzerApiRequestBuilder(
             $this->createCreateBasketRequestConverter(),
-            $this->getUtilEncoding()
+            $this->getUtilEncodingService()
         );
     }
 
@@ -229,7 +229,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     public function createCreateBasketResponseConverter(): UnzerApiResponseConverterInterface
     {
         return new UnzerApiResponseConverter(
-            $this->getUtilEncoding(),
+            $this->getUtilEncodingService(),
             $this->createCreateBasketResponseMapper()
         );
     }
@@ -273,7 +273,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new UnzerApiRequestBuilder(
             $this->createCreateMetadataRequestConverter(),
-            $this->getUtilEncoding()
+            $this->getUtilEncodingService()
         );
     }
 
@@ -291,7 +291,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     public function createCreateMetadataResponseConverter(): UnzerApiResponseConverterInterface
     {
         return new UnzerApiResponseConverter(
-            $this->getUtilEncoding(),
+            $this->getUtilEncodingService(),
             $this->createCreateMetadataResponseMapper()
         );
     }
@@ -335,7 +335,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new UnzerApiRequestBuilder(
             $this->createMarketplaceAuthorizeRequestConverter(),
-            $this->getUtilEncoding()
+            $this->getUtilEncodingService()
         );
     }
 
@@ -353,7 +353,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     public function createMarketplaceAuthorizeResponseConverter(): UnzerApiResponseConverterInterface
     {
         return new UnzerApiResponseConverter(
-            $this->getUtilEncoding(),
+            $this->getUtilEncodingService(),
             $this->createMarketplaceAuthorizeResponseMapper()
         );
     }
@@ -397,7 +397,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new UnzerApiRequestBuilder(
             $this->createAuthorizeRequestConverter(),
-            $this->getUtilEncoding()
+            $this->getUtilEncodingService()
         );
     }
 
@@ -415,7 +415,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     public function createAuthorizeResponseConverter(): UnzerApiResponseConverterInterface
     {
         return new UnzerApiResponseConverter(
-            $this->getUtilEncoding(),
+            $this->getUtilEncodingService(),
             $this->createAuthorizeResponseMapper()
         );
     }
@@ -455,7 +455,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     /**
      * @return \Spryker\Service\UtilEncoding\UtilEncodingServiceInterface
      */
-    public function getUtilEncoding(): UtilEncodingServiceInterface
+    public function getUtilEncodingService(): UtilEncodingServiceInterface
     {
         return $this->getProvidedDependency(UnzerApiDependencyProvider::SERVICE_UTIL_ENCODING);
     }
@@ -499,7 +499,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new UnzerApiRequestBuilder(
             $this->createMarketplaceGetPaymentRequestConverter(),
-            $this->getUtilEncoding()
+            $this->getUtilEncodingService()
         );
     }
 
@@ -542,7 +542,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new UnzerApiRequestBuilder(
             $this->createGetPaymentRequestConverter(),
-            $this->getUtilEncoding()
+            $this->getUtilEncodingService()
         );
     }
 
@@ -560,7 +560,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     public function createGetPaymentResponseConverter(): UnzerApiResponseConverterInterface
     {
         return new UnzerApiResponseConverter(
-            $this->getUtilEncoding(),
+            $this->getUtilEncodingService(),
             $this->createGetPaymentResponseMapper()
         );
     }
@@ -604,7 +604,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new UnzerApiRequestBuilder(
             $this->createMarketplaceChargeRequestConverter(),
-            $this->getUtilEncoding()
+            $this->getUtilEncodingService()
         );
     }
 
@@ -622,7 +622,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     public function createMarketplaceChargeResponseConverter(): UnzerApiResponseConverterInterface
     {
         return new UnzerApiResponseConverter(
-            $this->getUtilEncoding(),
+            $this->getUtilEncodingService(),
             $this->createMarketplaceChargeResponseMapper()
         );
     }
@@ -666,7 +666,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new UnzerApiRequestBuilder(
             $this->createMarketplaceAuthorizableChargeRequestConverter(),
-            $this->getUtilEncoding()
+            $this->getUtilEncodingService()
         );
     }
 
@@ -684,7 +684,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     public function createMarketplaceCreditCardChargeResponseConverter(): UnzerApiResponseConverterInterface
     {
         return new UnzerApiResponseConverter(
-            $this->getUtilEncoding(),
+            $this->getUtilEncodingService(),
             $this->createMarketplaceCreditCardChargeResponseMapper()
         );
     }
@@ -728,7 +728,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new UnzerApiRequestBuilder(
             $this->createCreatePaymentResourceRequestConverter(),
-            $this->getUtilEncoding()
+            $this->getUtilEncodingService()
         );
     }
 
@@ -746,7 +746,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     public function createCreatePaymentResourceResponseConverter(): UnzerApiResponseConverterInterface
     {
         return new UnzerApiResponseConverter(
-            $this->getUtilEncoding(),
+            $this->getUtilEncodingService(),
             $this->createCreatePaymentResourceResponseMapper()
         );
     }
@@ -790,7 +790,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new UnzerApiRequestBuilder(
             $this->createMarketplaceRefundRequestConverter(),
-            $this->getUtilEncoding()
+            $this->getUtilEncodingService()
         );
     }
 
@@ -808,7 +808,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     public function createMarketplaceRefundResponseConverter(): UnzerApiResponseConverterInterface
     {
         return new UnzerApiResponseConverter(
-            $this->getUtilEncoding(),
+            $this->getUtilEncodingService(),
             $this->createMarketplaceRefundResponseMapper()
         );
     }
@@ -852,7 +852,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new UnzerApiRequestBuilder(
             $this->createRefundRequestConverter(),
-            $this->getUtilEncoding()
+            $this->getUtilEncodingService()
         );
     }
 
@@ -870,7 +870,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     public function createRefundResponseConverter(): UnzerApiResponseConverterInterface
     {
         return new UnzerApiResponseConverter(
-            $this->getUtilEncoding(),
+            $this->getUtilEncodingService(),
             $this->createRefundResponseMapper()
         );
     }
@@ -906,7 +906,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new UnzerApiRequestBuilder(
             $this->createChargeRequestConverter(),
-            $this->getUtilEncoding()
+            $this->getUtilEncodingService()
         );
     }
 
@@ -924,7 +924,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     public function createChargeResponseConverter(): UnzerApiResponseConverterInterface
     {
         return new UnzerApiResponseConverter(
-            $this->getUtilEncoding(),
+            $this->getUtilEncodingService(),
             $this->createChargeResponseMapper()
         );
     }
@@ -968,7 +968,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new UnzerApiRequestBuilder(
             $this->createAuthorizableChargeRequestConverter(),
-            $this->getUtilEncoding()
+            $this->getUtilEncodingService()
         );
     }
 
@@ -986,7 +986,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     public function createCreditCardChargeResponseConverter(): UnzerApiResponseConverterInterface
     {
         return new UnzerApiResponseConverter(
-            $this->getUtilEncoding(),
+            $this->getUtilEncodingService(),
             $this->createCreditCardChargeResponseMapper()
         );
     }
