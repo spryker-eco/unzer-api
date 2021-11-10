@@ -1,7 +1,7 @@
 {
     "name": "spryker-eco/unzer-api",
     "type": "library",
-    "description": "Unzer API connector module",
+    "description": "UnzerApi module",
     "license": "MIT",
     "require": {
         "php": ">=7.3",
