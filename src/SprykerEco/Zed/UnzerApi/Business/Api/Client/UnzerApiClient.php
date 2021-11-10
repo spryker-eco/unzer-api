@@ -69,7 +69,7 @@ class UnzerApiClient implements UnzerApiClientInterface
                 $requestUrl,
                 $this->unzerApiRequest->getHttpMethod(),
                 $this->unzerApiRequest->getRequestBody($unzerApiRequestTransfer),
-                $this->unzerApiRequest->getAuthorizationKey()
+                $this->unzerApiRequest->getAuthorizationKey(),
             );
         } catch (UnzerApiHttpRequestException $requestException) {
             $isSuccess = false;
@@ -83,7 +83,7 @@ class UnzerApiClient implements UnzerApiClientInterface
             $unzerApiRequestTransfer,
             $responseTransfer,
             $this->unzerApiRequest->getHttpMethod(),
-            $requestUrl
+            $requestUrl,
         );
 
         return $responseTransfer;

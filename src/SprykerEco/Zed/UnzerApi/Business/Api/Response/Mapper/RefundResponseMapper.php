@@ -36,17 +36,17 @@ class RefundResponseMapper implements UnzerApiResponseMapperInterface
 
         $unzerApiRefundResponseTransfer = $this->mapResourcesToUnzerApiRefundResponseTransfer(
             $responseData[UnzerApiRequestConstants::PARAM_RESOURCES] ?? [],
-            $unzerApiRefundResponseTransfer
+            $unzerApiRefundResponseTransfer,
         );
 
         $unzerApiRefundResponseTransfer = $this->mapProcessingToUnzerApiRefundResponseTransfer(
             $responseData[UnzerApiRequestConstants::PARAM_PROCESSING] ?? [],
-            $unzerApiRefundResponseTransfer
+            $unzerApiRefundResponseTransfer,
         );
 
         $unzerApiRefundResponseTransfer = $this->mapMessageDataToUnzerApiRefundResponseTransfer(
             $responseData[UnzerApiRequestConstants::PARAM_MESSAGE] ?? [],
-            $unzerApiRefundResponseTransfer
+            $unzerApiRefundResponseTransfer,
         );
 
         return $unzerApiResponseTransfer

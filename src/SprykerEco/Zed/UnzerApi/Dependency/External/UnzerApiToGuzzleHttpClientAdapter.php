@@ -18,10 +18,12 @@ class UnzerApiToGuzzleHttpClientAdapter implements UnzerApiToHttpClientInterface
      * @var int
      */
     protected const DEFAULT_TIMEOUT = 40;
+
     /**
      * @var string
      */
     protected const HEADER_CONTENT_TYPE_KEY = 'Content-Type';
+
     /**
      * @var string
      */
@@ -66,7 +68,7 @@ class UnzerApiToGuzzleHttpClientAdapter implements UnzerApiToHttpClientInterface
                 $this->createUnzerApiGuzzleResponse($requestException->getResponse()),
                 $requestException->getMessage(),
                 $requestException->getCode(),
-                $requestException
+                $requestException,
             );
         }
 
@@ -86,7 +88,7 @@ class UnzerApiToGuzzleHttpClientAdapter implements UnzerApiToHttpClientInterface
 
         return new UnzerApiToGuzzleResponseAdapter(
             $response->getBody(),
-            $response->getHeaders()
+            $response->getHeaders(),
         );
     }
 }

@@ -30,7 +30,7 @@ class CreatePaymentResourceResponseMapper implements UnzerApiResponseMapperInter
 
         $unzerApiCreatePaymentResourceResponseTransfer = $this->mapGeolocationDataArrayToUnzerApiCreatePaymentResourceResponseTransfer(
             $responseData[UnzerApiRequestConstants::PARAM_GEO_LOCATION] ?? [],
-            $unzerApiCreatePaymentResourceResponseTransfer
+            $unzerApiCreatePaymentResourceResponseTransfer,
         );
 
         return $unzerApiResponseTransfer

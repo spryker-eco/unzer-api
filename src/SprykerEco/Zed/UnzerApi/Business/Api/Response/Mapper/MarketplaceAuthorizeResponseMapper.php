@@ -39,15 +39,15 @@ class MarketplaceAuthorizeResponseMapper implements UnzerApiResponseMapperInterf
 
         $unzerApiMarketplaceAuthorizeResponseTransfer = $this->mapMessageDataToResponseTransfer(
             $responseData[UnzerApiRequestConstants::PARAM_MESSAGE] ?? [],
-            $unzerApiMarketplaceAuthorizeResponseTransfer
+            $unzerApiMarketplaceAuthorizeResponseTransfer,
         );
         $unzerApiMarketplaceAuthorizeResponseTransfer = $this->mapResourceDataToResponseTransfer(
             $responseData[UnzerApiRequestConstants::PARAM_RESOURCES] ?? [],
-            $unzerApiMarketplaceAuthorizeResponseTransfer
+            $unzerApiMarketplaceAuthorizeResponseTransfer,
         );
         $unzerApiMarketplaceAuthorizeResponseTransfer = $this->mapProcessingDataToUnzerApiMarketplaceAuthorizeResponseTransfer(
             $responseData[UnzerApiRequestConstants::PARAM_PROCESSING] ?? [],
-            $unzerApiMarketplaceAuthorizeResponseTransfer
+            $unzerApiMarketplaceAuthorizeResponseTransfer,
         );
 
         return $unzerApiResponseTransfer

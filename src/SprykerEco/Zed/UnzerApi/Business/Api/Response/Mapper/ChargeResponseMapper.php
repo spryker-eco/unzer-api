@@ -38,17 +38,17 @@ class ChargeResponseMapper implements UnzerApiResponseMapperInterface
 
         $unzerApiChargeResponseTransfer = $this->mapResourcesDataToUnzerApiResponseTransfer(
             $responseData[UnzerApiRequestConstants::PARAM_RESOURCES],
-            $unzerApiChargeResponseTransfer
+            $unzerApiChargeResponseTransfer,
         );
 
         $unzerApiChargeResponseTransfer = $this->mapProcessingDataToUnzerApiResponseTransfer(
             $responseData[UnzerApiRequestConstants::PARAM_PROCESSING],
-            $unzerApiChargeResponseTransfer
+            $unzerApiChargeResponseTransfer,
         );
 
         $unzerApiChargeResponseTransfer = $this->mapMessageDataToUnzerApiResponseTransfer(
             $responseData[UnzerApiRequestConstants::PARAM_MESSAGE],
-            $unzerApiChargeResponseTransfer
+            $unzerApiChargeResponseTransfer,
         );
 
         return $unzerApiResponseTransfer

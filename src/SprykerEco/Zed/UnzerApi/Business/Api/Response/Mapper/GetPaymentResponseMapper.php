@@ -33,22 +33,22 @@ class GetPaymentResponseMapper implements UnzerApiResponseMapperInterface
 
         $unzerApiGetPaymentResponseTransfer = $this->mapStateDataToUnzerApiGetPaymentResponseTransfer(
             $responseData[UnzerApiRequestConstants::PARAM_STATE],
-            $unzerApiGetPaymentResponseTransfer
+            $unzerApiGetPaymentResponseTransfer,
         );
 
         $unzerApiGetPaymentResponseTransfer = $this->mapAmountDataToUnzerApiGetPaymentResponseTransfer(
             $responseData[UnzerApiRequestConstants::PARAM_AMOUNT],
-            $unzerApiGetPaymentResponseTransfer
+            $unzerApiGetPaymentResponseTransfer,
         );
 
         $unzerApiGetPaymentResponseTransfer = $this->mapResourcesDataToUnzerApiGetPaymentResponseTransfer(
             $responseData[UnzerApiRequestConstants::PARAM_RESOURCES],
-            $unzerApiGetPaymentResponseTransfer
+            $unzerApiGetPaymentResponseTransfer,
         );
 
         $unzerApiGetPaymentResponseTransfer = $this->mapTransactionsDataToUnzerApiGetPaymentResponseTransfer(
             $responseData[UnzerApiRequestConstants::PARAM_TRANSACTIONS],
-            $unzerApiGetPaymentResponseTransfer
+            $unzerApiGetPaymentResponseTransfer,
         );
 
         return $unzerApiResponseTransfer

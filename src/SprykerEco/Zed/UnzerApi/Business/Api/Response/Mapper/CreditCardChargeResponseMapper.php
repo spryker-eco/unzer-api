@@ -37,17 +37,17 @@ class CreditCardChargeResponseMapper implements UnzerApiResponseMapperInterface
 
         $unzerApiCreditCardChargeResponseTransfer = $this->mapResourcesDataToUnzerApiCreditCardChargeResponseTransfer(
             $responseData[UnzerApiRequestConstants::PARAM_RESOURCES],
-            $unzerApiCreditCardChargeResponseTransfer
+            $unzerApiCreditCardChargeResponseTransfer,
         );
 
         $unzerApiCreditCardChargeResponseTransfer = $this->mapProcessingDataToUnzerApiCreditCardChargeResponseTransfer(
             $responseData[UnzerApiRequestConstants::PARAM_PROCESSING] ?? [],
-            $unzerApiCreditCardChargeResponseTransfer
+            $unzerApiCreditCardChargeResponseTransfer,
         );
 
         $unzerApiCreditCardChargeResponseTransfer = $this->mapMessageDataToUnzerApiCreditCardChargeResponseTransfer(
             $responseData[UnzerApiRequestConstants::PARAM_MESSAGE] ?? [],
-            $unzerApiCreditCardChargeResponseTransfer
+            $unzerApiCreditCardChargeResponseTransfer,
         );
 
         return $unzerApiResponseTransfer

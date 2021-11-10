@@ -33,22 +33,22 @@ class MarketplaceCreditCardChargeResponseMapper implements UnzerApiResponseMappe
 
         $unzerApiMarketplaceCreditCardChargeResponseTransfer = $this->mapStateDataToUnzerApiMarketplaceCreditCardChargeResponseTransfer(
             $responseData[UnzerApiRequestConstants::PARAM_STATE],
-            $unzerApiMarketplaceCreditCardChargeResponseTransfer
+            $unzerApiMarketplaceCreditCardChargeResponseTransfer,
         );
 
         $unzerApiMarketplaceCreditCardChargeResponseTransfer = $this->mapAmountDataToUnzerApiMarketplaceCreditCardChargeResponseTransfer(
             $responseData[UnzerApiRequestConstants::PARAM_AMOUNT],
-            $unzerApiMarketplaceCreditCardChargeResponseTransfer
+            $unzerApiMarketplaceCreditCardChargeResponseTransfer,
         );
 
         $unzerApiMarketplaceCreditCardChargeResponseTransfer = $this->mapResourcesDataToUnzerApiMarketplaceCreditCardChargeResponseTransfer(
             $responseData[UnzerApiRequestConstants::PARAM_RESOURCES],
-            $unzerApiMarketplaceCreditCardChargeResponseTransfer
+            $unzerApiMarketplaceCreditCardChargeResponseTransfer,
         );
 
         $unzerApiMarketplaceCreditCardChargeResponseTransfer = $this->mapTransactionsDataToUnzerApiMarketplaceCreditCardChargeResponseTransfer(
             $responseData[UnzerApiRequestConstants::PARAM_TRANSACTIONS],
-            $unzerApiMarketplaceCreditCardChargeResponseTransfer
+            $unzerApiMarketplaceCreditCardChargeResponseTransfer,
         );
 
         return $unzerApiResponseTransfer->setChargeResponse($unzerApiMarketplaceCreditCardChargeResponseTransfer);

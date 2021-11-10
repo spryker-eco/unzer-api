@@ -12,6 +12,9 @@ use Spryker\Zed\Kernel\Container;
 use SprykerEco\Zed\UnzerApi\Dependency\External\UnzerApiToGuzzleHttpClientAdapter;
 use SprykerEco\Zed\UnzerApi\Dependency\Service\UnzerApiToUtilEncodingServiceBridge;
 
+/**
+ * @method \SprykerEco\Zed\UnzerApi\UnzerApiConfig getConfig()
+ */
 class UnzerApiDependencyProvider extends AbstractBundleDependencyProvider
 {
     /**

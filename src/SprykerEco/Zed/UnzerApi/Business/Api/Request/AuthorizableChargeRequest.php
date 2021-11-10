@@ -21,7 +21,7 @@ class AuthorizableChargeRequest extends UnzerApiAbstractRequest implements Unzer
     {
         return sprintf(
             $this->unzerApiConfig->getUnzerApiCreditCardCharge(),
-            $unzerApiRequestTransfer->getChargeRequestOrFail()->getPaymentId()
+            $unzerApiRequestTransfer->getChargeRequestOrFail()->getPaymentId(),
         );
     }
 

@@ -26,14 +26,14 @@ class UnzerApiEntityManager extends AbstractEntityManager implements UnzerApiEnt
         $paymentUnzerApiLogEntity = $this->getFactory()->createPaymentUnzerApiLogEntity();
 
         $paymentUnzerApiLogEntity->fromArray(
-            $paymentUnzerApiLogTransfer->modifiedToArray()
+            $paymentUnzerApiLogTransfer->modifiedToArray(),
         );
         $paymentUnzerApiLogEntity->save();
 
         return $this->getFactory()->createUnzerApiPersistenceMapper()
             ->mapEntityToPaymentUnzerApiLogTransfer(
                 $paymentUnzerApiLogEntity,
-                $paymentUnzerApiLogTransfer
+                $paymentUnzerApiLogTransfer,
             );
     }
 }

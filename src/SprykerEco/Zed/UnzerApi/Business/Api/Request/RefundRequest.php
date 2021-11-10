@@ -24,7 +24,7 @@ class RefundRequest extends UnzerApiAbstractRequest implements UnzerApiRequestIn
         return sprintf(
             $this->unzerApiConfig->getUnzerApiRefund(),
             $request->getPaymentIdOrFail(),
-            $request->getChargeIdOrFail()
+            $request->getChargeIdOrFail(),
         );
     }
 

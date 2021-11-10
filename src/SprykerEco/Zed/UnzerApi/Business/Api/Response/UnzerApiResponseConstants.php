@@ -13,22 +13,27 @@ interface UnzerApiResponseConstants
      * @var string
      */
     public const PARAM_CODE = 'code';
+
     /**
      * @var string
      */
     public const PARAM_ERRORS = 'errors';
+
     /**
      * @var string
      */
     public const PARAM_TIMESTAMP = 'timestamp';
+
     /**
      * @var string
      */
     public const PARAM_URL = 'url';
+
     /**
      * @var string
      */
     public const PARAM_MERCHANT_MESSAGE = 'merchantMessage';
+
     /**
      * @var string
      */

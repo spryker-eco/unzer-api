@@ -38,17 +38,17 @@ class MarketplaceRefundResponseMapper implements UnzerApiResponseMapperInterface
 
         $unzerApiMarketplaceRefundResponseTransfer = $this->mapResourceDataToUnzerApiMarketplaceRefundResponseTransfer(
             $responseData[UnzerApiRequestConstants::PARAM_RESOURCES] ?? [],
-            $unzerApiMarketplaceRefundResponseTransfer
+            $unzerApiMarketplaceRefundResponseTransfer,
         );
 
         $unzerApiMarketplaceRefundResponseTransfer = $this->mapProcessingDataToUnzerApiMarketplaceRefundResponseTransfer(
             $responseData[UnzerApiRequestConstants::PARAM_PROCESSING] ?? [],
-            $unzerApiMarketplaceRefundResponseTransfer
+            $unzerApiMarketplaceRefundResponseTransfer,
         );
 
         $unzerApiMarketplaceRefundResponseTransfer = $this->mapMessageDataToResponseTransfer(
             $responseData[UnzerApiRequestConstants::PARAM_MESSAGE] ?? [],
-            $unzerApiMarketplaceRefundResponseTransfer
+            $unzerApiMarketplaceRefundResponseTransfer,
         );
 
         return $unzerApiResponseTransfer

@@ -45,7 +45,7 @@ class UnzerApiLogger implements UnzerApiLoggerInterface
             $unzerApiRequestTransfer,
             $unzerApiResponseTransfer,
             $requestType,
-            $url
+            $url,
         );
 
         $this->unzerApiEntityManager->savePaymentUnzerApiLog($paymentUnzerApiLog);

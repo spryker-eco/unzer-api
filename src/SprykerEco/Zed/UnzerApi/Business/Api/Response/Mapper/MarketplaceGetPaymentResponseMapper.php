@@ -33,22 +33,22 @@ class MarketplaceGetPaymentResponseMapper implements UnzerApiResponseMapperInter
 
         $unzerApiMarketplaceGetPaymentResponseTransfer = $this->mapStateDataToUnzerApiGetPaymentResponseTransfer(
             $responseData[UnzerApiRequestConstants::PARAM_STATE],
-            $unzerApiMarketplaceGetPaymentResponseTransfer
+            $unzerApiMarketplaceGetPaymentResponseTransfer,
         );
 
         $unzerApiMarketplaceGetPaymentResponseTransfer = $this->mapAmountDataToUnzerApiGetPaymentResponseTransfer(
             $responseData[UnzerApiRequestConstants::PARAM_AMOUNT],
-            $unzerApiMarketplaceGetPaymentResponseTransfer
+            $unzerApiMarketplaceGetPaymentResponseTransfer,
         );
 
         $unzerApiMarketplaceGetPaymentResponseTransfer = $this->mapResourcesDataToUnzerApiGetPaymentResponseTransfer(
             $responseData[UnzerApiRequestConstants::PARAM_RESOURCES],
-            $unzerApiMarketplaceGetPaymentResponseTransfer
+            $unzerApiMarketplaceGetPaymentResponseTransfer,
         );
 
         $unzerApiMarketplaceGetPaymentResponseTransfer = $this->mapTransactionsDataToUnzerApiGetPaymentResponseTransfer(
             $responseData[UnzerApiRequestConstants::PARAM_TRANSACTIONS],
-            $unzerApiMarketplaceGetPaymentResponseTransfer
+            $unzerApiMarketplaceGetPaymentResponseTransfer,
         );
 
         return $unzerApiResponseTransfer

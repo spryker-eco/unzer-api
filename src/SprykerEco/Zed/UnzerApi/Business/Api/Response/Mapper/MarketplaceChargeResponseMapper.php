@@ -40,17 +40,17 @@ class MarketplaceChargeResponseMapper implements UnzerApiResponseMapperInterface
 
         $unzerApiMarketplaceChargeResponseTransfer = $this->mapResourcesDataToUnzerApiMarketplaceChargeResponseTransfer(
             $responseData[UnzerApiRequestConstants::PARAM_RESOURCES],
-            $unzerApiMarketplaceChargeResponseTransfer
+            $unzerApiMarketplaceChargeResponseTransfer,
         );
 
         $unzerApiMarketplaceChargeResponseTransfer = $this->mapProcessingDataToUnzerApiMarketplaceChargeResponseTransfer(
             $responseData[UnzerApiRequestConstants::PARAM_PROCESSING],
-            $unzerApiMarketplaceChargeResponseTransfer
+            $unzerApiMarketplaceChargeResponseTransfer,
         );
 
         $unzerApiMarketplaceChargeResponseTransfer = $this->mapMessageDataToUnzerApiMarketplaceChargeResponseTransfer(
             $responseData[UnzerApiRequestConstants::PARAM_MESSAGE],
-            $unzerApiMarketplaceChargeResponseTransfer
+            $unzerApiMarketplaceChargeResponseTransfer,
         );
 
         return $unzerApiResponseTransfer

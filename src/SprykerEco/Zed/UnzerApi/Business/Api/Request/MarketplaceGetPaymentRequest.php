@@ -23,7 +23,7 @@ class MarketplaceGetPaymentRequest extends UnzerApiAbstractRequest implements Un
 
         return sprintf(
             $this->unzerApiConfig->getUnzerApiMarketplaceGetPayment(),
-            $marketplaceGetPaymentRequest->getPaymentIdOrFail()
+            $marketplaceGetPaymentRequest->getPaymentIdOrFail(),
         );
     }
 

@@ -81,7 +81,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
             $this->getUnzerApiHttpClient(),
             $this->createSetWebhookRequest(),
             $this->createSetWebhookUrlResponseConverter(),
-            $this->createUnzerApiLogger()
+            $this->createUnzerApiLogger(),
         );
     }
 
@@ -92,7 +92,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new SetWebhookUrlRequest(
             $this->getConfig(),
-            $this->createSetWebhookUrlRequestBuilder()
+            $this->createSetWebhookUrlRequestBuilder(),
         );
     }
 
@@ -103,7 +103,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new UnzerApiRequestBuilder(
             $this->createSetWebhookUrlRequestConverter(),
-            $this->getUtilEncodingService()
+            $this->getUtilEncodingService(),
         );
     }
 
@@ -122,7 +122,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new UnzerApiResponseConverter(
             $this->getUtilEncodingService(),
-            $this->createSetWebhookUrlResponseMapper()
+            $this->createSetWebhookUrlResponseMapper(),
         );
     }
 
@@ -135,7 +135,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
             $this->getUnzerApiHttpClient(),
             $this->createCreateCustomerRequest(),
             $this->createCreateCustomerResponseConverter(),
-            $this->createUnzerApiLogger()
+            $this->createUnzerApiLogger(),
         );
     }
 
@@ -146,7 +146,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new CreateCustomerRequest(
             $this->getConfig(),
-            $this->createCreateCustomerRequestBuilder()
+            $this->createCreateCustomerRequestBuilder(),
         );
     }
 
@@ -157,7 +157,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new UnzerApiRequestBuilder(
             $this->createCreateCustomerRequestConverter(),
-            $this->getUtilEncodingService()
+            $this->getUtilEncodingService(),
         );
     }
 
@@ -176,7 +176,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new UnzerApiResponseConverter(
             $this->getUtilEncodingService(),
-            $this->createCreateCustomerResponseMapper()
+            $this->createCreateCustomerResponseMapper(),
         );
     }
 
@@ -189,7 +189,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
             $this->getUnzerApiHttpClient(),
             $this->createCreateBasketRequest(),
             $this->createCreateBasketResponseConverter(),
-            $this->createUnzerApiLogger()
+            $this->createUnzerApiLogger(),
         );
     }
 
@@ -200,7 +200,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new CreateBasketRequest(
             $this->getConfig(),
-            $this->createCreateBasketRequestBuilder()
+            $this->createCreateBasketRequestBuilder(),
         );
     }
 
@@ -211,7 +211,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new UnzerApiRequestBuilder(
             $this->createCreateBasketRequestConverter(),
-            $this->getUtilEncodingService()
+            $this->getUtilEncodingService(),
         );
     }
 
@@ -230,7 +230,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new UnzerApiResponseConverter(
             $this->getUtilEncodingService(),
-            $this->createCreateBasketResponseMapper()
+            $this->createCreateBasketResponseMapper(),
         );
     }
 
@@ -251,7 +251,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
             $this->getUnzerApiHttpClient(),
             $this->createCreateMetadataRequest(),
             $this->createCreateMetadataResponseConverter(),
-            $this->createUnzerApiLogger()
+            $this->createUnzerApiLogger(),
         );
     }
 
@@ -262,7 +262,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new CreateMetadataRequest(
             $this->getConfig(),
-            $this->createCreateMetadataRequestBuilder()
+            $this->createCreateMetadataRequestBuilder(),
         );
     }
 
@@ -273,7 +273,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new UnzerApiRequestBuilder(
             $this->createCreateMetadataRequestConverter(),
-            $this->getUtilEncodingService()
+            $this->getUtilEncodingService(),
         );
     }
 
@@ -292,7 +292,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new UnzerApiResponseConverter(
             $this->getUtilEncodingService(),
-            $this->createCreateMetadataResponseMapper()
+            $this->createCreateMetadataResponseMapper(),
         );
     }
 
@@ -313,7 +313,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
             $this->getUnzerApiHttpClient(),
             $this->createMarketplaceAuthorizeRequest(),
             $this->createMarketplaceAuthorizeResponseConverter(),
-            $this->createUnzerApiLogger()
+            $this->createUnzerApiLogger(),
         );
     }
 
@@ -324,7 +324,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new MarketplaceAuthorizeRequest(
             $this->getConfig(),
-            $this->createMarketplaceAuthorizeRequestBuilder()
+            $this->createMarketplaceAuthorizeRequestBuilder(),
         );
     }
 
@@ -335,7 +335,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new UnzerApiRequestBuilder(
             $this->createMarketplaceAuthorizeRequestConverter(),
-            $this->getUtilEncodingService()
+            $this->getUtilEncodingService(),
         );
     }
 
@@ -354,7 +354,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new UnzerApiResponseConverter(
             $this->getUtilEncodingService(),
-            $this->createMarketplaceAuthorizeResponseMapper()
+            $this->createMarketplaceAuthorizeResponseMapper(),
         );
     }
 
@@ -375,7 +375,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
             $this->getUnzerApiHttpClient(),
             $this->createAuthorizeRequest(),
             $this->createAuthorizeResponseConverter(),
-            $this->createUnzerApiLogger()
+            $this->createUnzerApiLogger(),
         );
     }
 
@@ -386,7 +386,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new AuthorizeRequest(
             $this->getConfig(),
-            $this->createAuthorizeRequestBuilder()
+            $this->createAuthorizeRequestBuilder(),
         );
     }
 
@@ -397,7 +397,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new UnzerApiRequestBuilder(
             $this->createAuthorizeRequestConverter(),
-            $this->getUtilEncodingService()
+            $this->getUtilEncodingService(),
         );
     }
 
@@ -416,7 +416,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new UnzerApiResponseConverter(
             $this->getUtilEncodingService(),
-            $this->createAuthorizeResponseMapper()
+            $this->createAuthorizeResponseMapper(),
         );
     }
 
@@ -477,7 +477,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
             $this->getUnzerApiHttpClient(),
             $this->createMarketplaceGetPaymentRequest(),
             $this->createGetPaymentResponseConverter(),
-            $this->createUnzerApiLogger()
+            $this->createUnzerApiLogger(),
         );
     }
 
@@ -488,7 +488,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new MarketplaceGetPaymentRequest(
             $this->getConfig(),
-            $this->createMarketplaceGetPaymentRequestBuilder()
+            $this->createMarketplaceGetPaymentRequestBuilder(),
         );
     }
 
@@ -499,7 +499,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new UnzerApiRequestBuilder(
             $this->createMarketplaceGetPaymentRequestConverter(),
-            $this->getUtilEncodingService()
+            $this->getUtilEncodingService(),
         );
     }
 
@@ -520,7 +520,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
             $this->getUnzerApiHttpClient(),
             $this->createGetPaymentRequest(),
             $this->createGetPaymentResponseConverter(),
-            $this->createUnzerApiLogger()
+            $this->createUnzerApiLogger(),
         );
     }
 
@@ -531,7 +531,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new GetPaymentRequest(
             $this->getConfig(),
-            $this->createGetPaymentRequestBuilder()
+            $this->createGetPaymentRequestBuilder(),
         );
     }
 
@@ -542,7 +542,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new UnzerApiRequestBuilder(
             $this->createGetPaymentRequestConverter(),
-            $this->getUtilEncodingService()
+            $this->getUtilEncodingService(),
         );
     }
 
@@ -561,7 +561,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new UnzerApiResponseConverter(
             $this->getUtilEncodingService(),
-            $this->createGetPaymentResponseMapper()
+            $this->createGetPaymentResponseMapper(),
         );
     }
 
@@ -582,7 +582,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
             $this->getUnzerApiHttpClient(),
             $this->createMarketplaceChargeRequest(),
             $this->createMarketplaceChargeResponseConverter(),
-            $this->createUnzerApiLogger()
+            $this->createUnzerApiLogger(),
         );
     }
 
@@ -593,7 +593,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new MarketplaceChargeRequest(
             $this->getConfig(),
-            $this->createMarketplaceChargeRequestBuilder()
+            $this->createMarketplaceChargeRequestBuilder(),
         );
     }
 
@@ -604,7 +604,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new UnzerApiRequestBuilder(
             $this->createMarketplaceChargeRequestConverter(),
-            $this->getUtilEncodingService()
+            $this->getUtilEncodingService(),
         );
     }
 
@@ -623,7 +623,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new UnzerApiResponseConverter(
             $this->getUtilEncodingService(),
-            $this->createMarketplaceChargeResponseMapper()
+            $this->createMarketplaceChargeResponseMapper(),
         );
     }
 
@@ -644,7 +644,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
             $this->getUnzerApiHttpClient(),
             $this->createMarketplaceAuthorizableChargeRequest(),
             $this->createMarketplaceCreditCardChargeResponseConverter(),
-            $this->createUnzerApiLogger()
+            $this->createUnzerApiLogger(),
         );
     }
 
@@ -655,7 +655,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new MarketplaceAuthorizableChargeRequest(
             $this->getConfig(),
-            $this->createMarketplaceAuthorizableChargeRequestBuilder()
+            $this->createMarketplaceAuthorizableChargeRequestBuilder(),
         );
     }
 
@@ -666,7 +666,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new UnzerApiRequestBuilder(
             $this->createMarketplaceAuthorizableChargeRequestConverter(),
-            $this->getUtilEncodingService()
+            $this->getUtilEncodingService(),
         );
     }
 
@@ -685,7 +685,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new UnzerApiResponseConverter(
             $this->getUtilEncodingService(),
-            $this->createMarketplaceCreditCardChargeResponseMapper()
+            $this->createMarketplaceCreditCardChargeResponseMapper(),
         );
     }
 
@@ -706,7 +706,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
             $this->getUnzerApiHttpClient(),
             $this->createCreatePaymentResourceRequest(),
             $this->createCreatePaymentResourceResponseConverter(),
-            $this->createUnzerApiLogger()
+            $this->createUnzerApiLogger(),
         );
     }
 
@@ -717,7 +717,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new CreatePaymentResourceRequest(
             $this->getConfig(),
-            $this->createCreatePaymentResourceRequestBuilder()
+            $this->createCreatePaymentResourceRequestBuilder(),
         );
     }
 
@@ -728,7 +728,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new UnzerApiRequestBuilder(
             $this->createCreatePaymentResourceRequestConverter(),
-            $this->getUtilEncodingService()
+            $this->getUtilEncodingService(),
         );
     }
 
@@ -747,7 +747,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new UnzerApiResponseConverter(
             $this->getUtilEncodingService(),
-            $this->createCreatePaymentResourceResponseMapper()
+            $this->createCreatePaymentResourceResponseMapper(),
         );
     }
 
@@ -768,7 +768,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
             $this->getUnzerApiHttpClient(),
             $this->createMarketplaceRefundRequest(),
             $this->createMarketplaceRefundResponseConverter(),
-            $this->createUnzerApiLogger()
+            $this->createUnzerApiLogger(),
         );
     }
 
@@ -779,7 +779,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new MarketplaceRefundRequest(
             $this->getConfig(),
-            $this->createMarketplaceRefundRequestBuilder()
+            $this->createMarketplaceRefundRequestBuilder(),
         );
     }
 
@@ -790,7 +790,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new UnzerApiRequestBuilder(
             $this->createMarketplaceRefundRequestConverter(),
-            $this->getUtilEncodingService()
+            $this->getUtilEncodingService(),
         );
     }
 
@@ -809,7 +809,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new UnzerApiResponseConverter(
             $this->getUtilEncodingService(),
-            $this->createMarketplaceRefundResponseMapper()
+            $this->createMarketplaceRefundResponseMapper(),
         );
     }
 
@@ -830,7 +830,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
             $this->getUnzerApiHttpClient(),
             $this->createRefundRequest(),
             $this->createRefundResponseConverter(),
-            $this->createUnzerApiLogger()
+            $this->createUnzerApiLogger(),
         );
     }
 
@@ -841,7 +841,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new RefundRequest(
             $this->getConfig(),
-            $this->createRefundRequestBuilder()
+            $this->createRefundRequestBuilder(),
         );
     }
 
@@ -852,7 +852,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new UnzerApiRequestBuilder(
             $this->createRefundRequestConverter(),
-            $this->getUtilEncodingService()
+            $this->getUtilEncodingService(),
         );
     }
 
@@ -871,7 +871,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new UnzerApiResponseConverter(
             $this->getUtilEncodingService(),
-            $this->createRefundResponseMapper()
+            $this->createRefundResponseMapper(),
         );
     }
 
@@ -884,7 +884,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
             $this->getUnzerApiHttpClient(),
             $this->createChargeRequest(),
             $this->createChargeResponseConverter(),
-            $this->createUnzerApiLogger()
+            $this->createUnzerApiLogger(),
         );
     }
 
@@ -895,7 +895,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new ChargeRequest(
             $this->getConfig(),
-            $this->createChargeRequestBuilder()
+            $this->createChargeRequestBuilder(),
         );
     }
 
@@ -906,7 +906,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new UnzerApiRequestBuilder(
             $this->createChargeRequestConverter(),
-            $this->getUtilEncodingService()
+            $this->getUtilEncodingService(),
         );
     }
 
@@ -925,7 +925,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new UnzerApiResponseConverter(
             $this->getUtilEncodingService(),
-            $this->createChargeResponseMapper()
+            $this->createChargeResponseMapper(),
         );
     }
 
@@ -946,7 +946,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
             $this->getUnzerApiHttpClient(),
             $this->createAuthorizableChargeRequest(),
             $this->createCreditCardChargeResponseConverter(),
-            $this->createUnzerApiLogger()
+            $this->createUnzerApiLogger(),
         );
     }
 
@@ -957,7 +957,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new AuthorizableChargeRequest(
             $this->getConfig(),
-            $this->createAuthorizableChargeRequestBuilder()
+            $this->createAuthorizableChargeRequestBuilder(),
         );
     }
 
@@ -968,7 +968,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new UnzerApiRequestBuilder(
             $this->createAuthorizableChargeRequestConverter(),
-            $this->getUtilEncodingService()
+            $this->getUtilEncodingService(),
         );
     }
 
@@ -987,7 +987,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new UnzerApiResponseConverter(
             $this->getUtilEncodingService(),
-            $this->createCreditCardChargeResponseMapper()
+            $this->createCreditCardChargeResponseMapper(),
         );
     }
 
