@@ -15,14 +15,14 @@ class AuthorizableChargeRequestConverter implements UnzerApiRequestConverterInte
     /**
      * @param \Generated\Shared\Transfer\UnzerApiRequestTransfer $unzerApiRequestTransfer
      *
-     * @return array<string, string>
+     * @return array<string, float>
      */
     public function convertRequestTransferToArray(UnzerApiRequestTransfer $unzerApiRequestTransfer): array
     {
         $unzerApiChargeRequestTransfer = $unzerApiRequestTransfer->getChargeRequestOrFail();
 
         return [
-            UnzerApiRequestConstants::PARAM_AMOUNT => $unzerApiChargeRequestTransfer->getAmount(),
+            UnzerApiRequestConstants::PARAM_AMOUNT => $unzerApiChargeRequestTransfer->getAmountOrFail(),
         ];
     }
 }
