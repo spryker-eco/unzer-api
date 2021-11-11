@@ -68,7 +68,7 @@ class UnzerApiToGuzzleHttpClientAdapter implements UnzerApiToHttpClientInterface
             throw new UnzerApiToHttpClientException(
                 $this->createUnzerApiGuzzleResponse($requestException->getResponse()),
                 $requestException->getMessage(),
-                (int) $requestException->getCode(),
+                (int)$requestException->getCode(),
                 $requestException,
             );
         }

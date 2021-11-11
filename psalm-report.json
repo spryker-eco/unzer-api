@@ -3,15 +3,15 @@
     "warning": [
         {
             "severity": "info",
-            "line_from": 35,
-            "line_to": 35,
-            "type": "MismatchingDocblockParamType",
-            "message": "Parameter $unzerBasketItemTransfers has wrong type 'ArrayObject|array<array-key, Generated\\Shared\\Transfer\\UnzerBasketItemTransfer>', should be 'ArrayObject'",
+            "line_from": 30,
+            "line_to": 30,
+            "type": "PossiblyInvalidArgument",
+            "message": "Argument 1 of SprykerEco\\Zed\\UnzerApi\\Business\\Api\\Request\\Converter\\CreateBasketRequestConverter::convertBasketItems expects ArrayObject, possibly different type ArrayObject|array<array-key, Generated\\Shared\\Transfer\\UnzerBasketItemTransfer> provided",
             "file_name": "vendor/spryker-eco/unzer-api/src/SprykerEco/Zed/UnzerApi/Business/Api/Request/Converter/CreateBasketRequestConverter.php",
-            "snippet": "     * @param \\ArrayObject|array<array-key, \\Generated\\Shared\\Transfer\\UnzerBasketItemTransfer> $unzerBasketItemTransfers",
-            "selected_text": "\\ArrayObject|array<array-key, \\Generated\\Shared\\Transfer\\UnzerBasketItemTransfer>",
-            "error_level": 4,
-            "shortcode": 141
+            "snippet": "            UnzerApiRequestConstants::PARAM_BASKET_ITEMS => $this->convertBasketItems($unzerApiCreateBasketRequestTransfer->getBasketItems()),",
+            "selected_text": "$unzerApiCreateBasketRequestTransfer->getBasketItems()",
+            "error_level": 3,
+            "shortcode": 92
         },
         {
             "severity": "info",
