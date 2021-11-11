@@ -129,7 +129,7 @@
     <!--    Responses section-->
     <transfer name="UnzerApiResponse">
         <property name="httpCode" type="int"/>
-        <property name="isSuccess" type="bool"/>
+        <property name="isSuccessful" type="bool"/>
         <property name="setWebhookResponse" type="UnzerApiSetWebhookResponse"/>
         <property name="getWebhookResponse" type="UnzerApiGetWebhookResponse"/>
         <property name="deleteWebhookResponse" type="UnzerApiDeleteWebhookResponse"/>
@@ -250,7 +250,7 @@
 
     <transfer name="UnzerApiMarketplaceAuthorizeResponse">
         <property name="id" type="string"/>
-        <property name="isSuccess" type="bool"/>
+        <property name="isSuccessful" type="bool"/>
         <property name="isPending" type="bool"/>
         <property name="isError" type="bool"/>
         <property name="card3ds" type="bool"/>
@@ -274,7 +274,7 @@
 
     <transfer name="UnzerApiChargeResponse">
         <property name="id" type="string"/>
-        <property name="isSuccess" type="bool"/>
+        <property name="isSuccessful" type="bool"/>
         <property name="isPending" type="bool"/>
         <property name="isError" type="bool"/>
         <property name="stateId" type="int"/>
@@ -305,7 +305,7 @@
 
     <transfer name="UnzerApiCreditCardChargeResponse">
         <property name="id" type="string"/>
-        <property name="isSuccess" type="bool"/>
+        <property name="isSuccessful" type="bool"/>
         <property name="isPending" type="bool"/>
         <property name="isError" type="bool"/>
         <property name="card3ds" type="bool"/>
@@ -327,7 +327,7 @@
 
     <transfer name="UnzerApiRefundResponse">
         <property name="id" type="string"/>
-        <property name="isSuccess" type="bool"/>
+        <property name="isSuccessful" type="bool"/>
         <property name="isPending" type="bool"/>
         <property name="isError" type="bool"/>
         <property name="card3ds" type="bool"/>
@@ -352,7 +352,7 @@
 
     <transfer name="UnzerApiMarketplaceRefundResponse">
         <property name="id" type="string"/>
-        <property name="isSuccess" type="bool"/>
+        <property name="isSuccessful" type="bool"/>
         <property name="isPending" type="bool"/>
         <property name="isError" type="bool"/>
         <property name="card3ds" type="bool"/>
@@ -415,7 +415,7 @@
     <transfer name="PaymentUnzerApiLog">
         <property name="idPaymentUnzerApiLog" type="int" />
         <property name="requestType" type="string" />
-        <property name="isSuccess" type="bool" />
+        <property name="isSuccessful" type="bool" />
         <property name="request" type="string" />
         <property name="response" type="string" />
         <property name="url" type="string" />
