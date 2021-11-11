@@ -8,6 +8,7 @@
 namespace SprykerEco\Zed\UnzerApi\Exception;
 
 use Exception;
+use SprykerEco\Zed\UnzerApi\Dependency\External\UnzerApiToHttpResponseInterface;
 use Throwable;
 
 class UnzerApiToHttpClientException extends Exception

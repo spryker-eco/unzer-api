@@ -11,6 +11,7 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\RequestOptions;
 use Psr\Http\Message\ResponseInterface;
+use SprykerEco\Zed\UnzerApi\Exception\UnzerApiToHttpClientException;
 
 class UnzerApiToGuzzleHttpClientAdapter implements UnzerApiToHttpClientInterface
 {
@@ -50,7 +51,7 @@ class UnzerApiToGuzzleHttpClientAdapter implements UnzerApiToHttpClientInterface
      * @param string $body
      * @param string $authKey
      *
-     * @throws \SprykerEco\Zed\UnzerApi\Dependency\External\UnzerApiToHttpClientException
+     * @throws \SprykerEco\Zed\UnzerApi\Exception\UnzerApiToHttpClientException
      *
      * @return \SprykerEco\Zed\UnzerApi\Dependency\External\UnzerApiToHttpResponseInterface
      */
@@ -67,7 +68,7 @@ class UnzerApiToGuzzleHttpClientAdapter implements UnzerApiToHttpClientInterface
             throw new UnzerApiToHttpClientException(
                 $this->createUnzerApiGuzzleResponse($requestException->getResponse()),
                 $requestException->getMessage(),
-                $requestException->getCode(),
+                (int) $requestException->getCode(),
                 $requestException,
             );
         }
