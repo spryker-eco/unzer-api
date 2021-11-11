@@ -44,6 +44,6 @@ class UnzerApiRequestBuilder implements UnzerApiRequestBuilderInterface
     {
         $requestData = $this->unzerApiRequestConverter->convertRequestTransferToArray($unzerApiRequestTransfer);
 
-        return $this->utilEncodingService->encodeJson($requestData);
+        return (string)$this->utilEncodingService->encodeJson($requestData);
     }
 }

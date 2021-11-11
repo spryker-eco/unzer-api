@@ -21,7 +21,7 @@ class CreatePaymentResourceRequest extends UnzerApiAbstractRequest implements Un
     {
         return sprintf(
             $this->unzerApiConfig->getUnzerApiCreatePaymentResource(),
-            $unzerApiRequestTransfer->getCreatePaymentResourceRequestOrFail()->getPaymentMethod(),
+            $unzerApiRequestTransfer->getCreatePaymentResourceRequestOrFail()->getPaymentMethodOrFail(),
         );
     }
 

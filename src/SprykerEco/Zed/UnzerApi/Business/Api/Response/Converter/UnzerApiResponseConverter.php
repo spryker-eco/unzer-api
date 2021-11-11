@@ -88,6 +88,6 @@ class UnzerApiResponseConverter implements UnzerApiResponseConverterInterface
     protected function createUnzerApiResponseTransfer(bool $isSuccessful): UnzerApiResponseTransfer
     {
         return (new UnzerApiResponseTransfer())
-            ->setIsSuccessfull($isSuccessful);
+            ->setIsSuccessful($isSuccessful);
     }
 }

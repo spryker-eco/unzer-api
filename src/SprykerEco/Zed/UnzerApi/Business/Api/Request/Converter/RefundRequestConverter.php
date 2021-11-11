@@ -16,7 +16,7 @@ class RefundRequestConverter implements UnzerApiRequestConverterInterface
     /**
      * @param \Generated\Shared\Transfer\UnzerApiRequestTransfer $unzerApiRequestTransfer
      *
-     * @return array<string, string>
+     * @return array{amount: null|string, chargeId: null|string, paymentId: null|string, paymentReference: null|string}
      */
     public function convertRequestTransferToArray(UnzerApiRequestTransfer $unzerApiRequestTransfer): array
     {
@@ -31,7 +31,7 @@ class RefundRequestConverter implements UnzerApiRequestConverterInterface
     }
 
     /**
-     * @param \ArrayObject|array<\Generated\Shared\Transfer\UnzerBasketItemTransfer> $unzerBasketItemTransfers
+     * @param \ArrayObject $unzerBasketItemTransfers
      *
      * @return array<array<string>>
      */

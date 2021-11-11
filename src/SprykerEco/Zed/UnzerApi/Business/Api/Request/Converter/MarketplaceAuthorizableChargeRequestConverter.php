@@ -15,7 +15,7 @@ class MarketplaceAuthorizableChargeRequestConverter implements UnzerApiRequestCo
     /**
      * @param \Generated\Shared\Transfer\UnzerApiRequestTransfer $unzerApiRequestTransfer
      *
-     * @return array<string, string>
+     * @return array{invoiceId: null|string, orderId: null|string, paymentReference: null|string}
      */
     public function convertRequestTransferToArray(UnzerApiRequestTransfer $unzerApiRequestTransfer): array
     {

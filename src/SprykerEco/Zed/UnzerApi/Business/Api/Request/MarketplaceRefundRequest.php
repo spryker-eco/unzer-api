@@ -19,7 +19,7 @@ class MarketplaceRefundRequest extends UnzerApiAbstractRequest implements UnzerA
      */
     public function getUrl(UnzerApiRequestTransfer $unzerApiRequestTransfer): string
     {
-        $request = $unzerApiRequestTransfer->getMarketplaceRefundRequest();
+        $request = $unzerApiRequestTransfer->getMarketplaceRefundRequestOrFail();
 
         return sprintf(
             $this->unzerApiConfig->getUnzerApiMarketplaceRefund(),

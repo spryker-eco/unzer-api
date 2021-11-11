@@ -15,7 +15,7 @@ class ChargeRequestConverter implements UnzerApiRequestConverterInterface
     /**
      * @param \Generated\Shared\Transfer\UnzerApiRequestTransfer $unzerApiRequestTransfer
      *
-     * @return array<string, string|array>
+     * @return array{amount: float|null, currency: null|string, resources: array{typeId: null|string}, returnUrl: null|string}
      */
     public function convertRequestTransferToArray(UnzerApiRequestTransfer $unzerApiRequestTransfer): array
     {

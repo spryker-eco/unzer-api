@@ -15,7 +15,7 @@ class CreateMetadataRequestConverter implements UnzerApiRequestConverterInterfac
     /**
      * @param \Generated\Shared\Transfer\UnzerApiRequestTransfer $unzerApiRequestTransfer
      *
-     * @return array<string, string>
+     * @return array{createdAt: null|string, locale: null|string, priceMode: null|string, store: null|string}
      */
     public function convertRequestTransferToArray(UnzerApiRequestTransfer $unzerApiRequestTransfer): array
     {

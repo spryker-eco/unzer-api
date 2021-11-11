@@ -19,7 +19,7 @@ class RefundRequest extends UnzerApiAbstractRequest implements UnzerApiRequestIn
      */
     public function getUrl(UnzerApiRequestTransfer $unzerApiRequestTransfer): string
     {
-        $request = $unzerApiRequestTransfer->getRefundRequest();
+        $request = $unzerApiRequestTransfer->getRefundRequestOrFail();
 
         return sprintf(
             $this->unzerApiConfig->getUnzerApiRefund(),

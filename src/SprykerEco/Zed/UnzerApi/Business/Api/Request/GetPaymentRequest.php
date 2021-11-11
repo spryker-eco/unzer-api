@@ -21,7 +21,7 @@ class GetPaymentRequest extends UnzerApiAbstractRequest implements UnzerApiReque
     {
         return sprintf(
             $this->unzerApiConfig->getUnzerApiGetPayment(),
-            $unzerApiRequestTransfer->getGetPaymentRequestOrFail()->getPaymentId(),
+            $unzerApiRequestTransfer->getGetPaymentRequestOrFail()->getPaymentIdOrFail(),
         );
     }
 
