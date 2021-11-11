@@ -7,7 +7,7 @@
         <column name="url" required="true" type="VARCHAR" size="255"/>
         <column name="request" required="true" type="LONGVARCHAR"/>
         <column name="response" required="true" type="LONGVARCHAR"/>
-        <column name="is_success" required="true" type="BOOLEAN"/>
+        <column name="is_successful" required="true" type="BOOLEAN"/>
         <behavior name="timestampable"/>
 
     <id-method-parameter value="spy_payment_unzer_api_log_pk_seq"/></table>
