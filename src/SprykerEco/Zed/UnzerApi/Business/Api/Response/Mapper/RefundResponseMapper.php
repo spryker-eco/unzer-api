@@ -26,7 +26,7 @@ class RefundResponseMapper implements UnzerApiResponseMapperInterface
     ): UnzerApiResponseTransfer {
         $unzerApiRefundResponseTransfer = (new UnzerApiRefundResponseTransfer())
             ->setId($responseData[UnzerApiRequestConstants::PARAM_ID] ?? null)
-            ->setIsSuccess($responseData[UnzerApiRequestConstants::PARAM_IS_SUCCESS] ?? null)
+            ->setIsSuccessful($responseData[UnzerApiRequestConstants::PARAM_IS_SUCCESS] ?? null)
             ->setIsError($responseData[UnzerApiRequestConstants::PARAM_IS_ERROR] ?? null)
             ->setIsPending($responseData[UnzerApiRequestConstants::PARAM_IS_PENDING] ?? null)
             ->setAmount($responseData[UnzerApiRequestConstants::PARAM_AMOUNT] ?? null)

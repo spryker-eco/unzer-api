@@ -302,7 +302,7 @@ interface UnzerApiRequestConstants
     /**
      * @var string
      */
-    public const PARAM_IS_SUCCESS = 'isSuccess';
+    public const PARAM_IS_SUCCESSFUL = 'isSuccessful';
 
     /**
      * @var string

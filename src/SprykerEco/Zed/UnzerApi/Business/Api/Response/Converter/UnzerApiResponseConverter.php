@@ -39,19 +39,19 @@ class UnzerApiResponseConverter implements UnzerApiResponseConverterInterface
 
     /**
      * @param \SprykerEco\Zed\UnzerApi\Dependency\External\UnzerApiToHttpResponseInterface $httpResponse
-     * @param bool $isSuccess
+     * @param bool $isSuccessful
      *
      * @return \Generated\Shared\Transfer\UnzerApiResponseTransfer
      */
     public function convertUnzerApiGuzzleResponseToUnzerApiResponseTransfer(
         UnzerApiToHttpResponseInterface $httpResponse,
-        bool $isSuccess = true
+        bool $isSuccessful = true
     ): UnzerApiResponseTransfer {
         $responseData = $this->utilEncodingService->decodeJson($httpResponse->getResponseBody(), true);
 
-        $unzerApiResponseTransfer = $this->createUnzerApiResponseTransfer($isSuccess);
+        $unzerApiResponseTransfer = $this->createUnzerApiResponseTransfer($isSuccessful);
 
-        if (!$isSuccess) {
+        if (!$isSuccessful) {
             return $this->updateResponseTransferWithError($unzerApiResponseTransfer, $responseData);
         }
 
@@ -76,18 +76,18 @@ class UnzerApiResponseConverter implements UnzerApiResponseConverterInterface
         }
 
         return $unzerApiResponseTransfer
-            ->setIsSuccess(false)
+            ->setIsSuccessful(false)
             ->setErrorResponse($errorTransfer);
     }
 
     /**
-     * @param bool $isSuccess
+     * @param bool $isSuccessful
      *
      * @return \Generated\Shared\Transfer\UnzerApiResponseTransfer
      */
-    protected function createUnzerApiResponseTransfer(bool $isSuccess): UnzerApiResponseTransfer
+    protected function createUnzerApiResponseTransfer(bool $isSuccessful): UnzerApiResponseTransfer
     {
         return (new UnzerApiResponseTransfer())
-            ->setIsSuccess($isSuccess);
+            ->setIsSuccessfull($isSuccessful);
     }
 }

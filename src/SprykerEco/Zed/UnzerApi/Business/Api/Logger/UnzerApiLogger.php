@@ -67,7 +67,7 @@ class UnzerApiLogger implements UnzerApiLoggerInterface
     ): PaymentUnzerApiLogTransfer {
         return (new PaymentUnzerApiLogTransfer())
             ->setRequestType($requestType)
-            ->setIsSuccess($responseTransfer->getIsSuccess())
+            ->setIsSuccessful($responseTransfer->getIsSuccessful())
             ->setRequest($requestTransfer->serialize())
             ->setResponse($responseTransfer->serialize())
             ->setUrl($url);

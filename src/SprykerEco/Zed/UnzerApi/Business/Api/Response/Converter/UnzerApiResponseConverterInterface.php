@@ -14,12 +14,12 @@ interface UnzerApiResponseConverterInterface
 {
     /**
      * @param \SprykerEco\Zed\UnzerApi\Dependency\External\UnzerApiToHttpResponseInterface $httpResponse
-     * @param bool $isSuccess
+     * @param bool $isSuccessful
      *
      * @return \Generated\Shared\Transfer\UnzerApiResponseTransfer
      */
     public function convertUnzerApiGuzzleResponseToUnzerApiResponseTransfer(
         UnzerApiToHttpResponseInterface $httpResponse,
-        bool $isSuccess = true
+        bool $isSuccessful = true
     ): UnzerApiResponseTransfer;
 }

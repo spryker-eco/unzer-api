@@ -26,7 +26,7 @@ class MarketplaceAuthorizeResponseMapper implements UnzerApiResponseMapperInterf
     ): UnzerApiResponseTransfer {
         $unzerApiMarketplaceAuthorizeResponseTransfer = (new UnzerApiMarketplaceAuthorizeResponseTransfer())
             ->setId($responseData[UnzerApiRequestConstants::PARAM_ID] ?? null)
-            ->setIsSuccess($responseData[UnzerApiRequestConstants::PARAM_IS_SUCCESS] ?? null)
+            ->setIsSuccessful($responseData[UnzerApiRequestConstants::PARAM_IS_SUCCESS] ?? null)
             ->setIsPending($responseData[UnzerApiRequestConstants::PARAM_IS_PENDING] ?? null)
             ->setIsError($responseData[UnzerApiRequestConstants::PARAM_IS_ERROR] ?? null)
             ->setCard3ds($responseData[UnzerApiRequestConstants::PARAM_CARD3DS] ?? null)
