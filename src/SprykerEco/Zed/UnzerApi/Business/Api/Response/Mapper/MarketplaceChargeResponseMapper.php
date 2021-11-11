@@ -26,7 +26,7 @@ class MarketplaceChargeResponseMapper implements UnzerApiResponseMapperInterface
     ): UnzerApiResponseTransfer {
         $unzerApiMarketplaceChargeResponseTransfer = (new UnzerApiChargeResponseTransfer())
             ->setId($responseData[UnzerApiRequestConstants::PARAM_ID] ?? null)
-            ->setIsSuccessful($responseData[UnzerApiRequestConstants::PARAM_IS_SUCCESS] ?? null)
+            ->setIsSuccessful($responseData[UnzerApiRequestConstants::PARAM_IS_SUCCESSFUL] ?? null)
             ->setIsPending($responseData[UnzerApiRequestConstants::PARAM_IS_PENDING] ?? null)
             ->setIsError($responseData[UnzerApiRequestConstants::PARAM_IS_ERROR] ?? null)
             ->setRedirectUrl($responseData[UnzerApiRequestConstants::PARAM_REDIRECT_URL] ?? null)
