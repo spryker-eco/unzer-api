@@ -13,6 +13,7 @@ use SprykerEco\Zed\UnzerApi\Business\Api\Logger\UnzerApiLoggerInterface;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\UnzerApiRequestInterface;
 use SprykerEco\Zed\UnzerApi\Business\Api\Response\Converter\UnzerApiResponseConverterInterface;
 use SprykerEco\Zed\UnzerApi\Dependency\External\UnzerApiToHttpClientInterface;
+use SprykerEco\Zed\UnzerApi\Exception\UnzerApiToHttpClientException;
 
 class UnzerApiExternalClient implements UnzerApiExternalClientInterface
 {
@@ -71,7 +72,7 @@ class UnzerApiExternalClient implements UnzerApiExternalClientInterface
                 $this->unzerApiRequest->getRequestBody($unzerApiRequestTransfer),
                 $this->unzerApiRequest->getAuthorizationKey(),
             );
-        } catch (UnzerApiHttpRequestException $requestException) {
+        } catch (UnzerApiToHttpClientException $requestException) {
             $isSuccessful = false;
             $response = $requestException->getResponse();
         }
