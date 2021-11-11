@@ -9,8 +9,8 @@ namespace SprykerEco\Zed\UnzerApi\Business;
 
 use Spryker\Service\UtilEncoding\UtilEncodingServiceInterface;
 use Spryker\Zed\Kernel\Business\AbstractBusinessFactory;
-use SprykerEco\Zed\UnzerApi\Business\Api\Client\UnzerApiClient;
-use SprykerEco\Zed\UnzerApi\Business\Api\Client\UnzerApiClientInterface;
+use SprykerEco\Zed\UnzerApi\Business\Api\ExternalClient\UnzerApiExternalClient;
+use SprykerEco\Zed\UnzerApi\Business\Api\ExternalClient\UnzerApiExternalClientInterface;
 use SprykerEco\Zed\UnzerApi\Business\Api\Logger\UnzerApiLogger;
 use SprykerEco\Zed\UnzerApi\Business\Api\Logger\UnzerApiLoggerInterface;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\AuthorizableChargeRequest;
@@ -73,11 +73,11 @@ use SprykerEco\Zed\UnzerApi\UnzerApiDependencyProvider;
 class UnzerApiBusinessFactory extends AbstractBusinessFactory
 {
     /**
-     * @return \SprykerEco\Zed\UnzerApi\Business\Api\Client\UnzerApiClientInterface
+     * @return \SprykerEco\Zed\UnzerApi\Business\Api\ExternalClient\UnzerApiExternalClientInterface
      */
-    public function createSetWebhookApiClient(): UnzerApiClientInterface
+    public function createSetWebhookApiClient(): UnzerApiExternalClientInterface
     {
-        return new UnzerApiClient(
+        return new UnzerApiExternalClient(
             $this->getUnzerApiHttpClient(),
             $this->createSetWebhookRequest(),
             $this->createSetWebhookUrlResponseConverter(),
@@ -127,11 +127,11 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     }
 
     /**
-     * @return \SprykerEco\Zed\UnzerApi\Business\Api\Client\UnzerApiClientInterface
+     * @return \SprykerEco\Zed\UnzerApi\Business\Api\ExternalClient\UnzerApiExternalClientInterface
      */
-    public function createCreateCustomerApiClient(): UnzerApiClientInterface
+    public function createCreateCustomerApiClient(): UnzerApiExternalClientInterface
     {
-        return new UnzerApiClient(
+        return new UnzerApiExternalClient(
             $this->getUnzerApiHttpClient(),
             $this->createCreateCustomerRequest(),
             $this->createCreateCustomerResponseConverter(),
@@ -181,11 +181,11 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     }
 
     /**
-     * @return \SprykerEco\Zed\UnzerApi\Business\Api\Client\UnzerApiClientInterface
+     * @return \SprykerEco\Zed\UnzerApi\Business\Api\ExternalClient\UnzerApiExternalClientInterface
      */
-    public function createCreateBasketApiClient(): UnzerApiClientInterface
+    public function createCreateBasketApiClient(): UnzerApiExternalClientInterface
     {
-        return new UnzerApiClient(
+        return new UnzerApiExternalClient(
             $this->getUnzerApiHttpClient(),
             $this->createCreateBasketRequest(),
             $this->createCreateBasketResponseConverter(),
@@ -243,11 +243,11 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     }
 
     /**
-     * @return \SprykerEco\Zed\UnzerApi\Business\Api\Client\UnzerApiClientInterface
+     * @return \SprykerEco\Zed\UnzerApi\Business\Api\ExternalClient\UnzerApiExternalClientInterface
      */
-    public function createCreateMetadataApiClient(): UnzerApiClientInterface
+    public function createCreateMetadataApiClient(): UnzerApiExternalClientInterface
     {
-        return new UnzerApiClient(
+        return new UnzerApiExternalClient(
             $this->getUnzerApiHttpClient(),
             $this->createCreateMetadataRequest(),
             $this->createCreateMetadataResponseConverter(),
@@ -305,11 +305,11 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     }
 
     /**
-     * @return \SprykerEco\Zed\UnzerApi\Business\Api\Client\UnzerApiClientInterface
+     * @return \SprykerEco\Zed\UnzerApi\Business\Api\ExternalClient\UnzerApiExternalClientInterface
      */
-    public function createMarketplaceAuthorizeApiClient(): UnzerApiClientInterface
+    public function createMarketplaceAuthorizeApiClient(): UnzerApiExternalClientInterface
     {
-        return new UnzerApiClient(
+        return new UnzerApiExternalClient(
             $this->getUnzerApiHttpClient(),
             $this->createMarketplaceAuthorizeRequest(),
             $this->createMarketplaceAuthorizeResponseConverter(),
@@ -367,11 +367,11 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     }
 
     /**
-     * @return \SprykerEco\Zed\UnzerApi\Business\Api\Client\UnzerApiClientInterface
+     * @return \SprykerEco\Zed\UnzerApi\Business\Api\ExternalClient\UnzerApiExternalClientInterface
      */
-    public function createAuthorizeApiClient(): UnzerApiClientInterface
+    public function createAuthorizeApiClient(): UnzerApiExternalClientInterface
     {
-        return new UnzerApiClient(
+        return new UnzerApiExternalClient(
             $this->getUnzerApiHttpClient(),
             $this->createAuthorizeRequest(),
             $this->createAuthorizeResponseConverter(),
@@ -469,11 +469,11 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     }
 
     /**
-     * @return \SprykerEco\Zed\UnzerApi\Business\Api\Client\UnzerApiClientInterface
+     * @return \SprykerEco\Zed\UnzerApi\Business\Api\ExternalClient\UnzerApiExternalClientInterface
      */
-    public function createMarketplaceGetPaymentApiClient(): UnzerApiClientInterface
+    public function createMarketplaceGetPaymentApiClient(): UnzerApiExternalClientInterface
     {
-        return new UnzerApiClient(
+        return new UnzerApiExternalClient(
             $this->getUnzerApiHttpClient(),
             $this->createMarketplaceGetPaymentRequest(),
             $this->createGetPaymentResponseConverter(),
@@ -512,11 +512,11 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     }
 
     /**
-     * @return \SprykerEco\Zed\UnzerApi\Business\Api\Client\UnzerApiClientInterface
+     * @return \SprykerEco\Zed\UnzerApi\Business\Api\ExternalClient\UnzerApiExternalClientInterface
      */
-    public function createGetPaymentApiClient(): UnzerApiClientInterface
+    public function createGetPaymentApiClient(): UnzerApiExternalClientInterface
     {
-        return new UnzerApiClient(
+        return new UnzerApiExternalClient(
             $this->getUnzerApiHttpClient(),
             $this->createGetPaymentRequest(),
             $this->createGetPaymentResponseConverter(),
@@ -574,11 +574,11 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     }
 
     /**
-     * @return \SprykerEco\Zed\UnzerApi\Business\Api\Client\UnzerApiClientInterface
+     * @return \SprykerEco\Zed\UnzerApi\Business\Api\ExternalClient\UnzerApiExternalClientInterface
      */
-    public function createMarketplaceChargeApiClient(): UnzerApiClientInterface
+    public function createMarketplaceChargeApiClient(): UnzerApiExternalClientInterface
     {
-        return new UnzerApiClient(
+        return new UnzerApiExternalClient(
             $this->getUnzerApiHttpClient(),
             $this->createMarketplaceChargeRequest(),
             $this->createMarketplaceChargeResponseConverter(),
@@ -636,11 +636,11 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     }
 
     /**
-     * @return \SprykerEco\Zed\UnzerApi\Business\Api\Client\UnzerApiClientInterface
+     * @return \SprykerEco\Zed\UnzerApi\Business\Api\ExternalClient\UnzerApiExternalClientInterface
      */
-    public function createMarketplaceAuthorizableChargeApiClient(): UnzerApiClientInterface
+    public function createMarketplaceAuthorizableChargeApiClient(): UnzerApiExternalClientInterface
     {
-        return new UnzerApiClient(
+        return new UnzerApiExternalClient(
             $this->getUnzerApiHttpClient(),
             $this->createMarketplaceAuthorizableChargeRequest(),
             $this->createMarketplaceCreditCardChargeResponseConverter(),
@@ -698,11 +698,11 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     }
 
     /**
-     * @return \SprykerEco\Zed\UnzerApi\Business\Api\Client\UnzerApiClientInterface
+     * @return \SprykerEco\Zed\UnzerApi\Business\Api\ExternalClient\UnzerApiExternalClientInterface
      */
-    public function createCreatePaymentResourceApiClient(): UnzerApiClientInterface
+    public function createCreatePaymentResourceApiClient(): UnzerApiExternalClientInterface
     {
-        return new UnzerApiClient(
+        return new UnzerApiExternalClient(
             $this->getUnzerApiHttpClient(),
             $this->createCreatePaymentResourceRequest(),
             $this->createCreatePaymentResourceResponseConverter(),
@@ -760,11 +760,11 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     }
 
     /**
-     * @return \SprykerEco\Zed\UnzerApi\Business\Api\Client\UnzerApiClientInterface
+     * @return \SprykerEco\Zed\UnzerApi\Business\Api\ExternalClient\UnzerApiExternalClientInterface
      */
-    public function createMarketplaceRefundApiClient(): UnzerApiClientInterface
+    public function createMarketplaceRefundApiClient(): UnzerApiExternalClientInterface
     {
-        return new UnzerApiClient(
+        return new UnzerApiExternalClient(
             $this->getUnzerApiHttpClient(),
             $this->createMarketplaceRefundRequest(),
             $this->createMarketplaceRefundResponseConverter(),
@@ -822,11 +822,11 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     }
 
     /**
-     * @return \SprykerEco\Zed\UnzerApi\Business\Api\Client\UnzerApiClientInterface
+     * @return \SprykerEco\Zed\UnzerApi\Business\Api\ExternalClient\UnzerApiExternalClientInterface
      */
-    public function createRefundApiClient(): UnzerApiClientInterface
+    public function createRefundApiClient(): UnzerApiExternalClientInterface
     {
-        return new UnzerApiClient(
+        return new UnzerApiExternalClient(
             $this->getUnzerApiHttpClient(),
             $this->createRefundRequest(),
             $this->createRefundResponseConverter(),
@@ -876,11 +876,11 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     }
 
     /**
-     * @return \SprykerEco\Zed\UnzerApi\Business\Api\Client\UnzerApiClientInterface
+     * @return \SprykerEco\Zed\UnzerApi\Business\Api\ExternalClient\UnzerApiExternalClientInterface
      */
-    public function createChargeApiClient(): UnzerApiClientInterface
+    public function createChargeApiClient(): UnzerApiExternalClientInterface
     {
-        return new UnzerApiClient(
+        return new UnzerApiExternalClient(
             $this->getUnzerApiHttpClient(),
             $this->createChargeRequest(),
             $this->createChargeResponseConverter(),
@@ -938,11 +938,11 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     }
 
     /**
-     * @return \SprykerEco\Zed\UnzerApi\Business\Api\Client\UnzerApiClientInterface
+     * @return \SprykerEco\Zed\UnzerApi\Business\Api\ExternalClient\UnzerApiExternalClientInterface
      */
-    public function createAuthorizableChargeApiClient(): UnzerApiClientInterface
+    public function createAuthorizableChargeApiClient(): UnzerApiExternalClientInterface
     {
-        return new UnzerApiClient(
+        return new UnzerApiExternalClient(
             $this->getUnzerApiHttpClient(),
             $this->createAuthorizableChargeRequest(),
             $this->createCreditCardChargeResponseConverter(),
