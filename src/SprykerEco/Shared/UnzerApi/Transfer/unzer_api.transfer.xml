@@ -1,0 +1,424 @@
+<?xml version="1.0"?>
+<transfers xmlns="spryker:transfer-01"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="spryker:transfer-01 http://static.spryker.com/transfer-01.xsd">
+
+    <!--Requests section-->
+    <transfer name="UnzerApiRequest">
+        <property name="storeKeypair" type="UnzerApiStoreKeypair"/>
+        <property name="setWebhookRequest" type="UnzerApiSetWebhookRequest"/>
+        <property name="getWebhookRequest" type="UnzerApiGetWebhookRequest"/>
+        <property name="deleteWebhookRequest" type="UnzerApiDeleteWebhookRequest"/>
+        <property name="createBasketRequest" type="UnzerApiCreateBasketRequest"/>
+        <property name="createCustomerRequest" type="UnzerApiCreateCustomerRequest"/>
+        <property name="updateCustomerRequest" type="UnzerApiUpdateCustomerRequest"/>
+        <property name="createMetadataRequest" type="UnzerApiCreateMetadataRequest"/>
+        <property name="createPaymentResourceRequest" type="UnzerApiCreatePaymentResourceRequest"/>
+        <property name="authorizeRequest" type="UnzerApiAuthorizeRequest"/>
+        <property name="marketplaceAuthorizeRequest" type="UnzerApiMarketplaceAuthorizeRequest"/>
+        <property name="getPaymentRequest" type="UnzerApiGetPaymentRequest"/>
+        <property name="chargeRequest" type="UnzerApiChargeRequest"/>
+        <property name="refundRequest" type="UnzerApiRefundRequest"/>
+        <property name="marketplaceRefundRequest" type="UnzerApiMarketplaceRefundRequest"/>
+    </transfer>
+
+    <transfer name="UnzerApiStoreKeypair">
+        <property name="store" type="string"/>
+        <property name="privateKey" type="string"/>
+        <property name="publicKey" type="string"/>
+    </transfer>
+
+    <transfer name="UnzerApiSetWebhookRequest">
+        <property name="retrieveUrl" type="string"/>
+        <property name="event" type="string"/>
+    </transfer>
+
+    <transfer name="UnzerApiGetWebhookRequest">
+        <property name="id" type="string"/>
+    </transfer>
+
+    <transfer name="UnzerApiDeleteWebhookRequest">
+        <property name="id" type="string"/>
+    </transfer>
+
+    <transfer name="UnzerApiCreateBasketRequest">
+        <property name="id" type="string"/>
+        <property name="amountTotalGross" type="float"/>
+        <property name="currencyCode" type="string"/>
+        <property name="note" type="string"/>
+        <property name="orderId" type="string"/>
+        <property name="basketItems" type="UnzerBasketItem[]" singular="basketItem"/>
+    </transfer>
+
+    <transfer name="UnzerApiCreateCustomerRequest">
+        <property name="lastname" type="string"/>
+        <property name="firstname" type="string"/>
+        <property name="salutation" type="string"/>
+        <property name="company" type="string"/>
+        <property name="customerId" type="string"/>
+        <property name="birthDate" type="string"/>
+        <property name="email" type="string"/>
+        <property name="phone" type="string"/>
+        <property name="mobile" type="string"/>
+        <property name="type" type="string"/>
+        <property name="billingAddress" type="UnzerAddress"/>
+        <property name="shippingAddress" type="UnzerAddress"/>
+        <property name="geoLocation" type="UnzerGeolocation"/>
+    </transfer>
+
+    <transfer name="UnzerApiCreateMetadataRequest">
+        <property name="store" type="string"/>
+        <property name="locale" type="string"/>
+        <property name="priceMode" type="string"/>
+        <property name="createdAt" type="string"/>
+    </transfer>
+
+    <transfer name="UnzerApiCreatePaymentResourceRequest">
+        <property name="paymentMethod" type="string"/>
+    </transfer>
+
+    <transfer name="UnzerApiAuthorizeRequest">
+    </transfer>
+
+    <transfer name="UnzerApiMarketplaceAuthorizeRequest">
+        <property name="amount" type="float"/>
+        <property name="currency" type="string"/>
+        <property name="returnUrl" type="string"/>
+        <property name="orderId" type="string"/>
+        <property name="invoiceId" type="string"/>
+        <property name="paymentReference" type="string"/>
+        <property name="customerId" type="string"/>
+        <property name="typeId" type="string"/>
+        <property name="basketId" type="string"/>
+    </transfer>
+
+    <transfer name="UnzerApiGetPaymentRequest">
+        <property name="paymentId" type="string"/>
+    </transfer>
+
+    <transfer name="UnzerApiChargeRequest">
+        <property name="amount" type="float"/>
+        <property name="currency" type="string"/>
+        <property name="orderId" type="string"/>
+        <property name="invoiceId" type="string"/>
+        <property name="paymentReference" type="string"/>
+        <property name="returnUrl" type="string"/>
+        <property name="typeId" type="string"/>
+        <property name="customerId" type="string"/>
+        <property name="basketId" type="string"/>
+        <property name="paymentId" type="string"/>
+        <property name="metadataId" type="string"/>
+    </transfer>
+
+    <transfer name="UnzerApiRefundRequest">
+        <property name="paymentId" type="string"/>
+        <property name="chargeId" type="string"/>
+        <property name="amount" type="string"/>
+        <property name="paymentReference" type="string"/>
+    </transfer>
+
+    <transfer name="UnzerApiMarketplaceRefundRequest">
+        <property name="paymentId" type="string"/>
+        <property name="chargeId" type="string"/>
+        <property name="orderId" type="string"/>
+        <property name="invoiceId" type="string"/>
+        <property name="paymentReference" type="string"/>
+        <property name="canceledBasket" type="UnzerRefundItem[]" singular="canceledBasket"/>
+    </transfer>
+
+    <!--    Responses section-->
+    <transfer name="UnzerApiResponse">
+        <property name="httpCode" type="int"/>
+        <property name="isSuccessful" type="bool"/>
+        <property name="setWebhookResponse" type="UnzerApiSetWebhookResponse"/>
+        <property name="getWebhookResponse" type="UnzerApiGetWebhookResponse"/>
+        <property name="deleteWebhookResponse" type="UnzerApiDeleteWebhookResponse"/>
+        <property name="createBasketResponse" type="UnzerApiCreateBasketResponse"/>
+        <property name="createCustomerResponse" type="UnzerApiCreateCustomerResponse"/>
+        <property name="updateCustomerResponse" type="UnzerApiUpdateCustomerResponse"/>
+        <property name="createMetadataResponse" type="UnzerApiCreateMetadataResponse"/>
+        <property name="createPaymentResourceResponse" type="UnzerApiCreatePaymentResourceResponse"/>
+        <property name="authorizeResponse" type="UnzerApiAuthorizeResponse"/>
+        <property name="marketplaceAuthorizeResponse" type="UnzerApiMarketplaceAuthorizeResponse"/>
+        <property name="chargeResponse" type="UnzerApiChargeResponse"/>
+        <property name="creditCardChargeResponse" type="UnzerApiCreditCardChargeResponse"/>
+        <property name="refundResponse" type="UnzerApiRefundResponse"/>
+        <property name="marketplaceRefundResponse" type="UnzerApiMarketplaceRefundResponse"/>
+        <property name="getPaymentResponse" type="UnzerApiGetPaymentResponse"/>
+        <property name="errorResponse" type="UnzerApiErrorResponse"/>
+    </transfer>
+
+    <transfer name="UnzerApiErrorResponse">
+        <property name="url" type="string"/>
+        <property name="timestamp" type="string"/>
+        <property name="errors" type="UnzerApiResponseError[]" singular="error"/>
+    </transfer>
+
+    <transfer name="UnzerApiResponseError">
+        <property name="code" type="string"/>
+        <property name="merchantMessage" type="string"/>
+        <property name="customerMessage" type="string"/>
+    </transfer>
+
+    <transfer name="UnzerApiMessage">
+        <property name="code" type="string"/>
+        <property name="merchant" type="string"/>
+        <property name="customer" type="string"/>
+    </transfer>
+
+    <transfer name="UnzerApiMarketplaceTransaction">
+        <property name="participantId" type="string"/>
+        <property name="date" type="string"/>
+        <property name="type" type="string"/>
+        <property name="status" type="string"/>
+        <property name="url" type="string"/>
+        <property name="amount" type="float"/>
+    </transfer>
+
+    <transfer name="UnzerApiSetWebhookResponse">
+        <property name="id" type="string"/>
+        <property name="url" type="string"/>
+        <property name="event" type="string"/>
+    </transfer>
+
+    <transfer name="UnzerApiGetWebhookResponse">
+        <property name="id" type="string"/>
+        <property name="url" type="string"/>
+        <property name="event" type="string"/>
+    </transfer>
+
+    <transfer name="UnzerApiDeleteWebhookResponse">
+        <property name="id" type="string"/>
+    </transfer>
+
+    <transfer name="UnzerApiCreateBasketResponse">
+        <property name="id" type="string"/>
+    </transfer>
+
+    <transfer name="UnzerApiCreateCustomerResponse">
+        <property name="id" type="string"/>
+    </transfer>
+
+    <transfer name="UnzerApiUpdateCustomerResponse">
+        <property name="id" type="string"/>
+    </transfer>
+
+    <transfer name="UnzerApiCreateMetadataResponse">
+        <property name="id" type="string"/>
+    </transfer>
+
+    <transfer name="UnzerApiCreatePaymentResourceResponse">
+        <property name="id" type="string"/>
+        <property name="method" type="string"/>
+        <property name="recurring" type="string"/>
+        <property name="clientIp" type="string"/>
+        <property name="countryIsoA2" type="string"/>
+    </transfer>
+
+    <transfer name="UnzerApiAuthorizeResponse">
+    </transfer>
+
+    <transfer name="UnzerApiGetPaymentResponse">
+        <property name="id" type="string"/>
+        <property name="stateId" type="int"/>
+        <property name="stateName" type="string"/>
+        <property name="amountTotal" type="float"/>
+        <property name="amountCharged" type="float"/>
+        <property name="amountCanceled" type="float"/>
+        <property name="amountRemaining" type="float"/>
+        <property name="currency" type="string"/>
+        <property name="orderId" type="string"/>
+        <property name="invoiceId" type="string"/>
+        <property name="customerId" type="string"/>
+        <property name="paymentId" type="string"/>
+        <property name="basketId" type="string"/>
+        <property name="metadataId" type="string"/>
+        <property name="payPageId" type="string"/>
+        <property name="traceId" type="string"/>
+        <property name="typeId" type="string"/>
+        <property name="transactions" type="UnzerApiPaymentTransaction[]" singular="transaction"/>
+    </transfer>
+
+    <transfer name="UnzerApiPaymentTransaction">
+        <property name="participantId" type="string"/>
+        <property name="date" type="string"/>
+        <property name="type" type="string"/>
+        <property name="status" type="string"/>
+        <property name="url" type="string"/>
+        <property name="amount" type="float"/>
+    </transfer>
+
+    <transfer name="UnzerApiMarketplaceAuthorizeResponse">
+        <property name="id" type="string"/>
+        <property name="isSuccessful" type="bool"/>
+        <property name="isPending" type="bool"/>
+        <property name="isError" type="bool"/>
+        <property name="card3ds" type="bool"/>
+        <property name="redirectUrl" type="string"/>
+        <property name="message" type="UnzerApiMessage"/>
+        <property name="amount" type="float"/>
+        <property name="currency" type="string"/>
+        <property name="returnUrl" type="string"/>
+        <property name="date" type="string"/>
+        <property name="customerId" type="string"/>
+        <property name="paymentId" type="string"/>
+        <property name="basketId" type="string"/>
+        <property name="traceId" type="string"/>
+        <property name="typeId" type="string"/>
+        <property name="paymentReference" type="string"/>
+        <property name="uniqueId" type="string"/>
+        <property name="shortId" type="string"/>
+        <property name="participantId" type="string"/>
+    </transfer>
+
+
+    <transfer name="UnzerApiChargeResponse">
+        <property name="id" type="string"/>
+        <property name="isSuccessful" type="bool"/>
+        <property name="isPending" type="bool"/>
+        <property name="isError" type="bool"/>
+        <property name="stateId" type="int"/>
+        <property name="stateName" type="string"/>
+        <property name="amountTotal" type="float"/>
+        <property name="amountCharged" type="float"/>
+        <property name="amountCanceled" type="float"/>
+        <property name="amountRemaining" type="float"/>
+        <property name="redirectUrl" type="string"/>
+        <property name="message" type="UnzerApiMessage"/>
+        <property name="amount" type="string"/>
+        <property name="currency" type="string"/>
+        <property name="returnUrl" type="string"/>
+        <property name="date" type="string"/>
+        <property name="customerId" type="string"/>
+        <property name="paymentId" type="string"/>
+        <property name="basketId" type="string"/>
+        <property name="metadataId" type="string"/>
+        <property name="traceId" type="string"/>
+        <property name="typeId" type="string"/>
+        <property name="orderId" type="string"/>
+        <property name="invoiceId" type="string"/>
+        <property name="paymentReference" type="string"/>
+        <property name="uniqueId" type="string"/>
+        <property name="shortId" type="string"/>
+        <property name="transactions" type="UnzerApiMarketplaceTransaction[]" singular="transaction"/>
+    </transfer>
+
+    <transfer name="UnzerApiCreditCardChargeResponse">
+        <property name="id" type="string"/>
+        <property name="isSuccessful" type="bool"/>
+        <property name="isPending" type="bool"/>
+        <property name="isError" type="bool"/>
+        <property name="card3ds" type="bool"/>
+        <property name="message" type="UnzerApiMessage"/>
+        <property name="amount" type="string"/>
+        <property name="currency" type="string"/>
+        <property name="date" type="string"/>
+        <property name="customerId" type="string"/>
+        <property name="paymentId" type="string"/>
+        <property name="basketId" type="string"/>
+        <property name="metadataId" type="string"/>
+        <property name="traceId" type="string"/>
+        <property name="payPageId" type="string"/>
+        <property name="typeId" type="string"/>
+        <property name="paymentReference" type="string"/>
+        <property name="uniqueId" type="string"/>
+        <property name="shortId" type="string"/>
+    </transfer>
+
+    <transfer name="UnzerApiRefundResponse">
+        <property name="id" type="string"/>
+        <property name="isSuccessful" type="bool"/>
+        <property name="isPending" type="bool"/>
+        <property name="isError" type="bool"/>
+        <property name="card3ds" type="bool"/>
+        <property name="message" type="UnzerApiMessage"/>
+        <property name="amount" type="float"/>
+        <property name="currency" type="string"/>
+        <property name="date" type="string"/>
+        <property name="customerId" type="string"/>
+        <property name="paymentId" type="string"/>
+        <property name="basketId" type="string"/>
+        <property name="metadataId" type="string"/>
+        <property name="payPageId" type="string"/>
+        <property name="traceId" type="string"/>
+        <property name="typeId" type="string"/>
+        <property name="orderId" type="string"/>
+        <property name="invoiceId" type="string"/>
+        <property name="paymentReference" type="string"/>
+        <property name="uniqueId" type="string"/>
+        <property name="shortId" type="string"/>
+        <property name="participantId" type="string"/>
+    </transfer>
+
+    <transfer name="UnzerApiMarketplaceRefundResponse">
+        <property name="id" type="string"/>
+        <property name="isSuccessful" type="bool"/>
+        <property name="isPending" type="bool"/>
+        <property name="isError" type="bool"/>
+        <property name="card3ds" type="bool"/>
+        <property name="message" type="UnzerApiMessage"/>
+        <property name="amount" type="float"/>
+        <property name="currency" type="string"/>
+        <property name="date" type="string"/>
+        <property name="customerId" type="string"/>
+        <property name="paymentId" type="string"/>
+        <property name="basketId" type="string"/>
+        <property name="metadataId" type="string"/>
+        <property name="payPageId" type="string"/>
+        <property name="traceId" type="string"/>
+        <property name="typeId" type="string"/>
+        <property name="orderId" type="string"/>
+        <property name="invoiceId" type="string"/>
+        <property name="paymentReference" type="string"/>
+        <property name="uniqueId" type="string"/>
+        <property name="shortId" type="string"/>
+        <property name="participantId" type="string"/>
+    </transfer>
+
+    <!--    Unzer Transfers section-->
+    <transfer name="UnzerBasketItem">
+        <property name="basketItemReferenceId" type="string"/>
+        <property name="unit" type="string"/>
+        <property name="quantity" type="int"/>
+        <property name="amountDiscount" type="float"/>
+        <property name="vat" type="float"/>
+        <property name="amountGross" type="float"/>
+        <property name="amountVat" type="float"/>
+        <property name="amountPerUnit" type="float"/>
+        <property name="amountNet" type="float"/>
+        <property name="title" type="string"/>
+        <property name="participantId" type="string"/>
+        <property name="type" type="string"/>
+    </transfer>
+
+    <transfer name="UnzerAddress">
+        <property name="zip" type="string"/>
+        <property name="country" type="string"/>
+        <property name="city" type="string"/>
+        <property name="street" type="string"/>
+        <property name="name" type="string"/>
+        <property name="state" type="string"/>
+    </transfer>
+
+    <transfer name="UnzerGeolocation">
+        <property name="clientIp" type="string"/>
+        <property name="countryIsoA2" type="string"/>
+    </transfer>
+
+    <transfer name="UnzerRefundItem">
+        <property name="basketItemReferenceId" type="string"/>
+        <property name="quantity" type="int"/>
+        <property name="amountGross" type="float"/>
+        <property name="participantId" type="string"/>
+    </transfer>
+
+    <transfer name="PaymentUnzerApiLog">
+        <property name="idPaymentUnzerApiLog" type="int" />
+        <property name="requestType" type="string" />
+        <property name="isSuccessful" type="bool" />
+        <property name="request" type="string" />
+        <property name="response" type="string" />
+        <property name="url" type="string" />
+    </transfer>
+
+</transfers>

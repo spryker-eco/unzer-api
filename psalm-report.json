@@ -1,0 +1,54 @@
+{
+    "error": [],
+    "warning": [
+        {
+            "severity": "info",
+            "line_from": 18,
+            "line_to": 18,
+            "type": "LessSpecificImplementedReturnType",
+            "message": "The inherited return type 'array<string, array<array-key, mixed>|float|string>' for SprykerEco\\Zed\\UnzerApi\\Business\\Api\\Request\\Converter\\UnzerApiRequestConverterInterface::convertRequestTransferToArray is more specific than the implemented return type for SprykerEco\\Zed\\UnzerApi\\Business\\Api\\Request\\Converter\\AuthorizeRequestConverter::convertrequesttransfertoarray 'array<array-key, mixed>'",
+            "file_name": "vendor/spryker-eco/unzer-api/src/SprykerEco/Zed/UnzerApi/Business/Api/Request/Converter/AuthorizeRequestConverter.php",
+            "snippet": "     * @return array",
+            "selected_text": "array",
+            "error_level": 5,
+            "shortcode": 166
+        },
+        {
+            "severity": "info",
+            "line_from": 30,
+            "line_to": 30,
+            "type": "PossiblyInvalidArgument",
+            "message": "Argument 1 of SprykerEco\\Zed\\UnzerApi\\Business\\Api\\Request\\Converter\\CreateBasketRequestConverter::convertBasketItems expects ArrayObject, possibly different type ArrayObject|array<array-key, Generated\\Shared\\Transfer\\UnzerBasketItemTransfer> provided",
+            "file_name": "vendor/spryker-eco/unzer-api/src/SprykerEco/Zed/UnzerApi/Business/Api/Request/Converter/CreateBasketRequestConverter.php",
+            "snippet": "            UnzerApiRequestConstants::PARAM_BASKET_ITEMS => $this->convertBasketItems($unzerApiCreateBasketRequestTransfer->getBasketItems()),",
+            "selected_text": "$unzerApiCreateBasketRequestTransfer->getBasketItems()",
+            "error_level": 3,
+            "shortcode": 92
+        },
+        {
+            "severity": "info",
+            "line_from": 29,
+            "line_to": 29,
+            "type": "PossiblyInvalidArgument",
+            "message": "Argument 1 of SprykerEco\\Zed\\UnzerApi\\Business\\Api\\Request\\Converter\\MarketplaceRefundRequestConverter::getCanceledBasket expects ArrayObject, possibly different type ArrayObject|array<array-key, Generated\\Shared\\Transfer\\UnzerRefundItemTransfer> provided",
+            "file_name": "vendor/spryker-eco/unzer-api/src/SprykerEco/Zed/UnzerApi/Business/Api/Request/Converter/MarketplaceRefundRequestConverter.php",
+            "snippet": "            UnzerApiRequestConstants::PARAM_CANCELED_BASKET => $this->getCanceledBasket($unzerApiMarketplaceRefundRequestTransfer->getCanceledBasket()),",
+            "selected_text": "$unzerApiMarketplaceRefundRequestTransfer->getCanceledBasket()",
+            "error_level": 3,
+            "shortcode": 92
+        },
+        {
+            "severity": "info",
+            "line_from": 59,
+            "line_to": 59,
+            "type": "PossiblyNullArgument",
+            "message": "Argument 1 of SprykerEco\\Zed\\UnzerApi\\Business\\Api\\Response\\Mapper\\UnzerApiResponseMapperInterface::mapResponseDataToUnzerApiResponseTransfer cannot be null, possibly null value provided",
+            "file_name": "vendor/spryker-eco/unzer-api/src/SprykerEco/Zed/UnzerApi/Business/Api/Response/Converter/UnzerApiResponseConverter.php",
+            "snippet": "            ->mapResponseDataToUnzerApiResponseTransfer($responseData, $unzerApiResponseTransfer);",
+            "selected_text": "$responseData",
+            "error_level": 3,
+            "shortcode": 78
+        }
+    ],
+    "deprecation": []
+}
