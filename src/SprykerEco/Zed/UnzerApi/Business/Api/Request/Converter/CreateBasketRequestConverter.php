@@ -16,7 +16,7 @@ class CreateBasketRequestConverter implements UnzerApiRequestConverterInterface
     /**
      * @param \Generated\Shared\Transfer\UnzerApiRequestTransfer $unzerApiRequestTransfer
      *
-     * @return array{amountTotalGross: float|null, basketItems: list<array{amountDiscount: string, amountGross: string, amountNet: string, amountPerUnit: string, amountVat: string, basketItemReferenceId: mixed|null|string, participantId: mixed|string, quantity: string, title: mixed|string, type: mixed|string}>, currencyCode: null|string, note: null|string, orderId: null|string}
+     * @return array<string, array|float|string|null>
      */
     public function convertRequestTransferToArray(UnzerApiRequestTransfer $unzerApiRequestTransfer): array
     {
@@ -34,7 +34,7 @@ class CreateBasketRequestConverter implements UnzerApiRequestConverterInterface
     /**
      * @param \ArrayObject $unzerBasketItemTransfers
      *
-     * @return list<array{amountDiscount: string, amountGross: string, amountNet: string, amountPerUnit: string, amountVat: string, basketItemReferenceId: mixed|null|string, participantId: mixed|string, quantity: string, title: mixed|string, type: mixed|string}>
+     * @return array<int, array<string, mixed>>
      */
     protected function convertBasketItems(ArrayObject $unzerBasketItemTransfers): array
     {

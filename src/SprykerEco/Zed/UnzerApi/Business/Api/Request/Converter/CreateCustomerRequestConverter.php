@@ -16,7 +16,7 @@ class CreateCustomerRequestConverter implements UnzerApiRequestConverterInterfac
     /**
      * @param \Generated\Shared\Transfer\UnzerApiRequestTransfer $unzerApiRequestTransfer
      *
-     * @return array{billingAddress: array{city: null|string, country: null|string, name: null|string, state: null|string, street: null|string, zip: null|string}, birthDate: null|string, company: null|string, customerId: null|string, email: null|string, firstname: string, lastname: string, mobile: null|string, phone: null|string, salutation: null|string, shippingAddress: array{city: null|string}}
+     * @return array<string, array<string, string|null>|string|null>
      */
     public function convertRequestTransferToArray(UnzerApiRequestTransfer $unzerApiRequestTransfer): array
     {
@@ -40,7 +40,7 @@ class CreateCustomerRequestConverter implements UnzerApiRequestConverterInterfac
     /**
      * @param \Generated\Shared\Transfer\UnzerAddressTransfer $unzerAddressTransfer
      *
-     * @return array{city: null|string, country: null|string, name: null|string, state: null|string, street: null|string, zip: null|string}
+     * @return array<string, string|null>
      */
     protected function convertAddress(UnzerAddressTransfer $unzerAddressTransfer): array
     {

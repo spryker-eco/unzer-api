@@ -15,7 +15,7 @@ class MarketplaceChargeRequestConverter implements UnzerApiRequestConverterInter
     /**
      * @param \Generated\Shared\Transfer\UnzerApiRequestTransfer $unzerApiRequestTransfer
      *
-     * @return array{amount: float|null, currency: null|string, invoiceId: null|string, orderId: null|string, resources: array{basketId: null|string, customerId: null|string, typeId: null|string}, returnUrl: null|string}
+     * @return array<string, array<string, string|null>|float|string|null>
      */
     public function convertRequestTransferToArray(UnzerApiRequestTransfer $unzerApiRequestTransfer): array
     {

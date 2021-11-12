@@ -16,7 +16,7 @@ class RefundRequestConverter implements UnzerApiRequestConverterInterface
     /**
      * @param \Generated\Shared\Transfer\UnzerApiRequestTransfer $unzerApiRequestTransfer
      *
-     * @return array{amount: null|string, chargeId: null|string, paymentId: null|string, paymentReference: null|string}
+     * @return array<string, string|null>
      */
     public function convertRequestTransferToArray(UnzerApiRequestTransfer $unzerApiRequestTransfer): array
     {

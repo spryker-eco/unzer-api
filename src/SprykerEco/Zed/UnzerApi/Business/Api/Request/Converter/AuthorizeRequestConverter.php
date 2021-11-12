@@ -15,7 +15,7 @@ class AuthorizeRequestConverter implements UnzerApiRequestConverterInterface
     /**
      * @param \Generated\Shared\Transfer\UnzerApiRequestTransfer $unzerApiRequestTransfer
      *
-     * @return array{amount: float|null, currency: null|string, resources: array{customerId: null|string, typeId: null|string}, returnUrl: null|string}
+     * @return array
      */
     public function convertRequestTransferToArray(UnzerApiRequestTransfer $unzerApiRequestTransfer): array
     {
