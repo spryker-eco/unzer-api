@@ -15,14 +15,14 @@ class MarketPlaceAuthorizeRequestConverter implements UnzerApiRequestConverterIn
     /**
      * @param \Generated\Shared\Transfer\UnzerApiRequestTransfer $unzerApiRequestTransfer
      *
-     * @return array<string, array<string, string|null>|float|string|null>
+     * @return array<string, array<string, string|null>|float|string
      */
     public function convertRequestTransferToArray(UnzerApiRequestTransfer $unzerApiRequestTransfer): array
     {
         $unzerApiMarketplaceAuthorizeRequestTransfer = $unzerApiRequestTransfer->getMarketplaceAuthorizeRequestOrFail();
 
         return [
-            UnzerApiRequestConstants::PARAM_AMOUNT => $unzerApiMarketplaceAuthorizeRequestTransfer->getAmount(),
+            UnzerApiRequestConstants::PARAM_AMOUNT => (string)$unzerApiMarketplaceAuthorizeRequestTransfer->getAmount(),
             UnzerApiRequestConstants::PARAM_CURRENCY => $unzerApiMarketplaceAuthorizeRequestTransfer->getCurrency(),
             UnzerApiRequestConstants::PARAM_RETURN_URL => $unzerApiMarketplaceAuthorizeRequestTransfer->getReturnUrl(),
             UnzerApiRequestConstants::PARAM_RESOURCES => [

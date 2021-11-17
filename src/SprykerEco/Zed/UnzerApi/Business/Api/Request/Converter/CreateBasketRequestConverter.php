@@ -23,7 +23,7 @@ class CreateBasketRequestConverter implements UnzerApiRequestConverterInterface
         $unzerApiCreateBasketRequestTransfer = $unzerApiRequestTransfer->getCreateBasketRequestOrFail();
 
         return [
-            UnzerApiRequestConstants::PARAM_AMOUNT_TOTAL_GROSS => $unzerApiCreateBasketRequestTransfer->getAmountTotalGross(),
+            UnzerApiRequestConstants::PARAM_AMOUNT_TOTAL_GROSS => (string)$unzerApiCreateBasketRequestTransfer->getAmountTotalGross(),
             UnzerApiRequestConstants::PARAM_CURRENCY_CODE => $unzerApiCreateBasketRequestTransfer->getCurrencyCode(),
             UnzerApiRequestConstants::PARAM_NOTE => $unzerApiCreateBasketRequestTransfer->getNote(),
             UnzerApiRequestConstants::PARAM_ORDER_ID => $unzerApiCreateBasketRequestTransfer->getOrderId(),

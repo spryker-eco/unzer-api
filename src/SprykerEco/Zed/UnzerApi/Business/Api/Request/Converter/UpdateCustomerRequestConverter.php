@@ -11,7 +11,7 @@ use Generated\Shared\Transfer\UnzerAddressTransfer;
 use Generated\Shared\Transfer\UnzerApiRequestTransfer;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\UnzerApiRequestConstants;
 
-class CreateCustomerRequestConverter implements UnzerApiRequestConverterInterface
+class UpdateCustomerRequestConverter implements UnzerApiRequestConverterInterface
 {
     /**
      * @param \Generated\Shared\Transfer\UnzerApiRequestTransfer $unzerApiRequestTransfer
@@ -20,20 +20,20 @@ class CreateCustomerRequestConverter implements UnzerApiRequestConverterInterfac
      */
     public function convertRequestTransferToArray(UnzerApiRequestTransfer $unzerApiRequestTransfer): array
     {
-        $unzerApiCreateCustomerRequestTransfer = $unzerApiRequestTransfer->getCreateCustomerRequestOrFail();
+        $unzerApiUpdateCustomerRequestTransfer = $unzerApiRequestTransfer->getUpdateCustomerRequestOrFail();
 
         return [
-            UnzerApiRequestConstants::PARAM_LASTNAME => $unzerApiCreateCustomerRequestTransfer->getLastnameOrFail(),
-            UnzerApiRequestConstants::PARAM_FIRSTNAME => $unzerApiCreateCustomerRequestTransfer->getFirstnameOrFail(),
-            UnzerApiRequestConstants::PARAM_SALUTATION => $unzerApiCreateCustomerRequestTransfer->getSalutation(),
-            UnzerApiRequestConstants::PARAM_COMPANY => $unzerApiCreateCustomerRequestTransfer->getCompany(),
-            UnzerApiRequestConstants::PARAM_CUSTOMER_ID => $unzerApiCreateCustomerRequestTransfer->getCustomerId(),
-            UnzerApiRequestConstants::PARAM_BIRTH_DATE => $unzerApiCreateCustomerRequestTransfer->getBirthDate(),
-            UnzerApiRequestConstants::PARAM_EMAIL => $unzerApiCreateCustomerRequestTransfer->getEmail(),
-            UnzerApiRequestConstants::PARAM_PHONE => $unzerApiCreateCustomerRequestTransfer->getPhone(),
-            UnzerApiRequestConstants::PARAM_MOBILE => $unzerApiCreateCustomerRequestTransfer->getMobile(),
-            UnzerApiRequestConstants::PARAM_BILLING_ADDRESS => $this->convertAddress($unzerApiCreateCustomerRequestTransfer->getBillingAddressOrFail()),
-            UnzerApiRequestConstants::PARAM_SHIPPING_ADDRESS => $this->convertAddress($unzerApiCreateCustomerRequestTransfer->getShippingAddressOrFail()),
+            UnzerApiRequestConstants::PARAM_LASTNAME => $unzerApiUpdateCustomerRequestTransfer->getLastnameOrFail(),
+            UnzerApiRequestConstants::PARAM_FIRSTNAME => $unzerApiUpdateCustomerRequestTransfer->getFirstnameOrFail(),
+            UnzerApiRequestConstants::PARAM_SALUTATION => $unzerApiUpdateCustomerRequestTransfer->getSalutation(),
+            UnzerApiRequestConstants::PARAM_COMPANY => $unzerApiUpdateCustomerRequestTransfer->getCompany(),
+            UnzerApiRequestConstants::PARAM_CUSTOMER_ID => $unzerApiUpdateCustomerRequestTransfer->getCustomerId(),
+            UnzerApiRequestConstants::PARAM_BIRTH_DATE => $unzerApiUpdateCustomerRequestTransfer->getBirthDate(),
+            UnzerApiRequestConstants::PARAM_EMAIL => $unzerApiUpdateCustomerRequestTransfer->getEmail(),
+            UnzerApiRequestConstants::PARAM_PHONE => $unzerApiUpdateCustomerRequestTransfer->getPhone(),
+            UnzerApiRequestConstants::PARAM_MOBILE => $unzerApiUpdateCustomerRequestTransfer->getMobile(),
+            UnzerApiRequestConstants::PARAM_BILLING_ADDRESS => $this->convertAddress($unzerApiUpdateCustomerRequestTransfer->getBillingAddressOrFail()),
+            UnzerApiRequestConstants::PARAM_SHIPPING_ADDRESS => $this->convertAddress($unzerApiUpdateCustomerRequestTransfer->getShippingAddressOrFail()),
         ];
     }
 

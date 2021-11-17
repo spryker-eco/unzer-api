@@ -15,14 +15,14 @@ class MarketplaceChargeRequestConverter implements UnzerApiRequestConverterInter
     /**
      * @param \Generated\Shared\Transfer\UnzerApiRequestTransfer $unzerApiRequestTransfer
      *
-     * @return array<string, array<string, string|null>|float|string|null>
+     * @return array<string, array<string, string|null>|float|string
      */
     public function convertRequestTransferToArray(UnzerApiRequestTransfer $unzerApiRequestTransfer): array
     {
         $unzerApiChargeRequestTransfer = $unzerApiRequestTransfer->getChargeRequestOrFail();
 
         return [
-            UnzerApiRequestConstants::PARAM_AMOUNT => $unzerApiChargeRequestTransfer->getAmount(),
+            UnzerApiRequestConstants::PARAM_AMOUNT => (string)$unzerApiChargeRequestTransfer->getAmount(),
             UnzerApiRequestConstants::PARAM_CURRENCY => $unzerApiChargeRequestTransfer->getCurrency(),
             UnzerApiRequestConstants::PARAM_ORDER_ID => $unzerApiChargeRequestTransfer->getOrderId(),
             UnzerApiRequestConstants::PARAM_INVOICE_ID => $unzerApiChargeRequestTransfer->getInvoiceId(),

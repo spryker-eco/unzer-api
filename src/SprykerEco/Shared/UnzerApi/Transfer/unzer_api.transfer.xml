@@ -66,6 +66,23 @@
         <property name="geoLocation" type="UnzerGeolocation"/>
     </transfer>
 
+    <transfer name="UnzerApiUpdateCustomerRequest">
+        <property name="unzerCustomerId" type="string"/>
+        <property name="lastname" type="string"/>
+        <property name="firstname" type="string"/>
+        <property name="salutation" type="string"/>
+        <property name="company" type="string"/>
+        <property name="customerId" type="string"/>
+        <property name="birthDate" type="string"/>
+        <property name="email" type="string"/>
+        <property name="phone" type="string"/>
+        <property name="mobile" type="string"/>
+        <property name="type" type="string"/>
+        <property name="billingAddress" type="UnzerAddress"/>
+        <property name="shippingAddress" type="UnzerAddress"/>
+        <property name="geoLocation" type="UnzerGeolocation"/>
+    </transfer>
+
     <transfer name="UnzerApiCreateMetadataRequest">
         <property name="store" type="string"/>
         <property name="locale" type="string"/>
