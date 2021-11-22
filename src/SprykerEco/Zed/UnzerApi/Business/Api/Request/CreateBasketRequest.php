@@ -39,12 +39,4 @@ class CreateBasketRequest extends UnzerApiAbstractRequest implements UnzerApiReq
     {
         return $this->unzerApiRequestBuilder->buildRequestPayload($unzerApiRequestTransfer);
     }
-
-    /**
-     * @return string
-     */
-    public function getAuthorizationKey(): string
-    {
-        return $this->unzerApiConfig->getUnzerApiPrivateKey();
-    }
 }

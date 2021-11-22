@@ -42,12 +42,4 @@ class GetPaymentRequest extends UnzerApiAbstractRequest implements UnzerApiReque
     {
         return '';
     }
-
-    /**
-     * @return string
-     */
-    public function getAuthorizationKey(): string
-    {
-        return $this->unzerApiConfig->getUnzerApiPrivateKey();
-    }
 }

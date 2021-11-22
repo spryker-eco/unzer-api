@@ -51,7 +51,7 @@ class UnzerApiResponseConverter implements UnzerApiResponseConverterInterface
 
         $unzerApiResponseTransfer = $this->createUnzerApiResponseTransfer($isSuccessful);
 
-        if (!$isSuccessful || !$unzerApiResponseTransfer->getIsSuccess()) {
+        if (!$isSuccessful || !$unzerApiResponseTransfer->getIsSuccessful()) {
             return $this->updateResponseTransferWithError($unzerApiResponseTransfer, $responseData);
         }
 

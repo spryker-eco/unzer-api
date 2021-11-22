@@ -5,7 +5,7 @@
 
     <!--Requests section-->
     <transfer name="UnzerApiRequest">
-        <property name="storeKeypair" type="UnzerApiStoreKeypair"/>
+        <property name="unzerKeypair" type="UnzerKeypair"/>
         <property name="setWebhookRequest" type="UnzerApiSetWebhookRequest"/>
         <property name="getWebhookRequest" type="UnzerApiGetWebhookRequest"/>
         <property name="deleteWebhookRequest" type="UnzerApiDeleteWebhookRequest"/>
@@ -22,10 +22,10 @@
         <property name="marketplaceRefundRequest" type="UnzerApiMarketplaceRefundRequest"/>
     </transfer>
 
-    <transfer name="UnzerApiStoreKeypair">
-        <property name="store" type="string"/>
-        <property name="privateKey" type="string"/>
+    <transfer name="UnzerKeypair">
+        <property name="keypairId" type="string"/>
         <property name="publicKey" type="string"/>
+        <property name="privateKey" type="string"/>
     </transfer>
 
     <transfer name="UnzerApiSetWebhookRequest">
