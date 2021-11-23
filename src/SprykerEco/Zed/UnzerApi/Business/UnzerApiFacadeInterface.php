@@ -38,6 +38,18 @@ interface UnzerApiFacadeInterface
 
     /**
      * Specification:
+     * - Performs Unzer Update Customer API call.
+     *
+     * @api
+     *
+     * @param \Generated\Shared\Transfer\UnzerApiRequestTransfer $unzerApiRequestTransfer
+     *
+     * @return \Generated\Shared\Transfer\UnzerApiResponseTransfer
+     */
+    public function performUpdateCustomerApiCall(UnzerApiRequestTransfer $unzerApiRequestTransfer): UnzerApiResponseTransfer;
+
+    /**
+     * Specification:
      * - Performs Unzer Create Metadata API call.
      *
      * @api

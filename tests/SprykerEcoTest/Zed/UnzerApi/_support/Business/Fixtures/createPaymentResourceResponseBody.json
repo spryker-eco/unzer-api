@@ -1,0 +1,9 @@
+{
+    "id": "s-sft-a2xga7a7wshs",
+    "method": "sofort",
+    "recurring": false,
+    "geoLocation": {
+        "clientIp": "127.0.0.1",
+        "countryIsoA2": "DE"
+    }
+}

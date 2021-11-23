@@ -1,0 +1,16 @@
+{
+    "id": "s-err-2c221def545c4a8182be6d672b5",
+    "isSuccess": false,
+    "isPending": false,
+    "isError": true,
+    "url": "https://api.unzer.com/v1/marketplace/payments/charges",
+    "timestamp": "2021-11-22 14:10:13",
+    "traceId": "18d2f973fc76eb8ede1d6d590d86e1a7",
+    "errors": [
+        {
+            "code": "API.380.200.152",
+            "merchantMessage": "Resources: basket was used.",
+            "customerMessage": "An error occurred. Please contact us for more information."
+        }
+    ]
+}
