@@ -191,4 +191,16 @@ interface UnzerApiFacadeInterface
      * @return \Generated\Shared\Transfer\UnzerApiResponseTransfer
      */
     public function performMarketplaceRefundApiCall(UnzerApiRequestTransfer $unzerApiRequestTransfer): UnzerApiResponseTransfer;
+
+    /**
+     * Specification:
+     * - Performs Unzer Get payment types API call.
+     *
+     * @api
+     *
+     * @param \Generated\Shared\Transfer\UnzerApiRequestTransfer $unzerApiRequestTransfer
+     *
+     * @return \Generated\Shared\Transfer\UnzerApiResponseTransfer
+     */
+    public function performGetPaymentTypesApiCall(UnzerApiRequestTransfer $unzerApiRequestTransfer): UnzerApiResponseTransfer;
 }
