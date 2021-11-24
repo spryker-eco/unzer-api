@@ -12,24 +12,37 @@ use Symfony\Component\HttpFoundation\Request;
 
 class GetPaymentTypesRequest extends UnzerApiAbstractRequest implements UnzerApiRequestInterface
 {
+    /**
+     * @param \Generated\Shared\Transfer\UnzerApiRequestTransfer $unzerApiRequestTransfer
+     *
+     * @return string
+     */
     public function getUrl(UnzerApiRequestTransfer $unzerApiRequestTransfer): string
     {
-        return sprintf(
-            $this->unzerApiConfig->getUnzerApiGetPaymentTypes(),
-            $unzerApiRequestTransfer->getGetPaymentTypesRequestOrFail()->getPaymentIdOrFail(),
-        );
+        return $this->unzerApiConfig->getUnzerApiGetPaymentTypes();
     }
 
+    /**
+     * @return string
+     */
     public function getHttpMethod(): string
     {
         return Request::METHOD_GET;
     }
 
+    /**
+     * @param \Generated\Shared\Transfer\UnzerApiRequestTransfer $unzerApiRequestTransfer
+     *
+     * @return string
+     */
     public function getRequestBody(UnzerApiRequestTransfer $unzerApiRequestTransfer): string
     {
         return '';
     }
 
+    /**
+     * @return string
+     */
     public function getAuthorizationKey(): string
     {
         return $this->unzerApiConfig->getUnzerApiPrivateKey();
