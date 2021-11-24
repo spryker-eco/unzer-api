@@ -25,6 +25,7 @@ use SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter\CreateCustomerRequest
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter\CreateMetadataRequestConverter;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter\CreatePaymentResourceRequestConverter;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter\GetPaymentRequestConverter;
+use SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter\GetPaymentTypesRequestConverter;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter\MarketplaceAuthorizableChargeRequestConverter;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter\MarketPlaceAuthorizeRequestConverter;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter\MarketplaceChargeRequestConverter;
@@ -38,6 +39,7 @@ use SprykerEco\Zed\UnzerApi\Business\Api\Request\CreateCustomerRequest;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\CreateMetadataRequest;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\CreatePaymentResourceRequest;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\GetPaymentRequest;
+use SprykerEco\Zed\UnzerApi\Business\Api\Request\GetPaymentTypesRequest;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\MarketplaceAuthorizableChargeRequest;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\MarketplaceAuthorizeRequest;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\MarketplaceChargeRequest;
@@ -56,6 +58,7 @@ use SprykerEco\Zed\UnzerApi\Business\Api\Response\Mapper\CreateMetadataResponseM
 use SprykerEco\Zed\UnzerApi\Business\Api\Response\Mapper\CreatePaymentResourceResponseMapper;
 use SprykerEco\Zed\UnzerApi\Business\Api\Response\Mapper\CreditCardChargeResponseMapper;
 use SprykerEco\Zed\UnzerApi\Business\Api\Response\Mapper\GetPaymentResponseMapper;
+use SprykerEco\Zed\UnzerApi\Business\Api\Response\Mapper\GetPaymentTypesResponseMapper;
 use SprykerEco\Zed\UnzerApi\Business\Api\Response\Mapper\MarketplaceAuthorizeResponseMapper;
 use SprykerEco\Zed\UnzerApi\Business\Api\Response\Mapper\MarketplaceChargeResponseMapper;
 use SprykerEco\Zed\UnzerApi\Business\Api\Response\Mapper\MarketplaceCreditCardChargeResponseMapper;
@@ -1005,5 +1008,67 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     public function createRefundResponseMapper(): UnzerApiResponseMapperInterface
     {
         return new RefundResponseMapper();
+    }
+
+    /**
+     * @return \SprykerEco\Zed\UnzerApi\Business\Api\ExternalClient\UnzerApiExternalClientInterface
+     */
+    public function createGetPaymentTypesApiClient(): UnzerApiExternalClientInterface
+    {
+        return new UnzerApiExternalClient(
+            $this->getUnzerApiHttpClient(),
+            $this->createGetPaymentTypesRequest(),
+            $this->createGetPaymentTypesResponseConverter(),
+            $this->createUnzerApiLogger(),
+        );
+    }
+
+    /**
+     * @return \SprykerEco\Zed\UnzerApi\Business\Api\Request\UnzerApiRequestInterface
+     */
+    public function createGetPaymentTypesRequest(): UnzerApiRequestInterface
+    {
+        return new GetPaymentTypesRequest(
+            $this->getConfig(),
+            $this->createGetPaymentTypesRequestBuilder(),
+        );
+    }
+
+    /**
+     * @return \SprykerEco\Zed\UnzerApi\Business\Api\Response\Converter\UnzerApiResponseConverterInterface
+     */
+    public function createGetPaymentTypesResponseConverter(): UnzerApiResponseConverterInterface
+    {
+        return new UnzerApiResponseConverter(
+            $this->getUtilEncodingService(),
+            $this->createGetPaymentTypesResponseMapper(),
+        );
+    }
+
+    /**
+     * @return \SprykerEco\Zed\UnzerApi\Business\Api\Response\Mapper\UnzerApiResponseMapperInterface
+     */
+    public function createGetPaymentTypesResponseMapper(): UnzerApiResponseMapperInterface
+    {
+        return new GetPaymentTypesResponseMapper();
+    }
+
+    /**
+     * @return \SprykerEco\Zed\UnzerApi\Business\Api\Request\Builder\UnzerApiRequestBuilderInterface
+     */
+    public function createGetPaymentTypesRequestBuilder(): UnzerApiRequestBuilderInterface
+    {
+        return new UnzerApiRequestBuilder(
+            $this->createGetPaymentTypesRequestConverter(),
+            $this->getUtilEncodingService(),
+        );
+    }
+
+    /**
+     * @return \SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter\UnzerApiRequestConverterInterface
+     */
+    public function createGetPaymentTypesRequestConverter(): UnzerApiRequestConverterInterface
+    {
+        return new GetPaymentTypesRequestConverter();
     }
 }
