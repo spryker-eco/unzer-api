@@ -423,4 +423,9 @@ interface UnzerApiRequestConstants
      * @var string
      */
     public const PARAM_ITEMS = 'items';
+
+    /**
+     * @var string
+     */
+    public const PARAM_AVAILABLE_PAYMENT_TYPES = 'availablePaymentTypes';
 }
