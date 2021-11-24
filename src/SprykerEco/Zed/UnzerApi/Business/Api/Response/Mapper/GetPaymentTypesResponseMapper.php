@@ -35,8 +35,8 @@ class GetPaymentTypesResponseMapper implements UnzerApiResponseMapperInterface
     }
 
     /**
-     * @param \Generated\Shared\Transfer\UnzerApiGetPaymentTypesResponseTransfer|array $unzerApiGetPaymentTypesResponseTransfer
      * @param array $paymentTypesData
+     * @param \Generated\Shared\Transfer\UnzerApiGetPaymentTypesResponseTransfer $unzerApiGetPaymentTypesResponseTransfer
      *
      * @return \Generated\Shared\Transfer\UnzerApiGetPaymentTypesResponseTransfer
      */
