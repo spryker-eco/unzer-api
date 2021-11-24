@@ -3,18 +3,6 @@
     "warning": [
         {
             "severity": "info",
-            "line_from": 18,
-            "line_to": 18,
-            "type": "LessSpecificImplementedReturnType",
-            "message": "The inherited return type 'array<string, array<array-key, mixed>|float|string>' for SprykerEco\\Zed\\UnzerApi\\Business\\Api\\Request\\Converter\\UnzerApiRequestConverterInterface::convertRequestTransferToArray is more specific than the implemented return type for SprykerEco\\Zed\\UnzerApi\\Business\\Api\\Request\\Converter\\AuthorizeRequestConverter::convertrequesttransfertoarray 'array<array-key, mixed>'",
-            "file_name": "vendor/spryker-eco/unzer-api/src/SprykerEco/Zed/UnzerApi/Business/Api/Request/Converter/AuthorizeRequestConverter.php",
-            "snippet": "     * @return array",
-            "selected_text": "array",
-            "error_level": 5,
-            "shortcode": 166
-        },
-        {
-            "severity": "info",
             "line_from": 30,
             "line_to": 30,
             "type": "PossiblyInvalidArgument",
