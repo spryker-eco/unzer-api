@@ -8,8 +8,8 @@
 namespace SprykerEco\Zed\UnzerApi\Business\Api\Request\Builder;
 
 use Generated\Shared\Transfer\UnzerApiRequestTransfer;
-use Spryker\Service\UtilEncoding\UtilEncodingServiceInterface;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter\UnzerApiRequestConverterInterface;
+use SprykerEco\Zed\UnzerApi\Dependency\Service\UnzerApiToUtilEncodingServiceInterface;
 
 class UnzerApiRequestBuilder implements UnzerApiRequestBuilderInterface
 {
@@ -19,17 +19,17 @@ class UnzerApiRequestBuilder implements UnzerApiRequestBuilderInterface
     protected $unzerApiRequestConverter;
 
     /**
-     * @var \Spryker\Service\UtilEncoding\UtilEncodingServiceInterface
+     * @var \SprykerEco\Zed\UnzerApi\Dependency\Service\UnzerApiToUtilEncodingServiceInterface
      */
     protected $utilEncodingService;
 
     /**
      * @param \SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter\UnzerApiRequestConverterInterface $unzerApiRequestConverter
-     * @param \Spryker\Service\UtilEncoding\UtilEncodingServiceInterface $utilEncodingService
+     * @param \SprykerEco\Zed\UnzerApi\Dependency\Service\UnzerApiToUtilEncodingServiceInterface $utilEncodingService
      */
     public function __construct(
         UnzerApiRequestConverterInterface $unzerApiRequestConverter,
-        UtilEncodingServiceInterface $utilEncodingService
+        UnzerApiToUtilEncodingServiceInterface $utilEncodingService
     ) {
         $this->unzerApiRequestConverter = $unzerApiRequestConverter;
         $this->utilEncodingService = $utilEncodingService;

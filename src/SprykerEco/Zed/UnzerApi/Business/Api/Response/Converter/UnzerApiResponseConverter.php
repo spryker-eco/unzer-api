@@ -9,14 +9,14 @@ namespace SprykerEco\Zed\UnzerApi\Business\Api\Response\Converter;
 
 use Generated\Shared\Transfer\UnzerApiErrorResponseTransfer;
 use Generated\Shared\Transfer\UnzerApiResponseTransfer;
-use Spryker\Service\UtilEncoding\UtilEncodingServiceInterface;
 use SprykerEco\Zed\UnzerApi\Business\Api\Response\Mapper\UnzerApiResponseMapperInterface;
 use SprykerEco\Zed\UnzerApi\Dependency\External\UnzerApiToHttpResponseInterface;
+use SprykerEco\Zed\UnzerApi\Dependency\Service\UnzerApiToUtilEncodingServiceInterface;
 
 class UnzerApiResponseConverter implements UnzerApiResponseConverterInterface
 {
     /**
-     * @var \Spryker\Service\UtilEncoding\UtilEncodingServiceInterface
+     * @var \SprykerEco\Zed\UnzerApi\Dependency\Service\UnzerApiToUtilEncodingServiceInterface
      */
     protected $utilEncodingService;
 
@@ -26,11 +26,11 @@ class UnzerApiResponseConverter implements UnzerApiResponseConverterInterface
     protected $unzerApiResponseMapper;
 
     /**
-     * @param \Spryker\Service\UtilEncoding\UtilEncodingServiceInterface $utilEncodingService
+     * @param \SprykerEco\Zed\UnzerApi\Dependency\Service\UnzerApiToUtilEncodingServiceInterface $utilEncodingService
      * @param \SprykerEco\Zed\UnzerApi\Business\Api\Response\Mapper\UnzerApiResponseMapperInterface $unzerApiResponseMapper
      */
     public function __construct(
-        UtilEncodingServiceInterface $utilEncodingService,
+        UnzerApiToUtilEncodingServiceInterface $utilEncodingService,
         UnzerApiResponseMapperInterface $unzerApiResponseMapper
     ) {
         $this->utilEncodingService = $utilEncodingService;

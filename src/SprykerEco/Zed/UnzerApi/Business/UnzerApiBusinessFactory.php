@@ -7,7 +7,6 @@
 
 namespace SprykerEco\Zed\UnzerApi\Business;
 
-use Spryker\Service\UtilEncoding\UtilEncodingServiceInterface;
 use Spryker\Zed\Kernel\Business\AbstractBusinessFactory;
 use SprykerEco\Zed\UnzerApi\Business\Api\ExternalClient\UnzerApiExternalClient;
 use SprykerEco\Zed\UnzerApi\Business\Api\ExternalClient\UnzerApiExternalClientInterface;
@@ -67,6 +66,7 @@ use SprykerEco\Zed\UnzerApi\Business\Api\Response\Mapper\RefundResponseMapper;
 use SprykerEco\Zed\UnzerApi\Business\Api\Response\Mapper\SetWebhookUrlResponseMapper;
 use SprykerEco\Zed\UnzerApi\Business\Api\Response\Mapper\UnzerApiResponseMapperInterface;
 use SprykerEco\Zed\UnzerApi\Dependency\External\UnzerApiToGuzzleHttpClientAdapter;
+use SprykerEco\Zed\UnzerApi\Dependency\Service\UnzerApiToUtilEncodingServiceInterface;
 use SprykerEco\Zed\UnzerApi\UnzerApiDependencyProvider;
 
 /**
@@ -456,9 +456,9 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     }
 
     /**
-     * @return \Spryker\Service\UtilEncoding\UtilEncodingServiceInterface
+     * @return \SprykerEco\Zed\UnzerApi\Dependency\Service\UnzerApiToUtilEncodingServiceInterface
      */
-    public function getUtilEncodingService(): UtilEncodingServiceInterface
+    public function getUtilEncodingService(): UnzerApiToUtilEncodingServiceInterface
     {
         return $this->getProvidedDependency(UnzerApiDependencyProvider::SERVICE_UTIL_ENCODING);
     }
