@@ -7,7 +7,6 @@
 
 namespace SprykerEco\Zed\UnzerApi\Business\Api\Response\Mapper;
 
-use Generated\Shared\Transfer\UnzerApiCreateCustomerResponseTransfer;
 use Generated\Shared\Transfer\UnzerApiResponseTransfer;
 use Generated\Shared\Transfer\UnzerApiUpdateCustomerResponseTransfer;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\UnzerApiRequestConstants;

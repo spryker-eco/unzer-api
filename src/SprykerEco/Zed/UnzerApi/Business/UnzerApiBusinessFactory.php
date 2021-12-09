@@ -45,7 +45,6 @@ use SprykerEco\Zed\UnzerApi\Business\Api\Request\MarketplaceGetPaymentRequest;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\MarketplaceRefundRequest;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\RefundRequest;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\SetWebhookUrlRequest;
-use SprykerEco\Zed\UnzerApi\Business\Api\Request\UnzerApiAbstractRequest;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\UnzerApiRequestInterface;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\UpdateCustomerRequest;
 use SprykerEco\Zed\UnzerApi\Business\Api\Response\Converter\UnzerApiResponseConverter;
