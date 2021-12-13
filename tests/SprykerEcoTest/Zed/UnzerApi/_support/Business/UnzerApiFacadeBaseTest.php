@@ -18,9 +18,24 @@ use SprykerEco\Zed\UnzerApi\Dependency\External\UnzerApiToHttpClientInterface;
 
 class UnzerApiFacadeBaseTest extends Test
 {
+    /**
+     * @var int
+     */
     protected const SUCCESS_RESPONSE_STATUS = 200;
+
+    /**
+     * @var string
+     */
     protected const FIXTURES_FOLDER_NAME = 'Fixtures';
+
+    /**
+     * @var array
+     */
     protected const RESPONSE_HEADERS = [];
+
+    /**
+     * @var string
+     */
     protected const FIXTURE_FILE_NAME = '';
 
     /**
@@ -56,7 +71,7 @@ class UnzerApiFacadeBaseTest extends Test
                 'getUtilEncodingService',
                 'getUnzerApiService',
                 'getUnzerApiHttpClient',
-            ]
+            ],
         );
 
         $stub = $builder->getMock();
@@ -73,28 +88,24 @@ class UnzerApiFacadeBaseTest extends Test
     }
 
     /**
-     * @return UnzerApiToHttpClientInterface
-     *
-     * @throws \Exception
+     * @return \SprykerEco\Zed\UnzerApi\Dependency\External\UnzerApiToHttpClientInterface
      */
     protected function createUnzerApiToGuzzleHttpClientAdapterMock(): UnzerApiToHttpClientInterface
     {
         return $this->make(
             UnzerApiToGuzzleHttpClientAdapter::class,
-            ['guzzleHttpClient' => $this->createGuzzleHttpClientMock()]
+            ['guzzleHttpClient' => $this->createGuzzleHttpClientMock()],
         );
     }
 
     /**
-     * @throws \Exception
-     *
      * @return \GuzzleHttp\ClientInterface|object
      */
     protected function createGuzzleHttpClientMock(): ClientInterface
     {
         return $this->makeEmpty(
             Client::class,
-            ['request' => $this->createResponseMock()]
+            ['request' => $this->createResponseMock()],
         );
     }
 
@@ -106,7 +117,7 @@ class UnzerApiFacadeBaseTest extends Test
         return new Response(
             static::SUCCESS_RESPONSE_STATUS,
             static::RESPONSE_HEADERS,
-            $this->getResponseBody()
+            $this->getResponseBody(),
         );
     }
 

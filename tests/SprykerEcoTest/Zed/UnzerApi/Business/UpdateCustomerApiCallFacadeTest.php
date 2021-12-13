@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * MIT License
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace SprykerEcoTest\Zed\UnzerApi\Business;
 
 /**
@@ -11,10 +16,13 @@ namespace SprykerEcoTest\Zed\UnzerApi\Business;
  */
 class UpdateCustomerApiCallFacadeTest extends UnzerApiFacadeBaseTest
 {
+    /**
+     * @var string
+     */
     protected const FIXTURE_FILE_NAME = 'updateCustomerResponseBody.json';
 
     /**
-     * @throws \Spryker\Shared\Kernel\Transfer\Exception\NullValueException
+     * @return void
      */
     public function testPerformCreateCustomerApiCall(): void
     {

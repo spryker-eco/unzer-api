@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * MIT License
+ * For full license information, please view the LICENSE file that was distributed with this source code.
+ */
+
 namespace SprykerEcoTest\Zed\UnzerApi;
 
 use Codeception\Actor;
@@ -17,18 +22,16 @@ use Generated\Shared\Transfer\UnzerApiRefundRequestTransfer;
 use Generated\Shared\Transfer\UnzerApiRequestTransfer;
 use Generated\Shared\Transfer\UnzerApiSetWebhookRequestTransfer;
 use Generated\Shared\Transfer\UnzerApiUpdateCustomerRequestTransfer;
-use Generated\Shared\Transfer\UnzerApiUpdateCustomerResponseTransfer;
 use Generated\Shared\Transfer\UnzerBasketItemTransfer;
 use Generated\Shared\Transfer\UnzerKeypairTransfer;
-use Spryker\Shared\Kernel\Transfer\AbstractTransfer;
 use SprykerEco\Shared\UnzerApi\UnzerApiConstants;
-use SprykerEco\Zed\Unzer\Business\ApiAdapter\UnzerBasketAdapter;
 use SprykerEco\Zed\UnzerApi\Dependency\Service\UnzerApiToUtilEncodingServiceBridge;
 use SprykerEco\Zed\UnzerApi\Persistence\UnzerApiEntityManager;
 use SprykerEco\Zed\UnzerApi\UnzerApiConfig;
 
 /**
  * Inherited Methods
+ *
  * @method void wantToTest($text)
  * @method void wantTo($text)
  * @method void execute($callable)
@@ -46,41 +49,143 @@ class UnzerApiZedTester extends Actor
 {
     use _generated\UnzerApiZedTesterActions;
 
+    /**
+     * @var int
+     */
     public const SPRYKER_CUSTOMER_ID = 1;
+
+    /**
+     * @var string
+     */
     public const CUSTOMER_FIRSTNAME = 'Max';
+
+    /**
+     * @var string
+     */
     public const CUSTOMER_LASTNAME = 'Mustermann';
+
+    /**
+     * @var string
+     */
     public const CUSTOMER_CITY = 'Berlin';
+
+    /**
+     * @var string
+     */
     public const CUSTOMER_COUNTRY = 'Germany';
+
+    /**
+     * @var string
+     */
     public const CUSTOMER_ZIP = '0000';
+
+    /**
+     * @var string
+     */
     public const CUSTOMER_STREET = 'Test street';
+
+    /**
+     * @var string
+     */
     public const CUSTOMER_STATE = 'DE';
+
+    /**
+     * @var string
+     */
     public const CUSTOMER_MOBILE = '000000';
+
+    /**
+     * @var string
+     */
     public const CUSTOMER_PHONE = '1111111';
+
+    /**
+     * @var string
+     */
     public const CUSTOMER_EMAIL = 'max@spryker.local';
+
+    /**
+     * @var string
+     */
     public const CUSTOMER_BIRTHDATE = '01.01.1970';
+
+    /**
+     * @var string
+     */
     public const CUSTOMER_COMPANY = 'Spryker';
+
+    /**
+     * @var string
+     */
     public const CUSTOMER_SALUTATION = 'Mr';
 
+    /**
+     * @var string
+     */
     public const METADATA_STORE = 'DE';
+
+    /**
+     * @var string
+     */
     public const METADATA_PRICE_MODE = 'Gross';
+
+    /**
+     * @var string
+     */
     public const METADATA_LOCALE = 'de';
+
+    /**
+     * @var string
+     */
     public const PAYMENT_METHOD_SOFORT = 'sofort';
 
+    /**
+     * @var string
+     */
     public const WEBHOOK_EVENT = 'all';
+
+    /**
+     * @var string
+     */
     public const WEBHOOK_URL = 'https://unzer-spryker.com';
 
+    /**
+     * @var string
+     */
     public const BASKET_ORDER_ID = 'spryker-order-id-2';
+
+    /**
+     * @var string
+     */
     public const BASKET_NOTE = 'note';
+
+    /**
+     * @var string
+     */
     public const BASKET_CURRENCY_CODE = 'EUR';
     public const BASKET_AMOUNT_TOTAL_GROSS = 723.46;
 
-    const BASKET_ITEM_TYPE = 'Wire';
-    const BASKET_ITEM_PARTICIPANT_ID = '000000';
-    const BASKET_ITEM_TITLE = 'Canon Self-Shot';
-    const BASKET_ITEM_AMOUNT_PER_UNIT = 123.00;
-    const BASKET_ITEM_AMOUNT_GROSS = 123.00;
-    const BASKET_ITEM_REFERENCE_ID = 'spryker-sku-1';
+    /**
+     * @var string
+     */
+    public const BASKET_ITEM_TYPE = 'Wire';
 
+    /**
+     * @var string
+     */
+    public const BASKET_ITEM_PARTICIPANT_ID = '000000';
+
+    /**
+     * @var string
+     */
+    public const BASKET_ITEM_TITLE = 'Canon Self-Shot';
+    public const BASKET_ITEM_AMOUNT_PER_UNIT = 123.00;
+    public const BASKET_ITEM_AMOUNT_GROSS = 123.00;
+
+    /**
+     * @var string
+     */
+    public const BASKET_ITEM_REFERENCE_ID = 'spryker-sku-1';
 
     /**
      * @param \Codeception\Scenario $scenario
@@ -115,7 +220,7 @@ class UnzerApiZedTester extends Actor
     }
 
     /**
-     * @return UnzerApiConfig
+     * @return \SprykerEco\Zed\UnzerApi\UnzerApiConfig
      */
     public function createConfig(): UnzerApiConfig
     {
@@ -123,7 +228,7 @@ class UnzerApiZedTester extends Actor
     }
 
     /**
-     * @return UnzerApiEntityManager
+     * @return \SprykerEco\Zed\UnzerApi\Persistence\UnzerApiEntityManager
      */
     public function createEntityManager(): UnzerApiEntityManager
     {
@@ -131,7 +236,7 @@ class UnzerApiZedTester extends Actor
     }
 
     /**
-     * @return UnzerApiToUtilEncodingServiceBridge
+     * @return \SprykerEco\Zed\UnzerApi\Dependency\Service\UnzerApiToUtilEncodingServiceBridge
      */
     public function createUtilEncodingService(): UnzerApiToUtilEncodingServiceBridge
     {
@@ -139,7 +244,7 @@ class UnzerApiZedTester extends Actor
     }
 
     /**
-     * @return UnzerApiRequestTransfer
+     * @return \Generated\Shared\Transfer\UnzerApiRequestTransfer
      */
     public function createUnzerApiRequestTransfer(): UnzerApiRequestTransfer
     {
@@ -159,7 +264,7 @@ class UnzerApiZedTester extends Actor
     }
 
     /**
-     * @return UnzerKeypairTransfer
+     * @return \Generated\Shared\Transfer\UnzerKeypairTransfer
      */
     protected function createUnzerKeypairTransfer(): UnzerKeypairTransfer
     {
@@ -167,7 +272,7 @@ class UnzerApiZedTester extends Actor
     }
 
     /**
-     * @return UnzerApiCreateCustomerRequestTransfer
+     * @return \Generated\Shared\Transfer\UnzerApiCreateCustomerRequestTransfer
      */
     protected function createUnzerApiCreateCustomerTransfer(): UnzerApiCreateCustomerRequestTransfer
     {
@@ -186,7 +291,7 @@ class UnzerApiZedTester extends Actor
     }
 
     /**
-     * @return UnzerApiUpdateCustomerRequestTransfer
+     * @return \Generated\Shared\Transfer\UnzerApiUpdateCustomerRequestTransfer
      */
     protected function createUnzerApiUpdateCustomerTransfer(): UnzerApiUpdateCustomerRequestTransfer
     {
@@ -205,7 +310,7 @@ class UnzerApiZedTester extends Actor
     }
 
     /**
-     * @return UnzerAddressTransfer
+     * @return \Generated\Shared\Transfer\UnzerAddressTransfer
      */
     protected function createUnzerAddressTransfer(): UnzerAddressTransfer
     {
@@ -219,7 +324,7 @@ class UnzerApiZedTester extends Actor
     }
 
     /**
-     * @return UnzerApiCreateMetadataRequestTransfer
+     * @return \Generated\Shared\Transfer\UnzerApiCreateMetadataRequestTransfer
      */
     protected function createUnzerApiCreateMetadataRequestTransfer(): UnzerApiCreateMetadataRequestTransfer
     {
@@ -230,6 +335,9 @@ class UnzerApiZedTester extends Actor
             ->setPriceMode(static::METADATA_PRICE_MODE);
     }
 
+    /**
+     * @return \Generated\Shared\Transfer\UnzerApiCreateBasketRequestTransfer
+     */
     protected function createUnzerApiCreateBasketRequestTransfer(): UnzerApiCreateBasketRequestTransfer
     {
         return (new UnzerApiCreateBasketRequestTransfer())
@@ -241,7 +349,7 @@ class UnzerApiZedTester extends Actor
     }
 
     /**
-     * @return UnzerApiSetWebhookRequestTransfer
+     * @return \Generated\Shared\Transfer\UnzerApiSetWebhookRequestTransfer
      */
     protected function createUnzerApiSetWebhookRequestTransfer(): UnzerApiSetWebhookRequestTransfer
     {
@@ -251,7 +359,7 @@ class UnzerApiZedTester extends Actor
     }
 
     /**
-     * @return UnzerApiCreatePaymentResourceRequestTransfer
+     * @return \Generated\Shared\Transfer\UnzerApiCreatePaymentResourceRequestTransfer
      */
     protected function createUnzerApiCreatePaymentResourceRequestTransfer(): UnzerApiCreatePaymentResourceRequestTransfer
     {
@@ -260,7 +368,7 @@ class UnzerApiZedTester extends Actor
     }
 
     /**
-     * @return UnzerBasketItemTransfer
+     * @return \Generated\Shared\Transfer\UnzerBasketItemTransfer
      */
     protected function createUnzerBasketItemTransfer(): UnzerBasketItemTransfer
     {
@@ -275,7 +383,7 @@ class UnzerApiZedTester extends Actor
     }
 
     /**
-     * @return UnzerApiAuthorizeRequestTransfer
+     * @return \Generated\Shared\Transfer\UnzerApiAuthorizeRequestTransfer
      */
     protected function createUnzerApiAuthorizeRequestTransfer(): UnzerApiAuthorizeRequestTransfer
     {
@@ -283,7 +391,7 @@ class UnzerApiZedTester extends Actor
     }
 
     /**
-     * @return UnzerApiMarketplaceAuthorizeRequestTransfer
+     * @return \Generated\Shared\Transfer\UnzerApiMarketplaceAuthorizeRequestTransfer
      */
     protected function createUnzerApiMarketplaceAuthorizeRequestTransfer(): UnzerApiMarketplaceAuthorizeRequestTransfer
     {
@@ -291,7 +399,7 @@ class UnzerApiZedTester extends Actor
     }
 
     /**
-     * @return UnzerApiChargeRequestTransfer
+     * @return \Generated\Shared\Transfer\UnzerApiChargeRequestTransfer
      */
     protected function createUnzerApiChargeRequestTransfer(): UnzerApiChargeRequestTransfer
     {
@@ -299,7 +407,7 @@ class UnzerApiZedTester extends Actor
     }
 
     /**
-     * @return UnzerApiRefundRequestTransfer
+     * @return \Generated\Shared\Transfer\UnzerApiRefundRequestTransfer
      */
     protected function createUnzerApiRefundRequestTransfer(): UnzerApiRefundRequestTransfer
     {
@@ -307,7 +415,7 @@ class UnzerApiZedTester extends Actor
     }
 
     /**
-     * @return UnzerApiMarketplaceRefundRequestTransfer
+     * @return \Generated\Shared\Transfer\UnzerApiMarketplaceRefundRequestTransfer
      */
     protected function createUnzerApiMarketplaceRefundRequestTransfer(): UnzerApiMarketplaceRefundRequestTransfer
     {
