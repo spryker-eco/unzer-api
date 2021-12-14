@@ -9,7 +9,7 @@ namespace SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter;
 
 use Generated\Shared\Transfer\UnzerApiRequestTransfer;
 
-class GetPaymentTypesRequestConverter implements UnzerApiRequestConverterInterface
+class GetPaymentMethodsRequestConverter implements UnzerApiRequestConverterInterface
 {
     /**
      * @param \Generated\Shared\Transfer\UnzerApiRequestTransfer $unzerApiRequestTransfer

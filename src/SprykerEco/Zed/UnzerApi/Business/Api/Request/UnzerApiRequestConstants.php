@@ -427,5 +427,5 @@ interface UnzerApiRequestConstants
     /**
      * @var string
      */
-    public const PARAM_AVAILABLE_PAYMENT_TYPES = 'availablePaymentTypes';
+    public const PARAM_AVAILABLE_PAYMENT_METHODS = 'availablePaymentTypes';
 }
