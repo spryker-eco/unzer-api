@@ -23,8 +23,8 @@ use SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter\CreateBasketRequestCo
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter\CreateCustomerRequestConverter;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter\CreateMetadataRequestConverter;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter\CreatePaymentResourceRequestConverter;
-use SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter\GetPaymentRequestConverter;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter\GetPaymentMethodsRequestConverter;
+use SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter\GetPaymentRequestConverter;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter\MarketplaceAuthorizableChargeRequestConverter;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter\MarketPlaceAuthorizeRequestConverter;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter\MarketplaceChargeRequestConverter;
@@ -37,8 +37,8 @@ use SprykerEco\Zed\UnzerApi\Business\Api\Request\CreateBasketRequest;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\CreateCustomerRequest;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\CreateMetadataRequest;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\CreatePaymentResourceRequest;
-use SprykerEco\Zed\UnzerApi\Business\Api\Request\GetPaymentRequest;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\GetPaymentMethodsRequest;
+use SprykerEco\Zed\UnzerApi\Business\Api\Request\GetPaymentRequest;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\MarketplaceAuthorizableChargeRequest;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\MarketplaceAuthorizeRequest;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\MarketplaceChargeRequest;
@@ -56,8 +56,8 @@ use SprykerEco\Zed\UnzerApi\Business\Api\Response\Mapper\CreateCustomerResponseM
 use SprykerEco\Zed\UnzerApi\Business\Api\Response\Mapper\CreateMetadataResponseMapper;
 use SprykerEco\Zed\UnzerApi\Business\Api\Response\Mapper\CreatePaymentResourceResponseMapper;
 use SprykerEco\Zed\UnzerApi\Business\Api\Response\Mapper\CreditCardChargeResponseMapper;
-use SprykerEco\Zed\UnzerApi\Business\Api\Response\Mapper\GetPaymentResponseMapper;
 use SprykerEco\Zed\UnzerApi\Business\Api\Response\Mapper\GetPaymentMethodsResponseMapper;
+use SprykerEco\Zed\UnzerApi\Business\Api\Response\Mapper\GetPaymentResponseMapper;
 use SprykerEco\Zed\UnzerApi\Business\Api\Response\Mapper\MarketplaceAuthorizeResponseMapper;
 use SprykerEco\Zed\UnzerApi\Business\Api\Response\Mapper\MarketplaceChargeResponseMapper;
 use SprykerEco\Zed\UnzerApi\Business\Api\Response\Mapper\MarketplaceCreditCardChargeResponseMapper;
@@ -1030,7 +1030,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new GetPaymentMethodsRequest(
             $this->getConfig(),
-            $this->createGetPaymentMethodsRequestBuilder()
+            $this->createGetPaymentMethodsRequestBuilder(),
         );
     }
 

@@ -22,7 +22,6 @@ use Generated\Shared\Transfer\UnzerApiMarketplaceRefundRequestTransfer;
 use Generated\Shared\Transfer\UnzerApiRefundRequestTransfer;
 use Generated\Shared\Transfer\UnzerApiRequestTransfer;
 use Generated\Shared\Transfer\UnzerApiSetWebhookRequestTransfer;
-use Generated\Shared\Transfer\UnzerApiUpdateCustomerRequestTransfer;
 use Generated\Shared\Transfer\UnzerBasketItemTransfer;
 use Generated\Shared\Transfer\UnzerKeypairTransfer;
 use SprykerEco\Shared\UnzerApi\UnzerApiConstants;

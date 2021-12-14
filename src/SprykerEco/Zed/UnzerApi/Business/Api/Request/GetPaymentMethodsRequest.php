@@ -43,8 +43,6 @@ class GetPaymentMethodsRequest extends UnzerApiAbstractRequest implements UnzerA
     /**
      * @param \Generated\Shared\Transfer\UnzerApiRequestTransfer $unzerApiRequestTransfer
      *
-     * @throws \Spryker\Shared\Kernel\Transfer\Exception\NullValueException
-     *
      * @return string
      */
     public function getAuthorizationKey(UnzerApiRequestTransfer $unzerApiRequestTransfer): string
