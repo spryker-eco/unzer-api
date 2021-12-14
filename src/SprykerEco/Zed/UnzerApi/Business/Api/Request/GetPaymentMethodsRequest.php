@@ -10,7 +10,7 @@ namespace SprykerEco\Zed\UnzerApi\Business\Api\Request;
 use Generated\Shared\Transfer\UnzerApiRequestTransfer;
 use Symfony\Component\HttpFoundation\Request;
 
-class GetPaymentTypesRequest extends UnzerApiAbstractRequest implements UnzerApiRequestInterface
+class GetPaymentMethodsRequest extends UnzerApiAbstractRequest implements UnzerApiRequestInterface
 {
     /**
      * @param \Generated\Shared\Transfer\UnzerApiRequestTransfer $unzerApiRequestTransfer
@@ -19,7 +19,7 @@ class GetPaymentTypesRequest extends UnzerApiAbstractRequest implements UnzerApi
      */
     public function getUrl(UnzerApiRequestTransfer $unzerApiRequestTransfer): string
     {
-        return $this->unzerApiConfig->getUnzerApiGetPaymentTypes();
+        return $this->unzerApiConfig->getUnzerApiGetPaymentMethods();
     }
 
     /**
@@ -41,10 +41,14 @@ class GetPaymentTypesRequest extends UnzerApiAbstractRequest implements UnzerApi
     }
 
     /**
+     * @param \Generated\Shared\Transfer\UnzerApiRequestTransfer $unzerApiRequestTransfer
+     *
+     * @throws \Spryker\Shared\Kernel\Transfer\Exception\NullValueException
+     *
      * @return string
      */
-    public function getAuthorizationKey(): string
+    public function getAuthorizationKey(UnzerApiRequestTransfer $unzerApiRequestTransfer): string
     {
-        return $this->unzerApiConfig->getUnzerApiPrivateKey();
+        return $unzerApiRequestTransfer->getUnzerKeypairOrFail()->getPrivateKeyOrFail();
     }
 }
