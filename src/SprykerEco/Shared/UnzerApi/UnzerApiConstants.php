@@ -100,5 +100,5 @@ interface UnzerApiConstants
     /**
      * @var string
      */
-    public const GET_PAYMENT_TYPES_URL = 'UNZERAPI:GET_PAYMENT_TYPES_URL';
+    public const GET_PAYMENT_METHODS_URL = 'UNZERAPI:GET_PAYMENT_METHODS_URL';
 }
