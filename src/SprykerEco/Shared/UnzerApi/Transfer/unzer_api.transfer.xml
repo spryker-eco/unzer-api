@@ -3,8 +3,9 @@
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xsi:schemaLocation="spryker:transfer-01 http://static.spryker.com/transfer-01.xsd">
 
-    <!--Requests section-->
+    <!-- Requests section -->
     <transfer name="UnzerApiRequest">
+        <property name="unzerKeypair" type="UnzerKeypair"/>
         <property name="storeKeypair" type="UnzerApiStoreKeypair"/>
         <property name="setWebhookRequest" type="UnzerApiSetWebhookRequest"/>
         <property name="getWebhookRequest" type="UnzerApiGetWebhookRequest"/>
@@ -20,7 +21,7 @@
         <property name="chargeRequest" type="UnzerApiChargeRequest"/>
         <property name="refundRequest" type="UnzerApiRefundRequest"/>
         <property name="marketplaceRefundRequest" type="UnzerApiMarketplaceRefundRequest"/>
-        <property name="getPaymentTypesRequest" type="UnzerApiGetPaymentTypesRequest"/>
+        <property name="getPaymentMethodsRequest" type="UnzerApiGetPaymentMethodsRequest"/>
     </transfer>
 
     <transfer name="UnzerApiStoreKeypair">
@@ -127,7 +128,7 @@
         <property name="canceledBasket" type="UnzerRefundItem[]" singular="canceledBasket"/>
     </transfer>
 
-    <!-- Responses section-->
+    <!-- Responses section -->
     <transfer name="UnzerApiResponse">
         <property name="httpCode" type="int"/>
         <property name="isSuccessful" type="bool"/>
@@ -146,7 +147,7 @@
         <property name="refundResponse" type="UnzerApiRefundResponse"/>
         <property name="marketplaceRefundResponse" type="UnzerApiMarketplaceRefundResponse"/>
         <property name="getPaymentResponse" type="UnzerApiGetPaymentResponse"/>
-        <property name="getPaymentTypesResponse" type="UnzerApiGetPaymentTypesResponse"/>
+        <property name="getPaymentMethodsResponse" type="UnzerApiGetPaymentMethodsResponse"/>
         <property name="errorResponse" type="UnzerApiErrorResponse"/>
     </transfer>
 
@@ -376,18 +377,18 @@
         <property name="participantId" type="string"/>
     </transfer>
 
-    <transfer name="UnzerApiGetPaymentTypesRequest">
+    <transfer name="UnzerApiGetPaymentMethodsRequest">
     </transfer>
 
-    <transfer name="UnzerApiGetPaymentTypesResponse">
-        <property name="types" type="UnzerApiPaymentType[]" singular="type"/>
+    <transfer name="UnzerApiGetPaymentMethodsResponse">
+        <property name="paymentMethods" type="UnzerApiPaymentMethod[]" singular="paymentMethod"/>
     </transfer>
 
-    <transfer name="UnzerApiPaymentType">
-        <property name="type" type="string"/>
+    <transfer name="UnzerApiPaymentMethod">
+        <property name="paymentMethodKey" type="string"/>
     </transfer>
 
-    <!--    Unzer Transfers section-->
+    <!-- Unzer Transfers section -->
     <transfer name="UnzerBasketItem">
         <property name="basketItemReferenceId" type="string"/>
         <property name="unit" type="string"/>
@@ -432,5 +433,4 @@
         <property name="response" type="string" />
         <property name="url" type="string" />
     </transfer>
-
 </transfers>
