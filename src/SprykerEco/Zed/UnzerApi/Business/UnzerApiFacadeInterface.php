@@ -194,7 +194,7 @@ interface UnzerApiFacadeInterface
 
     /**
      * Specification:
-     * - Performs Unzer Get payment types API call.
+     * - Performs Unzer Get payment methods API call.
      *
      * @api
      *
@@ -202,5 +202,5 @@ interface UnzerApiFacadeInterface
      *
      * @return \Generated\Shared\Transfer\UnzerApiResponseTransfer
      */
-    public function performGetPaymentTypesApiCall(UnzerApiRequestTransfer $unzerApiRequestTransfer): UnzerApiResponseTransfer;
+    public function performGetPaymentMethodsApiCall(UnzerApiRequestTransfer $unzerApiRequestTransfer): UnzerApiResponseTransfer;
 }

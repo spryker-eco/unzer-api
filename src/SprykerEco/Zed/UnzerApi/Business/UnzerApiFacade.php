@@ -238,8 +238,8 @@ class UnzerApiFacade extends AbstractFacade implements UnzerApiFacadeInterface
      *
      * @return \Generated\Shared\Transfer\UnzerApiResponseTransfer
      */
-    public function performGetPaymentTypesApiCall(UnzerApiRequestTransfer $unzerApiRequestTransfer): UnzerApiResponseTransfer
+    public function performGetPaymentMethodsApiCall(UnzerApiRequestTransfer $unzerApiRequestTransfer): UnzerApiResponseTransfer
     {
-        return $this->getFactory()->createGetPaymentTypesApiClient()->sendRequest($unzerApiRequestTransfer);
+        return $this->getFactory()->createGetPaymentMethodsApiClient()->sendRequest($unzerApiRequestTransfer);
     }
 }
