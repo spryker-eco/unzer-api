@@ -18,4 +18,4 @@ $config[UnzerApiConstants::CREDIT_CARD_CHARGE_URL] = 'https://api.unzer.com/v1/p
 $config[UnzerApiConstants::CREATE_PAYMENT_RESOURCE_URL] = 'https://api.unzer.com/v1/types/%s';
 $config[UnzerApiConstants::MARKETPLACE_REFUND_URL] = 'https://api.unzer.com/v1/marketplace/payments/%s/charges/%s/cancels';
 $config[UnzerApiConstants::REFUND_URL] = 'https://api.unzer.com/v1/payments/%s/charges/%s/cancels';
-$config[UnzerApiConstants::GET_PAYMENT_TYPES_URL] = 'https://api.unzer.com/v1/keypair';
+$config[UnzerApiConstants::GET_PAYMENT_METHODS_URL] = 'https://api.unzer.com/v1/keypair';
