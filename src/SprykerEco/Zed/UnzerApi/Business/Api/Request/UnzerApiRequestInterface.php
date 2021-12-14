@@ -31,7 +31,9 @@ interface UnzerApiRequestInterface
     public function getRequestBody(UnzerApiRequestTransfer $unzerApiRequestTransfer): string;
 
     /**
+     * @param \Generated\Shared\Transfer\UnzerApiRequestTransfer $unzerApiRequestTransfer
+     *
      * @return string
      */
-    public function getAuthorizationKey(): string;
+    public function getAuthorizationKey(UnzerApiRequestTransfer $unzerApiRequestTransfer): string;
 }
