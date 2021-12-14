@@ -1,0 +1,18 @@
+{
+    "publicKey": "s-pub-123456",
+    "privateKey": "123456",
+    "secureLevel": "SAQ-A-EP",
+    "merchantName": "Spryker Test",
+    "merchantAddress": "n.n. n.n., n.n. n.n.",
+    "availablePaymentTypes": [
+        "sofort",
+        "card",
+        "sepa-direct-debit",
+        "paypal"
+    ],
+    "validateBasket": "true",
+    "captchaFeatureEnable": "false",
+    "coreId": "4866",
+    "enableMandatory3dsEmail": "true",
+    "enableCrossChannelReferencing": "false"
+}
