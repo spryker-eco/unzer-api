@@ -24,7 +24,7 @@ class CreateMetadataApiCallFacadeTest extends UnzerApiFacadeBaseTest
     /**
      * @return void
      */
-    public function testPerformCreateCustomerApiCall(): void
+    public function testPerformCreateMetadataApiCall(): void
     {
         //Arrange
         $unzerApiRequestTransfer = $this->tester->createUnzerApiRequestTransfer();

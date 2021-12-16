@@ -17,7 +17,7 @@ class MarketplaceChargeRequestConverter implements UnzerApiRequestConverterInter
      *
      * @return array<string, array<string, string|null>|float|string
      */
-    public function convertRequestTransferToArray(UnzerApiRequestTransfer $unzerApiRequestTransfer): array
+    public function convertUnzerApiRequestTransferToArray(UnzerApiRequestTransfer $unzerApiRequestTransfer): array
     {
         $unzerApiChargeRequestTransfer = $unzerApiRequestTransfer->getChargeRequestOrFail();
 

@@ -24,7 +24,7 @@ class CreateBasketApiCallFacadeTest extends UnzerApiFacadeBaseTest
     /**
      * @return void
      */
-    public function testPerformCreateCustomerApiCall(): void
+    public function testPerformCreateBasketApiCall(): void
     {
         //Arrange
         $unzerApiRequestTransfer = $this->tester->createUnzerApiRequestTransfer();

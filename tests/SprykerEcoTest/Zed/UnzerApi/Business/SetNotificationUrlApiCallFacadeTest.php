@@ -26,7 +26,7 @@ class SetNotificationUrlApiCallFacadeTest extends UnzerApiFacadeBaseTest
     /**
      * @return void
      */
-    public function testPerformCreateCustomerApiCall(): void
+    public function testPerformSetNotificationUrlApiCall(): void
     {
         //Arrange
         $unzerApiRequestTransfer = $this->tester->createUnzerApiRequestTransfer();

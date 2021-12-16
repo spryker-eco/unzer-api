@@ -16,7 +16,7 @@ class CreatePaymentResourceRequestConverter implements UnzerApiRequestConverterI
      *
      * @return array<string, array<array-key, mixed>|string>
      */
-    public function convertRequestTransferToArray(UnzerApiRequestTransfer $unzerApiRequestTransfer): array
+    public function convertUnzerApiRequestTransferToArray(UnzerApiRequestTransfer $unzerApiRequestTransfer): array
     {
         return [];
     }

@@ -24,7 +24,7 @@ class UpdateCustomerApiCallFacadeTest extends UnzerApiFacadeBaseTest
     /**
      * @return void
      */
-    public function testPerformCreateCustomerApiCall(): void
+    public function testPerformUpdateCustomerApiCall(): void
     {
         //Arrange
         $unzerApiRequestTransfer = $this->tester->createUnzerApiRequestTransfer();

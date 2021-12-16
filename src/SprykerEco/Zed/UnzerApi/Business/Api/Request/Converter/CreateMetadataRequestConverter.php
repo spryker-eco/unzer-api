@@ -17,7 +17,7 @@ class CreateMetadataRequestConverter implements UnzerApiRequestConverterInterfac
      *
      * @return array<string, string|null>
      */
-    public function convertRequestTransferToArray(UnzerApiRequestTransfer $unzerApiRequestTransfer): array
+    public function convertUnzerApiRequestTransferToArray(UnzerApiRequestTransfer $unzerApiRequestTransfer): array
     {
         $unzerApiCreateMetadataRequestTransfer = $unzerApiRequestTransfer->getCreateMetadataRequestOrFail();
 
