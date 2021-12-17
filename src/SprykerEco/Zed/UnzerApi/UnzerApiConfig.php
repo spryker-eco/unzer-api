@@ -137,16 +137,6 @@ class UnzerApiConfig extends AbstractBundleConfig
      *
      * @return string
      */
-    public function getUnzerApiPrivateKey(): string
-    {
-        return $this->get(UnzerApiConstants::UNZER_PRIVATE_KEY);
-    }
-
-    /**
-     * @api
-     *
-     * @return string
-     */
     public function getUnzerApiCreatePaymentResource(): string
     {
         return $this->get(UnzerApiConstants::CREATE_PAYMENT_RESOURCE_URL);

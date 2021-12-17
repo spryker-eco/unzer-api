@@ -17,13 +17,13 @@ class SetWebhookUrlRequestConverter implements UnzerApiRequestConverterInterface
      *
      * @return array<string, string|null>
      */
-    public function convertRequestTransferToArray(UnzerApiRequestTransfer $unzerApiRequestTransfer): array
+    public function convertUnzerApiRequestTransferToArray(UnzerApiRequestTransfer $unzerApiRequestTransfer): array
     {
         $unzerApiSetWebhookRequestTransfer = $unzerApiRequestTransfer->getSetWebhookRequestOrFail();
 
         return [
             UnzerApiRequestConstants::PARAM_URL => $unzerApiSetWebhookRequestTransfer->getRetrieveUrl(),
-            UnzerApiRequestConstants::PARAM_EVENT => $unzerApiSetWebhookRequestTransfer->getEventOrFail(),
+            UnzerApiRequestConstants::PARAM_EVENT => $unzerApiSetWebhookRequestTransfer->getEvent(),
         ];
     }
 }

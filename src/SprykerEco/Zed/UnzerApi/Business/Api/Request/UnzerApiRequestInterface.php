@@ -29,9 +29,4 @@ interface UnzerApiRequestInterface
      * @return string
      */
     public function getRequestBody(UnzerApiRequestTransfer $unzerApiRequestTransfer): string;
-
-    /**
-     * @return string
-     */
-    public function getAuthorizationKey(): string;
 }

@@ -15,16 +15,6 @@ interface UnzerApiConstants
     /**
      * @var string
      */
-    public const UNZER_PRIVATE_KEY = 'UNZERAPI:UNZER_PRIVATE_KEY';
-
-    /**
-     * @var string
-     */
-    public const UNZER_PUBLIC_KEY = 'UNZERAPI:UNZER_PRIVATE_KEY';
-
-    /**
-     * @var string
-     */
     public const WEBHOOK_RESOURCE_URL = 'UNZERAPI:WEBHOOK_RESOURCE_URL';
 
     /**

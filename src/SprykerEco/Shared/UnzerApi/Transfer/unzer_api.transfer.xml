@@ -5,7 +5,7 @@
 
     <!--Requests section-->
     <transfer name="UnzerApiRequest">
-        <property name="storeKeypair" type="UnzerApiStoreKeypair"/>
+        <property name="unzerKeypair" type="UnzerKeypair"/>
         <property name="setWebhookRequest" type="UnzerApiSetWebhookRequest"/>
         <property name="getWebhookRequest" type="UnzerApiGetWebhookRequest"/>
         <property name="deleteWebhookRequest" type="UnzerApiDeleteWebhookRequest"/>
@@ -22,10 +22,10 @@
         <property name="marketplaceRefundRequest" type="UnzerApiMarketplaceRefundRequest"/>
     </transfer>
 
-    <transfer name="UnzerApiStoreKeypair">
-        <property name="store" type="string"/>
-        <property name="privateKey" type="string"/>
+    <transfer name="UnzerKeypair">
+        <property name="keypairId" type="string"/>
         <property name="publicKey" type="string"/>
+        <property name="privateKey" type="string"/>
     </transfer>
 
     <transfer name="UnzerApiSetWebhookRequest">
@@ -51,6 +51,23 @@
     </transfer>
 
     <transfer name="UnzerApiCreateCustomerRequest">
+        <property name="lastname" type="string"/>
+        <property name="firstname" type="string"/>
+        <property name="salutation" type="string"/>
+        <property name="company" type="string"/>
+        <property name="customerId" type="string"/>
+        <property name="birthDate" type="string"/>
+        <property name="email" type="string"/>
+        <property name="phone" type="string"/>
+        <property name="mobile" type="string"/>
+        <property name="type" type="string"/>
+        <property name="billingAddress" type="UnzerAddress"/>
+        <property name="shippingAddress" type="UnzerAddress"/>
+        <property name="geoLocation" type="UnzerGeolocation"/>
+    </transfer>
+
+    <transfer name="UnzerApiUpdateCustomerRequest">
+        <property name="unzerCustomerId" type="string"/>
         <property name="lastname" type="string"/>
         <property name="firstname" type="string"/>
         <property name="salutation" type="string"/>

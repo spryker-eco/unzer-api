@@ -7,7 +7,6 @@
 
 namespace SprykerEco\Zed\UnzerApi\Business;
 
-use Spryker\Service\UtilEncoding\UtilEncodingServiceInterface;
 use Spryker\Zed\Kernel\Business\AbstractBusinessFactory;
 use SprykerEco\Zed\UnzerApi\Business\Api\ExternalClient\UnzerApiExternalClient;
 use SprykerEco\Zed\UnzerApi\Business\Api\ExternalClient\UnzerApiExternalClientInterface;
@@ -33,6 +32,7 @@ use SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter\MarketplaceRefundRequ
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter\RefundRequestConverter;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter\SetWebhookUrlRequestConverter;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter\UnzerApiRequestConverterInterface;
+use SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter\UpdateCustomerRequestConverter;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\CreateBasketRequest;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\CreateCustomerRequest;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\CreateMetadataRequest;
@@ -46,6 +46,7 @@ use SprykerEco\Zed\UnzerApi\Business\Api\Request\MarketplaceRefundRequest;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\RefundRequest;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\SetWebhookUrlRequest;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\UnzerApiRequestInterface;
+use SprykerEco\Zed\UnzerApi\Business\Api\Request\UpdateCustomerRequest;
 use SprykerEco\Zed\UnzerApi\Business\Api\Response\Converter\UnzerApiResponseConverter;
 use SprykerEco\Zed\UnzerApi\Business\Api\Response\Converter\UnzerApiResponseConverterInterface;
 use SprykerEco\Zed\UnzerApi\Business\Api\Response\Mapper\AuthorizeResponseMapper;
@@ -63,7 +64,9 @@ use SprykerEco\Zed\UnzerApi\Business\Api\Response\Mapper\MarketplaceRefundRespon
 use SprykerEco\Zed\UnzerApi\Business\Api\Response\Mapper\RefundResponseMapper;
 use SprykerEco\Zed\UnzerApi\Business\Api\Response\Mapper\SetWebhookUrlResponseMapper;
 use SprykerEco\Zed\UnzerApi\Business\Api\Response\Mapper\UnzerApiResponseMapperInterface;
+use SprykerEco\Zed\UnzerApi\Business\Api\Response\Mapper\UpdateCustomerResponseMapper;
 use SprykerEco\Zed\UnzerApi\Dependency\External\UnzerApiToGuzzleHttpClientAdapter;
+use SprykerEco\Zed\UnzerApi\Dependency\Service\UnzerApiToUtilEncodingServiceInterface;
 use SprykerEco\Zed\UnzerApi\UnzerApiDependencyProvider;
 
 /**
@@ -140,6 +143,19 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     }
 
     /**
+     * @return \SprykerEco\Zed\UnzerApi\Business\Api\ExternalClient\UnzerApiExternalClientInterface
+     */
+    public function createUpdateCustomerApiClient(): UnzerApiExternalClientInterface
+    {
+        return new UnzerApiExternalClient(
+            $this->getUnzerApiHttpClient(),
+            $this->createUpdateCustomerRequest(),
+            $this->createUpdateCustomerResponseConverter(),
+            $this->createUnzerApiLogger(),
+        );
+    }
+
+    /**
      * @return \SprykerEco\Zed\UnzerApi\Business\Api\Request\UnzerApiRequestInterface
      */
     public function createCreateCustomerRequest(): UnzerApiRequestInterface
@@ -147,6 +163,17 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
         return new CreateCustomerRequest(
             $this->getConfig(),
             $this->createCreateCustomerRequestBuilder(),
+        );
+    }
+
+    /**
+     * @return \SprykerEco\Zed\UnzerApi\Business\Api\Request\UnzerApiRequestInterface
+     */
+    public function createUpdateCustomerRequest(): UnzerApiRequestInterface
+    {
+        return new UpdateCustomerRequest(
+            $this->getConfig(),
+            $this->createUpdateCustomerRequestBuilder(),
         );
     }
 
@@ -162,11 +189,30 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     }
 
     /**
+     * @return \SprykerEco\Zed\UnzerApi\Business\Api\Request\Builder\UnzerApiRequestBuilderInterface
+     */
+    public function createUpdateCustomerRequestBuilder(): UnzerApiRequestBuilderInterface
+    {
+        return new UnzerApiRequestBuilder(
+            $this->createUpdateCustomerRequestConverter(),
+            $this->getUtilEncodingService(),
+        );
+    }
+
+    /**
      * @return \SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter\UnzerApiRequestConverterInterface
      */
     public function createCreateCustomerRequestConverter(): UnzerApiRequestConverterInterface
     {
         return new CreateCustomerRequestConverter();
+    }
+
+    /**
+     * @return \SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter\UnzerApiRequestConverterInterface
+     */
+    public function createUpdateCustomerRequestConverter(): UnzerApiRequestConverterInterface
+    {
+        return new UpdateCustomerRequestConverter();
     }
 
     /**
@@ -177,6 +223,17 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
         return new UnzerApiResponseConverter(
             $this->getUtilEncodingService(),
             $this->createCreateCustomerResponseMapper(),
+        );
+    }
+
+    /**
+     * @return \SprykerEco\Zed\UnzerApi\Business\Api\Response\Converter\UnzerApiResponseConverterInterface
+     */
+    public function createUpdateCustomerResponseConverter(): UnzerApiResponseConverterInterface
+    {
+        return new UnzerApiResponseConverter(
+            $this->getUtilEncodingService(),
+            $this->createUpdateCustomerResponseMapper(),
         );
     }
 
@@ -439,6 +496,14 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     /**
      * @return \SprykerEco\Zed\UnzerApi\Business\Api\Response\Mapper\UnzerApiResponseMapperInterface
      */
+    public function createUpdateCustomerResponseMapper(): UnzerApiResponseMapperInterface
+    {
+        return new UpdateCustomerResponseMapper();
+    }
+
+    /**
+     * @return \SprykerEco\Zed\UnzerApi\Business\Api\Response\Mapper\UnzerApiResponseMapperInterface
+     */
     public function createSetWebhookUrlResponseMapper(): UnzerApiResponseMapperInterface
     {
         return new SetWebhookUrlResponseMapper();
@@ -453,9 +518,9 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     }
 
     /**
-     * @return \Spryker\Service\UtilEncoding\UtilEncodingServiceInterface
+     * @return \SprykerEco\Zed\UnzerApi\Dependency\Service\UnzerApiToUtilEncodingServiceInterface
      */
-    public function getUtilEncodingService(): UtilEncodingServiceInterface
+    public function getUtilEncodingService(): UnzerApiToUtilEncodingServiceInterface
     {
         return $this->getProvidedDependency(UnzerApiDependencyProvider::SERVICE_UTIL_ENCODING);
     }
