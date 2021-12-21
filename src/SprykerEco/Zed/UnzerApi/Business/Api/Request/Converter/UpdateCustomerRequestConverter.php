@@ -16,7 +16,7 @@ class UpdateCustomerRequestConverter implements UnzerApiRequestConverterInterfac
     /**
      * @param \Generated\Shared\Transfer\UnzerApiRequestTransfer $unzerApiRequestTransfer
      *
-     * @return array<string, array<string, string|null>|string
+     * @return array<string, mixed>
      */
     public function convertUnzerApiRequestTransferToArray(UnzerApiRequestTransfer $unzerApiRequestTransfer): array
     {
@@ -32,8 +32,8 @@ class UpdateCustomerRequestConverter implements UnzerApiRequestConverterInterfac
             UnzerApiRequestConstants::PARAM_EMAIL => $unzerApiUpdateCustomerRequestTransfer->getEmail(),
             UnzerApiRequestConstants::PARAM_PHONE => $unzerApiUpdateCustomerRequestTransfer->getPhone(),
             UnzerApiRequestConstants::PARAM_MOBILE => $unzerApiUpdateCustomerRequestTransfer->getMobile(),
-            UnzerApiRequestConstants::PARAM_BILLING_ADDRESS => $this->convertAddress($unzerApiUpdateCustomerRequestTransfer->getBillingAddress()),
-            UnzerApiRequestConstants::PARAM_SHIPPING_ADDRESS => $this->convertAddress($unzerApiUpdateCustomerRequestTransfer->getShippingAddress()),
+            UnzerApiRequestConstants::PARAM_BILLING_ADDRESS => $this->convertAddress($unzerApiUpdateCustomerRequestTransfer->getBillingAddressOrFail()),
+            UnzerApiRequestConstants::PARAM_SHIPPING_ADDRESS => $this->convertAddress($unzerApiUpdateCustomerRequestTransfer->getShippingAddressOrFail()),
         ];
     }
 
