@@ -22,6 +22,7 @@ use Generated\Shared\Transfer\UnzerApiMarketplaceRefundRequestTransfer;
 use Generated\Shared\Transfer\UnzerApiRefundRequestTransfer;
 use Generated\Shared\Transfer\UnzerApiRequestTransfer;
 use Generated\Shared\Transfer\UnzerApiSetWebhookRequestTransfer;
+use Generated\Shared\Transfer\UnzerApiUpdateCustomerRequestTransfer;
 use Generated\Shared\Transfer\UnzerBasketItemTransfer;
 use Generated\Shared\Transfer\UnzerKeypairTransfer;
 use SprykerEco\Shared\UnzerApi\UnzerApiConstants;
@@ -252,6 +253,7 @@ class UnzerApiZedTester extends Actor
         return (new UnzerApiRequestTransfer())
             ->setUnzerKeypair($this->createUnzerKeypairTransfer())
             ->setCreateCustomerRequest($this->createUnzerApiCreateCustomerTransfer())
+            ->setUpdateCustomerRequest($this->createUnzerApiUpdateCustomerTransfer())
             ->setCreateMetadataRequest($this->createUnzerApiCreateMetadataRequestTransfer())
             ->setCreatePaymentResourceRequest($this->createUnzerApiCreatePaymentResourceRequestTransfer())
             ->setSetWebhookRequest($this->createUnzerApiSetWebhookRequestTransfer())
@@ -260,8 +262,8 @@ class UnzerApiZedTester extends Actor
             ->setMarketplaceAuthorizeRequest($this->createUnzerApiMarketplaceAuthorizeRequestTransfer())
             ->setChargeRequest($this->createUnzerApiChargeRequestTransfer())
             ->setRefundRequest($this->createUnzerApiRefundRequestTransfer())
-            ->setMarketplaceRefundRequest($this->createUnzerApiMarketplaceRefundRequestTransfer())
-            ->setGetPaymentMethodsRequest($this->createUnzerApiGetPaymentMethodsRequestTransfer());
+            ->setGetPaymentMethodsRequest($this->createUnzerApiGetPaymentMethodsRequestTransfer())
+            ->setMarketplaceRefundRequest($this->createUnzerApiMarketplaceRefundRequestTransfer());
     }
 
     /**
@@ -278,6 +280,25 @@ class UnzerApiZedTester extends Actor
     protected function createUnzerApiCreateCustomerTransfer(): UnzerApiCreateCustomerRequestTransfer
     {
         return (new UnzerApiCreateCustomerRequestTransfer())
+            ->setCustomerId(static::SPRYKER_CUSTOMER_ID)
+            ->setLastname(static::CUSTOMER_LASTNAME)
+            ->setFirstname(static::CUSTOMER_FIRSTNAME)
+            ->setSalutation(static::CUSTOMER_SALUTATION)
+            ->setCompany(static::CUSTOMER_COMPANY)
+            ->setBirthDate(static::CUSTOMER_BIRTHDATE)
+            ->setEmail(static::CUSTOMER_EMAIL)
+            ->setPhone(static::CUSTOMER_PHONE)
+            ->setMobile(static::CUSTOMER_MOBILE)
+            ->setShippingAddress($this->createUnzerAddressTransfer())
+            ->setBillingAddress($this->createUnzerAddressTransfer());
+    }
+
+    /**
+     * @return \Generated\Shared\Transfer\UnzerApiUpdateCustomerRequestTransfer
+     */
+    protected function createUnzerApiUpdateCustomerTransfer(): UnzerApiUpdateCustomerRequestTransfer
+    {
+        return (new UnzerApiUpdateCustomerRequestTransfer())
             ->setCustomerId(static::SPRYKER_CUSTOMER_ID)
             ->setLastname(static::CUSTOMER_LASTNAME)
             ->setFirstname(static::CUSTOMER_FIRSTNAME)

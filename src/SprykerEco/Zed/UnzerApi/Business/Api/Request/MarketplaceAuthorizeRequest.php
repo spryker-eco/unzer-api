@@ -39,12 +39,4 @@ class MarketplaceAuthorizeRequest extends UnzerApiAbstractRequest implements Unz
     {
         return $this->unzerApiRequestBuilder->buildRequestPayload($unzerApiRequestTransfer);
     }
-
-    /**
-     * @return string
-     */
-    public function getAuthorizationKey(): string
-    {
-        return $this->unzerApiConfig->getUnzerApiPrivateKey();
-    }
 }

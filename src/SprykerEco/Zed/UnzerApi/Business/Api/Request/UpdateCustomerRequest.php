@@ -10,7 +10,7 @@ namespace SprykerEco\Zed\UnzerApi\Business\Api\Request;
 use Generated\Shared\Transfer\UnzerApiRequestTransfer;
 use Symfony\Component\HttpFoundation\Request;
 
-class CreateBasketRequest extends UnzerApiAbstractRequest implements UnzerApiRequestInterface
+class UpdateCustomerRequest extends UnzerApiAbstractRequest implements UnzerApiRequestInterface
 {
     /**
      * @param \Generated\Shared\Transfer\UnzerApiRequestTransfer $unzerApiRequestTransfer
@@ -19,7 +19,10 @@ class CreateBasketRequest extends UnzerApiAbstractRequest implements UnzerApiReq
      */
     public function getUrl(UnzerApiRequestTransfer $unzerApiRequestTransfer): string
     {
-        return $this->unzerApiConfig->getUnzerApiCreateBasket();
+        return sprintf(
+            $this->unzerApiConfig->getUnzerApiCreateCustomer(),
+            $unzerApiRequestTransfer->getUpdateCustomerRequestOrFail()->getUnzerCustomerId(),
+        );
     }
 
     /**
@@ -38,5 +41,13 @@ class CreateBasketRequest extends UnzerApiAbstractRequest implements UnzerApiReq
     public function getRequestBody(UnzerApiRequestTransfer $unzerApiRequestTransfer): string
     {
         return $this->unzerApiRequestBuilder->buildRequestPayload($unzerApiRequestTransfer);
+    }
+
+    /**
+     * @return string
+     */
+    public function getAuthorizationKey(): string
+    {
+        return $this->unzerApiConfig->getUnzerApiPrivateKey();
     }
 }

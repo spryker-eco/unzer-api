@@ -16,5 +16,5 @@ interface UnzerApiRequestConverterInterface
      *
      * @return array<string, array<array-key, mixed>|string|float|null>
      */
-    public function convertRequestTransferToArray(UnzerApiRequestTransfer $unzerApiRequestTransfer): array;
+    public function convertUnzerApiRequestTransferToArray(UnzerApiRequestTransfer $unzerApiRequestTransfer): array;
 }

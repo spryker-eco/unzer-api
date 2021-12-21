@@ -42,12 +42,4 @@ class AuthorizableChargeRequest extends UnzerApiAbstractRequest implements Unzer
     {
         return $this->unzerApiRequestBuilder->buildRequestPayload($unzerApiRequestTransfer);
     }
-
-    /**
-     * @return string
-     */
-    public function getAuthorizationKey(): string
-    {
-        return $this->unzerApiConfig->getUnzerApiPrivateKey();
-    }
 }

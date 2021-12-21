@@ -56,6 +56,20 @@ class UnzerApiFacade extends AbstractFacade implements UnzerApiFacadeInterface
      *
      * @return \Generated\Shared\Transfer\UnzerApiResponseTransfer
      */
+    public function performUpdateCustomerApiCall(UnzerApiRequestTransfer $unzerApiRequestTransfer): UnzerApiResponseTransfer
+    {
+        return $this->getFactory()->createUpdateCustomerApiClient()->sendRequest($unzerApiRequestTransfer);
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @api
+     *
+     * @param \Generated\Shared\Transfer\UnzerApiRequestTransfer $unzerApiRequestTransfer
+     *
+     * @return \Generated\Shared\Transfer\UnzerApiResponseTransfer
+     */
     public function performCreateMetadataApiCall(UnzerApiRequestTransfer $unzerApiRequestTransfer): UnzerApiResponseTransfer
     {
         return $this->getFactory()->createCreateMetadataApiClient()->sendRequest($unzerApiRequestTransfer);

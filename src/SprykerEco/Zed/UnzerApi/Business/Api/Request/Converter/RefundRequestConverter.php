@@ -18,12 +18,12 @@ class RefundRequestConverter implements UnzerApiRequestConverterInterface
      *
      * @return array<string, string|null>
      */
-    public function convertRequestTransferToArray(UnzerApiRequestTransfer $unzerApiRequestTransfer): array
+    public function convertUnzerApiRequestTransferToArray(UnzerApiRequestTransfer $unzerApiRequestTransfer): array
     {
         $unzerApiRefundRequestTransfer = $unzerApiRequestTransfer->getRefundRequestOrFail();
 
         return [
-            UnzerApiRequestConstants::PARAM_AMOUNT => $unzerApiRefundRequestTransfer->getAmount(),
+            UnzerApiRequestConstants::PARAM_AMOUNT => (string)$unzerApiRefundRequestTransfer->getAmount(),
             UnzerApiRequestConstants::PARAM_PAYMENT_REFERENCE => $unzerApiRefundRequestTransfer->getPaymentReference(),
             UnzerApiRequestConstants::PARAM_PAYMENT_ID => $unzerApiRefundRequestTransfer->getPaymentId(),
             UnzerApiRequestConstants::PARAM_CHARGE_ID => $unzerApiRefundRequestTransfer->getChargeId(),
@@ -43,9 +43,9 @@ class RefundRequestConverter implements UnzerApiRequestConverterInterface
                 UnzerApiRequestConstants::PARAM_BASKET_ITEM_REFERENCE_ID => $unzerBasketItemTransfer->getBasketItemReferenceId(),
                 UnzerApiRequestConstants::PARAM_UNIT => $unzerBasketItemTransfer->getUnit(),
                 UnzerApiRequestConstants::PARAM_QUANTITY => $unzerBasketItemTransfer->getQuantity(),
-                UnzerApiRequestConstants::PARAM_AMOUNT_DISCOUNT => $unzerBasketItemTransfer->getAmountDiscount(),
+                UnzerApiRequestConstants::PARAM_AMOUNT_DISCOUNT => (string)$unzerBasketItemTransfer->getAmountDiscount(),
                 UnzerApiRequestConstants::PARAM_VAT => $unzerBasketItemTransfer->getVat(),
-                UnzerApiRequestConstants::PARAM_AMOUNT_GROSS => $unzerBasketItemTransfer->getAmountGross(),
+                UnzerApiRequestConstants::PARAM_AMOUNT_GROSS => (string)$unzerBasketItemTransfer->getAmountGross(),
                 UnzerApiRequestConstants::PARAM_AMOUNT_VAT => $unzerBasketItemTransfer->getAmountVat(),
                 UnzerApiRequestConstants::PARAM_AMOUNT_PER_UNIT => $unzerBasketItemTransfer->getAmountPerUnit(),
                 UnzerApiRequestConstants::PARAM_AMOUNT_NET => $unzerBasketItemTransfer->getAmountNet(),

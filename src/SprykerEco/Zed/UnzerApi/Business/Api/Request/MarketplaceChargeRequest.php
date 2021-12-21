@@ -39,12 +39,4 @@ class MarketplaceChargeRequest extends UnzerApiAbstractRequest implements UnzerA
     {
         return $this->unzerApiRequestBuilder->buildRequestPayload($unzerApiRequestTransfer);
     }
-
-    /**
-     * @return string
-     */
-    public function getAuthorizationKey(): string
-    {
-        return $this->unzerApiConfig->getUnzerApiPrivateKey();
-    }
 }

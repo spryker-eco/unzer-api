@@ -18,7 +18,7 @@ class MarketplaceRefundRequestConverter implements UnzerApiRequestConverterInter
      *
      * @return array<string, array|string|null>
      */
-    public function convertRequestTransferToArray(UnzerApiRequestTransfer $unzerApiRequestTransfer): array
+    public function convertUnzerApiRequestTransferToArray(UnzerApiRequestTransfer $unzerApiRequestTransfer): array
     {
         $unzerApiMarketplaceRefundRequestTransfer = $unzerApiRequestTransfer->getMarketplaceRefundRequestOrFail();
 

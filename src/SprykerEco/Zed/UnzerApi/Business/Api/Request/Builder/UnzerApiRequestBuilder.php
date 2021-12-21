@@ -42,7 +42,7 @@ class UnzerApiRequestBuilder implements UnzerApiRequestBuilderInterface
      */
     public function buildRequestPayload(UnzerApiRequestTransfer $unzerApiRequestTransfer): string
     {
-        $requestData = $this->unzerApiRequestConverter->convertRequestTransferToArray($unzerApiRequestTransfer);
+        $requestData = $this->unzerApiRequestConverter->convertUnzerApiRequestTransferToArray($unzerApiRequestTransfer);
 
         return (string)$this->utilEncodingService->encodeJson($requestData);
     }

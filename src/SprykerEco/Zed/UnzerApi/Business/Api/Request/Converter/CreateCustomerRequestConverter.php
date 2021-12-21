@@ -18,13 +18,13 @@ class CreateCustomerRequestConverter implements UnzerApiRequestConverterInterfac
      *
      * @return array<string, array<array-key, mixed>|string|float|null>
      */
-    public function convertRequestTransferToArray(UnzerApiRequestTransfer $unzerApiRequestTransfer): array
+    public function convertUnzerApiRequestTransferToArray(UnzerApiRequestTransfer $unzerApiRequestTransfer): array
     {
         $unzerApiCreateCustomerRequestTransfer = $unzerApiRequestTransfer->getCreateCustomerRequestOrFail();
 
         return [
-            UnzerApiRequestConstants::PARAM_LASTNAME => $unzerApiCreateCustomerRequestTransfer->getLastnameOrFail(),
-            UnzerApiRequestConstants::PARAM_FIRSTNAME => $unzerApiCreateCustomerRequestTransfer->getFirstnameOrFail(),
+            UnzerApiRequestConstants::PARAM_LASTNAME => $unzerApiCreateCustomerRequestTransfer->getLastname(),
+            UnzerApiRequestConstants::PARAM_FIRSTNAME => $unzerApiCreateCustomerRequestTransfer->getFirstname(),
             UnzerApiRequestConstants::PARAM_SALUTATION => $unzerApiCreateCustomerRequestTransfer->getSalutation(),
             UnzerApiRequestConstants::PARAM_COMPANY => $unzerApiCreateCustomerRequestTransfer->getCompany(),
             UnzerApiRequestConstants::PARAM_CUSTOMER_ID => $unzerApiCreateCustomerRequestTransfer->getCustomerId(),
@@ -32,8 +32,8 @@ class CreateCustomerRequestConverter implements UnzerApiRequestConverterInterfac
             UnzerApiRequestConstants::PARAM_EMAIL => $unzerApiCreateCustomerRequestTransfer->getEmail(),
             UnzerApiRequestConstants::PARAM_PHONE => $unzerApiCreateCustomerRequestTransfer->getPhone(),
             UnzerApiRequestConstants::PARAM_MOBILE => $unzerApiCreateCustomerRequestTransfer->getMobile(),
-            UnzerApiRequestConstants::PARAM_BILLING_ADDRESS => $this->convertAddress($unzerApiCreateCustomerRequestTransfer->getBillingAddressOrFail()),
-            UnzerApiRequestConstants::PARAM_SHIPPING_ADDRESS => $this->convertAddress($unzerApiCreateCustomerRequestTransfer->getShippingAddressOrFail()),
+            UnzerApiRequestConstants::PARAM_BILLING_ADDRESS => $this->convertAddress($unzerApiCreateCustomerRequestTransfer->getBillingAddress()),
+            UnzerApiRequestConstants::PARAM_SHIPPING_ADDRESS => $this->convertAddress($unzerApiCreateCustomerRequestTransfer->getShippingAddress()),
         ];
     }
 

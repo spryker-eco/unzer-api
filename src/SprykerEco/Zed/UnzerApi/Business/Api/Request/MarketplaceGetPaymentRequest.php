@@ -44,12 +44,4 @@ class MarketplaceGetPaymentRequest extends UnzerApiAbstractRequest implements Un
     {
         return '';
     }
-
-    /**
-     * @return string
-     */
-    public function getAuthorizationKey(): string
-    {
-        return $this->unzerApiConfig->getUnzerApiPrivateKey();
-    }
 }

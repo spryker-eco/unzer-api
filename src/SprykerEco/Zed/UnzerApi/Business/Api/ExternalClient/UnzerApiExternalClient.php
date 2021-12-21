@@ -70,7 +70,7 @@ class UnzerApiExternalClient implements UnzerApiExternalClientInterface
                 $requestUrl,
                 $this->unzerApiRequest->getHttpMethod(),
                 $this->unzerApiRequest->getRequestBody($unzerApiRequestTransfer),
-                $this->unzerApiRequest->getAuthorizationKey($unzerApiRequestTransfer),
+                $unzerApiRequestTransfer->getUnzerKeypairOrFail()->getPrivateKey(),
             );
         } catch (UnzerApiToHttpClientException $requestException) {
             $isSuccessful = false;
