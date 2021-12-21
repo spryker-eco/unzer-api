@@ -14,9 +14,9 @@ class GetPaymentMethodsRequestConverter implements UnzerApiRequestConverterInter
     /**
      * @param \Generated\Shared\Transfer\UnzerApiRequestTransfer $unzerApiRequestTransfer
      *
-     * @return array<string, array<array-key, mixed>|string>
+     * @return array<string, array<array-key, mixed>|string|float|null>
      */
-    public function convertRequestTransferToArray(UnzerApiRequestTransfer $unzerApiRequestTransfer): array
+    public function convertUnzerApiRequestTransferToArray(UnzerApiRequestTransfer $unzerApiRequestTransfer): array
     {
         return [];
     }
