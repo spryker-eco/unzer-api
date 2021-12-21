@@ -1,5 +1,18 @@
 {
-    "error": [],
+    "error": [
+        {
+            "severity": "error",
+            "line_from": 51,
+            "line_to": 51,
+            "type": "UndefinedMethod",
+            "message": "Method SprykerEco\\Zed\\UnzerApi\\UnzerApiConfig::getUnzerApiPrivateKey does not exist",
+            "file_name": "vendor/spryker-eco/unzer-api/src/SprykerEco/Zed/UnzerApi/Business/Api/Request/UpdateCustomerRequest.php",
+            "snippet": "        return $this->unzerApiConfig->getUnzerApiPrivateKey();",
+            "selected_text": "getUnzerApiPrivateKey",
+            "error_level": 6,
+            "shortcode": 22
+        }
+    ],
     "warning": [
         {
             "severity": "info",
@@ -27,13 +40,61 @@
         },
         {
             "severity": "info",
-            "line_from": 59,
-            "line_to": 59,
+            "line_from": 19,
+            "line_to": 19,
+            "type": "LessSpecificImplementedReturnType",
+            "message": "The inherited return type 'array<string, array<array-key, mixed>|float|null|string>' for SprykerEco\\Zed\\UnzerApi\\Business\\Api\\Request\\Converter\\UnzerApiRequestConverterInterface::convertUnzerApiRequestTransferToArray is more specific than the implemented return type for SprykerEco\\Zed\\UnzerApi\\Business\\Api\\Request\\Converter\\UpdateCustomerRequestConverter::convertunzerapirequesttransfertoarray 'array<string, mixed>'",
+            "file_name": "vendor/spryker-eco/unzer-api/src/SprykerEco/Zed/UnzerApi/Business/Api/Request/Converter/UpdateCustomerRequestConverter.php",
+            "snippet": "     * @return array<string, mixed>",
+            "selected_text": "array<string, mixed>",
+            "error_level": 5,
+            "shortcode": 166
+        },
+        {
+            "severity": "info",
+            "line_from": 24,
+            "line_to": 24,
+            "type": "PossiblyNullArgument",
+            "message": "Argument 2 of sprintf cannot be null, possibly null value provided",
+            "file_name": "vendor/spryker-eco/unzer-api/src/SprykerEco/Zed/UnzerApi/Business/Api/Request/UpdateCustomerRequest.php",
+            "snippet": "            $unzerApiRequestTransfer->getUpdateCustomerRequestOrFail()->getUnzerCustomerId(),",
+            "selected_text": "$unzerApiRequestTransfer->getUpdateCustomerRequestOrFail()->getUnzerCustomerId()",
+            "error_level": 3,
+            "shortcode": 78
+        },
+        {
+            "severity": "info",
+            "line_from": 58,
+            "line_to": 58,
+            "type": "PossiblyNullArrayAccess",
+            "message": "Cannot access array value on possibly null variable $responseData of type mixed|null",
+            "file_name": "vendor/spryker-eco/unzer-api/src/SprykerEco/Zed/UnzerApi/Business/Api/Response/Converter/UnzerApiResponseConverter.php",
+            "snippet": "        $hasInternalError = $responseData[static::RESPONSE_DATA_IS_ERROR_KEY] ?? false;",
+            "selected_text": "$responseData[static::RESPONSE_DATA_IS_ERROR_KEY]",
+            "error_level": 3,
+            "shortcode": 79
+        },
+        {
+            "severity": "info",
+            "line_from": 65,
+            "line_to": 65,
             "type": "PossiblyNullArgument",
             "message": "Argument 1 of SprykerEco\\Zed\\UnzerApi\\Business\\Api\\Response\\Mapper\\UnzerApiResponseMapperInterface::mapResponseDataToUnzerApiResponseTransfer cannot be null, possibly null value provided",
             "file_name": "vendor/spryker-eco/unzer-api/src/SprykerEco/Zed/UnzerApi/Business/Api/Response/Converter/UnzerApiResponseConverter.php",
             "snippet": "            ->mapResponseDataToUnzerApiResponseTransfer($responseData, $unzerApiResponseTransfer);",
             "selected_text": "$responseData",
+            "error_level": 3,
+            "shortcode": 78
+        },
+        {
+            "severity": "info",
+            "line_from": 69,
+            "line_to": 69,
+            "type": "PossiblyNullArgument",
+            "message": "Argument 1 of SprykerEco\\Zed\\UnzerApi\\Dependency\\External\\UnzerApiToGuzzleHttpClientAdapter::createUnzerApiGuzzleResponse cannot be null, possibly null value provided",
+            "file_name": "vendor/spryker-eco/unzer-api/src/SprykerEco/Zed/UnzerApi/Dependency/External/UnzerApiToGuzzleHttpClientAdapter.php",
+            "snippet": "                $this->createUnzerApiGuzzleResponse($requestException->getResponse()),",
+            "selected_text": "$requestException->getResponse()",
             "error_level": 3,
             "shortcode": 78
         }
