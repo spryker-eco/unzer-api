@@ -39,14 +39,4 @@ class GetPaymentMethodsRequest extends UnzerApiAbstractRequest implements UnzerA
     {
         return '';
     }
-
-    /**
-     * @param \Generated\Shared\Transfer\UnzerApiRequestTransfer $unzerApiRequestTransfer
-     *
-     * @return string
-     */
-    public function getAuthorizationKey(UnzerApiRequestTransfer $unzerApiRequestTransfer): string
-    {
-        return $unzerApiRequestTransfer->getUnzerKeypairOrFail()->getPrivateKeyOrFail();
-    }
 }
