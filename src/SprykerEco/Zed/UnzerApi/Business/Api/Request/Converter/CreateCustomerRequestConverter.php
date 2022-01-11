@@ -16,7 +16,7 @@ class CreateCustomerRequestConverter implements UnzerApiRequestConverterInterfac
     /**
      * @param \Generated\Shared\Transfer\UnzerApiRequestTransfer $unzerApiRequestTransfer
      *
-     * @return array<string, array<array-key, mixed>|string|float|null>
+     * @return array<string, array<string, string|null>|string|null>
      */
     public function convertUnzerApiRequestTransferToArray(UnzerApiRequestTransfer $unzerApiRequestTransfer): array
     {
