@@ -8,6 +8,7 @@
 namespace SprykerEco\Zed\UnzerApi\Business\Api\Request;
 
 use Generated\Shared\Transfer\UnzerApiRequestTransfer;
+use Generated\Shared\Transfer\UnzerApiResponseTransfer;
 
 interface UnzerApiRequestInterface
 {
@@ -29,4 +30,11 @@ interface UnzerApiRequestInterface
      * @return string
      */
     public function getRequestBody(UnzerApiRequestTransfer $unzerApiRequestTransfer): string;
+
+    /**
+     * @param \Generated\Shared\Transfer\UnzerApiRequestTransfer $unzerApiRequestTransfer
+     *
+     * @return \Generated\Shared\Transfer\UnzerApiResponseTransfer
+     */
+    public function sendRequest(UnzerApiRequestTransfer $unzerApiRequestTransfer): UnzerApiResponseTransfer;
 }
