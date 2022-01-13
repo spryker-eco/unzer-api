@@ -7,7 +7,6 @@
 
 namespace SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter;
 
-use ArrayObject;
 use Generated\Shared\Transfer\UnzerApiRequestTransfer;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\UnzerApiRequestConstants;
 
