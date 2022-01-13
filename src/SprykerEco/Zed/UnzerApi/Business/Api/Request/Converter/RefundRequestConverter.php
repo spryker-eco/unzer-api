@@ -29,32 +29,4 @@ class RefundRequestConverter implements UnzerApiRequestConverterInterface
             UnzerApiRequestConstants::PARAM_CHARGE_ID => $unzerApiRefundRequestTransfer->getChargeId(),
         ];
     }
-
-    /**
-     * @param \ArrayObject $unzerBasketItemTransfers
-     *
-     * @return array<array<string>>
-     */
-    protected function convertBasketItems(ArrayObject $unzerBasketItemTransfers): array
-    {
-        $result = [];
-        foreach ($unzerBasketItemTransfers as $unzerBasketItemTransfer) {
-            $result[] = [
-                UnzerApiRequestConstants::PARAM_BASKET_ITEM_REFERENCE_ID => $unzerBasketItemTransfer->getBasketItemReferenceId(),
-                UnzerApiRequestConstants::PARAM_UNIT => $unzerBasketItemTransfer->getUnit(),
-                UnzerApiRequestConstants::PARAM_QUANTITY => $unzerBasketItemTransfer->getQuantity(),
-                UnzerApiRequestConstants::PARAM_AMOUNT_DISCOUNT => (string)$unzerBasketItemTransfer->getAmountDiscount(),
-                UnzerApiRequestConstants::PARAM_VAT => $unzerBasketItemTransfer->getVat(),
-                UnzerApiRequestConstants::PARAM_AMOUNT_GROSS => (string)$unzerBasketItemTransfer->getAmountGross(),
-                UnzerApiRequestConstants::PARAM_AMOUNT_VAT => $unzerBasketItemTransfer->getAmountVat(),
-                UnzerApiRequestConstants::PARAM_AMOUNT_PER_UNIT => $unzerBasketItemTransfer->getAmountPerUnit(),
-                UnzerApiRequestConstants::PARAM_AMOUNT_NET => $unzerBasketItemTransfer->getAmountNet(),
-                UnzerApiRequestConstants::PARAM_TITLE => $unzerBasketItemTransfer->getTitle(),
-                UnzerApiRequestConstants::PARAM_PARTICIPANT_ID => $unzerBasketItemTransfer->getParticipantId(),
-                UnzerApiRequestConstants::PARAM_TYPE => $unzerBasketItemTransfer->getType(),
-            ];
-        }
-
-        return $result;
-    }
 }
