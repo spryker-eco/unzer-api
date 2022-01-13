@@ -64,7 +64,7 @@ class MarketplaceAuthorizeResponseMapper implements UnzerApiResponseMapperInterf
         array $responseData,
         UnzerApiMarketplaceAuthorizeResponseTransfer $unzerApiMarketplaceAuthorizeResponseTransfer
     ): UnzerApiMarketplaceAuthorizeResponseTransfer {
-        if (empty($responseData)) {
+        if (!$responseData) {
             return $unzerApiMarketplaceAuthorizeResponseTransfer;
         }
 
@@ -86,7 +86,7 @@ class MarketplaceAuthorizeResponseMapper implements UnzerApiResponseMapperInterf
         array $responseData,
         UnzerApiMarketplaceAuthorizeResponseTransfer $unzerApiMarketplaceAuthorizeResponseTransfer
     ): UnzerApiMarketplaceAuthorizeResponseTransfer {
-        if (empty($responseData)) {
+        if (!$responseData) {
             return $unzerApiMarketplaceAuthorizeResponseTransfer;
         }
 
@@ -108,7 +108,7 @@ class MarketplaceAuthorizeResponseMapper implements UnzerApiResponseMapperInterf
         array $responseData,
         UnzerApiMarketplaceAuthorizeResponseTransfer $unzerApiMarketplaceAuthorizeResponseTransfer
     ): UnzerApiMarketplaceAuthorizeResponseTransfer {
-        if (empty($responseData)) {
+        if (!$responseData) {
             return $unzerApiMarketplaceAuthorizeResponseTransfer;
         }
 

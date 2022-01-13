@@ -47,7 +47,7 @@ class CreatePaymentResourceResponseMapper implements UnzerApiResponseMapperInter
         array $geolocationData,
         UnzerApiCreatePaymentResourceResponseTransfer $unzerApiCreatePaymentResourceResponseTransfer
     ): UnzerApiCreatePaymentResourceResponseTransfer {
-        if (empty($geolocationData)) {
+        if (!$geolocationData) {
             return $unzerApiCreatePaymentResourceResponseTransfer;
         }
 

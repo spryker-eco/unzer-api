@@ -63,7 +63,7 @@ class RefundResponseMapper implements UnzerApiResponseMapperInterface
         array $data,
         UnzerApiRefundResponseTransfer $unzerApiRefundResponseTransfer
     ): UnzerApiRefundResponseTransfer {
-        if (empty($data)) {
+        if (!$data) {
             return $unzerApiRefundResponseTransfer;
         }
 
@@ -85,7 +85,7 @@ class RefundResponseMapper implements UnzerApiResponseMapperInterface
         array $data,
         UnzerApiRefundResponseTransfer $unzerApiRefundResponseTransfer
     ): UnzerApiRefundResponseTransfer {
-        if (empty($data)) {
+        if (!$data) {
             return $unzerApiRefundResponseTransfer;
         }
 
@@ -104,7 +104,7 @@ class RefundResponseMapper implements UnzerApiResponseMapperInterface
         array $messageData,
         UnzerApiRefundResponseTransfer $unzerApiRefundResponseTransfer
     ): UnzerApiRefundResponseTransfer {
-        if (empty($messageData)) {
+        if (!$messageData) {
             return $unzerApiRefundResponseTransfer;
         }
 

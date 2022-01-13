@@ -64,7 +64,7 @@ class CreditCardChargeResponseMapper implements UnzerApiResponseMapperInterface
         array $resourceData,
         UnzerApiCreditCardChargeResponseTransfer $unzerApiCreditCardChargeResponseTransfer
     ): UnzerApiCreditCardChargeResponseTransfer {
-        if (empty($resourceData)) {
+        if (!$resourceData) {
             return $unzerApiCreditCardChargeResponseTransfer;
         }
 
@@ -88,7 +88,7 @@ class CreditCardChargeResponseMapper implements UnzerApiResponseMapperInterface
         array $processingData,
         UnzerApiCreditCardChargeResponseTransfer $unzerApiCreditCardChargeResponseTransfer
     ): UnzerApiCreditCardChargeResponseTransfer {
-        if (empty($processingData)) {
+        if (!$processingData) {
             return $unzerApiCreditCardChargeResponseTransfer;
         }
 
@@ -108,7 +108,7 @@ class CreditCardChargeResponseMapper implements UnzerApiResponseMapperInterface
         array $messageData,
         UnzerApiCreditCardChargeResponseTransfer $unzerApiCreditCardChargeResponseTransfer
     ): UnzerApiCreditCardChargeResponseTransfer {
-        if (empty($messageData)) {
+        if (!$messageData) {
             return $unzerApiCreditCardChargeResponseTransfer;
         }
 
