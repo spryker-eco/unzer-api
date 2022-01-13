@@ -14,6 +14,8 @@ interface UnzerApiRequestConverterInterface
     /**
      * @param \Generated\Shared\Transfer\UnzerApiRequestTransfer $unzerApiRequestTransfer
      *
+     * @return array<array-key, array<string, mixed>|float|string|null>
+     *
      * @return array<string, array<array-key, mixed>|string|float>
      */
     public function convertUnzerApiRequestTransferToArray(UnzerApiRequestTransfer $unzerApiRequestTransfer): array;

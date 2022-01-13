@@ -16,7 +16,7 @@ class MarketplaceRefundRequestConverter implements UnzerApiRequestConverterInter
     /**
      * @param \Generated\Shared\Transfer\UnzerApiRequestTransfer $unzerApiRequestTransfer
      *
-     * @return array<string, array|string|null>
+     * @return array<string, array<string, array<int, array<string, int|float|string|null>>>|string|null>
      */
     public function convertUnzerApiRequestTransferToArray(UnzerApiRequestTransfer $unzerApiRequestTransfer): array
     {
@@ -33,7 +33,7 @@ class MarketplaceRefundRequestConverter implements UnzerApiRequestConverterInter
     /**
      * @param \ArrayObject $unzerRefundItemTransfers
      *
-     * @return array<string, array<int, array<string, mixed>>>
+     * @return array<string, array<int, array<string, int|float|string|null>>>
      */
     protected function getCanceledBasket(ArrayObject $unzerRefundItemTransfers): array
     {
