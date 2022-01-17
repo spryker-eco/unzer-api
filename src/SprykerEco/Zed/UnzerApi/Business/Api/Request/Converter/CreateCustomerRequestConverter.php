@@ -32,8 +32,8 @@ class CreateCustomerRequestConverter implements UnzerApiRequestConverterInterfac
             UnzerApiRequestConstants::PARAM_EMAIL => $unzerApiCreateCustomerRequestTransfer->getEmail(),
             UnzerApiRequestConstants::PARAM_PHONE => $unzerApiCreateCustomerRequestTransfer->getPhone(),
             UnzerApiRequestConstants::PARAM_MOBILE => $unzerApiCreateCustomerRequestTransfer->getMobile(),
-            UnzerApiRequestConstants::PARAM_BILLING_ADDRESS => $this->convertAddress($unzerApiCreateCustomerRequestTransfer->getBillingAddress()),
-            UnzerApiRequestConstants::PARAM_SHIPPING_ADDRESS => $this->convertAddress($unzerApiCreateCustomerRequestTransfer->getShippingAddress()),
+            UnzerApiRequestConstants::PARAM_BILLING_ADDRESS => $this->convertAddress($unzerApiCreateCustomerRequestTransfer->getBillingAddressOrFail()),
+            UnzerApiRequestConstants::PARAM_SHIPPING_ADDRESS => $this->convertAddress($unzerApiCreateCustomerRequestTransfer->getShippingAddressOrFail()),
         ];
     }
 

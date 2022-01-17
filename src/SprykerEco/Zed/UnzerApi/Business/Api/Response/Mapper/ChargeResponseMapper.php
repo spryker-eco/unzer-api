@@ -65,7 +65,7 @@ class ChargeResponseMapper implements UnzerApiResponseMapperInterface
         array $resourceData,
         UnzerApiChargeResponseTransfer $unzerApiChargeResponseTransfer
     ): UnzerApiChargeResponseTransfer {
-        if (empty($resourceData)) {
+        if (!$resourceData) {
             return $unzerApiChargeResponseTransfer;
         }
 
@@ -87,7 +87,7 @@ class ChargeResponseMapper implements UnzerApiResponseMapperInterface
         array $processingData,
         UnzerApiChargeResponseTransfer $unzerApiChargeResponseTransfer
     ): UnzerApiChargeResponseTransfer {
-        if (empty($processingData)) {
+        if (!$processingData) {
             return $unzerApiChargeResponseTransfer;
         }
 
@@ -106,7 +106,7 @@ class ChargeResponseMapper implements UnzerApiResponseMapperInterface
         array $messageData,
         UnzerApiChargeResponseTransfer $unzerApiChargeResponseTransfer
     ): UnzerApiChargeResponseTransfer {
-        if (empty($messageData)) {
+        if (!$messageData) {
             return $unzerApiChargeResponseTransfer;
         }
 

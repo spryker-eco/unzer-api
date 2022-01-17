@@ -86,4 +86,9 @@ interface UnzerApiConstants
      * @var string
      */
     public const REFUND_URL = 'UNZERAPI:REFUND_URL';
+
+    /**
+     * @var string
+     */
+    public const GET_PAYMENT_METHODS_URL = 'UNZERAPI:GET_PAYMENT_METHODS_URL';
 }

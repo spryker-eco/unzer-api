@@ -16,6 +16,7 @@ use Generated\Shared\Transfer\UnzerApiCreateBasketRequestTransfer;
 use Generated\Shared\Transfer\UnzerApiCreateCustomerRequestTransfer;
 use Generated\Shared\Transfer\UnzerApiCreateMetadataRequestTransfer;
 use Generated\Shared\Transfer\UnzerApiCreatePaymentResourceRequestTransfer;
+use Generated\Shared\Transfer\UnzerApiGetPaymentMethodsRequestTransfer;
 use Generated\Shared\Transfer\UnzerApiMarketplaceAuthorizeRequestTransfer;
 use Generated\Shared\Transfer\UnzerApiMarketplaceRefundRequestTransfer;
 use Generated\Shared\Transfer\UnzerApiRefundRequestTransfer;
@@ -217,6 +218,7 @@ class UnzerApiZedTester extends Actor
         $this->setConfig(UnzerApiConstants::CREATE_PAYMENT_RESOURCE_URL, 'https://api.unzer.com/v1/types/%s');
         $this->setConfig(UnzerApiConstants::MARKETPLACE_REFUND_URL, 'https://api.unzer.com/v1/marketplace/payments/%s/charges/%s/cancels');
         $this->setConfig(UnzerApiConstants::REFUND_URL, 'https://api.unzer.com/v1/payments/%s/charges/%s/cancels');
+        $this->setConfig(UnzerApiConstants::GET_PAYMENT_METHODS_URL, 'https://api.unzer.com/v1/keypair');
     }
 
     /**
@@ -260,6 +262,7 @@ class UnzerApiZedTester extends Actor
             ->setMarketplaceAuthorizeRequest($this->createUnzerApiMarketplaceAuthorizeRequestTransfer())
             ->setChargeRequest($this->createUnzerApiChargeRequestTransfer())
             ->setRefundRequest($this->createUnzerApiRefundRequestTransfer())
+            ->setGetPaymentMethodsRequest($this->createUnzerApiGetPaymentMethodsRequestTransfer())
             ->setMarketplaceRefundRequest($this->createUnzerApiMarketplaceRefundRequestTransfer());
     }
 
@@ -420,5 +423,13 @@ class UnzerApiZedTester extends Actor
     protected function createUnzerApiMarketplaceRefundRequestTransfer(): UnzerApiMarketplaceRefundRequestTransfer
     {
         return (new UnzerApiMarketplaceRefundRequestTransfer());
+    }
+
+    /**
+     * @return \Generated\Shared\Transfer\UnzerApiGetPaymentMethodsRequestTransfer
+     */
+    protected function createUnzerApiGetPaymentMethodsRequestTransfer(): UnzerApiGetPaymentMethodsRequestTransfer
+    {
+        return new UnzerApiGetPaymentMethodsRequestTransfer();
     }
 }

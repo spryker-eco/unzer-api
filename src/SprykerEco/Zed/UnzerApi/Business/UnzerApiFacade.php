@@ -30,7 +30,7 @@ class UnzerApiFacade extends AbstractFacade implements UnzerApiFacadeInterface
      */
     public function performSetNotificationUrlApiCall(UnzerApiRequestTransfer $unzerApiRequestTransfer): UnzerApiResponseTransfer
     {
-        return $this->getFactory()->createSetWebhookApiClient()->sendRequest($unzerApiRequestTransfer);
+        return $this->getFactory()->createSetWebhookRequest()->sendRequest($unzerApiRequestTransfer);
     }
 
     /**
@@ -44,7 +44,7 @@ class UnzerApiFacade extends AbstractFacade implements UnzerApiFacadeInterface
      */
     public function performCreateCustomerApiCall(UnzerApiRequestTransfer $unzerApiRequestTransfer): UnzerApiResponseTransfer
     {
-        return $this->getFactory()->createCreateCustomerApiClient()->sendRequest($unzerApiRequestTransfer);
+        return $this->getFactory()->createCreateCustomerRequest()->sendRequest($unzerApiRequestTransfer);
     }
 
     /**
@@ -58,7 +58,7 @@ class UnzerApiFacade extends AbstractFacade implements UnzerApiFacadeInterface
      */
     public function performUpdateCustomerApiCall(UnzerApiRequestTransfer $unzerApiRequestTransfer): UnzerApiResponseTransfer
     {
-        return $this->getFactory()->createUpdateCustomerApiClient()->sendRequest($unzerApiRequestTransfer);
+        return $this->getFactory()->createUpdateCustomerRequest()->sendRequest($unzerApiRequestTransfer);
     }
 
     /**
@@ -72,7 +72,7 @@ class UnzerApiFacade extends AbstractFacade implements UnzerApiFacadeInterface
      */
     public function performCreateMetadataApiCall(UnzerApiRequestTransfer $unzerApiRequestTransfer): UnzerApiResponseTransfer
     {
-        return $this->getFactory()->createCreateMetadataApiClient()->sendRequest($unzerApiRequestTransfer);
+        return $this->getFactory()->createCreateMetadataRequest()->sendRequest($unzerApiRequestTransfer);
     }
 
     /**
@@ -86,7 +86,7 @@ class UnzerApiFacade extends AbstractFacade implements UnzerApiFacadeInterface
      */
     public function performCreateBasketApiCall(UnzerApiRequestTransfer $unzerApiRequestTransfer): UnzerApiResponseTransfer
     {
-        return $this->getFactory()->createCreateBasketApiClient()->sendRequest($unzerApiRequestTransfer);
+        return $this->getFactory()->createCreateBasketRequest()->sendRequest($unzerApiRequestTransfer);
     }
 
     /**
@@ -100,7 +100,7 @@ class UnzerApiFacade extends AbstractFacade implements UnzerApiFacadeInterface
      */
     public function performMarketplaceAuthorizeApiCall(UnzerApiRequestTransfer $unzerApiRequestTransfer): UnzerApiResponseTransfer
     {
-        return $this->getFactory()->createMarketplaceAuthorizeApiClient()->sendRequest($unzerApiRequestTransfer);
+        return $this->getFactory()->createMarketplaceAuthorizeRequest()->sendRequest($unzerApiRequestTransfer);
     }
 
     /**
@@ -114,7 +114,7 @@ class UnzerApiFacade extends AbstractFacade implements UnzerApiFacadeInterface
      */
     public function performAuthorizeApiCall(UnzerApiRequestTransfer $unzerApiRequestTransfer): UnzerApiResponseTransfer
     {
-        return $this->getFactory()->createAuthorizeApiClient()->sendRequest($unzerApiRequestTransfer);
+        return $this->getFactory()->createAuthorizeRequest()->sendRequest($unzerApiRequestTransfer);
     }
 
     /**
@@ -128,7 +128,7 @@ class UnzerApiFacade extends AbstractFacade implements UnzerApiFacadeInterface
      */
     public function performMarketplaceGetPaymentApiCall(UnzerApiRequestTransfer $unzerApiRequestTransfer): UnzerApiResponseTransfer
     {
-        return $this->getFactory()->createMarketplaceGetPaymentApiClient()->sendRequest($unzerApiRequestTransfer);
+        return $this->getFactory()->createMarketplaceGetPaymentRequest()->sendRequest($unzerApiRequestTransfer);
     }
 
     /**
@@ -142,7 +142,7 @@ class UnzerApiFacade extends AbstractFacade implements UnzerApiFacadeInterface
      */
     public function performGetPaymentApiCall(UnzerApiRequestTransfer $unzerApiRequestTransfer): UnzerApiResponseTransfer
     {
-        return $this->getFactory()->createGetPaymentApiClient()->sendRequest($unzerApiRequestTransfer);
+        return $this->getFactory()->createGetPaymentRequest()->sendRequest($unzerApiRequestTransfer);
     }
 
     /**
@@ -156,7 +156,7 @@ class UnzerApiFacade extends AbstractFacade implements UnzerApiFacadeInterface
      */
     public function performMarketplaceChargeApiCall(UnzerApiRequestTransfer $unzerApiRequestTransfer): UnzerApiResponseTransfer
     {
-        return $this->getFactory()->createMarketplaceChargeApiClient()->sendRequest($unzerApiRequestTransfer);
+        return $this->getFactory()->createMarketplaceChargeRequest()->sendRequest($unzerApiRequestTransfer);
     }
 
     /**
@@ -170,7 +170,7 @@ class UnzerApiFacade extends AbstractFacade implements UnzerApiFacadeInterface
      */
     public function performMarketplaceAuthorizableChargeApiCall(UnzerApiRequestTransfer $unzerApiRequestTransfer): UnzerApiResponseTransfer
     {
-        return $this->getFactory()->createMarketplaceAuthorizableChargeApiClient()->sendRequest($unzerApiRequestTransfer);
+        return $this->getFactory()->createMarketplaceAuthorizableChargeRequest()->sendRequest($unzerApiRequestTransfer);
     }
 
     /**
@@ -184,7 +184,7 @@ class UnzerApiFacade extends AbstractFacade implements UnzerApiFacadeInterface
      */
     public function performAuthorizableChargeApiCall(UnzerApiRequestTransfer $unzerApiRequestTransfer): UnzerApiResponseTransfer
     {
-        return $this->getFactory()->createAuthorizableChargeApiClient()->sendRequest($unzerApiRequestTransfer);
+        return $this->getFactory()->createAuthorizableChargeRequest()->sendRequest($unzerApiRequestTransfer);
     }
 
     /**
@@ -198,7 +198,7 @@ class UnzerApiFacade extends AbstractFacade implements UnzerApiFacadeInterface
      */
     public function performChargeApiCall(UnzerApiRequestTransfer $unzerApiRequestTransfer): UnzerApiResponseTransfer
     {
-        return $this->getFactory()->createChargeApiClient()->sendRequest($unzerApiRequestTransfer);
+        return $this->getFactory()->createChargeRequest()->sendRequest($unzerApiRequestTransfer);
     }
 
     /**
@@ -212,7 +212,7 @@ class UnzerApiFacade extends AbstractFacade implements UnzerApiFacadeInterface
      */
     public function performCreatePaymentResourceApiCall(UnzerApiRequestTransfer $unzerApiRequestTransfer): UnzerApiResponseTransfer
     {
-        return $this->getFactory()->createCreatePaymentResourceApiClient()->sendRequest($unzerApiRequestTransfer);
+        return $this->getFactory()->createCreatePaymentResourceRequest()->sendRequest($unzerApiRequestTransfer);
     }
 
     /**
@@ -226,7 +226,7 @@ class UnzerApiFacade extends AbstractFacade implements UnzerApiFacadeInterface
      */
     public function performRefundApiCall(UnzerApiRequestTransfer $unzerApiRequestTransfer): UnzerApiResponseTransfer
     {
-        return $this->getFactory()->createRefundApiClient()->sendRequest($unzerApiRequestTransfer);
+        return $this->getFactory()->createRefundRequest()->sendRequest($unzerApiRequestTransfer);
     }
 
     /**
@@ -240,6 +240,20 @@ class UnzerApiFacade extends AbstractFacade implements UnzerApiFacadeInterface
      */
     public function performMarketplaceRefundApiCall(UnzerApiRequestTransfer $unzerApiRequestTransfer): UnzerApiResponseTransfer
     {
-        return $this->getFactory()->createMarketplaceRefundApiClient()->sendRequest($unzerApiRequestTransfer);
+        return $this->getFactory()->createMarketplaceRefundRequest()->sendRequest($unzerApiRequestTransfer);
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @api
+     *
+     * @param \Generated\Shared\Transfer\UnzerApiRequestTransfer $unzerApiRequestTransfer
+     *
+     * @return \Generated\Shared\Transfer\UnzerApiResponseTransfer
+     */
+    public function performGetPaymentMethodsApiCall(UnzerApiRequestTransfer $unzerApiRequestTransfer): UnzerApiResponseTransfer
+    {
+        return $this->getFactory()->createGetPaymentMethodsRequest()->sendRequest($unzerApiRequestTransfer);
     }
 }

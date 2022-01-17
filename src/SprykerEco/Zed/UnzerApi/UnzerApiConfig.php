@@ -161,4 +161,14 @@ class UnzerApiConfig extends AbstractBundleConfig
     {
         return $this->get(UnzerApiConstants::REFUND_URL);
     }
+
+    /**
+     * @api
+     *
+     * @return string
+     */
+    public function getUnzerApiGetPaymentMethods(): string
+    {
+        return $this->get(UnzerApiConstants::GET_PAYMENT_METHODS_URL);
+    }
 }
