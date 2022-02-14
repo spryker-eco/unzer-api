@@ -126,6 +126,7 @@
         <property name="basketId" type="string"/>
         <property name="paymentId" type="string"/>
         <property name="metadataId" type="string"/>
+        <property name="authorizeId" type="string"/>
     </transfer>
 
     <transfer name="UnzerApiRefundRequest">
