@@ -85,6 +85,20 @@ interface UnzerApiFacadeInterface
     /**
      * Specification:
      * - Requires `UnzerApiRequestTransfer::unzerKeypair` to be set.
+     * - Requires `UnzerApiRequestTransfer::unzerApiCreateBasketRequest` to be set.
+     * - Performs Unzer Create Marketplace Basket API call.
+     *
+     * @api
+     *
+     * @param \Generated\Shared\Transfer\UnzerApiRequestTransfer $unzerApiRequestTransfer
+     *
+     * @return \Generated\Shared\Transfer\UnzerApiResponseTransfer
+     */
+    public function performCreateMarketplaceBasketApiCall(UnzerApiRequestTransfer $unzerApiRequestTransfer): UnzerApiResponseTransfer;
+
+    /**
+     * Specification:
+     * - Requires `UnzerApiRequestTransfer::unzerKeypair` to be set.
      * - Requires `UnzerApiRequestTransfer::unzerApiCreatePaymentResourceRequest` to be set.
      * - Performs Unzer Create Payment resource API call.
      *

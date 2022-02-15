@@ -13,16 +13,16 @@ use Generated\Shared\Transfer\UnzerApiResponseTransfer;
 interface UnzerApiLoggerInterface
 {
     /**
-     * @param \Generated\Shared\Transfer\UnzerApiRequestTransfer $unzerApiRequestTransfer
      * @param \Generated\Shared\Transfer\UnzerApiResponseTransfer $unzerApiResponseTransfer
+     * @param string $requestBody
      * @param string $requestType
      * @param string $url
      *
      * @return void
      */
     public function logApiCall(
-        UnzerApiRequestTransfer $unzerApiRequestTransfer,
         UnzerApiResponseTransfer $unzerApiResponseTransfer,
+        string $requestBody,
         string $requestType,
         string $url
     ): void;

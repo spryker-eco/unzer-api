@@ -64,12 +64,13 @@ class UnzerApiExternalClient implements UnzerApiExternalClientInterface
     {
         $isSuccessful = true;
         $requestUrl = $this->unzerApiRequest->getUrl($unzerApiRequestTransfer);
+        $requestBody = $this->unzerApiRequest->getRequestBody($unzerApiRequestTransfer);
 
         try {
             $response = $this->httpClient->sendRequest(
                 $requestUrl,
                 $this->unzerApiRequest->getHttpMethod(),
-                $this->unzerApiRequest->getRequestBody($unzerApiRequestTransfer),
+                $requestBody,
                 $unzerApiRequestTransfer->getUnzerKeypairOrFail()->getPrivateKey(),
             );
         } catch (UnzerApiToHttpClientException $requestException) {
@@ -81,8 +82,8 @@ class UnzerApiExternalClient implements UnzerApiExternalClientInterface
             ->convertUnzerApiGuzzleResponseToUnzerApiResponseTransfer($response, $isSuccessful);
 
         $this->unzerApiLogger->logApiCall(
-            $unzerApiRequestTransfer,
             $responseTransfer,
+            $requestBody,
             $this->unzerApiRequest->getHttpMethod(),
             $requestUrl,
         );

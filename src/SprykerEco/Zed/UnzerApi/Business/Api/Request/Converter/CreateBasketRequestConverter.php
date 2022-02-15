@@ -9,6 +9,7 @@ namespace SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter;
 
 use ArrayObject;
 use Generated\Shared\Transfer\UnzerApiRequestTransfer;
+use Generated\Shared\Transfer\UnzerBasketItemTransfer;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\UnzerApiRequestConstants;
 
 class CreateBasketRequestConverter implements UnzerApiRequestConverterInterface
@@ -23,16 +24,16 @@ class CreateBasketRequestConverter implements UnzerApiRequestConverterInterface
         $unzerApiCreateBasketRequestTransfer = $unzerApiRequestTransfer->getCreateBasketRequestOrFail();
 
         return [
-            UnzerApiRequestConstants::PARAM_AMOUNT_TOTAL_GROSS => (string)$unzerApiCreateBasketRequestTransfer->getAmountTotalGross(),
+            UnzerApiRequestConstants::PARAM_TOTAL_VALUE_GROSS => (string)$unzerApiCreateBasketRequestTransfer->getAmountTotalGross(),
+            UnzerApiRequestConstants::PARAM_ORDER_ID => $unzerApiCreateBasketRequestTransfer->getOrderId(),
             UnzerApiRequestConstants::PARAM_CURRENCY_CODE => $unzerApiCreateBasketRequestTransfer->getCurrencyCode(),
             UnzerApiRequestConstants::PARAM_NOTE => $unzerApiCreateBasketRequestTransfer->getNote(),
-            UnzerApiRequestConstants::PARAM_ORDER_ID => $unzerApiCreateBasketRequestTransfer->getOrderId(),
             UnzerApiRequestConstants::PARAM_BASKET_ITEMS => $this->convertBasketItems($unzerApiCreateBasketRequestTransfer->getBasketItems()),
         ];
     }
 
     /**
-     * @param \ArrayObject $unzerBasketItemTransfers
+     * @param \ArrayObject|array<UnzerBasketItemTransfer> $unzerBasketItemTransfers
      *
      * @return array<int, array<string, mixed>>
      */
@@ -40,18 +41,21 @@ class CreateBasketRequestConverter implements UnzerApiRequestConverterInterface
     {
         $result = [];
         foreach ($unzerBasketItemTransfers as $unzerBasketItemTransfer) {
-            $result[] = [
+            $unzerBasketItem =  [
+                UnzerApiRequestConstants::PARAM_TYPE => $unzerBasketItemTransfer->getType(),
                 UnzerApiRequestConstants::PARAM_BASKET_ITEM_REFERENCE_ID => $unzerBasketItemTransfer->getBasketItemReferenceId(),
                 UnzerApiRequestConstants::PARAM_QUANTITY => (string)$unzerBasketItemTransfer->getQuantity(),
-                UnzerApiRequestConstants::PARAM_AMOUNT_DISCOUNT => (string)$unzerBasketItemTransfer->getAmountDiscount(),
-                UnzerApiRequestConstants::PARAM_AMOUNT_GROSS => (string)$unzerBasketItemTransfer->getAmountGross(),
-                UnzerApiRequestConstants::PARAM_AMOUNT_VAT => (string)$unzerBasketItemTransfer->getAmountVat(),
-                UnzerApiRequestConstants::PARAM_AMOUNT_PER_UNIT => (string)$unzerBasketItemTransfer->getAmountPerUnit(),
-                UnzerApiRequestConstants::PARAM_AMOUNT_NET => (string)$unzerBasketItemTransfer->getAmountNet(),
+                UnzerApiRequestConstants::PARAM_AMOUNT_PER_UNIT_GROSS => (string)$unzerBasketItemTransfer->getAmountPerUnit(),
                 UnzerApiRequestConstants::PARAM_TITLE => $unzerBasketItemTransfer->getTitle(),
-                UnzerApiRequestConstants::PARAM_PARTICIPANT_ID => $unzerBasketItemTransfer->getParticipantId(),
-                UnzerApiRequestConstants::PARAM_TYPE => $unzerBasketItemTransfer->getType(),
+                UnzerApiRequestConstants::PARAM_VAT => $unzerBasketItemTransfer->getVat(),
+                UnzerApiRequestConstants::PARAM_AMOUNT_DISCOUNT_PER_UNIT_GROSS => (string)$unzerBasketItemTransfer->getAmountDiscount(),
             ];
+
+            if ($unzerBasketItemTransfer->getParticipantId() !== null) {
+                $unzerBasketItem[UnzerApiRequestConstants::PARAM_PARTICIPANT_ID] = $unzerBasketItemTransfer->getParticipantId();
+            }
+
+            $result[] = $unzerBasketItem;
         }
 
         return $result;

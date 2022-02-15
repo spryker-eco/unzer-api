@@ -47,6 +47,16 @@ class UnzerApiConfig extends AbstractBundleConfig
      *
      * @return string
      */
+    public function getUnzerApiCreateMarketplaceBasket(): string
+    {
+        return $this->get(UnzerApiConstants::MARKETPLACE_BASKET_RESOURCE_URL);
+    }
+
+    /**
+     * @api
+     *
+     * @return string
+     */
     public function getUnzerApiMarketplaceCharge(): string
     {
         return $this->get(UnzerApiConstants::MARKETPLACE_CHARGE_URL);
