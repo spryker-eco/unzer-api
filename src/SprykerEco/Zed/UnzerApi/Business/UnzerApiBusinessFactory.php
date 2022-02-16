@@ -16,6 +16,7 @@ use SprykerEco\Zed\UnzerApi\Business\Api\Request\Builder\UnzerApiRequestBuilder;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\Builder\UnzerApiRequestBuilderInterface;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\ChargeRequest;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter\AuthorizableChargeRequestConverter;
+use SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter\AuthorizeRequestConverter;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter\ChargeRequestConverter;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter\CreateBasketRequestConverter;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter\CreateCustomerRequestConverter;
@@ -394,7 +395,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
      */
     public function createAuthorizeRequestConverter(): UnzerApiRequestConverterInterface
     {
-        return new MarketPlaceAuthorizeRequestConverter();
+        return new AuthorizeRequestConverter();
     }
 
     /**
