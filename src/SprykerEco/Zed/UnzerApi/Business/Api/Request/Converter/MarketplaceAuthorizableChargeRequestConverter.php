@@ -25,6 +25,7 @@ class MarketplaceAuthorizableChargeRequestConverter implements UnzerApiRequestCo
             UnzerApiRequestConstants::PARAM_ORDER_ID => $unzerApiChargeRequestTransfer->getOrderId(),
             UnzerApiRequestConstants::PARAM_INVOICE_ID => $unzerApiChargeRequestTransfer->getInvoiceId(),
             UnzerApiRequestConstants::PARAM_PAYMENT_REFERENCE => $unzerApiChargeRequestTransfer->getPaymentReference(),
+            UnzerApiRequestConstants::PARAM_AMOUNT => (string)$unzerApiChargeRequestTransfer->getAmount(),
         ];
     }
 }
