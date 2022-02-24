@@ -8,7 +8,6 @@
 namespace SprykerEco\Zed\UnzerApi\Business\Api\Logger;
 
 use Generated\Shared\Transfer\PaymentUnzerApiLogTransfer;
-use Generated\Shared\Transfer\UnzerApiRequestTransfer;
 use Generated\Shared\Transfer\UnzerApiResponseTransfer;
 use SprykerEco\Zed\UnzerApi\Persistence\UnzerApiEntityManagerInterface;
 
@@ -40,7 +39,7 @@ class UnzerApiLogger implements UnzerApiLoggerInterface
         string $requestBody,
         string $requestType,
         string $url
-    ): void{
+    ): void {
         $paymentUnzerApiLog = $this->createPaymentUnzerApiLogTransfer(
             $requestBody,
             $unzerApiResponseTransfer,

@@ -64,7 +64,7 @@ class AuthorizeResponseMapper implements UnzerApiResponseMapperInterface
         array $responseData,
         UnzerApiMarketplaceAuthorizeResponseTransfer $responseTransfer
     ): UnzerApiMarketplaceAuthorizeResponseTransfer {
-        if (empty($responseData)) {
+        if (!$responseData) {
             return $responseTransfer;
         }
 
@@ -89,7 +89,7 @@ class AuthorizeResponseMapper implements UnzerApiResponseMapperInterface
         array $responseData,
         UnzerApiMarketplaceAuthorizeResponseTransfer $unzerApiMarketplaceAuthorizeResponseTransfer
     ): UnzerApiMarketplaceAuthorizeResponseTransfer {
-        if (empty($responseData)) {
+        if (!$responseData) {
             return $unzerApiMarketplaceAuthorizeResponseTransfer;
         }
 
@@ -112,7 +112,7 @@ class AuthorizeResponseMapper implements UnzerApiResponseMapperInterface
         array $responseData,
         UnzerApiMarketplaceAuthorizeResponseTransfer $unzerApiMarketplaceAuthorizeResponseTransfer
     ): UnzerApiMarketplaceAuthorizeResponseTransfer {
-        if (empty($responseData)) {
+        if (!$responseData) {
             return $unzerApiMarketplaceAuthorizeResponseTransfer;
         }
 

@@ -65,7 +65,7 @@ class MarketplaceRefundResponseMapper implements UnzerApiResponseMapperInterface
         array $resourceData,
         UnzerApiMarketplaceRefundResponseTransfer $unzerApiMarketplaceRefundResponseTransfer
     ): UnzerApiMarketplaceRefundResponseTransfer {
-        if (empty($resourceData)) {
+        if (!$resourceData) {
             return $unzerApiMarketplaceRefundResponseTransfer;
         }
 
@@ -89,7 +89,7 @@ class MarketplaceRefundResponseMapper implements UnzerApiResponseMapperInterface
         array $processingData,
         UnzerApiMarketplaceRefundResponseTransfer $unzerApiMarketplaceRefundResponseTransfer
     ): UnzerApiMarketplaceRefundResponseTransfer {
-        if (empty($processingData)) {
+        if (!$processingData) {
             return $unzerApiMarketplaceRefundResponseTransfer;
         }
 
@@ -109,7 +109,7 @@ class MarketplaceRefundResponseMapper implements UnzerApiResponseMapperInterface
         array $messageData,
         UnzerApiMarketplaceRefundResponseTransfer $unzerApiMarketplaceRefundResponseTransfer
     ): UnzerApiMarketplaceRefundResponseTransfer {
-        if (empty($messageData)) {
+        if (!$messageData) {
             return $unzerApiMarketplaceRefundResponseTransfer;
         }
 
