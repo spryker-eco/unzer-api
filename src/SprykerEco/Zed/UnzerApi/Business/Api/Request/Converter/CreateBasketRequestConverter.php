@@ -9,7 +9,6 @@ namespace SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter;
 
 use ArrayObject;
 use Generated\Shared\Transfer\UnzerApiRequestTransfer;
-use Generated\Shared\Transfer\UnzerBasketItemTransfer;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\UnzerApiRequestConstants;
 
 class CreateBasketRequestConverter implements UnzerApiRequestConverterInterface
@@ -33,7 +32,7 @@ class CreateBasketRequestConverter implements UnzerApiRequestConverterInterface
     }
 
     /**
-     * @param \ArrayObject|array<UnzerBasketItemTransfer> $unzerBasketItemTransfers
+     * @param \ArrayObject|array<\Generated\Shared\Transfer\UnzerBasketItemTransfer> $unzerBasketItemTransfers
      *
      * @return array<int, array<string, mixed>>
      */
@@ -41,7 +40,7 @@ class CreateBasketRequestConverter implements UnzerApiRequestConverterInterface
     {
         $result = [];
         foreach ($unzerBasketItemTransfers as $unzerBasketItemTransfer) {
-            $unzerBasketItem =  [
+            $unzerBasketItem = [
                 UnzerApiRequestConstants::PARAM_TYPE => $unzerBasketItemTransfer->getType(),
                 UnzerApiRequestConstants::PARAM_BASKET_ITEM_REFERENCE_ID => $unzerBasketItemTransfer->getBasketItemReferenceId(),
                 UnzerApiRequestConstants::PARAM_QUANTITY => (string)$unzerBasketItemTransfer->getQuantity(),

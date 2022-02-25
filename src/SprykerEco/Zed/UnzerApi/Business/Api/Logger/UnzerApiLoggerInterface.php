@@ -7,7 +7,6 @@
 
 namespace SprykerEco\Zed\UnzerApi\Business\Api\Logger;
 
-use Generated\Shared\Transfer\UnzerApiRequestTransfer;
 use Generated\Shared\Transfer\UnzerApiResponseTransfer;
 
 interface UnzerApiLoggerInterface
