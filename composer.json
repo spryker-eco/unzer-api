@@ -14,9 +14,7 @@
     },
     "require-dev": {
         "phpstan/phpstan": "*",
-        "spryker/code-sniffer": "*",
-        "spryker/propel": "^3.30.0",
-        "spryker/testify": "^3.42.0"
+        "spryker/code-sniffer": "*"
     },
     "autoload": {
         "psr-4": {
@@ -44,9 +42,6 @@
     "config": {
         "preferred-install": "dist",
         "sort-packages": true,
-        "process-timeout": 600,
-        "allow-plugins": {
-            "dealerdirect/phpcodesniffer-composer-installer": true
-        }
+        "process-timeout": 600
     }
 }
