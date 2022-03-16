@@ -34,6 +34,7 @@ use SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter\UnzerApiRequestConver
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter\UpdateCustomerRequestConverter;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\CreateBasketRequest;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\CreateCustomerRequest;
+use SprykerEco\Zed\UnzerApi\Business\Api\Request\CreateMarketplaceBasketRequest;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\CreateMetadataRequest;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\CreatePaymentResourceRequest;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\GetPaymentMethodsRequest;
@@ -219,6 +220,17 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
             $this->getUnzerApiHttpClient(),
             $this->createCreateBasketResponseConverter(),
             $this->createUnzerApiLogger(),
+        );
+    }
+
+    /**
+     * @return \SprykerEco\Zed\UnzerApi\Business\Api\Request\UnzerApiRequestInterface
+     */
+    public function createCreateMarketplaceBasketRequest(): UnzerApiRequestInterface
+    {
+        return new CreateMarketplaceBasketRequest(
+            $this->getConfig(),
+            $this->createCreateBasketRequestBuilder(),
         );
     }
 

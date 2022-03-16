@@ -4,7 +4,8 @@ use SprykerEco\Shared\UnzerApi\UnzerApiConstants;
 
 $config[UnzerApiConstants::WEBHOOK_RESOURCE_URL] = 'https://api.unzer.com/v1/webhooks';
 $config[UnzerApiConstants::CUSTOMER_RESOURCE_URL] = 'https://api.unzer.com/v1/customers/%s';
-$config[UnzerApiConstants::BASKET_RESOURCE_URL] = 'https://api.unzer.com/v1/baskets';
+$config[UnzerApiConstants::BASKET_RESOURCE_URL] = 'https://api.unzer.com/v2/baskets';
+$config[UnzerApiConstants::MARKETPLACE_BASKET_RESOURCE_URL] = 'https://api.unzer.com/v2/marketplace/baskets';
 $config[UnzerApiConstants::MARKETPLACE_AUTHORIZE_URL] = 'https://api.unzer.com/v1/marketplace/payments/authorize';
 $config[UnzerApiConstants::AUTHORIZE_URL] = 'https://api.unzer.com/v1/payments/authorize';
 $config[UnzerApiConstants::METADATA_RESOURCE_URL] = 'https://api.unzer.com/v1/metadata';

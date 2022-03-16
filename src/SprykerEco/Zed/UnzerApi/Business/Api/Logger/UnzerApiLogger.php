@@ -28,21 +28,21 @@ class UnzerApiLogger implements UnzerApiLoggerInterface
     }
 
     /**
-     * @param \Generated\Shared\Transfer\UnzerApiRequestTransfer $unzerApiRequestTransfer
      * @param \Generated\Shared\Transfer\UnzerApiResponseTransfer $unzerApiResponseTransfer
+     * @param string $requestBody
      * @param string $requestType
      * @param string $url
      *
      * @return void
      */
     public function logApiCall(
-        UnzerApiRequestTransfer $unzerApiRequestTransfer,
         UnzerApiResponseTransfer $unzerApiResponseTransfer,
+        string $requestBody,
         string $requestType,
         string $url
-    ): void {
+    ): void{
         $paymentUnzerApiLog = $this->createPaymentUnzerApiLogTransfer(
-            $unzerApiRequestTransfer,
+            $requestBody,
             $unzerApiResponseTransfer,
             $requestType,
             $url,
@@ -52,7 +52,7 @@ class UnzerApiLogger implements UnzerApiLoggerInterface
     }
 
     /**
-     * @param \Generated\Shared\Transfer\UnzerApiRequestTransfer $requestTransfer
+     * @param string $requestBody
      * @param \Generated\Shared\Transfer\UnzerApiResponseTransfer $responseTransfer
      * @param string $requestType
      * @param string $url
@@ -60,7 +60,7 @@ class UnzerApiLogger implements UnzerApiLoggerInterface
      * @return \Generated\Shared\Transfer\PaymentUnzerApiLogTransfer
      */
     protected function createPaymentUnzerApiLogTransfer(
-        UnzerApiRequestTransfer $requestTransfer,
+        string $requestBody,
         UnzerApiResponseTransfer $responseTransfer,
         string $requestType,
         string $url
@@ -68,7 +68,7 @@ class UnzerApiLogger implements UnzerApiLoggerInterface
         return (new PaymentUnzerApiLogTransfer())
             ->setRequestType($requestType)
             ->setIsSuccessful($responseTransfer->getIsSuccessful())
-            ->setRequest($requestTransfer->serialize())
+            ->setRequest($requestBody)
             ->setResponse($responseTransfer->serialize())
             ->setUrl($url);
     }

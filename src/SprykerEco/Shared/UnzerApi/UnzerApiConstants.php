@@ -25,6 +25,11 @@ interface UnzerApiConstants
     /**
      * @var string
      */
+    public const MARKETPLACE_BASKET_RESOURCE_URL = 'UNZERAPI:MARKETPLACE_BASKET_RESOURCE_URL';
+
+    /**
+     * @var string
+     */
     public const CUSTOMER_RESOURCE_URL = 'UNZERAPI:CUSTOMER_RESOURCE_URL';
 
     /**
