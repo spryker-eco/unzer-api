@@ -100,7 +100,7 @@ class UnzerApiFacade extends AbstractFacade implements UnzerApiFacadeInterface
      */
     public function performCreateMarketplaceBasketApiCall(UnzerApiRequestTransfer $unzerApiRequestTransfer): UnzerApiResponseTransfer
     {
-        return $this->getFactory()->createCreateMarketplaceBasketApiClient()->sendRequest($unzerApiRequestTransfer);
+        return $this->getFactory()->createCreateMarketplaceBasketRequest()->sendRequest($unzerApiRequestTransfer);
     }
 
     /**
