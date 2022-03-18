@@ -224,37 +224,16 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     }
 
     /**
-     * @return \SprykerEco\Zed\UnzerApi\Business\Api\ExternalClient\UnzerApiExternalClientInterface
+     * @return \SprykerEco\Zed\UnzerApi\Business\Api\Request\UnzerApiRequestInterface
      */
-    public function createCreateMarketplaceBasketApiClient(): UnzerApiExternalClientInterface
+    public function createCreateMarketplaceBasketRequest(): UnzerApiRequestInterface
     {
-        return new UnzerApiExternalClient(
+        return new CreateMarketplaceBasketRequest(
+            $this->getConfig(),
+            $this->createCreateBasketRequestBuilder(),
             $this->getUnzerApiHttpClient(),
-            $this->createCreateMarketplaceBasketRequest(),
             $this->createCreateBasketResponseConverter(),
             $this->createUnzerApiLogger(),
-        );
-    }
-
-    /**
-     * @return \SprykerEco\Zed\UnzerApi\Business\Api\Request\UnzerApiRequestInterface
-     */
-    public function createCreateMarketplaceBasketRequest(): UnzerApiRequestInterface
-    {
-        return new CreateMarketplaceBasketRequest(
-            $this->getConfig(),
-            $this->createCreateBasketRequestBuilder(),
-        );
-    }
-
-    /**
-     * @return \SprykerEco\Zed\UnzerApi\Business\Api\Request\UnzerApiRequestInterface
-     */
-    public function createCreateMarketplaceBasketRequest(): UnzerApiRequestInterface
-    {
-        return new CreateMarketplaceBasketRequest(
-            $this->getConfig(),
-            $this->createCreateBasketRequestBuilder(),
         );
     }
 
