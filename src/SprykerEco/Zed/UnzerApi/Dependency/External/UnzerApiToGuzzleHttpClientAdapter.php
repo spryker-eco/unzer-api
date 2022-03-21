@@ -77,15 +77,15 @@ class UnzerApiToGuzzleHttpClientAdapter implements UnzerApiToHttpClientInterface
     }
 
     /**
-     * @param \Psr\Http\Message\ResponseInterface $response
+     * @param \Psr\Http\Message\ResponseInterface|null $response
      *
      * @return \SprykerEco\Zed\UnzerApi\Dependency\External\UnzerApiToHttpResponseInterface
      */
-    protected function createUnzerApiGuzzleResponse(ResponseInterface $response): UnzerApiToHttpResponseInterface
+    protected function createUnzerApiGuzzleResponse(?ResponseInterface $response): UnzerApiToHttpResponseInterface
     {
         return new UnzerApiToGuzzleResponseAdapter(
-            $response->getBody(),
-            $response->getHeaders(),
+            $response ? $response->getBody() : null,
+            $response ? $response->getHeaders() : [],
         );
     }
 }
