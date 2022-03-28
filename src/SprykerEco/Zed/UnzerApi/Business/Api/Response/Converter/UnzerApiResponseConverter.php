@@ -54,8 +54,7 @@ class UnzerApiResponseConverter implements UnzerApiResponseConverterInterface
     ): UnzerApiResponseTransfer {
         $responseData = $this->utilEncodingService->decodeJson($httpResponse->getResponseBody(), true) ?? [];
         $unzerApiResponseTransfer = $this->createUnzerApiResponseTransfer($isSuccessful);
-        $hasInternalError = $responseData &&
-            isset($responseData[static::RESPONSE_DATA_IS_ERROR_KEY]) &&
+        $hasInternalError = isset($responseData[static::RESPONSE_DATA_IS_ERROR_KEY]) &&
             $responseData[static::RESPONSE_DATA_IS_ERROR_KEY] === true;
 
         if (!$isSuccessful || $hasInternalError) {
