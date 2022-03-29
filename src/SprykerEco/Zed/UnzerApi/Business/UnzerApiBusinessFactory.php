@@ -16,6 +16,7 @@ use SprykerEco\Zed\UnzerApi\Business\Api\Request\Builder\UnzerApiRequestBuilder;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\Builder\UnzerApiRequestBuilderInterface;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\ChargeRequest;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter\AuthorizableChargeRequestConverter;
+use SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter\AuthorizeRequestConverter;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter\ChargeRequestConverter;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter\CreateBasketRequestConverter;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter\CreateCustomerRequestConverter;
@@ -24,7 +25,7 @@ use SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter\CreatePaymentResource
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter\GetPaymentMethodsRequestConverter;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter\GetPaymentRequestConverter;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter\MarketplaceAuthorizableChargeRequestConverter;
-use SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter\MarketPlaceAuthorizeRequestConverter;
+use SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter\MarketplaceAuthorizeRequestConverter;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter\MarketplaceChargeRequestConverter;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter\MarketplaceGetPaymentRequestConverter;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter\MarketplaceRefundRequestConverter;
@@ -357,7 +358,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
      */
     public function createMarketplaceAuthorizeRequestConverter(): UnzerApiRequestConverterInterface
     {
-        return new MarketPlaceAuthorizeRequestConverter();
+        return new MarketplaceAuthorizeRequestConverter();
     }
 
     /**
@@ -409,7 +410,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
      */
     public function createAuthorizeRequestConverter(): UnzerApiRequestConverterInterface
     {
-        return new MarketPlaceAuthorizeRequestConverter();
+        return new AuthorizeRequestConverter();
     }
 
     /**

@@ -19,7 +19,7 @@ class AuthorizeRequestConverter implements UnzerApiRequestConverterInterface
      */
     public function convertUnzerApiRequestTransferToArray(UnzerApiRequestTransfer $unzerApiRequestTransfer): array
     {
-        $unzerApiMarketplaceAuthorizeRequestTransfer = $unzerApiRequestTransfer->getMarketplaceAuthorizeRequestOrFail();
+        $unzerApiMarketplaceAuthorizeRequestTransfer = $unzerApiRequestTransfer->getAuthorizeRequestOrFail();
 
         return [
             UnzerApiRequestConstants::PARAM_AMOUNT => (string)$unzerApiMarketplaceAuthorizeRequestTransfer->getAmount(),
