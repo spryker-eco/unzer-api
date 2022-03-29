@@ -10,7 +10,7 @@ namespace SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter;
 use Generated\Shared\Transfer\UnzerApiRequestTransfer;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\UnzerApiRequestConstants;
 
-class MarketPlaceAuthorizeRequestConverter implements UnzerApiRequestConverterInterface
+class MarketplaceAuthorizeRequestConverter implements UnzerApiRequestConverterInterface
 {
     /**
      * @param \Generated\Shared\Transfer\UnzerApiRequestTransfer $unzerApiRequestTransfer
