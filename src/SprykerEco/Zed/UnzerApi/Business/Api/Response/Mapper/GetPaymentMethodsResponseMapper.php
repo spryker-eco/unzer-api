@@ -41,7 +41,7 @@ class GetPaymentMethodsResponseMapper implements UnzerApiResponseMapperInterface
         UnzerApiGetPaymentMethodsResponseTransfer $unzerApiGetPaymentMethodsResponseTransfer
     ): UnzerApiGetPaymentMethodsResponseTransfer {
         foreach ($paymentMethodsData as $paymentMethodKey) {
-            $unzerApiPaymentMethodTransfer = (new UnzerApiPaymentMethodTransfer())->setPaymentMethodKey($paymentMethodKey);
+            $unzerApiPaymentMethodTransfer = (new UnzerApiPaymentMethodTransfer())->setPaymentMethodKey(strtolower($paymentMethodKey));
 
             $unzerApiGetPaymentMethodsResponseTransfer->addPaymentMethod($unzerApiPaymentMethodTransfer);
         }
