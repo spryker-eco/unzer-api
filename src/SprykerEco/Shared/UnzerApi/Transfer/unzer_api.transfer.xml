@@ -160,7 +160,6 @@
         <property name="authorizeResponse" type="UnzerApiAuthorizeResponse"/>
         <property name="marketplaceAuthorizeResponse" type="UnzerApiMarketplaceAuthorizeResponse"/>
         <property name="chargeResponse" type="UnzerApiChargeResponse"/>
-        <property name="creditCardChargeResponse" type="UnzerApiCreditCardChargeResponse"/>
         <property name="refundResponse" type="UnzerApiRefundResponse"/>
         <property name="marketplaceRefundResponse" type="UnzerApiMarketplaceRefundResponse"/>
         <property name="getPaymentResponse" type="UnzerApiGetPaymentResponse"/>
@@ -340,28 +339,6 @@
         <property name="uniqueId" type="string"/>
         <property name="shortId" type="string"/>
         <property name="transactions" type="UnzerApiMarketplaceTransaction[]" singular="transaction"/>
-    </transfer>
-
-    <transfer name="UnzerApiCreditCardChargeResponse">
-        <property name="id" type="string"/>
-        <property name="isSuccessful" type="bool"/>
-        <property name="isPending" type="bool"/>
-        <property name="isError" type="bool"/>
-        <property name="card3ds" type="bool"/>
-        <property name="message" type="UnzerApiMessage"/>
-        <property name="amount" type="string"/>
-        <property name="currency" type="string"/>
-        <property name="date" type="string"/>
-        <property name="customerId" type="string"/>
-        <property name="paymentId" type="string"/>
-        <property name="basketId" type="string"/>
-        <property name="metadataId" type="string"/>
-        <property name="traceId" type="string"/>
-        <property name="payPageId" type="string"/>
-        <property name="typeId" type="string"/>
-        <property name="paymentReference" type="string"/>
-        <property name="uniqueId" type="string"/>
-        <property name="shortId" type="string"/>
     </transfer>
 
     <transfer name="UnzerApiRefundResponse">

@@ -8,7 +8,6 @@
 namespace SprykerEco\Zed\UnzerApi\Business\Api\Response\Mapper;
 
 use Generated\Shared\Transfer\UnzerApiAuthorizeResponseTransfer;
-use Generated\Shared\Transfer\UnzerApiMarketplaceAuthorizeResponseTransfer;
 use Generated\Shared\Transfer\UnzerApiMessageTransfer;
 use Generated\Shared\Transfer\UnzerApiResponseTransfer;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\UnzerApiRequestConstants;
