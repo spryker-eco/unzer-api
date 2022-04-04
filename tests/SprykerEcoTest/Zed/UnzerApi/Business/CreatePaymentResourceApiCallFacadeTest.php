@@ -28,14 +28,14 @@ class CreatePaymentResourceApiCallFacadeTest extends UnzerApiFacadeBaseTest
      */
     public function testPerformCreatePaymentResourceApiCall(): void
     {
-        //Arrange
+        // Arrange
         $unzerApiRequestTransfer = $this->tester->createUnzerApiRequestTransfer();
 
-        //Act
+        // Act
         $unzerApiResponseTransfer = $this->facade->performCreatePaymentResourceApiCall($unzerApiRequestTransfer);
         $unzerApiCreatePaymentResourceResponseTransfer = $unzerApiResponseTransfer->getCreatePaymentResourceResponseOrFail();
 
-        //Assert
+        // Assert
         $this->assertTrue($unzerApiResponseTransfer->getIsSuccessful());
         $this->assertNotEmpty($unzerApiCreatePaymentResourceResponseTransfer->getId());
         $this->assertEquals(UnzerApiZedTester::PAYMENT_METHOD_SOFORT, $unzerApiCreatePaymentResourceResponseTransfer->getMethod());

@@ -28,14 +28,14 @@ class SetNotificationUrlApiCallFacadeTest extends UnzerApiFacadeBaseTest
      */
     public function testPerformSetNotificationUrlApiCall(): void
     {
-        //Arrange
+        // Arrange
         $unzerApiRequestTransfer = $this->tester->createUnzerApiRequestTransfer();
 
-        //Act
+        // Act
         $unzerApiResponseTransfer = $this->facade->performSetNotificationUrlApiCall($unzerApiRequestTransfer);
         $unzerApiSetWebhookResponseTransfer = $unzerApiResponseTransfer->getSetWebhookResponseOrFail();
 
-        //Assert
+        // Assert
         $this->assertTrue($unzerApiResponseTransfer->getIsSuccessful());
         $this->assertNotEmpty($unzerApiSetWebhookResponseTransfer->getId());
         $this->assertEquals(UnzerApiZedTester::WEBHOOK_URL, $unzerApiSetWebhookResponseTransfer->getUrl());

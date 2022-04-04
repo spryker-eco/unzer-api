@@ -26,14 +26,14 @@ class GetPaymentMethodsApiCallFacadeTest extends UnzerApiFacadeBaseTest
      */
     public function testPerformGetPaymentMethodsApiCall(): void
     {
-        //Arrange
+        // Arrange
         $unzerApiRequestTransfer = $this->tester->createUnzerApiRequestTransfer();
 
-        //Act
+        // Act
         $unzerApiResponseTransfer = $this->facade->performGetPaymentMethodsApiCall($unzerApiRequestTransfer);
         $unzerApiGetPaymentMethodsResponseTransfer = $unzerApiResponseTransfer->getGetPaymentMethodsResponseOrFail();
 
-        //Assert
+        // Assert
         $this->assertTrue($unzerApiResponseTransfer->getIsSuccessful());
         $this->assertNotEmpty($unzerApiGetPaymentMethodsResponseTransfer->getPaymentMethods());
     }

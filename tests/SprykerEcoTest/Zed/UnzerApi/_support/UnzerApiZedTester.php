@@ -17,6 +17,7 @@ use Generated\Shared\Transfer\UnzerApiCreateCustomerRequestTransfer;
 use Generated\Shared\Transfer\UnzerApiCreateMetadataRequestTransfer;
 use Generated\Shared\Transfer\UnzerApiCreatePaymentResourceRequestTransfer;
 use Generated\Shared\Transfer\UnzerApiGetPaymentMethodsRequestTransfer;
+use Generated\Shared\Transfer\UnzerApiGetPaymentRequestTransfer;
 use Generated\Shared\Transfer\UnzerApiMarketplaceAuthorizeRequestTransfer;
 use Generated\Shared\Transfer\UnzerApiMarketplaceRefundRequestTransfer;
 use Generated\Shared\Transfer\UnzerApiRefundRequestTransfer;
@@ -158,6 +159,21 @@ class UnzerApiZedTester extends Actor
     /**
      * @var string
      */
+    public const AUTHORIZE_ID = 's-auth-1';
+
+    /**
+     * @var string
+     */
+    public const PAYMENT_ID = 's-pay-133';
+
+    /**
+     * @var string
+     */
+    public const CHARGE_ID = 's-crg-133';
+
+    /**
+     * @var string
+     */
     public const BASKET_NOTE = 'note';
 
     /**
@@ -263,7 +279,8 @@ class UnzerApiZedTester extends Actor
             ->setChargeRequest($this->createUnzerApiChargeRequestTransfer())
             ->setRefundRequest($this->createUnzerApiRefundRequestTransfer())
             ->setGetPaymentMethodsRequest($this->createUnzerApiGetPaymentMethodsRequestTransfer())
-            ->setMarketplaceRefundRequest($this->createUnzerApiMarketplaceRefundRequestTransfer());
+            ->setMarketplaceRefundRequest($this->createUnzerApiMarketplaceRefundRequestTransfer())
+            ->setGetPaymentRequest($this->createUnzerApiGetPaymentRequestTransfer());
     }
 
     /**
@@ -406,7 +423,9 @@ class UnzerApiZedTester extends Actor
      */
     protected function createUnzerApiChargeRequestTransfer(): UnzerApiChargeRequestTransfer
     {
-        return (new UnzerApiChargeRequestTransfer());
+        return (new UnzerApiChargeRequestTransfer())
+            ->setPaymentId(static::BASKET_ORDER_ID)
+            ->setAuthorizeId(static::AUTHORIZE_ID);
     }
 
     /**
@@ -414,7 +433,9 @@ class UnzerApiZedTester extends Actor
      */
     protected function createUnzerApiRefundRequestTransfer(): UnzerApiRefundRequestTransfer
     {
-        return (new UnzerApiRefundRequestTransfer());
+        return (new UnzerApiRefundRequestTransfer())
+            ->setPaymentId(static::PAYMENT_ID)
+            ->setChargeId(static::CHARGE_ID);
     }
 
     /**
@@ -422,7 +443,9 @@ class UnzerApiZedTester extends Actor
      */
     protected function createUnzerApiMarketplaceRefundRequestTransfer(): UnzerApiMarketplaceRefundRequestTransfer
     {
-        return (new UnzerApiMarketplaceRefundRequestTransfer());
+        return (new UnzerApiMarketplaceRefundRequestTransfer())
+            ->setPaymentId(static::PAYMENT_ID)
+            ->setChargeId(static::CHARGE_ID);
     }
 
     /**
@@ -431,5 +454,14 @@ class UnzerApiZedTester extends Actor
     protected function createUnzerApiGetPaymentMethodsRequestTransfer(): UnzerApiGetPaymentMethodsRequestTransfer
     {
         return new UnzerApiGetPaymentMethodsRequestTransfer();
+    }
+
+    /**
+     * @return \Generated\Shared\Transfer\UnzerApiGetPaymentRequestTransfer
+     */
+    protected function createUnzerApiGetPaymentRequestTransfer(): UnzerApiGetPaymentRequestTransfer
+    {
+        return (new UnzerApiGetPaymentRequestTransfer())
+            ->setPaymentId(static::BASKET_ORDER_ID);
     }
 }

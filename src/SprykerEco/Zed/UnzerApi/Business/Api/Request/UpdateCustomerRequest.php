@@ -21,7 +21,7 @@ class UpdateCustomerRequest extends UnzerApiAbstractRequest implements UnzerApiR
     {
         return sprintf(
             $this->unzerApiConfig->getUnzerApiCreateCustomer(),
-            $unzerApiRequestTransfer->getUpdateCustomerRequestOrFail()->getUnzerCustomerIdOrFail(),
+            $unzerApiRequestTransfer->getUpdateCustomerRequestOrFail()->getCustomerIdOrFail(),
         );
     }
 

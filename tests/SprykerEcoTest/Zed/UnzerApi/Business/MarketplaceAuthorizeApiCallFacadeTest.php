@@ -14,27 +14,27 @@ namespace SprykerEcoTest\Zed\UnzerApi\Business;
  * @group UnzerApi
  * @group Business
  */
-class CreateMetadataApiCallFacadeTest extends UnzerApiFacadeBaseTest
+class MarketplaceAuthorizeApiCallFacadeTest extends UnzerApiFacadeBaseTest
 {
     /**
      * @var string
      */
-    protected const FIXTURE_FILE_NAME = 'createMetadataResponseBody.json';
+    protected const FIXTURE_FILE_NAME = 'marketplaceAuthorizeResponseBody.json';
 
     /**
      * @return void
      */
-    public function testPerformCreateMetadataApiCall(): void
+    public function testPerformMarketplaceAuthorizeApiCall(): void
     {
         // Arrange
         $unzerApiRequestTransfer = $this->tester->createUnzerApiRequestTransfer();
 
         // Act
-        $unzerApiResponseTransfer = $this->facade->performCreateMetadataApiCall($unzerApiRequestTransfer);
-        $unzerApiCreateMetadataResponseTransfer = $unzerApiResponseTransfer->getCreateMetadataResponseOrFail();
+        $unzerApiResponseTransfer = $this->facade->performMarketplaceAuthorizeApiCall($unzerApiRequestTransfer);
+        $unzerApiCreateBasketResponseTransfer = $unzerApiResponseTransfer->getMarketplaceAuthorizeResponseOrFail();
 
         // Assert
         $this->assertTrue($unzerApiResponseTransfer->getIsSuccessful());
-        $this->assertNotEmpty($unzerApiCreateMetadataResponseTransfer->getId());
+        $this->assertNotEmpty($unzerApiCreateBasketResponseTransfer->getId());
     }
 }
