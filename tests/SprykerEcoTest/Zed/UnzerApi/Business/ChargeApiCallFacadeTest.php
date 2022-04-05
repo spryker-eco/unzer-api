@@ -24,7 +24,7 @@ class ChargeApiCallFacadeTest extends UnzerApiFacadeBaseTest
     /**
      * @return void
      */
-    public function testPerformMarketplaceAuthorizeApiCall(): void
+    public function testPerformChargeApiCall(): void
     {
         // Arrange
         $unzerApiRequestTransfer = $this->tester->createUnzerApiRequestTransfer();

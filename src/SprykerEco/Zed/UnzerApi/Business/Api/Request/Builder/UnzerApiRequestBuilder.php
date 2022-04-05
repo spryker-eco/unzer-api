@@ -45,35 +45,6 @@ class UnzerApiRequestBuilder implements UnzerApiRequestBuilderInterface
         $requestData = $this->unzerApiRequestConverter
             ->convertUnzerApiRequestTransferToArray($unzerApiRequestTransfer);
 
-        $this->formatAmounts($requestData);
-
         return (string)$this->utilEncodingService->encodeJson($requestData, $requestData === [] ? JSON_FORCE_OBJECT : null);
-    }
-
-    /**
-     * A workaround to avoid json_encode precision issue
-     * Formats float amountGross value into string of expected format
-     *
-     * @param array $requestData
-     *
-     * @return void
-     */
-    protected function formatAmounts(array &$requestData): void
-    {
-        if (isset($requestData['canceledBasket']['items'])) {
-            foreach ($requestData['canceledBasket']['items'] as &$item) {
-                $item['amountGross'] = (string)$item['amountGross'];
-            }
-        }
-
-        if (isset($requestData['basketItems'])) {
-            foreach ($requestData['basketItems'] as &$item) {
-                $item['amountPerUnitGross'] = (string)$item['amountPerUnitGross'];
-            }
-        }
-
-        if (isset($requestData['totalValueGross'])) {
-            $requestData['totalValueGross'] = (string)$requestData['totalValueGross'];
-        }
     }
 }

@@ -43,7 +43,7 @@ class MarketplaceRefundRequestConverter implements UnzerApiRequestConverterInter
                 UnzerApiRequestConstants::PARAM_PARTICIPANT_ID => $unzerRefundItemTransfer->getParticipantId(),
                 UnzerApiRequestConstants::PARAM_BASKET_ITEM_REFERENCE_ID => $unzerRefundItemTransfer->getBasketItemReferenceId(),
                 UnzerApiRequestConstants::PARAM_QUANTITY => $unzerRefundItemTransfer->getQuantity(),
-                UnzerApiRequestConstants::PARAM_AMOUNT_GROSS => $unzerRefundItemTransfer->getAmountGross(),
+                UnzerApiRequestConstants::PARAM_AMOUNT_GROSS => (string)$unzerRefundItemTransfer->getAmountGross(),
             ];
         }
 
