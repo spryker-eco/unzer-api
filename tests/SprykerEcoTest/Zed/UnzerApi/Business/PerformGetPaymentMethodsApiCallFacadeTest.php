@@ -7,6 +7,9 @@
 
 namespace SprykerEcoTest\Zed\UnzerApi\Business;
 
+use Generated\Shared\Transfer\UnzerApiErrorResponseTransfer;
+use Generated\Shared\Transfer\UnzerApiGetPaymentMethodsResponseTransfer;
+
 /**
  * @group Functional
  * @group SprykerEco
@@ -14,7 +17,7 @@ namespace SprykerEcoTest\Zed\UnzerApi\Business;
  * @group UnzerApi
  * @group Business
  */
-class GetPaymentMethodsApiCallFacadeTest extends UnzerApiFacadeBaseTest
+class PerformGetPaymentMethodsApiCallFacadeTest extends UnzerApiFacadeBaseTest
 {
     /**
      * @var string
@@ -24,7 +27,7 @@ class GetPaymentMethodsApiCallFacadeTest extends UnzerApiFacadeBaseTest
     /**
      * @return void
      */
-    public function testPerformGetPaymentMethodsApiCall(): void
+    public function testReturnsSuccessfulResponse(): void
     {
         // Arrange
         $unzerApiRequestTransfer = $this->tester->createUnzerApiRequestTransfer();
@@ -34,7 +37,25 @@ class GetPaymentMethodsApiCallFacadeTest extends UnzerApiFacadeBaseTest
         $unzerApiGetPaymentMethodsResponseTransfer = $unzerApiResponseTransfer->getGetPaymentMethodsResponseOrFail();
 
         // Assert
+        $this->assertInstanceOf(UnzerApiGetPaymentMethodsResponseTransfer::class, $unzerApiGetPaymentMethodsResponseTransfer);
         $this->assertTrue($unzerApiResponseTransfer->getIsSuccessful());
         $this->assertNotEmpty($unzerApiGetPaymentMethodsResponseTransfer->getPaymentMethods());
+    }
+
+    /**
+     * @return void
+     */
+    public function testReturnsErrorResponse(): void
+    {
+        // Arrange
+        $unzerApiRequestTransfer = $this->tester->createUnzerApiRequestTransfer();
+        $this->returnSuccessResponse = false;
+
+        // Act
+        $unzerApiResponseTransfer = $this->facade->performGetPaymentMethodsApiCall($unzerApiRequestTransfer);
+
+        // Assert
+        $this->assertfalse($unzerApiResponseTransfer->getIsSuccessful());
+        $this->assertInstanceOf(UnzerApiErrorResponseTransfer::class, $unzerApiResponseTransfer->getErrorResponse());
     }
 }

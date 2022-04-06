@@ -7,6 +7,8 @@
 
 namespace SprykerEcoTest\Zed\UnzerApi\Business;
 
+use Generated\Shared\Transfer\UnzerApiCreatePaymentResourceResponseTransfer;
+use Generated\Shared\Transfer\UnzerApiErrorResponseTransfer;
 use SprykerEcoTest\Zed\UnzerApi\UnzerApiZedTester;
 
 /**
@@ -16,7 +18,7 @@ use SprykerEcoTest\Zed\UnzerApi\UnzerApiZedTester;
  * @group UnzerApi
  * @group Business
  */
-class CreatePaymentResourceApiCallFacadeTest extends UnzerApiFacadeBaseTest
+class PerformCreatePaymentResourceApiCallFacadeTest extends UnzerApiFacadeBaseTest
 {
     /**
      * @var string
@@ -26,7 +28,7 @@ class CreatePaymentResourceApiCallFacadeTest extends UnzerApiFacadeBaseTest
     /**
      * @return void
      */
-    public function testPerformCreatePaymentResourceApiCall(): void
+    public function testReturnsSuccessfulResponse(): void
     {
         // Arrange
         $unzerApiRequestTransfer = $this->tester->createUnzerApiRequestTransfer();
@@ -36,9 +38,27 @@ class CreatePaymentResourceApiCallFacadeTest extends UnzerApiFacadeBaseTest
         $unzerApiCreatePaymentResourceResponseTransfer = $unzerApiResponseTransfer->getCreatePaymentResourceResponseOrFail();
 
         // Assert
+        $this->assertInstanceOf(UnzerApiCreatePaymentResourceResponseTransfer::class, $unzerApiCreatePaymentResourceResponseTransfer);
         $this->assertTrue($unzerApiResponseTransfer->getIsSuccessful());
         $this->assertNotEmpty($unzerApiCreatePaymentResourceResponseTransfer->getId());
         $this->assertEquals(UnzerApiZedTester::PAYMENT_METHOD_SOFORT, $unzerApiCreatePaymentResourceResponseTransfer->getMethod());
         $this->assertIsBool($unzerApiCreatePaymentResourceResponseTransfer->getRecurring());
+    }
+
+    /**
+     * @return void
+     */
+    public function testReturnsErrorResponse(): void
+    {
+        // Arrange
+        $unzerApiRequestTransfer = $this->tester->createUnzerApiRequestTransfer();
+        $this->returnSuccessResponse = false;
+
+        // Act
+        $unzerApiResponseTransfer = $this->facade->performCreatePaymentResourceApiCall($unzerApiRequestTransfer);
+
+        // Assert
+        $this->assertfalse($unzerApiResponseTransfer->getIsSuccessful());
+        $this->assertInstanceOf(UnzerApiErrorResponseTransfer::class, $unzerApiResponseTransfer->getErrorResponse());
     }
 }

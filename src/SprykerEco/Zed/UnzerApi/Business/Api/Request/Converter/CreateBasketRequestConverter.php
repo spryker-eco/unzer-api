@@ -32,7 +32,7 @@ class CreateBasketRequestConverter implements UnzerApiRequestConverterInterface
     }
 
     /**
-     * @param \ArrayObject|array<\Generated\Shared\Transfer\UnzerBasketItemTransfer> $unzerBasketItemTransfers
+     * @param \ArrayObject<\Generated\Shared\Transfer\UnzerBasketItemTransfer> $unzerBasketItemTransfers
      *
      * @return array<int, array<string, string|null>>
      */

@@ -7,6 +7,8 @@
 
 namespace SprykerEcoTest\Zed\UnzerApi\Business;
 
+use Generated\Shared\Transfer\UnzerApiErrorResponseTransfer;
+use Generated\Shared\Transfer\UnzerApiSetWebhookResponseTransfer;
 use SprykerEcoTest\Zed\UnzerApi\UnzerApiZedTester;
 
 /**
@@ -16,7 +18,7 @@ use SprykerEcoTest\Zed\UnzerApi\UnzerApiZedTester;
  * @group UnzerApi
  * @group Business
  */
-class SetNotificationUrlApiCallFacadeTest extends UnzerApiFacadeBaseTest
+class PerformSetNotificationUrlApiCallFacadeTest extends UnzerApiFacadeBaseTest
 {
     /**
      * @var string
@@ -26,7 +28,7 @@ class SetNotificationUrlApiCallFacadeTest extends UnzerApiFacadeBaseTest
     /**
      * @return void
      */
-    public function testPerformSetNotificationUrlApiCall(): void
+    public function testReturnsSuccessfulResponse(): void
     {
         // Arrange
         $unzerApiRequestTransfer = $this->tester->createUnzerApiRequestTransfer();
@@ -36,9 +38,27 @@ class SetNotificationUrlApiCallFacadeTest extends UnzerApiFacadeBaseTest
         $unzerApiSetWebhookResponseTransfer = $unzerApiResponseTransfer->getSetWebhookResponseOrFail();
 
         // Assert
+        $this->assertInstanceOf(UnzerApiSetWebhookResponseTransfer::class, $unzerApiSetWebhookResponseTransfer);
         $this->assertTrue($unzerApiResponseTransfer->getIsSuccessful());
         $this->assertNotEmpty($unzerApiSetWebhookResponseTransfer->getId());
         $this->assertEquals(UnzerApiZedTester::WEBHOOK_URL, $unzerApiSetWebhookResponseTransfer->getUrl());
         $this->assertEquals(UnzerApiZedTester::WEBHOOK_EVENT, $unzerApiSetWebhookResponseTransfer->getEvent());
+    }
+
+    /**
+     * @return void
+     */
+    public function testReturnsErrorResponse(): void
+    {
+        // Arrange
+        $unzerApiRequestTransfer = $this->tester->createUnzerApiRequestTransfer();
+        $this->returnSuccessResponse = false;
+
+        // Act
+        $unzerApiResponseTransfer = $this->facade->performSetNotificationUrlApiCall($unzerApiRequestTransfer);
+
+        // Assert
+        $this->assertfalse($unzerApiResponseTransfer->getIsSuccessful());
+        $this->assertInstanceOf(UnzerApiErrorResponseTransfer::class, $unzerApiResponseTransfer->getErrorResponse());
     }
 }

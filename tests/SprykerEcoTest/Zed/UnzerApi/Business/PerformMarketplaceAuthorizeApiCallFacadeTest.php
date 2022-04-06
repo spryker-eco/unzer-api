@@ -7,6 +7,8 @@
 
 namespace SprykerEcoTest\Zed\UnzerApi\Business;
 
+use Generated\Shared\Transfer\UnzerApiErrorResponseTransfer;
+
 /**
  * @group Functional
  * @group SprykerEco
@@ -14,7 +16,7 @@ namespace SprykerEcoTest\Zed\UnzerApi\Business;
  * @group UnzerApi
  * @group Business
  */
-class MarketplaceAuthorizeApiCallFacadeTest extends UnzerApiFacadeBaseTest
+class PerformMarketplaceAuthorizeApiCallFacadeTest extends UnzerApiFacadeBaseTest
 {
     /**
      * @var string
@@ -24,7 +26,7 @@ class MarketplaceAuthorizeApiCallFacadeTest extends UnzerApiFacadeBaseTest
     /**
      * @return void
      */
-    public function testPerformMarketplaceAuthorizeApiCall(): void
+    public function testReturnsSuccessfulResponse(): void
     {
         // Arrange
         $unzerApiRequestTransfer = $this->tester->createUnzerApiRequestTransfer();
@@ -36,5 +38,22 @@ class MarketplaceAuthorizeApiCallFacadeTest extends UnzerApiFacadeBaseTest
         // Assert
         $this->assertTrue($unzerApiResponseTransfer->getIsSuccessful());
         $this->assertNotEmpty($unzerApiCreateBasketResponseTransfer->getId());
+    }
+
+    /**
+     * @return void
+     */
+    public function testReturnsErrorResponse(): void
+    {
+        // Arrange
+        $unzerApiRequestTransfer = $this->tester->createUnzerApiRequestTransfer();
+        $this->returnSuccessResponse = false;
+
+        // Act
+        $unzerApiResponseTransfer = $this->facade->performMarketplaceAuthorizableChargeApiCall($unzerApiRequestTransfer);
+
+        // Assert
+        $this->assertfalse($unzerApiResponseTransfer->getIsSuccessful());
+        $this->assertInstanceOf(UnzerApiErrorResponseTransfer::class, $unzerApiResponseTransfer->getErrorResponse());
     }
 }

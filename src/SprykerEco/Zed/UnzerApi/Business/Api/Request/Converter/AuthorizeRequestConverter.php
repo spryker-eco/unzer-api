@@ -19,15 +19,15 @@ class AuthorizeRequestConverter implements UnzerApiRequestConverterInterface
      */
     public function convertUnzerApiRequestTransferToArray(UnzerApiRequestTransfer $unzerApiRequestTransfer): array
     {
-        $unzerApiMarketplaceAuthorizeRequestTransfer = $unzerApiRequestTransfer->getAuthorizeRequestOrFail();
+        $unzerApiAuthorizeRequestTransfer = $unzerApiRequestTransfer->getAuthorizeRequestOrFail();
 
         return [
-            UnzerApiRequestConstants::PARAM_AMOUNT => (string)$unzerApiMarketplaceAuthorizeRequestTransfer->getAmount(),
-            UnzerApiRequestConstants::PARAM_CURRENCY => $unzerApiMarketplaceAuthorizeRequestTransfer->getCurrency(),
-            UnzerApiRequestConstants::PARAM_RETURN_URL => $unzerApiMarketplaceAuthorizeRequestTransfer->getReturnUrl(),
+            UnzerApiRequestConstants::PARAM_AMOUNT => (string)$unzerApiAuthorizeRequestTransfer->getAmount(),
+            UnzerApiRequestConstants::PARAM_CURRENCY => $unzerApiAuthorizeRequestTransfer->getCurrency(),
+            UnzerApiRequestConstants::PARAM_RETURN_URL => $unzerApiAuthorizeRequestTransfer->getReturnUrl(),
             UnzerApiRequestConstants::PARAM_RESOURCES => [
-                UnzerApiRequestConstants::PARAM_CUSTOMER_ID => $unzerApiMarketplaceAuthorizeRequestTransfer->getCustomerId(),
-                UnzerApiRequestConstants::PARAM_TYPE_ID => $unzerApiMarketplaceAuthorizeRequestTransfer->getTypeId(),
+                UnzerApiRequestConstants::PARAM_CUSTOMER_ID => $unzerApiAuthorizeRequestTransfer->getCustomerId(),
+                UnzerApiRequestConstants::PARAM_TYPE_ID => $unzerApiAuthorizeRequestTransfer->getTypeId(),
             ],
         ];
     }
