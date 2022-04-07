@@ -55,6 +55,6 @@ class PerformAuthorizeApiCallTest extends UnzerApiFacadeBaseTest
 
         // Assert
         $this->assertFalse($unzerApiResponseTransfer->getIsSuccessful());
-        $this->assertInstanceOf(UnzerApiErrorResponseTransfer::class, $unzerApiResponseTransfer->getErrorResponse());
+        $this->assertNotNull($unzerApiResponseTransfer->getErrorResponse());
     }
 }

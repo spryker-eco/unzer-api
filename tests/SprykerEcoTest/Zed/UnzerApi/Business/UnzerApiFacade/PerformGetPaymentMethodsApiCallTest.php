@@ -57,6 +57,6 @@ class PerformGetPaymentMethodsApiCallTest extends UnzerApiFacadeBaseTest
 
         // Assert
         $this->assertFalse($unzerApiResponseTransfer->getIsSuccessful());
-        $this->assertInstanceOf(UnzerApiErrorResponseTransfer::class, $unzerApiResponseTransfer->getErrorResponse());
+        $this->assertNotEmpty($unzerApiResponseTransfer->getErrorResponse());
     }
 }
