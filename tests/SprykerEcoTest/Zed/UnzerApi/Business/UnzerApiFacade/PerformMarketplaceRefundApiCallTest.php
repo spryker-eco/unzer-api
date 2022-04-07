@@ -5,10 +5,10 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace SprykerEcoTest\Zed\UnzerApi\Business;
+namespace SprykerEcoTest\Zed\UnzerApi\Business\UnzerApiFacade;
 
 use Generated\Shared\Transfer\UnzerApiErrorResponseTransfer;
-use Generated\Shared\Transfer\UnzerApiGetPaymentMethodsResponseTransfer;
+use SprykerEcoTest\Zed\UnzerApi\Business\UnzerApiFacadeBaseTest;
 
 /**
  * @group Functional
@@ -17,12 +17,12 @@ use Generated\Shared\Transfer\UnzerApiGetPaymentMethodsResponseTransfer;
  * @group UnzerApi
  * @group Business
  */
-class PerformGetPaymentMethodsApiCallFacadeTest extends UnzerApiFacadeBaseTest
+class PerformMarketplaceRefundApiCallTest extends UnzerApiFacadeBaseTest
 {
     /**
      * @var string
      */
-    protected const FIXTURE_FILE_NAME = 'getPaymentMethodsResponseBody.json';
+    protected const FIXTURE_FILE_NAME = 'refundResponseBody.json';
 
     /**
      * @return void
@@ -33,13 +33,12 @@ class PerformGetPaymentMethodsApiCallFacadeTest extends UnzerApiFacadeBaseTest
         $unzerApiRequestTransfer = $this->tester->createUnzerApiRequestTransfer();
 
         // Act
-        $unzerApiResponseTransfer = $this->facade->performGetPaymentMethodsApiCall($unzerApiRequestTransfer);
-        $unzerApiGetPaymentMethodsResponseTransfer = $unzerApiResponseTransfer->getGetPaymentMethodsResponseOrFail();
+        $unzerApiResponseTransfer = $this->facade->performMarketplaceRefundApiCall($unzerApiRequestTransfer);
+        $unzerApiMarketplaceRefundResponseTransfer = $unzerApiResponseTransfer->getMarketplaceRefundResponseOrFail();
 
         // Assert
-        $this->assertInstanceOf(UnzerApiGetPaymentMethodsResponseTransfer::class, $unzerApiGetPaymentMethodsResponseTransfer);
         $this->assertTrue($unzerApiResponseTransfer->getIsSuccessful());
-        $this->assertNotEmpty($unzerApiGetPaymentMethodsResponseTransfer->getPaymentMethods());
+        $this->assertNotEmpty($unzerApiMarketplaceRefundResponseTransfer->getId());
     }
 
     /**
@@ -52,10 +51,10 @@ class PerformGetPaymentMethodsApiCallFacadeTest extends UnzerApiFacadeBaseTest
         $this->returnSuccessResponse = false;
 
         // Act
-        $unzerApiResponseTransfer = $this->facade->performGetPaymentMethodsApiCall($unzerApiRequestTransfer);
+        $unzerApiResponseTransfer = $this->facade->performMarketplaceRefundApiCall($unzerApiRequestTransfer);
 
         // Assert
-        $this->assertfalse($unzerApiResponseTransfer->getIsSuccessful());
+        $this->assertFalse($unzerApiResponseTransfer->getIsSuccessful());
         $this->assertInstanceOf(UnzerApiErrorResponseTransfer::class, $unzerApiResponseTransfer->getErrorResponse());
     }
 }

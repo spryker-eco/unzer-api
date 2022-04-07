@@ -19,7 +19,7 @@ class CreateCustomerRequest extends UnzerApiAbstractRequest implements UnzerApiR
      */
     public function getUrl(UnzerApiRequestTransfer $unzerApiRequestTransfer): string
     {
-        return sprintf($this->unzerApiConfig->getUnzerApiCreateCustomer(), '');
+        return sprintf($this->unzerApiConfig->getUnzerApiCreateCustomerUrl(), '');
     }
 
     /**

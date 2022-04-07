@@ -20,7 +20,7 @@ class CreatePaymentResourceRequest extends UnzerApiAbstractRequest implements Un
     public function getUrl(UnzerApiRequestTransfer $unzerApiRequestTransfer): string
     {
         return sprintf(
-            $this->unzerApiConfig->getUnzerApiCreatePaymentResource(),
+            $this->unzerApiConfig->getUnzerApiCreatePaymentResourceUrl(),
             $unzerApiRequestTransfer->getCreatePaymentResourceRequestOrFail()->getPaymentMethodOrFail(),
         );
     }

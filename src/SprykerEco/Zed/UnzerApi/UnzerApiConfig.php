@@ -27,7 +27,7 @@ class UnzerApiConfig extends AbstractBundleConfig
      *
      * @return string
      */
-    public function getUnzerApiCreateCustomer(): string
+    public function getUnzerApiCreateCustomerUrl(): string
     {
         return $this->get(UnzerApiConstants::CUSTOMER_RESOURCE_URL);
     }
@@ -37,7 +37,7 @@ class UnzerApiConfig extends AbstractBundleConfig
      *
      * @return string
      */
-    public function getUnzerApiCreateBasket(): string
+    public function getUnzerApiCreateBasketUrl(): string
     {
         return $this->get(UnzerApiConstants::BASKET_RESOURCE_URL);
     }
@@ -47,7 +47,7 @@ class UnzerApiConfig extends AbstractBundleConfig
      *
      * @return string
      */
-    public function getUnzerApiCreateMarketplaceBasket(): string
+    public function getUnzerApiCreateMarketplaceBasketUrl(): string
     {
         return $this->get(UnzerApiConstants::MARKETPLACE_BASKET_RESOURCE_URL);
     }
@@ -57,7 +57,7 @@ class UnzerApiConfig extends AbstractBundleConfig
      *
      * @return string
      */
-    public function getUnzerApiMarketplaceCharge(): string
+    public function getUnzerApiMarketplaceChargeUrl(): string
     {
         return $this->get(UnzerApiConstants::MARKETPLACE_CHARGE_URL);
     }
@@ -67,7 +67,7 @@ class UnzerApiConfig extends AbstractBundleConfig
      *
      * @return string
      */
-    public function getUnzerApiCharge(): string
+    public function getUnzerApiChargeUrl(): string
     {
         return $this->get(UnzerApiConstants::CHARGE_URL);
     }
@@ -77,7 +77,7 @@ class UnzerApiConfig extends AbstractBundleConfig
      *
      * @return string
      */
-    public function getUnzerApiMarketplaceCreditCardCharge(): string
+    public function getUnzerApiMarketplaceCreditCardChargeUrl(): string
     {
         return $this->get(UnzerApiConstants::MARKETPLACE_CREDIT_CARD_CHARGE_URL);
     }
@@ -87,7 +87,7 @@ class UnzerApiConfig extends AbstractBundleConfig
      *
      * @return string
      */
-    public function getUnzerApiCreditCardCharge(): string
+    public function getUnzerApiCreditCardChargeUrl(): string
     {
         return $this->get(UnzerApiConstants::CREDIT_CARD_CHARGE_URL);
     }
@@ -97,7 +97,7 @@ class UnzerApiConfig extends AbstractBundleConfig
      *
      * @return string
      */
-    public function getUnzerApiMarketplaceGetPayment(): string
+    public function getUnzerApiMarketplaceGetPaymentUrl(): string
     {
         return $this->get(UnzerApiConstants::MARKETPLACE_GET_PAYMENT_URL);
     }
@@ -107,7 +107,7 @@ class UnzerApiConfig extends AbstractBundleConfig
      *
      * @return string
      */
-    public function getUnzerApiGetPayment(): string
+    public function getUnzerApiGetPaymentUrl(): string
     {
         return $this->get(UnzerApiConstants::GET_PAYMENT_URL);
     }
@@ -117,7 +117,7 @@ class UnzerApiConfig extends AbstractBundleConfig
      *
      * @return string
      */
-    public function getUnzerApiCreateMetadata(): string
+    public function getUnzerApiCreateMetadataUrl(): string
     {
         return $this->get(UnzerApiConstants::METADATA_RESOURCE_URL);
     }
@@ -127,7 +127,7 @@ class UnzerApiConfig extends AbstractBundleConfig
      *
      * @return string
      */
-    public function getUnzerApiMarketplaceAuthorize(): string
+    public function getUnzerApiMarketplaceAuthorizeUrl(): string
     {
         return $this->get(UnzerApiConstants::MARKETPLACE_AUTHORIZE_URL);
     }
@@ -137,7 +137,7 @@ class UnzerApiConfig extends AbstractBundleConfig
      *
      * @return string
      */
-    public function getUnzerApiAuthorize(): string
+    public function getUnzerApiAuthorizeUrl(): string
     {
         return $this->get(UnzerApiConstants::AUTHORIZE_URL);
     }
@@ -147,7 +147,7 @@ class UnzerApiConfig extends AbstractBundleConfig
      *
      * @return string
      */
-    public function getUnzerApiCreatePaymentResource(): string
+    public function getUnzerApiCreatePaymentResourceUrl(): string
     {
         return $this->get(UnzerApiConstants::CREATE_PAYMENT_RESOURCE_URL);
     }
@@ -157,7 +157,7 @@ class UnzerApiConfig extends AbstractBundleConfig
      *
      * @return string
      */
-    public function getUnzerApiMarketplaceRefund(): string
+    public function getUnzerApiMarketplaceRefundUrl(): string
     {
         return $this->get(UnzerApiConstants::MARKETPLACE_REFUND_URL);
     }
@@ -167,7 +167,7 @@ class UnzerApiConfig extends AbstractBundleConfig
      *
      * @return string
      */
-    public function getUnzerApiRefund(): string
+    public function getUnzerApiRefundUrl(): string
     {
         return $this->get(UnzerApiConstants::REFUND_URL);
     }
@@ -177,8 +177,18 @@ class UnzerApiConfig extends AbstractBundleConfig
      *
      * @return string
      */
-    public function getUnzerApiGetPaymentMethods(): string
+    public function getUnzerApiGetPaymentMethodsUrl(): string
     {
         return $this->get(UnzerApiConstants::GET_PAYMENT_METHODS_URL);
+    }
+
+    /**
+     * @api
+     *
+     * @return bool
+     */
+    public function logApiCalls(): bool
+    {
+        return $this->get(UnzerApiConstants::LOG_API_CALLS);
     }
 }

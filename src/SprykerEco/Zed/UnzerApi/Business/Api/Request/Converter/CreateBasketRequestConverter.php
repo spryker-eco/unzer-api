@@ -38,7 +38,7 @@ class CreateBasketRequestConverter implements UnzerApiRequestConverterInterface
      */
     protected function convertBasketItems(ArrayObject $unzerBasketItemTransfers): array
     {
-        $result = [];
+        $unzerBasketItems = [];
         foreach ($unzerBasketItemTransfers as $unzerBasketItemTransfer) {
             $unzerBasketItem = [
                 UnzerApiRequestConstants::PARAM_TYPE => $unzerBasketItemTransfer->getType(),
@@ -54,9 +54,9 @@ class CreateBasketRequestConverter implements UnzerApiRequestConverterInterface
                 $unzerBasketItem[UnzerApiRequestConstants::PARAM_PARTICIPANT_ID] = $unzerBasketItemTransfer->getParticipantId();
             }
 
-            $result[] = $unzerBasketItem;
+            $unzerBasketItems[] = $unzerBasketItem;
         }
 
-        return $result;
+        return $unzerBasketItems;
     }
 }

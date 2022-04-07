@@ -84,8 +84,8 @@ interface UnzerApiFacadeInterface
 
     /**
      * Specification:
-     * - Requires `UnzerApiRequestTransfer::unzerKeypair` to be set.
-     * - Requires `UnzerApiRequestTransfer::unzerApiCreateBasketRequest` to be set.
+     * - Requires `UnzerApiRequestTransfer.unzerKeypair.privateKey` to be set.
+     * - Requires `UnzerApiRequestTransfer.unzerApiCreateBasketRequest` to be set.
      * - Performs Unzer Create Marketplace Basket API call.
      *
      * @api

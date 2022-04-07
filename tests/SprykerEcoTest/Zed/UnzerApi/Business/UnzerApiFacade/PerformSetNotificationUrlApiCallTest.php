@@ -5,10 +5,10 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace SprykerEcoTest\Zed\UnzerApi\Business;
+namespace SprykerEcoTest\Zed\UnzerApi\Business\UnzerApiFacade;
 
 use Generated\Shared\Transfer\UnzerApiErrorResponseTransfer;
-use Generated\Shared\Transfer\UnzerApiSetWebhookResponseTransfer;
+use SprykerEcoTest\Zed\UnzerApi\Business\UnzerApiFacadeBaseTest;
 use SprykerEcoTest\Zed\UnzerApi\UnzerApiZedTester;
 
 /**
@@ -18,7 +18,7 @@ use SprykerEcoTest\Zed\UnzerApi\UnzerApiZedTester;
  * @group UnzerApi
  * @group Business
  */
-class PerformSetNotificationUrlApiCallFacadeTest extends UnzerApiFacadeBaseTest
+class PerformSetNotificationUrlApiCallTest extends UnzerApiFacadeBaseTest
 {
     /**
      * @var string
@@ -38,7 +38,6 @@ class PerformSetNotificationUrlApiCallFacadeTest extends UnzerApiFacadeBaseTest
         $unzerApiSetWebhookResponseTransfer = $unzerApiResponseTransfer->getSetWebhookResponseOrFail();
 
         // Assert
-        $this->assertInstanceOf(UnzerApiSetWebhookResponseTransfer::class, $unzerApiSetWebhookResponseTransfer);
         $this->assertTrue($unzerApiResponseTransfer->getIsSuccessful());
         $this->assertNotEmpty($unzerApiSetWebhookResponseTransfer->getId());
         $this->assertEquals(UnzerApiZedTester::WEBHOOK_URL, $unzerApiSetWebhookResponseTransfer->getUrl());
@@ -58,7 +57,7 @@ class PerformSetNotificationUrlApiCallFacadeTest extends UnzerApiFacadeBaseTest
         $unzerApiResponseTransfer = $this->facade->performSetNotificationUrlApiCall($unzerApiRequestTransfer);
 
         // Assert
-        $this->assertfalse($unzerApiResponseTransfer->getIsSuccessful());
+        $this->assertFalse($unzerApiResponseTransfer->getIsSuccessful());
         $this->assertInstanceOf(UnzerApiErrorResponseTransfer::class, $unzerApiResponseTransfer->getErrorResponse());
     }
 }

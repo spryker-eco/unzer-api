@@ -19,7 +19,7 @@ class CreateMarketplaceBasketRequest extends UnzerApiAbstractRequest implements 
      */
     public function getUrl(UnzerApiRequestTransfer $unzerApiRequestTransfer): string
     {
-        return $this->unzerApiConfig->getUnzerApiCreateMarketplaceBasket();
+        return $this->unzerApiConfig->getUnzerApiCreateMarketplaceBasketUrl();
     }
 
     /**

@@ -14,6 +14,7 @@ use SprykerEco\Zed\UnzerApi\Business\Api\Request\UnzerApiRequestInterface;
 use SprykerEco\Zed\UnzerApi\Business\Api\Response\Converter\UnzerApiResponseConverterInterface;
 use SprykerEco\Zed\UnzerApi\Dependency\External\UnzerApiToHttpClientInterface;
 use SprykerEco\Zed\UnzerApi\Exception\UnzerApiToHttpClientException;
+use SprykerEco\Zed\UnzerApi\UnzerApiConfig;
 
 class UnzerApiExternalClient implements UnzerApiExternalClientInterface
 {
@@ -38,21 +39,29 @@ class UnzerApiExternalClient implements UnzerApiExternalClientInterface
     protected $unzerApiLogger;
 
     /**
+     * @var \SprykerEco\Zed\UnzerApi\UnzerApiConfig
+     */
+    protected $unzerApiConfig;
+
+    /**
      * @param \SprykerEco\Zed\UnzerApi\Dependency\External\UnzerApiToHttpClientInterface $httpClient
      * @param \SprykerEco\Zed\UnzerApi\Business\Api\Request\UnzerApiRequestInterface $unzerApiRequest
      * @param \SprykerEco\Zed\UnzerApi\Business\Api\Response\Converter\UnzerApiResponseConverterInterface $unzerApiResponseConverter
      * @param \SprykerEco\Zed\UnzerApi\Business\Api\Logger\UnzerApiLoggerInterface $unzerApiLogger
+     * @param \SprykerEco\Zed\UnzerApi\UnzerApiConfig $unzerApiConfig
      */
     public function __construct(
         UnzerApiToHttpClientInterface $httpClient,
         UnzerApiRequestInterface $unzerApiRequest,
         UnzerApiResponseConverterInterface $unzerApiResponseConverter,
-        UnzerApiLoggerInterface $unzerApiLogger
+        UnzerApiLoggerInterface $unzerApiLogger,
+        UnzerApiConfig $unzerApiConfig
     ) {
         $this->httpClient = $httpClient;
         $this->unzerApiRequest = $unzerApiRequest;
         $this->unzerApiResponseConverter = $unzerApiResponseConverter;
         $this->unzerApiLogger = $unzerApiLogger;
+        $this->unzerApiConfig = $unzerApiConfig;
     }
 
     /**
@@ -67,27 +76,29 @@ class UnzerApiExternalClient implements UnzerApiExternalClientInterface
         $requestBody = $this->unzerApiRequest->getRequestBody($unzerApiRequestTransfer);
 
         try {
-            $response = $this->httpClient->sendRequest(
+            $unzerApiToHttpResponse = $this->httpClient->sendRequest(
                 $requestUrl,
                 $this->unzerApiRequest->getHttpMethod(),
                 $requestBody,
                 $unzerApiRequestTransfer->getUnzerKeypairOrFail()->getPrivateKey(),
             );
-        } catch (UnzerApiToHttpClientException $requestException) {
+        } catch (UnzerApiToHttpClientException $unzerApiToHttpClientException) {
             $isSuccessful = false;
-            $response = $requestException->getResponse();
+            $unzerApiToHttpResponse = $unzerApiToHttpClientException->getResponse();
         }
 
-        $responseTransfer = $this->unzerApiResponseConverter
-            ->convertUnzerApiGuzzleResponseToUnzerApiResponseTransfer($response, $isSuccessful);
+        $unzerApiResponseTransfer = $this->unzerApiResponseConverter
+            ->convertUnzerApiGuzzleResponseToUnzerApiResponseTransfer($unzerApiToHttpResponse, $isSuccessful);
 
-        $this->unzerApiLogger->logApiCall(
-            $responseTransfer,
-            $requestBody,
-            $this->unzerApiRequest->getHttpMethod(),
-            $requestUrl,
-        );
+        if ($this->unzerApiConfig->logApiCalls()) {
+            $this->unzerApiLogger->logApiCall(
+                $unzerApiResponseTransfer,
+                $requestBody,
+                $this->unzerApiRequest->getHttpMethod(),
+                $requestUrl,
+            );
+        }
 
-        return $responseTransfer;
+        return $unzerApiResponseTransfer;
     }
 }

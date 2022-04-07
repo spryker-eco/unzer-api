@@ -5,10 +5,10 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace SprykerEcoTest\Zed\UnzerApi\Business;
+namespace SprykerEcoTest\Zed\UnzerApi\Business\UnzerApiFacade;
 
-use Generated\Shared\Transfer\UnzerApiChargeResponseTransfer;
 use Generated\Shared\Transfer\UnzerApiErrorResponseTransfer;
+use SprykerEcoTest\Zed\UnzerApi\Business\UnzerApiFacadeBaseTest;
 
 /**
  * @group Functional
@@ -17,7 +17,7 @@ use Generated\Shared\Transfer\UnzerApiErrorResponseTransfer;
  * @group UnzerApi
  * @group Business
  */
-class PerformChargeApiCallFacadeTest extends UnzerApiFacadeBaseTest
+class PerformMarketplaceChargeApiCallTest extends UnzerApiFacadeBaseTest
 {
     /**
      * @var string
@@ -33,11 +33,10 @@ class PerformChargeApiCallFacadeTest extends UnzerApiFacadeBaseTest
         $unzerApiRequestTransfer = $this->tester->createUnzerApiRequestTransfer();
 
         // Act
-        $unzerApiResponseTransfer = $this->facade->performChargeApiCall($unzerApiRequestTransfer);
+        $unzerApiResponseTransfer = $this->facade->performMarketplaceChargeApiCall($unzerApiRequestTransfer);
         $unzerApiChargeResponseTransfer = $unzerApiResponseTransfer->getChargeResponseOrFail();
 
         // Assert
-        $this->assertInstanceOf(UnzerApiChargeResponseTransfer::class, $unzerApiChargeResponseTransfer);
         $this->assertTrue($unzerApiResponseTransfer->getIsSuccessful());
         $this->assertNotEmpty($unzerApiChargeResponseTransfer->getId());
     }
@@ -52,10 +51,10 @@ class PerformChargeApiCallFacadeTest extends UnzerApiFacadeBaseTest
         $this->returnSuccessResponse = false;
 
         // Act
-        $unzerApiResponseTransfer = $this->facade->performChargeApiCall($unzerApiRequestTransfer);
+        $unzerApiResponseTransfer = $this->facade->performMarketplaceChargeApiCall($unzerApiRequestTransfer);
 
         // Assert
-        $this->assertfalse($unzerApiResponseTransfer->getIsSuccessful());
+        $this->assertFalse($unzerApiResponseTransfer->getIsSuccessful());
         $this->assertInstanceOf(UnzerApiErrorResponseTransfer::class, $unzerApiResponseTransfer->getErrorResponse());
     }
 }

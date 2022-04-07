@@ -5,10 +5,10 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace SprykerEcoTest\Zed\UnzerApi\Business;
+namespace SprykerEcoTest\Zed\UnzerApi\Business\UnzerApiFacade;
 
-use Generated\Shared\Transfer\UnzerApiCreateBasketResponseTransfer;
 use Generated\Shared\Transfer\UnzerApiErrorResponseTransfer;
+use SprykerEcoTest\Zed\UnzerApi\Business\UnzerApiFacadeBaseTest;
 
 /**
  * @group Functional
@@ -17,12 +17,12 @@ use Generated\Shared\Transfer\UnzerApiErrorResponseTransfer;
  * @group UnzerApi
  * @group Business
  */
-class PerformCreateBasketApiCallFacadeTest extends UnzerApiFacadeBaseTest
+class PerformAuthorizableChargeApiCallTest extends UnzerApiFacadeBaseTest
 {
     /**
      * @var string
      */
-    protected const FIXTURE_FILE_NAME = 'createBasketResponseBody.json';
+    protected const FIXTURE_FILE_NAME = 'chargeResponseBody.json';
 
     /**
      * @return void
@@ -33,13 +33,12 @@ class PerformCreateBasketApiCallFacadeTest extends UnzerApiFacadeBaseTest
         $unzerApiRequestTransfer = $this->tester->createUnzerApiRequestTransfer();
 
         // Act
-        $unzerApiResponseTransfer = $this->facade->performCreateBasketApiCall($unzerApiRequestTransfer);
-        $unzerApiCreateBasketResponseTransfer = $unzerApiResponseTransfer->getCreateBasketResponseOrFail();
+        $unzerApiResponseTransfer = $this->facade->performAuthorizableChargeApiCall($unzerApiRequestTransfer);
+        $unzerApiChargeResponseTransfer = $unzerApiResponseTransfer->getChargeResponseOrFail();
 
         // Assert
-        $this->assertInstanceOf(UnzerApiCreateBasketResponseTransfer::class, $unzerApiCreateBasketResponseTransfer);
         $this->assertTrue($unzerApiResponseTransfer->getIsSuccessful());
-        $this->assertNotEmpty($unzerApiCreateBasketResponseTransfer->getId());
+        $this->assertNotEmpty($unzerApiChargeResponseTransfer->getId());
     }
 
     /**
@@ -52,10 +51,10 @@ class PerformCreateBasketApiCallFacadeTest extends UnzerApiFacadeBaseTest
         $this->returnSuccessResponse = false;
 
         // Act
-        $unzerApiResponseTransfer = $this->facade->performCreateBasketApiCall($unzerApiRequestTransfer);
+        $unzerApiResponseTransfer = $this->facade->performAuthorizableChargeApiCall($unzerApiRequestTransfer);
 
         // Assert
-        $this->assertfalse($unzerApiResponseTransfer->getIsSuccessful());
+        $this->assertFalse($unzerApiResponseTransfer->getIsSuccessful());
         $this->assertInstanceOf(UnzerApiErrorResponseTransfer::class, $unzerApiResponseTransfer->getErrorResponse());
     }
 }

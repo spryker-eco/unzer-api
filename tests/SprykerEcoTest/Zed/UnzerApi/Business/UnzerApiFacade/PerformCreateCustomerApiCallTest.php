@@ -5,10 +5,10 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace SprykerEcoTest\Zed\UnzerApi\Business;
+namespace SprykerEcoTest\Zed\UnzerApi\Business\UnzerApiFacade;
 
-use Generated\Shared\Transfer\UnzerApiChargeResponseTransfer;
 use Generated\Shared\Transfer\UnzerApiErrorResponseTransfer;
+use SprykerEcoTest\Zed\UnzerApi\Business\UnzerApiFacadeBaseTest;
 
 /**
  * @group Functional
@@ -17,12 +17,12 @@ use Generated\Shared\Transfer\UnzerApiErrorResponseTransfer;
  * @group UnzerApi
  * @group Business
  */
-class PerformMarketplaceAuthorizableChargeApiCallFacadeTest extends UnzerApiFacadeBaseTest
+class PerformCreateCustomerApiCallTest extends UnzerApiFacadeBaseTest
 {
     /**
      * @var string
      */
-    protected const FIXTURE_FILE_NAME = 'chargeResponseBody.json';
+    protected const FIXTURE_FILE_NAME = 'createCustomerResponseBody.json';
 
     /**
      * @return void
@@ -33,13 +33,12 @@ class PerformMarketplaceAuthorizableChargeApiCallFacadeTest extends UnzerApiFaca
         $unzerApiRequestTransfer = $this->tester->createUnzerApiRequestTransfer();
 
         // Act
-        $unzerApiResponseTransfer = $this->facade->performMarketplaceAuthorizableChargeApiCall($unzerApiRequestTransfer);
-        $unzerApiChargeResponseTransfer = $unzerApiResponseTransfer->getChargeResponseOrFail();
+        $unzerApiResponseTransfer = $this->facade->performCreateCustomerApiCall($unzerApiRequestTransfer);
+        $unzerApiCreateCustomerResponseTransfer = $unzerApiResponseTransfer->getCreateCustomerResponseOrFail();
 
         // Assert
-        $this->assertInstanceOf(UnzerApiChargeResponseTransfer::class, $unzerApiChargeResponseTransfer);
         $this->assertTrue($unzerApiResponseTransfer->getIsSuccessful());
-        $this->assertNotEmpty($unzerApiChargeResponseTransfer->getId());
+        $this->assertNotEmpty($unzerApiCreateCustomerResponseTransfer->getId());
     }
 
     /**
@@ -52,10 +51,10 @@ class PerformMarketplaceAuthorizableChargeApiCallFacadeTest extends UnzerApiFaca
         $this->returnSuccessResponse = false;
 
         // Act
-        $unzerApiResponseTransfer = $this->facade->performMarketplaceAuthorizableChargeApiCall($unzerApiRequestTransfer);
+        $unzerApiResponseTransfer = $this->facade->performCreateCustomerApiCall($unzerApiRequestTransfer);
 
         // Assert
-        $this->assertfalse($unzerApiResponseTransfer->getIsSuccessful());
+        $this->assertFalse($unzerApiResponseTransfer->getIsSuccessful());
         $this->assertInstanceOf(UnzerApiErrorResponseTransfer::class, $unzerApiResponseTransfer->getErrorResponse());
     }
 }

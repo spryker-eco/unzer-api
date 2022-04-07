@@ -19,7 +19,7 @@ class CreateBasketRequest extends UnzerApiAbstractRequest implements UnzerApiReq
      */
     public function getUrl(UnzerApiRequestTransfer $unzerApiRequestTransfer): string
     {
-        return $this->unzerApiConfig->getUnzerApiCreateBasket();
+        return $this->unzerApiConfig->getUnzerApiCreateBasketUrl();
     }
 
     /**

@@ -19,7 +19,7 @@ class AuthorizeRequest extends UnzerApiAbstractRequest implements UnzerApiReques
      */
     public function getUrl(UnzerApiRequestTransfer $unzerApiRequestTransfer): string
     {
-        return $this->unzerApiConfig->getUnzerApiAuthorize();
+        return $this->unzerApiConfig->getUnzerApiAuthorizeUrl();
     }
 
     /**

@@ -20,7 +20,7 @@ class MarketplaceAuthorizableChargeRequest extends UnzerApiAbstractRequest imple
     public function getUrl(UnzerApiRequestTransfer $unzerApiRequestTransfer): string
     {
         return sprintf(
-            $this->unzerApiConfig->getUnzerApiMarketplaceCreditCardCharge(),
+            $this->unzerApiConfig->getUnzerApiMarketplaceCreditCardChargeUrl(),
             $unzerApiRequestTransfer->getChargeRequestOrFail()->getPaymentIdOrFail(),
             $unzerApiRequestTransfer->getChargeRequestOrFail()->getAuthorizeIdOrFail(),
         );

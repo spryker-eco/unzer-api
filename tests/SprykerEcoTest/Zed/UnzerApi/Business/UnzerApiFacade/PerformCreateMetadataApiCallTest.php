@@ -5,10 +5,10 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace SprykerEcoTest\Zed\UnzerApi\Business;
+namespace SprykerEcoTest\Zed\UnzerApi\Business\UnzerApiFacade;
 
-use Generated\Shared\Transfer\UnzerApiAuthorizeResponseTransfer;
 use Generated\Shared\Transfer\UnzerApiErrorResponseTransfer;
+use SprykerEcoTest\Zed\UnzerApi\Business\UnzerApiFacadeBaseTest;
 
 /**
  * @group Functional
@@ -17,12 +17,12 @@ use Generated\Shared\Transfer\UnzerApiErrorResponseTransfer;
  * @group UnzerApi
  * @group Business
  */
-class PerformAuthorizeApiCallFacadeTest extends UnzerApiFacadeBaseTest
+class PerformCreateMetadataApiCallTest extends UnzerApiFacadeBaseTest
 {
     /**
      * @var string
      */
-    protected const FIXTURE_FILE_NAME = 'authorizeResponseBody.json';
+    protected const FIXTURE_FILE_NAME = 'createMetadataResponseBody.json';
 
     /**
      * @return void
@@ -33,13 +33,12 @@ class PerformAuthorizeApiCallFacadeTest extends UnzerApiFacadeBaseTest
         $unzerApiRequestTransfer = $this->tester->createUnzerApiRequestTransfer();
 
         // Act
-        $unzerApiResponseTransfer = $this->facade->performAuthorizeApiCall($unzerApiRequestTransfer);
-        $unzerApiAuthorizeResponseTransfer = $unzerApiResponseTransfer->getAuthorizeResponseOrFail();
+        $unzerApiResponseTransfer = $this->facade->performCreateMetadataApiCall($unzerApiRequestTransfer);
+        $unzerApiCreateMetadataResponseTransfer = $unzerApiResponseTransfer->getCreateMetadataResponseOrFail();
 
         // Assert
-        $this->assertInstanceOf(UnzerApiAuthorizeResponseTransfer::class, $unzerApiAuthorizeResponseTransfer);
         $this->assertTrue($unzerApiResponseTransfer->getIsSuccessful());
-        $this->assertNotEmpty($unzerApiAuthorizeResponseTransfer->getId());
+        $this->assertNotEmpty($unzerApiCreateMetadataResponseTransfer->getId());
     }
 
     /**
@@ -52,10 +51,10 @@ class PerformAuthorizeApiCallFacadeTest extends UnzerApiFacadeBaseTest
         $this->returnSuccessResponse = false;
 
         // Act
-        $unzerApiResponseTransfer = $this->facade->performAuthorizeApiCall($unzerApiRequestTransfer);
+        $unzerApiResponseTransfer = $this->facade->performCreateMetadataApiCall($unzerApiRequestTransfer);
 
         // Assert
-        $this->assertfalse($unzerApiResponseTransfer->getIsSuccessful());
+        $this->assertFalse($unzerApiResponseTransfer->getIsSuccessful());
         $this->assertInstanceOf(UnzerApiErrorResponseTransfer::class, $unzerApiResponseTransfer->getErrorResponse());
     }
 }

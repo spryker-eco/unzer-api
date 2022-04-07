@@ -5,10 +5,10 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace SprykerEcoTest\Zed\UnzerApi\Business;
+namespace SprykerEcoTest\Zed\UnzerApi\Business\UnzerApiFacade;
 
 use Generated\Shared\Transfer\UnzerApiErrorResponseTransfer;
-use Generated\Shared\Transfer\UnzerApiMarketplaceRefundResponseTransfer;
+use SprykerEcoTest\Zed\UnzerApi\Business\UnzerApiFacadeBaseTest;
 
 /**
  * @group Functional
@@ -17,12 +17,12 @@ use Generated\Shared\Transfer\UnzerApiMarketplaceRefundResponseTransfer;
  * @group UnzerApi
  * @group Business
  */
-class PerformMarketplaceRefundApiCallFacadeTest extends UnzerApiFacadeBaseTest
+class PerformCreateBasketApiCallTest extends UnzerApiFacadeBaseTest
 {
     /**
      * @var string
      */
-    protected const FIXTURE_FILE_NAME = 'refundResponseBody.json';
+    protected const FIXTURE_FILE_NAME = 'createBasketResponseBody.json';
 
     /**
      * @return void
@@ -33,13 +33,12 @@ class PerformMarketplaceRefundApiCallFacadeTest extends UnzerApiFacadeBaseTest
         $unzerApiRequestTransfer = $this->tester->createUnzerApiRequestTransfer();
 
         // Act
-        $unzerApiResponseTransfer = $this->facade->performMarketplaceRefundApiCall($unzerApiRequestTransfer);
-        $unzerApiMarketplaceRefundResponseTransfer = $unzerApiResponseTransfer->getMarketplaceRefundResponseOrFail();
+        $unzerApiResponseTransfer = $this->facade->performCreateBasketApiCall($unzerApiRequestTransfer);
+        $unzerApiCreateBasketResponseTransfer = $unzerApiResponseTransfer->getCreateBasketResponseOrFail();
 
         // Assert
-        $this->assertInstanceOf(UnzerApiMarketplaceRefundResponseTransfer::class, $unzerApiMarketplaceRefundResponseTransfer);
         $this->assertTrue($unzerApiResponseTransfer->getIsSuccessful());
-        $this->assertNotEmpty($unzerApiMarketplaceRefundResponseTransfer->getId());
+        $this->assertNotEmpty($unzerApiCreateBasketResponseTransfer->getId());
     }
 
     /**
@@ -52,10 +51,10 @@ class PerformMarketplaceRefundApiCallFacadeTest extends UnzerApiFacadeBaseTest
         $this->returnSuccessResponse = false;
 
         // Act
-        $unzerApiResponseTransfer = $this->facade->performMarketplaceRefundApiCall($unzerApiRequestTransfer);
+        $unzerApiResponseTransfer = $this->facade->performCreateBasketApiCall($unzerApiRequestTransfer);
 
         // Assert
-        $this->assertfalse($unzerApiResponseTransfer->getIsSuccessful());
+        $this->assertFalse($unzerApiResponseTransfer->getIsSuccessful());
         $this->assertInstanceOf(UnzerApiErrorResponseTransfer::class, $unzerApiResponseTransfer->getErrorResponse());
     }
 }

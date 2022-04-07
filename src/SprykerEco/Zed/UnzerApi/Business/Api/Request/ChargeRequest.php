@@ -19,7 +19,7 @@ class ChargeRequest extends UnzerApiAbstractRequest implements UnzerApiRequestIn
      */
     public function getUrl(UnzerApiRequestTransfer $unzerApiRequestTransfer): string
     {
-        return $this->unzerApiConfig->getUnzerApiCharge();
+        return $this->unzerApiConfig->getUnzerApiChargeUrl();
     }
 
     /**

@@ -5,10 +5,10 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace SprykerEcoTest\Zed\UnzerApi\Business;
+namespace SprykerEcoTest\Zed\UnzerApi\Business\UnzerApiFacade;
 
 use Generated\Shared\Transfer\UnzerApiErrorResponseTransfer;
-use Generated\Shared\Transfer\UnzerApiGetPaymentResponseTransfer;
+use SprykerEcoTest\Zed\UnzerApi\Business\UnzerApiFacadeBaseTest;
 
 /**
  * @group Functional
@@ -17,12 +17,12 @@ use Generated\Shared\Transfer\UnzerApiGetPaymentResponseTransfer;
  * @group UnzerApi
  * @group Business
  */
-class PerformGetPaymentApiCallFacadeTest extends UnzerApiFacadeBaseTest
+class PerformMarketplaceGetPaymentApiCallTest extends UnzerApiFacadeBaseTest
 {
     /**
      * @var string
      */
-    protected const FIXTURE_FILE_NAME = 'getPaymentResponseBody.json';
+    protected const FIXTURE_FILE_NAME = 'marketplaceGetPaymentResponseBody.json';
 
     /**
      * @return void
@@ -33,11 +33,10 @@ class PerformGetPaymentApiCallFacadeTest extends UnzerApiFacadeBaseTest
         $unzerApiRequestTransfer = $this->tester->createUnzerApiRequestTransfer();
 
         // Act
-        $unzerApiResponseTransfer = $this->facade->performGetPaymentApiCall($unzerApiRequestTransfer);
+        $unzerApiResponseTransfer = $this->facade->performMarketplaceGetPaymentApiCall($unzerApiRequestTransfer);
         $unzerApiGetPaymentResponseTransfer = $unzerApiResponseTransfer->getGetPaymentResponseOrFail();
 
         // Assert
-        $this->assertInstanceOf(UnzerApiGetPaymentResponseTransfer::class, $unzerApiGetPaymentResponseTransfer);
         $this->assertTrue($unzerApiResponseTransfer->getIsSuccessful());
         $this->assertNotEmpty($unzerApiGetPaymentResponseTransfer->getId());
         $this->assertNotEmpty($unzerApiGetPaymentResponseTransfer->getStateName());
@@ -56,10 +55,10 @@ class PerformGetPaymentApiCallFacadeTest extends UnzerApiFacadeBaseTest
         $this->returnSuccessResponse = false;
 
         // Act
-        $unzerApiResponseTransfer = $this->facade->performGetPaymentApiCall($unzerApiRequestTransfer);
+        $unzerApiResponseTransfer = $this->facade->performMarketplaceChargeApiCall($unzerApiRequestTransfer);
 
         // Assert
-        $this->assertfalse($unzerApiResponseTransfer->getIsSuccessful());
+        $this->assertFalse($unzerApiResponseTransfer->getIsSuccessful());
         $this->assertInstanceOf(UnzerApiErrorResponseTransfer::class, $unzerApiResponseTransfer->getErrorResponse());
     }
 }

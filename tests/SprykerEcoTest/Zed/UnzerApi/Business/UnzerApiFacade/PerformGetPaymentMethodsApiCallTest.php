@@ -5,10 +5,11 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace SprykerEcoTest\Zed\UnzerApi\Business;
+namespace SprykerEcoTest\Zed\UnzerApi\Business\UnzerApiFacade;
 
-use Generated\Shared\Transfer\UnzerApiChargeResponseTransfer;
 use Generated\Shared\Transfer\UnzerApiErrorResponseTransfer;
+use Generated\Shared\Transfer\UnzerApiGetPaymentMethodsResponseTransfer;
+use SprykerEcoTest\Zed\UnzerApi\Business\UnzerApiFacadeBaseTest;
 
 /**
  * @group Functional
@@ -17,12 +18,12 @@ use Generated\Shared\Transfer\UnzerApiErrorResponseTransfer;
  * @group UnzerApi
  * @group Business
  */
-class PerformAuthorizableChargeApiCallFacadeTest extends UnzerApiFacadeBaseTest
+class PerformGetPaymentMethodsApiCallTest extends UnzerApiFacadeBaseTest
 {
     /**
      * @var string
      */
-    protected const FIXTURE_FILE_NAME = 'chargeResponseBody.json';
+    protected const FIXTURE_FILE_NAME = 'getPaymentMethodsResponseBody.json';
 
     /**
      * @return void
@@ -33,13 +34,13 @@ class PerformAuthorizableChargeApiCallFacadeTest extends UnzerApiFacadeBaseTest
         $unzerApiRequestTransfer = $this->tester->createUnzerApiRequestTransfer();
 
         // Act
-        $unzerApiResponseTransfer = $this->facade->performAuthorizableChargeApiCall($unzerApiRequestTransfer);
-        $unzerApiChargeResponseTransfer = $unzerApiResponseTransfer->getChargeResponseOrFail();
+        $unzerApiResponseTransfer = $this->facade->performGetPaymentMethodsApiCall($unzerApiRequestTransfer);
+        $unzerApiGetPaymentMethodsResponseTransfer = $unzerApiResponseTransfer->getGetPaymentMethodsResponseOrFail();
 
         // Assert
-        $this->assertInstanceOf(UnzerApiChargeResponseTransfer::class, $unzerApiChargeResponseTransfer);
+        $this->assertInstanceOf(UnzerApiGetPaymentMethodsResponseTransfer::class, $unzerApiGetPaymentMethodsResponseTransfer);
         $this->assertTrue($unzerApiResponseTransfer->getIsSuccessful());
-        $this->assertNotEmpty($unzerApiChargeResponseTransfer->getId());
+        $this->assertNotEmpty($unzerApiGetPaymentMethodsResponseTransfer->getPaymentMethods());
     }
 
     /**
@@ -52,10 +53,10 @@ class PerformAuthorizableChargeApiCallFacadeTest extends UnzerApiFacadeBaseTest
         $this->returnSuccessResponse = false;
 
         // Act
-        $unzerApiResponseTransfer = $this->facade->performAuthorizableChargeApiCall($unzerApiRequestTransfer);
+        $unzerApiResponseTransfer = $this->facade->performGetPaymentMethodsApiCall($unzerApiRequestTransfer);
 
         // Assert
-        $this->assertfalse($unzerApiResponseTransfer->getIsSuccessful());
+        $this->assertFalse($unzerApiResponseTransfer->getIsSuccessful());
         $this->assertInstanceOf(UnzerApiErrorResponseTransfer::class, $unzerApiResponseTransfer->getErrorResponse());
     }
 }

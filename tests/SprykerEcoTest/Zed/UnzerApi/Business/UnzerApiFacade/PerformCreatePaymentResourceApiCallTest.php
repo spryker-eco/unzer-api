@@ -5,10 +5,10 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace SprykerEcoTest\Zed\UnzerApi\Business;
+namespace SprykerEcoTest\Zed\UnzerApi\Business\UnzerApiFacade;
 
-use Generated\Shared\Transfer\UnzerApiCreatePaymentResourceResponseTransfer;
 use Generated\Shared\Transfer\UnzerApiErrorResponseTransfer;
+use SprykerEcoTest\Zed\UnzerApi\Business\UnzerApiFacadeBaseTest;
 use SprykerEcoTest\Zed\UnzerApi\UnzerApiZedTester;
 
 /**
@@ -18,7 +18,7 @@ use SprykerEcoTest\Zed\UnzerApi\UnzerApiZedTester;
  * @group UnzerApi
  * @group Business
  */
-class PerformCreatePaymentResourceApiCallFacadeTest extends UnzerApiFacadeBaseTest
+class PerformCreatePaymentResourceApiCallTest extends UnzerApiFacadeBaseTest
 {
     /**
      * @var string
@@ -38,7 +38,6 @@ class PerformCreatePaymentResourceApiCallFacadeTest extends UnzerApiFacadeBaseTe
         $unzerApiCreatePaymentResourceResponseTransfer = $unzerApiResponseTransfer->getCreatePaymentResourceResponseOrFail();
 
         // Assert
-        $this->assertInstanceOf(UnzerApiCreatePaymentResourceResponseTransfer::class, $unzerApiCreatePaymentResourceResponseTransfer);
         $this->assertTrue($unzerApiResponseTransfer->getIsSuccessful());
         $this->assertNotEmpty($unzerApiCreatePaymentResourceResponseTransfer->getId());
         $this->assertEquals(UnzerApiZedTester::PAYMENT_METHOD_SOFORT, $unzerApiCreatePaymentResourceResponseTransfer->getMethod());
@@ -58,7 +57,7 @@ class PerformCreatePaymentResourceApiCallFacadeTest extends UnzerApiFacadeBaseTe
         $unzerApiResponseTransfer = $this->facade->performCreatePaymentResourceApiCall($unzerApiRequestTransfer);
 
         // Assert
-        $this->assertfalse($unzerApiResponseTransfer->getIsSuccessful());
+        $this->assertFalse($unzerApiResponseTransfer->getIsSuccessful());
         $this->assertInstanceOf(UnzerApiErrorResponseTransfer::class, $unzerApiResponseTransfer->getErrorResponse());
     }
 }

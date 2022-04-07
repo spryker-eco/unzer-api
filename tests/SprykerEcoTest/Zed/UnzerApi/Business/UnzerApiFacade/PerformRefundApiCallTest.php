@@ -5,10 +5,10 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace SprykerEcoTest\Zed\UnzerApi\Business;
+namespace SprykerEcoTest\Zed\UnzerApi\Business\UnzerApiFacade;
 
-use Generated\Shared\Transfer\UnzerApiCreateMetadataResponseTransfer;
 use Generated\Shared\Transfer\UnzerApiErrorResponseTransfer;
+use SprykerEcoTest\Zed\UnzerApi\Business\UnzerApiFacadeBaseTest;
 
 /**
  * @group Functional
@@ -17,12 +17,12 @@ use Generated\Shared\Transfer\UnzerApiErrorResponseTransfer;
  * @group UnzerApi
  * @group Business
  */
-class PerformCreateMetadataApiCallFacadeTest extends UnzerApiFacadeBaseTest
+class PerformRefundApiCallTest extends UnzerApiFacadeBaseTest
 {
     /**
      * @var string
      */
-    protected const FIXTURE_FILE_NAME = 'createMetadataResponseBody.json';
+    protected const FIXTURE_FILE_NAME = 'refundResponseBody.json';
 
     /**
      * @return void
@@ -33,13 +33,12 @@ class PerformCreateMetadataApiCallFacadeTest extends UnzerApiFacadeBaseTest
         $unzerApiRequestTransfer = $this->tester->createUnzerApiRequestTransfer();
 
         // Act
-        $unzerApiResponseTransfer = $this->facade->performCreateMetadataApiCall($unzerApiRequestTransfer);
-        $unzerApiCreateMetadataResponseTransfer = $unzerApiResponseTransfer->getCreateMetadataResponseOrFail();
+        $unzerApiResponseTransfer = $this->facade->performRefundApiCall($unzerApiRequestTransfer);
+        $unzerApiRefundResponseTransfer = $unzerApiResponseTransfer->getRefundResponseOrFail();
 
         // Assert
-        $this->assertInstanceOf(UnzerApiCreateMetadataResponseTransfer::class, $unzerApiCreateMetadataResponseTransfer);
         $this->assertTrue($unzerApiResponseTransfer->getIsSuccessful());
-        $this->assertNotEmpty($unzerApiCreateMetadataResponseTransfer->getId());
+        $this->assertNotEmpty($unzerApiRefundResponseTransfer->getId());
     }
 
     /**
@@ -52,10 +51,10 @@ class PerformCreateMetadataApiCallFacadeTest extends UnzerApiFacadeBaseTest
         $this->returnSuccessResponse = false;
 
         // Act
-        $unzerApiResponseTransfer = $this->facade->performCreateMetadataApiCall($unzerApiRequestTransfer);
+        $unzerApiResponseTransfer = $this->facade->performRefundApiCall($unzerApiRequestTransfer);
 
         // Assert
-        $this->assertfalse($unzerApiResponseTransfer->getIsSuccessful());
+        $this->assertFalse($unzerApiResponseTransfer->getIsSuccessful());
         $this->assertInstanceOf(UnzerApiErrorResponseTransfer::class, $unzerApiResponseTransfer->getErrorResponse());
     }
 }
