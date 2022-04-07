@@ -7,7 +7,6 @@
 
 namespace SprykerEcoTest\Zed\UnzerApi\Business\UnzerApiFacade;
 
-use Generated\Shared\Transfer\UnzerApiErrorResponseTransfer;
 use SprykerEcoTest\Zed\UnzerApi\Business\UnzerApiFacadeBaseTest;
 use SprykerEcoTest\Zed\UnzerApi\UnzerApiZedTester;
 
@@ -17,6 +16,7 @@ use SprykerEcoTest\Zed\UnzerApi\UnzerApiZedTester;
  * @group Zed
  * @group UnzerApi
  * @group Business
+ * @group UnzerApiFacade
  */
 class PerformCreatePaymentResourceApiCallTest extends UnzerApiFacadeBaseTest
 {
