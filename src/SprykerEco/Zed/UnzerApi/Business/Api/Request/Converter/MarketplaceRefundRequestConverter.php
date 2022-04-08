@@ -31,7 +31,7 @@ class MarketplaceRefundRequestConverter implements UnzerApiRequestConverterInter
     }
 
     /**
-     * @param \ArrayObject $unzerRefundItemTransfers
+     * @param \ArrayObject<int, \Generated\Shared\Transfer\UnzerRefundItemTransfer> $unzerRefundItemTransfers
      *
      * @return array<string, array<int, array<string, int|float|string|null>>>
      */

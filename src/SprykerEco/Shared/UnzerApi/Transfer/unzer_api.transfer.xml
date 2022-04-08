@@ -96,6 +96,11 @@
     </transfer>
 
     <transfer name="UnzerApiAuthorizeRequest">
+        <property name="amount" type="float"/>
+        <property name="currency" type="string"/>
+        <property name="returnUrl" type="string"/>
+        <property name="customerId" type="string"/>
+        <property name="typeId" type="string"/>
     </transfer>
 
     <transfer name="UnzerApiMarketplaceAuthorizeRequest">

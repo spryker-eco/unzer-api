@@ -1,30 +1,5 @@
 {
     "error": [],
-    "warning": [
-        {
-            "severity": "info",
-            "line_from": 30,
-            "line_to": 30,
-            "type": "PossiblyInvalidArgument",
-            "message": "Argument 1 of SprykerEco\\Zed\\UnzerApi\\Business\\Api\\Request\\Converter\\CreateBasketRequestConverter::convertBasketItems expects ArrayObject<int, Generated\\Shared\\Transfer\\UnzerBasketItemTransfer>, possibly different type ArrayObject|array<array-key, Generated\\Shared\\Transfer\\UnzerBasketItemTransfer> provided",
-            "file_name": "vendor/spryker-eco/unzer-api/src/SprykerEco/Zed/UnzerApi/Business/Api/Request/Converter/CreateBasketRequestConverter.php",
-            "snippet": "            UnzerApiRequestConstants::PARAM_BASKET_ITEMS => $this->convertBasketItems($unzerApiCreateBasketRequestTransfer->getBasketItems()),",
-            "selected_text": "$unzerApiCreateBasketRequestTransfer->getBasketItems()",
-            "error_level": 3,
-            "shortcode": 92
-        },
-        {
-            "severity": "info",
-            "line_from": 29,
-            "line_to": 29,
-            "type": "PossiblyInvalidArgument",
-            "message": "Argument 1 of SprykerEco\\Zed\\UnzerApi\\Business\\Api\\Request\\Converter\\MarketplaceRefundRequestConverter::getCanceledBasket expects ArrayObject, possibly different type ArrayObject|array<array-key, Generated\\Shared\\Transfer\\UnzerRefundItemTransfer> provided",
-            "file_name": "vendor/spryker-eco/unzer-api/src/SprykerEco/Zed/UnzerApi/Business/Api/Request/Converter/MarketplaceRefundRequestConverter.php",
-            "snippet": "            UnzerApiRequestConstants::PARAM_CANCELED_BASKET => $this->getCanceledBasket($unzerApiMarketplaceRefundRequestTransfer->getCanceledBasket()),",
-            "selected_text": "$unzerApiMarketplaceRefundRequestTransfer->getCanceledBasket()",
-            "error_level": 3,
-            "shortcode": 92
-        }
-    ],
+    "warning": [],
     "deprecation": []
 }

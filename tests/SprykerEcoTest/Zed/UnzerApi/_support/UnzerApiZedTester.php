@@ -180,6 +180,7 @@ class UnzerApiZedTester extends Actor
      * @var string
      */
     public const BASKET_CURRENCY_CODE = 'EUR';
+
     public const BASKET_AMOUNT_TOTAL_GROSS = 723.46;
 
     /**
@@ -196,7 +197,9 @@ class UnzerApiZedTester extends Actor
      * @var string
      */
     public const BASKET_ITEM_TITLE = 'Canon Self-Shot';
+
     public const BASKET_ITEM_AMOUNT_PER_UNIT = 123.00;
+
     public const BASKET_ITEM_AMOUNT_GROSS = 123.00;
 
     /**
