@@ -1,0 +1,34 @@
+{
+    "id": "s-pay-168",
+    "state": {
+        "id": 0,
+        "name": "pending"
+    },
+    "amount": {
+        "total": "723.4600",
+        "charged": "0.0000",
+        "canceled": "0.0000",
+        "remaining": "723.4600"
+    },
+    "currency": "EUR",
+    "orderId": "",
+    "invoiceId": "",
+    "resources": {
+        "customerId": "s-cst-c63ae61d9f5b",
+        "paymentId": "s-pay-168",
+        "basketId": "s-bsk-614",
+        "metadataId": "",
+        "payPageId": "",
+        "traceId": "8a670640a23755ad78b0f04b84e40d22",
+        "typeId": "s-crd-5o5brnrlkdtk"
+    },
+    "transactions": [
+        {
+            "date": "2022-02-10 10:36:49",
+            "type": "authorize",
+            "status": "success",
+            "url": "https://api.unzer.com/v1/marketplace/payments/s-pay-168/authorize/s-aut-1",
+            "amount": "674.0500"
+        }
+    ]
+}

@@ -19,7 +19,7 @@ class MarketplaceChargeRequest extends UnzerApiAbstractRequest implements UnzerA
      */
     public function getUrl(UnzerApiRequestTransfer $unzerApiRequestTransfer): string
     {
-        return $this->unzerApiConfig->getUnzerApiMarketplaceCharge();
+        return $this->unzerApiConfig->getUnzerApiMarketplaceChargeUrl();
     }
 
     /**

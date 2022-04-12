@@ -19,7 +19,7 @@ class MarketplaceAuthorizeRequest extends UnzerApiAbstractRequest implements Unz
      */
     public function getUrl(UnzerApiRequestTransfer $unzerApiRequestTransfer): string
     {
-        return $this->unzerApiConfig->getUnzerApiMarketplaceAuthorize();
+        return $this->unzerApiConfig->getUnzerApiMarketplaceAuthorizeUrl();
     }
 
     /**

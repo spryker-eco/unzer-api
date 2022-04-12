@@ -7,7 +7,7 @@
 
 namespace SprykerEco\Zed\UnzerApi\Business\Api\Response\Mapper;
 
-use Generated\Shared\Transfer\UnzerApiMarketplaceAuthorizeResponseTransfer;
+use Generated\Shared\Transfer\UnzerApiAuthorizeResponseTransfer;
 use Generated\Shared\Transfer\UnzerApiMessageTransfer;
 use Generated\Shared\Transfer\UnzerApiResponseTransfer;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\UnzerApiRequestConstants;
@@ -24,7 +24,7 @@ class AuthorizeResponseMapper implements UnzerApiResponseMapperInterface
         array $responseData,
         UnzerApiResponseTransfer $unzerApiResponseTransfer
     ): UnzerApiResponseTransfer {
-        $unzerApiMarketplaceAuthorizeResponseTransfer = (new UnzerApiMarketplaceAuthorizeResponseTransfer())
+        $unzerApiAuthorizeResponseTransfer = (new UnzerApiAuthorizeResponseTransfer())
             ->setId($responseData[UnzerApiRequestConstants::PARAM_ID] ?? null)
             ->setIsSuccessful($responseData[UnzerApiRequestConstants::PARAM_IS_SUCCESSFUL] ?? null)
             ->setIsPending($responseData[UnzerApiRequestConstants::PARAM_IS_PENDING] ?? null)
@@ -37,90 +37,82 @@ class AuthorizeResponseMapper implements UnzerApiResponseMapperInterface
             ->setDate($responseData[UnzerApiRequestConstants::PARAM_DATE] ?? null)
             ->setPaymentReference($responseData[UnzerApiRequestConstants::PARAM_PAYMENT_REFERENCE] ?? null);
 
-        $unzerApiMarketplaceAuthorizeResponseTransfer = $this->mapMessageDataToUnzerApiMarketplaceAuthorizeResponseTransfer(
+        $unzerApiAuthorizeResponseTransfer = $this->mapMessageDataToUnzerApiAuthorizeResponseTransfer(
             $responseData[UnzerApiRequestConstants::PARAM_MESSAGE] ?? [],
-            $unzerApiMarketplaceAuthorizeResponseTransfer,
-        );
-        $unzerApiMarketplaceAuthorizeResponseTransfer = $this->mapResourceDataToUnzerApiMarketplaceAuthorizeResponseTransfer(
-            $responseData[UnzerApiRequestConstants::PARAM_RESOURCES] ?? [],
-            $unzerApiMarketplaceAuthorizeResponseTransfer,
-        );
-        $unzerApiMarketplaceAuthorizeResponseTransfer = $this->mapProcessingDataToUnzerApiMarketplaceAuthorizeResponseTransfer(
-            $responseData[UnzerApiRequestConstants::PARAM_PROCESSING] ?? [],
-            $unzerApiMarketplaceAuthorizeResponseTransfer,
+            $unzerApiAuthorizeResponseTransfer,
         );
 
-        return $unzerApiResponseTransfer
-            ->setMarketplaceAuthorizeResponse($unzerApiMarketplaceAuthorizeResponseTransfer);
+        $unzerApiAuthorizeResponseTransfer = $this->mapResourceDataToUnzerApiAuthorizeResponseTransfer(
+            $responseData[UnzerApiRequestConstants::PARAM_RESOURCES] ?? [],
+            $unzerApiAuthorizeResponseTransfer,
+        );
+
+        $unzerApiAuthorizeResponseTransfer = $this->mapProcessingDataToUnzerApiAuthorizeResponseTransfer(
+            $responseData[UnzerApiRequestConstants::PARAM_PROCESSING] ?? [],
+            $unzerApiAuthorizeResponseTransfer,
+        );
+
+        return $unzerApiResponseTransfer->setAuthorizeResponse($unzerApiAuthorizeResponseTransfer);
     }
 
     /**
      * @param array $responseData
-     * @param \Generated\Shared\Transfer\UnzerApiMarketplaceAuthorizeResponseTransfer $responseTransfer
+     * @param \Generated\Shared\Transfer\UnzerApiAuthorizeResponseTransfer $unzerApiAuthorizeResponseTransfer
      *
-     * @return \Generated\Shared\Transfer\UnzerApiMarketplaceAuthorizeResponseTransfer
+     * @return \Generated\Shared\Transfer\UnzerApiAuthorizeResponseTransfer
      */
-    protected function mapMessageDataToUnzerApiMarketplaceAuthorizeResponseTransfer(
+    protected function mapMessageDataToUnzerApiAuthorizeResponseTransfer(
         array $responseData,
-        UnzerApiMarketplaceAuthorizeResponseTransfer $responseTransfer
-    ): UnzerApiMarketplaceAuthorizeResponseTransfer {
+        UnzerApiAuthorizeResponseTransfer $unzerApiAuthorizeResponseTransfer
+    ): UnzerApiAuthorizeResponseTransfer {
         if (!$responseData) {
-            return $responseTransfer;
+            return $unzerApiAuthorizeResponseTransfer;
         }
 
-        $unzerApiMessageTransfer = new UnzerApiMessageTransfer();
-        $unzerApiMessageTransfer
-            ->setCode($responseData[UnzerApiRequestConstants::PARAM_CODE] ?? null)
+        $unzerApiMessageTransfer = (new UnzerApiMessageTransfer())->setCode($responseData[UnzerApiRequestConstants::PARAM_CODE] ?? null)
             ->setCustomer($responseData[UnzerApiRequestConstants::PARAM_CUSTOMER] ?? null)
             ->setMerchant($responseData[UnzerApiRequestConstants::PARAM_MERCHANT] ?? null);
 
-        $responseTransfer->setMessage($unzerApiMessageTransfer);
-
-        return $responseTransfer;
+        return $unzerApiAuthorizeResponseTransfer->setMessage($unzerApiMessageTransfer);
     }
 
     /**
      * @param array $responseData
-     * @param \Generated\Shared\Transfer\UnzerApiMarketplaceAuthorizeResponseTransfer $unzerApiMarketplaceAuthorizeResponseTransfer
+     * @param \Generated\Shared\Transfer\UnzerApiAuthorizeResponseTransfer $unzerApiAuthorizeResponseTransfer
      *
-     * @return \Generated\Shared\Transfer\UnzerApiMarketplaceAuthorizeResponseTransfer
+     * @return \Generated\Shared\Transfer\UnzerApiAuthorizeResponseTransfer
      */
-    protected function mapResourceDataToUnzerApiMarketplaceAuthorizeResponseTransfer(
+    protected function mapResourceDataToUnzerApiAuthorizeResponseTransfer(
         array $responseData,
-        UnzerApiMarketplaceAuthorizeResponseTransfer $unzerApiMarketplaceAuthorizeResponseTransfer
-    ): UnzerApiMarketplaceAuthorizeResponseTransfer {
+        UnzerApiAuthorizeResponseTransfer $unzerApiAuthorizeResponseTransfer
+    ): UnzerApiAuthorizeResponseTransfer {
         if (!$responseData) {
-            return $unzerApiMarketplaceAuthorizeResponseTransfer;
+            return $unzerApiAuthorizeResponseTransfer;
         }
 
-        $unzerApiMarketplaceAuthorizeResponseTransfer
+        return $unzerApiAuthorizeResponseTransfer
             ->setCustomerId($responseData[UnzerApiRequestConstants::PARAM_CUSTOMER_ID] ?? null)
             ->setPaymentId($responseData[UnzerApiRequestConstants::PARAM_PAYMENT_ID] ?? null)
             ->setTraceId($responseData[UnzerApiRequestConstants::PARAM_TRACE_ID] ?? null)
             ->setTypeId($responseData[UnzerApiRequestConstants::PARAM_TYPE_ID] ?? null);
-
-        return $unzerApiMarketplaceAuthorizeResponseTransfer;
     }
 
     /**
      * @param array $responseData
-     * @param \Generated\Shared\Transfer\UnzerApiMarketplaceAuthorizeResponseTransfer $unzerApiMarketplaceAuthorizeResponseTransfer
+     * @param \Generated\Shared\Transfer\UnzerApiAuthorizeResponseTransfer $unzerApiAuthorizeResponseTransfer
      *
-     * @return \Generated\Shared\Transfer\UnzerApiMarketplaceAuthorizeResponseTransfer
+     * @return \Generated\Shared\Transfer\UnzerApiAuthorizeResponseTransfer
      */
-    protected function mapProcessingDataToUnzerApiMarketplaceAuthorizeResponseTransfer(
+    protected function mapProcessingDataToUnzerApiAuthorizeResponseTransfer(
         array $responseData,
-        UnzerApiMarketplaceAuthorizeResponseTransfer $unzerApiMarketplaceAuthorizeResponseTransfer
-    ): UnzerApiMarketplaceAuthorizeResponseTransfer {
+        UnzerApiAuthorizeResponseTransfer $unzerApiAuthorizeResponseTransfer
+    ): UnzerApiAuthorizeResponseTransfer {
         if (!$responseData) {
-            return $unzerApiMarketplaceAuthorizeResponseTransfer;
+            return $unzerApiAuthorizeResponseTransfer;
         }
 
-        $unzerApiMarketplaceAuthorizeResponseTransfer
-            ->setUniqueId($responseData[UnzerApiRequestConstants::PARAM_UNIQUE_ID] ?? null)
+        return $unzerApiAuthorizeResponseTransfer->setUniqueId($responseData[UnzerApiRequestConstants::PARAM_UNIQUE_ID] ?? null)
             ->setShortId($responseData[UnzerApiRequestConstants::PARAM_SHORT_ID] ?? null)
             ->setTraceId($responseData[UnzerApiRequestConstants::PARAM_TRACE_ID] ?? null);
-
-        return $unzerApiMarketplaceAuthorizeResponseTransfer;
     }
 }

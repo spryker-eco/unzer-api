@@ -22,7 +22,7 @@ class MarketplaceRefundRequest extends UnzerApiAbstractRequest implements UnzerA
         $request = $unzerApiRequestTransfer->getMarketplaceRefundRequestOrFail();
 
         return sprintf(
-            $this->unzerApiConfig->getUnzerApiMarketplaceRefund(),
+            $this->unzerApiConfig->getUnzerApiMarketplaceRefundUrl(),
             $request->getPaymentIdOrFail(),
             $request->getChargeIdOrFail(),
         );

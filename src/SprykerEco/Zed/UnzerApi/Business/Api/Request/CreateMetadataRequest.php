@@ -19,7 +19,7 @@ class CreateMetadataRequest extends UnzerApiAbstractRequest implements UnzerApiR
      */
     public function getUrl(UnzerApiRequestTransfer $unzerApiRequestTransfer): string
     {
-        return $this->unzerApiConfig->getUnzerApiCreateMetadata();
+        return $this->unzerApiConfig->getUnzerApiCreateMetadataUrl();
     }
 
     /**

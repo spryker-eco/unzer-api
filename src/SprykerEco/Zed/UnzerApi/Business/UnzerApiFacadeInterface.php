@@ -14,8 +14,8 @@ interface UnzerApiFacadeInterface
 {
     /**
      * Specification:
-     * - Requires `UnzerApiRequestTransfer::unzerKeypair` to be set.
-     * - Requires `UnzerApiRequestTransfer::unzerApiSetWebhookRequest` to be set.
+     * - Requires `UnzerApiRequestTransfer.unzerKeypair` to be set.
+     * - Requires `UnzerApiRequestTransfer.unzerApiSetWebhookRequest` to be set.
      * - Performs Unzer Set Notification URL API call.
      *
      * @api
@@ -28,8 +28,8 @@ interface UnzerApiFacadeInterface
 
     /**
      * Specification:
-     * - Requires `UnzerApiRequestTransfer::unzerKeypair` to be set.
-     * - Requires `UnzerApiRequestTransfer::unzerApiCreateCustomerRequest` to be set.
+     * - Requires `UnzerApiRequestTransfer.unzerKeypair` to be set.
+     * - Requires `UnzerApiRequestTransfer.unzerApiCreateCustomerRequest` to be set.
      * - Performs Unzer Create Customer API call.
      *
      * @api
@@ -42,8 +42,8 @@ interface UnzerApiFacadeInterface
 
     /**
      * Specification:
-     * - Requires `UnzerApiRequestTransfer::unzerKeypair` to be set.
-     * - Requires `UnzerApiRequestTransfer::unzerApiUpdateCustomerRequest` to be set.
+     * - Requires `UnzerApiRequestTransfer.unzerKeypair` to be set.
+     * - Requires `UnzerApiRequestTransfer.unzerApiUpdateCustomerRequest` to be set.
      * - Performs Unzer Update Customer API call.
      *
      * @api
@@ -56,8 +56,8 @@ interface UnzerApiFacadeInterface
 
     /**
      * Specification:
-     * - Requires `UnzerApiRequestTransfer::unzerKeypair` to be set.
-     * - Requires `UnzerApiRequestTransfer::unzerApiCreateMetadataRequest` to be set.
+     * - Requires `UnzerApiRequestTransfer.unzerKeypair` to be set.
+     * - Requires `UnzerApiRequestTransfer.unzerApiCreateMetadataRequest` to be set.
      * - Performs Unzer Create Metadata API call.
      *
      * @api
@@ -70,8 +70,8 @@ interface UnzerApiFacadeInterface
 
     /**
      * Specification:
-     * - Requires `UnzerApiRequestTransfer::unzerKeypair` to be set.
-     * - Requires `UnzerApiRequestTransfer::unzerApiCreateBasketRequest` to be set.
+     * - Requires `UnzerApiRequestTransfer.unzerKeypair` to be set.
+     * - Requires `UnzerApiRequestTransfer.unzerApiCreateBasketRequest` to be set.
      * - Performs Unzer Create Basket API call.
      *
      * @api
@@ -84,8 +84,22 @@ interface UnzerApiFacadeInterface
 
     /**
      * Specification:
-     * - Requires `UnzerApiRequestTransfer::unzerKeypair` to be set.
-     * - Requires `UnzerApiRequestTransfer::unzerApiCreatePaymentResourceRequest` to be set.
+     * - Requires `UnzerApiRequestTransfer.unzerKeypair.privateKey` to be set.
+     * - Requires `UnzerApiRequestTransfer.unzerApiCreateBasketRequest` to be set.
+     * - Performs Unzer Create Marketplace Basket API call.
+     *
+     * @api
+     *
+     * @param \Generated\Shared\Transfer\UnzerApiRequestTransfer $unzerApiRequestTransfer
+     *
+     * @return \Generated\Shared\Transfer\UnzerApiResponseTransfer
+     */
+    public function performCreateMarketplaceBasketApiCall(UnzerApiRequestTransfer $unzerApiRequestTransfer): UnzerApiResponseTransfer;
+
+    /**
+     * Specification:
+     * - Requires `UnzerApiRequestTransfer.unzerKeypair` to be set.
+     * - Requires `UnzerApiRequestTransfer.unzerApiCreatePaymentResourceRequest` to be set.
      * - Performs Unzer Create Payment resource API call.
      *
      * @api
@@ -98,8 +112,8 @@ interface UnzerApiFacadeInterface
 
     /**
      * Specification:
-     * - Requires `UnzerApiRequestTransfer::unzerKeypair` to be set.
-     * - Requires `UnzerApiRequestTransfer::unzerApiMarketplaceAuthorizeRequest` to be set.
+     * - Requires `UnzerApiRequestTransfer.unzerKeypair` to be set.
+     * - Requires `UnzerApiRequestTransfer.unzerApiMarketplaceAuthorizeRequest` to be set.
      * - Performs Unzer Authorize Marketplace payment API call.
      *
      * @api
@@ -112,8 +126,8 @@ interface UnzerApiFacadeInterface
 
     /**
      * Specification:
-     * - Requires `UnzerApiRequestTransfer::unzerKeypair` to be set.
-     * - Requires `UnzerApiRequestTransfer::unzerApiAuthorizeRequest` to be set.
+     * - Requires `UnzerApiRequestTransfer.unzerKeypair` to be set.
+     * - Requires `UnzerApiRequestTransfer.unzerApiAuthorizeRequest` to be set.
      * - Performs Unzer Authorize payment API call.
      *
      * @api
@@ -126,8 +140,8 @@ interface UnzerApiFacadeInterface
 
     /**
      * Specification:
-     * - Requires `UnzerApiRequestTransfer::unzerKeypair` to be set.
-     * - Requires `UnzerApiRequestTransfer::unzerApiMarketplaceGetPaymentRequest` to be set.
+     * - Requires `UnzerApiRequestTransfer.unzerKeypair` to be set.
+     * - Requires `UnzerApiRequestTransfer.unzerApiMarketplaceGetPaymentRequest` to be set.
      * - Performs Unzer Get Marketplace Payment Info API call.
      *
      * @api
@@ -140,8 +154,8 @@ interface UnzerApiFacadeInterface
 
     /**
      * Specification:
-     * - Requires `UnzerApiRequestTransfer::unzerKeypair` to be set.
-     * - Requires `UnzerApiRequestTransfer::unzerApiGetPaymentRequest` to be set.
+     * - Requires `UnzerApiRequestTransfer.unzerKeypair` to be set.
+     * - Requires `UnzerApiRequestTransfer.unzerApiGetPaymentRequest` to be set.
      * - Performs Unzer Get Payment Info API call.
      *
      * @api
@@ -154,8 +168,8 @@ interface UnzerApiFacadeInterface
 
     /**
      * Specification:
-     * - Requires `UnzerApiRequestTransfer::unzerKeypair` to be set.
-     * - Requires `UnzerApiRequestTransfer::unzerApiChargeRequest` to be set.
+     * - Requires `UnzerApiRequestTransfer.unzerKeypair` to be set.
+     * - Requires `UnzerApiRequestTransfer.unzerApiChargeRequest` to be set.
      * - Performs Unzer Marketplace Charge for authorizable payment API call.
      *
      * @api
@@ -168,8 +182,8 @@ interface UnzerApiFacadeInterface
 
     /**
      * Specification:
-     * - Requires `UnzerApiRequestTransfer::unzerKeypair` to be set.
-     * - Requires `UnzerApiRequestTransfer::unzerApiChargeRequest` to be set.
+     * - Requires `UnzerApiRequestTransfer.unzerKeypair` to be set.
+     * - Requires `UnzerApiRequestTransfer.unzerApiChargeRequest` to be set.
      * - Performs Unzer Marketplace Charge for regular payment API call.
      *
      * @api
@@ -182,8 +196,8 @@ interface UnzerApiFacadeInterface
 
     /**
      * Specification:
-     * - Requires `UnzerApiRequestTransfer::unzerKeypair` to be set.
-     * - Requires `UnzerApiRequestTransfer::unzerApiChargeRequest` to be set.
+     * - Requires `UnzerApiRequestTransfer.unzerKeypair` to be set.
+     * - Requires `UnzerApiRequestTransfer.unzerApiChargeRequest` to be set.
      * - Performs Unzer Charge for authorizable payment API call.
      *
      * @api
@@ -196,8 +210,8 @@ interface UnzerApiFacadeInterface
 
     /**
      * Specification:
-     * - Requires `UnzerApiRequestTransfer::unzerKeypair` to be set.
-     * - Requires `UnzerApiRequestTransfer::unzerApiChargeRequest` to be set.
+     * - Requires `UnzerApiRequestTransfer.unzerKeypair` to be set.
+     * - Requires `UnzerApiRequestTransfer.unzerApiChargeRequest` to be set.
      * - Performs Unzer Charge for regular payment API call.
      *
      * @api
@@ -210,8 +224,8 @@ interface UnzerApiFacadeInterface
 
     /**
      * Specification:
-     * - Requires `UnzerApiRequestTransfer::unzerKeypair` to be set.
-     * - Requires `UnzerApiRequestTransfer::unzerApiRefundRequest` to be set.
+     * - Requires `UnzerApiRequestTransfer.unzerKeypair` to be set.
+     * - Requires `UnzerApiRequestTransfer.unzerApiRefundRequest` to be set.
      * - Performs Unzer refund API call.
      *
      * @api
@@ -224,8 +238,8 @@ interface UnzerApiFacadeInterface
 
     /**
      * Specification:
-     * - Requires `UnzerApiRequestTransfer::unzerKeypair` to be set.
-     * - Requires `UnzerApiRequestTransfer::unzerApiMarketplaceRefundRequest` to be set.
+     * - Requires `UnzerApiRequestTransfer.unzerKeypair` to be set.
+     * - Requires `UnzerApiRequestTransfer.unzerApiMarketplaceRefundRequest` to be set.
      * - Performs Unzer marketplace partial refund API call.
      *
      * @api

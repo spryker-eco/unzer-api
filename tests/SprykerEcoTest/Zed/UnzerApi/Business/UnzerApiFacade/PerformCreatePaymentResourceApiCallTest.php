@@ -5,8 +5,9 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace SprykerEcoTest\Zed\UnzerApi\Business;
+namespace SprykerEcoTest\Zed\UnzerApi\Business\UnzerApiFacade;
 
+use SprykerEcoTest\Zed\UnzerApi\Business\UnzerApiFacadeBaseTest;
 use SprykerEcoTest\Zed\UnzerApi\UnzerApiZedTester;
 
 /**
@@ -15,8 +16,9 @@ use SprykerEcoTest\Zed\UnzerApi\UnzerApiZedTester;
  * @group Zed
  * @group UnzerApi
  * @group Business
+ * @group UnzerApiFacade
  */
-class CreatePaymentResourceApiCallFacadeTest extends UnzerApiFacadeBaseTest
+class PerformCreatePaymentResourceApiCallTest extends UnzerApiFacadeBaseTest
 {
     /**
      * @var string
@@ -26,19 +28,36 @@ class CreatePaymentResourceApiCallFacadeTest extends UnzerApiFacadeBaseTest
     /**
      * @return void
      */
-    public function testPerformCreatePaymentResourceApiCall(): void
+    public function testReturnsSuccessfulResponse(): void
     {
-        //Arrange
+        // Arrange
         $unzerApiRequestTransfer = $this->tester->createUnzerApiRequestTransfer();
 
-        //Act
+        // Act
         $unzerApiResponseTransfer = $this->facade->performCreatePaymentResourceApiCall($unzerApiRequestTransfer);
         $unzerApiCreatePaymentResourceResponseTransfer = $unzerApiResponseTransfer->getCreatePaymentResourceResponseOrFail();
 
-        //Assert
+        // Assert
         $this->assertTrue($unzerApiResponseTransfer->getIsSuccessful());
         $this->assertNotEmpty($unzerApiCreatePaymentResourceResponseTransfer->getId());
         $this->assertEquals(UnzerApiZedTester::PAYMENT_METHOD_SOFORT, $unzerApiCreatePaymentResourceResponseTransfer->getMethod());
         $this->assertIsBool($unzerApiCreatePaymentResourceResponseTransfer->getRecurring());
+    }
+
+    /**
+     * @return void
+     */
+    public function testReturnsErrorResponse(): void
+    {
+        // Arrange
+        $unzerApiRequestTransfer = $this->tester->createUnzerApiRequestTransfer();
+        $this->returnSuccessResponse = false;
+
+        // Act
+        $unzerApiResponseTransfer = $this->facade->performCreatePaymentResourceApiCall($unzerApiRequestTransfer);
+
+        // Assert
+        $this->assertFalse($unzerApiResponseTransfer->getIsSuccessful());
+        $this->assertNotEmpty($unzerApiResponseTransfer->getErrorResponse());
     }
 }

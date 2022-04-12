@@ -117,7 +117,7 @@ interface UnzerApiRequestConstants
     /**
      * @var string
      */
-    public const PARAM_AMOUNT_TOTAL_GROSS = 'amountTotalGross';
+    public const PARAM_TOTAL_VALUE_GROSS = 'totalValueGross';
 
     /**
      * @var string
@@ -423,6 +423,16 @@ interface UnzerApiRequestConstants
      * @var string
      */
     public const PARAM_ITEMS = 'items';
+
+    /**
+     * @var string
+     */
+    public const PARAM_AMOUNT_PER_UNIT_GROSS = 'amountPerUnitGross';
+
+    /**
+     * @var string
+     */
+    public const PARAM_AMOUNT_DISCOUNT_PER_UNIT_GROSS = 'amountDiscountPerUnitGross';
 
     /**
      * @var string

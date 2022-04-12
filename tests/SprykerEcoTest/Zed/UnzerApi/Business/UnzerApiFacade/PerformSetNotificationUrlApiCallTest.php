@@ -5,8 +5,9 @@
  * For full license information, please view the LICENSE file that was distributed with this source code.
  */
 
-namespace SprykerEcoTest\Zed\UnzerApi\Business;
+namespace SprykerEcoTest\Zed\UnzerApi\Business\UnzerApiFacade;
 
+use SprykerEcoTest\Zed\UnzerApi\Business\UnzerApiFacadeBaseTest;
 use SprykerEcoTest\Zed\UnzerApi\UnzerApiZedTester;
 
 /**
@@ -15,8 +16,9 @@ use SprykerEcoTest\Zed\UnzerApi\UnzerApiZedTester;
  * @group Zed
  * @group UnzerApi
  * @group Business
+ * @group UnzerApiFacade
  */
-class SetNotificationUrlApiCallFacadeTest extends UnzerApiFacadeBaseTest
+class PerformSetNotificationUrlApiCallTest extends UnzerApiFacadeBaseTest
 {
     /**
      * @var string
@@ -26,19 +28,36 @@ class SetNotificationUrlApiCallFacadeTest extends UnzerApiFacadeBaseTest
     /**
      * @return void
      */
-    public function testPerformSetNotificationUrlApiCall(): void
+    public function testReturnsSuccessfulResponse(): void
     {
-        //Arrange
+        // Arrange
         $unzerApiRequestTransfer = $this->tester->createUnzerApiRequestTransfer();
 
-        //Act
+        // Act
         $unzerApiResponseTransfer = $this->facade->performSetNotificationUrlApiCall($unzerApiRequestTransfer);
         $unzerApiSetWebhookResponseTransfer = $unzerApiResponseTransfer->getSetWebhookResponseOrFail();
 
-        //Assert
+        // Assert
         $this->assertTrue($unzerApiResponseTransfer->getIsSuccessful());
         $this->assertNotEmpty($unzerApiSetWebhookResponseTransfer->getId());
         $this->assertEquals(UnzerApiZedTester::WEBHOOK_URL, $unzerApiSetWebhookResponseTransfer->getUrl());
         $this->assertEquals(UnzerApiZedTester::WEBHOOK_EVENT, $unzerApiSetWebhookResponseTransfer->getEvent());
+    }
+
+    /**
+     * @return void
+     */
+    public function testReturnsErrorResponse(): void
+    {
+        // Arrange
+        $unzerApiRequestTransfer = $this->tester->createUnzerApiRequestTransfer();
+        $this->returnSuccessResponse = false;
+
+        // Act
+        $unzerApiResponseTransfer = $this->facade->performSetNotificationUrlApiCall($unzerApiRequestTransfer);
+
+        // Assert
+        $this->assertFalse($unzerApiResponseTransfer->getIsSuccessful());
+        $this->assertNotEmpty($unzerApiResponseTransfer->getErrorResponse());
     }
 }

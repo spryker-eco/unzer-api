@@ -105,16 +105,16 @@ abstract class UnzerApiAbstractRequest
             $response = $requestException->getResponse();
         }
 
-        $responseTransfer = $this->unzerApiResponseConverter
+        $unzerApiResponseTransfer = $this->unzerApiResponseConverter
             ->convertUnzerApiGuzzleResponseToUnzerApiResponseTransfer($response, $isSuccessful);
 
         $this->unzerApiLogger->logApiCall(
-            $unzerApiRequestTransfer,
-            $responseTransfer,
+            $unzerApiResponseTransfer,
+            $this->getRequestBody($unzerApiRequestTransfer),
             $this->getHttpMethod(),
             $requestUrl,
         );
 
-        return $responseTransfer;
+        return $unzerApiResponseTransfer;
     }
 }

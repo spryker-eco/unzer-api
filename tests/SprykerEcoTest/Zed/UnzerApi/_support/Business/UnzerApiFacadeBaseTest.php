@@ -39,6 +39,11 @@ class UnzerApiFacadeBaseTest extends Test
     protected const FIXTURE_FILE_NAME = '';
 
     /**
+     * @var string
+     */
+    protected const FIXTURE_ERROR_FILE_NAME = 'errorResponseBody.json';
+
+    /**
      * @var \SprykerEcoTest\Zed\UnzerApi\UnzerApiZedTester
      */
     protected $tester;
@@ -47,6 +52,11 @@ class UnzerApiFacadeBaseTest extends Test
      * @var \SprykerEco\Zed\UnzerApi\Business\UnzerApiFacadeInterface
      */
     protected $facade;
+
+    /**
+     * @var bool
+     */
+    protected $returnSuccessResponse = true;
 
     /**
      * @return void
@@ -105,28 +115,62 @@ class UnzerApiFacadeBaseTest extends Test
     {
         return $this->makeEmpty(
             Client::class,
-            ['request' => $this->createResponseMock()],
+            [
+                'request' => function () {
+                    if ($this->returnSuccessResponse) {
+                        return $this->createSuccessResponseMock();
+                    }
+
+                    return $this->createErrorResponseMock();
+                },
+
+            ],
         );
     }
 
     /**
      * @return \Psr\Http\Message\ResponseInterface
      */
-    protected function createResponseMock(): ResponseInterface
+    protected function createSuccessResponseMock(): ResponseInterface
     {
         return new Response(
             static::SUCCESS_RESPONSE_STATUS,
             static::RESPONSE_HEADERS,
-            $this->getResponseBody(),
+            $this->getSuccessResponseBody(),
+        );
+    }
+
+    /**
+     * @return \Psr\Http\Message\ResponseInterface
+     */
+    protected function createErrorResponseMock(): ResponseInterface
+    {
+        return new Response(
+            static::SUCCESS_RESPONSE_STATUS,
+            static::RESPONSE_HEADERS,
+            $this->getErrorResponseBody(),
         );
     }
 
     /**
      * @return string
      */
-    protected function getResponseBody(): string
+    protected function getSuccessResponseBody(): string
     {
         $fileName = $this->getFixtureDirectory() . DIRECTORY_SEPARATOR . static::FIXTURE_FILE_NAME;
+        if (file_exists($fileName) && is_readable($fileName)) {
+            return file_get_contents($fileName);
+        }
+
+        return '';
+    }
+
+    /**
+     * @return string
+     */
+    protected function getErrorResponseBody(): string
+    {
+        $fileName = $this->getFixtureDirectory() . DIRECTORY_SEPARATOR . static::FIXTURE_ERROR_FILE_NAME;
         if (file_exists($fileName) && is_readable($fileName)) {
             return file_get_contents($fileName);
         }

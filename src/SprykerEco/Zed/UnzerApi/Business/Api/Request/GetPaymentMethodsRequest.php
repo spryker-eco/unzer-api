@@ -19,7 +19,7 @@ class GetPaymentMethodsRequest extends UnzerApiAbstractRequest implements UnzerA
      */
     public function getUrl(UnzerApiRequestTransfer $unzerApiRequestTransfer): string
     {
-        return $this->unzerApiConfig->getUnzerApiGetPaymentMethods();
+        return $this->unzerApiConfig->getUnzerApiGetPaymentMethodsUrl();
     }
 
     /**

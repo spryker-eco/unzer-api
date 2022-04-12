@@ -16,6 +16,7 @@ use SprykerEco\Zed\UnzerApi\Business\Api\Request\Builder\UnzerApiRequestBuilder;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\Builder\UnzerApiRequestBuilderInterface;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\ChargeRequest;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter\AuthorizableChargeRequestConverter;
+use SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter\AuthorizeRequestConverter;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter\ChargeRequestConverter;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter\CreateBasketRequestConverter;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter\CreateCustomerRequestConverter;
@@ -24,7 +25,7 @@ use SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter\CreatePaymentResource
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter\GetPaymentMethodsRequestConverter;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter\GetPaymentRequestConverter;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter\MarketplaceAuthorizableChargeRequestConverter;
-use SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter\MarketPlaceAuthorizeRequestConverter;
+use SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter\MarketplaceAuthorizeRequestConverter;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter\MarketplaceChargeRequestConverter;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter\MarketplaceGetPaymentRequestConverter;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter\MarketplaceRefundRequestConverter;
@@ -34,6 +35,7 @@ use SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter\UnzerApiRequestConver
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter\UpdateCustomerRequestConverter;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\CreateBasketRequest;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\CreateCustomerRequest;
+use SprykerEco\Zed\UnzerApi\Business\Api\Request\CreateMarketplaceBasketRequest;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\CreateMetadataRequest;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\CreatePaymentResourceRequest;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\GetPaymentMethodsRequest;
@@ -223,6 +225,20 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     }
 
     /**
+     * @return \SprykerEco\Zed\UnzerApi\Business\Api\Request\UnzerApiRequestInterface
+     */
+    public function createCreateMarketplaceBasketRequest(): UnzerApiRequestInterface
+    {
+        return new CreateMarketplaceBasketRequest(
+            $this->getConfig(),
+            $this->createCreateBasketRequestBuilder(),
+            $this->getUnzerApiHttpClient(),
+            $this->createCreateBasketResponseConverter(),
+            $this->createUnzerApiLogger(),
+        );
+    }
+
+    /**
      * @return \SprykerEco\Zed\UnzerApi\Business\Api\Request\Builder\UnzerApiRequestBuilderInterface
      */
     public function createCreateBasketRequestBuilder(): UnzerApiRequestBuilderInterface
@@ -342,7 +358,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
      */
     public function createMarketplaceAuthorizeRequestConverter(): UnzerApiRequestConverterInterface
     {
-        return new MarketPlaceAuthorizeRequestConverter();
+        return new MarketplaceAuthorizeRequestConverter();
     }
 
     /**
@@ -394,7 +410,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
      */
     public function createAuthorizeRequestConverter(): UnzerApiRequestConverterInterface
     {
-        return new MarketPlaceAuthorizeRequestConverter();
+        return new AuthorizeRequestConverter();
     }
 
     /**
