@@ -47,7 +47,6 @@ class CreateBasketRequestConverter implements UnzerApiRequestConverterInterface
                 UnzerApiRequestConstants::PARAM_AMOUNT_PER_UNIT_GROSS => (string)$unzerBasketItemTransfer->getAmountPerUnit(),
                 UnzerApiRequestConstants::PARAM_TITLE => $unzerBasketItemTransfer->getTitle(),
                 UnzerApiRequestConstants::PARAM_VAT => $unzerBasketItemTransfer->getVat(),
-                UnzerApiRequestConstants::PARAM_AMOUNT_DISCOUNT_PER_UNIT_GROSS => $unzerBasketItemTransfer->getAmountDiscount(),
             ];
 
             if ($unzerBasketItemTransfer->getParticipantId() !== null) {
