@@ -23,6 +23,8 @@ suites:
                 - \SprykerTest\Shared\Testify\Helper\Environment
                 - \SprykerTest\Shared\Testify\Helper\LocatorHelper:
                       projectNamespaces:
+                          - 'Spryker'
+                          - 'SprykerTest'
                           - 'SprykerEco'
                           - 'SprykerEcoTest'
                 - \SprykerTest\Shared\Testify\Helper\BusinessHelper
