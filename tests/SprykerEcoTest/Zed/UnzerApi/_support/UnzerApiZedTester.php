@@ -52,7 +52,7 @@ class UnzerApiZedTester extends Actor
     use _generated\UnzerApiZedTesterActions;
 
     /**
-     * @var int
+     * @var string
      */
     public const UNZER_CUSTOMER_ID = 's-cust-0000';
 
