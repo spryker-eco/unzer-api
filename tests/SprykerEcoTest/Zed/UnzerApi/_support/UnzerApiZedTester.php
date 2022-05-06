@@ -54,7 +54,7 @@ class UnzerApiZedTester extends Actor
     /**
      * @var int
      */
-    public const SPRYKER_CUSTOMER_ID = 1;
+    public const UNZER_CUSTOMER_ID = 's-cust-0000';
 
     /**
      * @var string
@@ -181,6 +181,9 @@ class UnzerApiZedTester extends Actor
      */
     public const BASKET_CURRENCY_CODE = 'EUR';
 
+    /**
+     * @var string
+     */
     public const BASKET_AMOUNT_TOTAL_GROSS = 723.46;
 
     /**
@@ -198,8 +201,14 @@ class UnzerApiZedTester extends Actor
      */
     public const BASKET_ITEM_TITLE = 'Canon Self-Shot';
 
+    /**
+     * @var float
+     */
     public const BASKET_ITEM_AMOUNT_PER_UNIT = 123.00;
 
+    /**
+     * @var float
+     */
     public const BASKET_ITEM_AMOUNT_GROSS = 123.00;
 
     /**
@@ -300,7 +309,7 @@ class UnzerApiZedTester extends Actor
     protected function createUnzerApiCreateCustomerTransfer(): UnzerApiCreateCustomerRequestTransfer
     {
         return (new UnzerApiCreateCustomerRequestTransfer())
-            ->setCustomerId(static::SPRYKER_CUSTOMER_ID)
+            ->setCustomerId(static::UNZER_CUSTOMER_ID)
             ->setLastname(static::CUSTOMER_LASTNAME)
             ->setFirstname(static::CUSTOMER_FIRSTNAME)
             ->setSalutation(static::CUSTOMER_SALUTATION)
@@ -319,7 +328,7 @@ class UnzerApiZedTester extends Actor
     protected function createUnzerApiUpdateCustomerTransfer(): UnzerApiUpdateCustomerRequestTransfer
     {
         return (new UnzerApiUpdateCustomerRequestTransfer())
-            ->setCustomerId(static::SPRYKER_CUSTOMER_ID)
+            ->setCustomerId(static::UNZER_CUSTOMER_ID)
             ->setLastname(static::CUSTOMER_LASTNAME)
             ->setFirstname(static::CUSTOMER_FIRSTNAME)
             ->setSalutation(static::CUSTOMER_SALUTATION)
