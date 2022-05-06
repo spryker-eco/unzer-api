@@ -18,11 +18,10 @@
         "phpstan/phpstan": "^1.2.0",
         "spryker/application": "^3.0.0",
         "spryker/code-sniffer": "*",
-        "spryker/container": "*",
-        "spryker/error-handler": "*",
-        "spryker/log": "*",
-        "spryker/propel": "^3.30.0",
-        "spryker/testify": "^3.43.0"
+        "spryker/propel": "*",
+        "spryker/silex": "*",
+        "spryker/testify": "*",
+        "spryker/zed-navigation": "^1.0.0"
     },
     "autoload": {
         "psr-4": {
@@ -42,7 +41,7 @@
     "scripts": {
         "cs-check": "phpcs -p -s --standard=vendor/spryker/code-sniffer/Spryker/ruleset.xml src/ tests/",
         "cs-fix": "phpcbf -p --standard=vendor/spryker/code-sniffer/Spryker/ruleset.xml src/ tests/",
-        "stan": "vendor/bin/phpstan analyse",
+        "stan": "vendor/bin/phpstan analyse src/ tests/",
         "test": "vendor/bin/codecept run",
         "lowest": "validate-prefer-lowest",
         "lowest-setup": "composer update --prefer-lowest --prefer-stable --prefer-dist --no-interaction && cp composer.json composer.backup && composer require --dev dereuromark/composer-prefer-lowest && mv composer.backup composer.json"

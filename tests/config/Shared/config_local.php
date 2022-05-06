@@ -3,12 +3,12 @@
 use Monolog\Logger;
 use Spryker\Shared\Application\Log\Config\SprykerLoggerConfig;
 use Spryker\Shared\ErrorHandler\ErrorHandlerConstants;
-use Spryker\Shared\Event\EventConstants;
 use Spryker\Shared\Kernel\KernelConstants;
 use Spryker\Shared\Log\LogConstants;
 use Spryker\Shared\Propel\PropelConstants;
 use Spryker\Shared\Queue\QueueConstants;
 use Spryker\Zed\Propel\PropelConfig;
+use SprykerEco\Shared\UnzerApi\UnzerApiConstants;
 
 // ----------------------------------------------------------------------------
 // ------------------------------ CODEBASE: TO REMOVE -------------------------
@@ -36,7 +36,6 @@ $config[ErrorHandlerConstants::ERROR_LEVEL_LOG_ONLY] = E_DEPRECATED | E_USER_DEP
 $config[LogConstants::LOGGER_CONFIG] = SprykerLoggerConfig::class;
 $config[LogConstants::LOG_LEVEL] = Logger::INFO;
 $config[PropelConstants::LOG_FILE_PATH]
-    = $config[EventConstants::LOG_FILE_PATH]
     = $config[LogConstants::LOG_FILE_PATH_YVES]
     = $config[LogConstants::LOG_FILE_PATH_ZED]
     = $config[LogConstants::LOG_FILE_PATH_GLUE]
@@ -61,3 +60,5 @@ $config[PropelConstants::ZED_DB_PASSWORD] = 'secret'; //getenv('SPRYKER_DB_PASSW
 $config[PropelConstants::ZED_DB_DATABASE] = 'eu-docker';
 $config[PropelConstants::ZED_DB_REPLICAS] = json_decode(getenv('SPRYKER_DB_REPLICAS') ?: '[]', true);
 $config[PropelConstants::USE_SUDO_TO_MANAGE_DATABASE] = false;
+
+$config[UnzerApiConstants::MARKETPLACE_BASKET_RESOURCE_URL] = 'https://api.unzer.com/v2/marketplace/baskets';

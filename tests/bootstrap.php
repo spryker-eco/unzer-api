@@ -1,7 +1,7 @@
 <?php
 
 if (!defined('APPLICATION')) {
-    define('APPLICATION', 'Unzer');
+    define('APPLICATION', 'UnzerApi');
 }
 
 if (!defined('APPLICATION_ROOT_DIR')) {
