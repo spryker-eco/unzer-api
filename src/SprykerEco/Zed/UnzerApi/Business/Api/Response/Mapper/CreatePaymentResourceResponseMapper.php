@@ -14,7 +14,7 @@ use SprykerEco\Zed\UnzerApi\Business\Api\Request\UnzerApiRequestConstants;
 class CreatePaymentResourceResponseMapper implements UnzerApiResponseMapperInterface
 {
     /**
-     * @param array $responseData
+     * @param array<string, mixed> $responseData
      * @param \Generated\Shared\Transfer\UnzerApiResponseTransfer $unzerApiResponseTransfer
      *
      * @return \Generated\Shared\Transfer\UnzerApiResponseTransfer
@@ -38,7 +38,7 @@ class CreatePaymentResourceResponseMapper implements UnzerApiResponseMapperInter
     }
 
     /**
-     * @param array $geolocationData
+     * @param array<string, mixed> $geolocationData
      * @param \Generated\Shared\Transfer\UnzerApiCreatePaymentResourceResponseTransfer $unzerApiCreatePaymentResourceResponseTransfer
      *
      * @return \Generated\Shared\Transfer\UnzerApiCreatePaymentResourceResponseTransfer

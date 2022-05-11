@@ -15,7 +15,7 @@ use SprykerEco\Zed\UnzerApi\Business\Api\Request\UnzerApiRequestConstants;
 class MarketplaceAuthorizeResponseMapper implements UnzerApiResponseMapperInterface
 {
     /**
-     * @param array $responseData
+     * @param array<string, mixed> $responseData
      * @param \Generated\Shared\Transfer\UnzerApiResponseTransfer $unzerApiResponseTransfer
      *
      * @return \Generated\Shared\Transfer\UnzerApiResponseTransfer
@@ -55,7 +55,7 @@ class MarketplaceAuthorizeResponseMapper implements UnzerApiResponseMapperInterf
     }
 
     /**
-     * @param array $responseData
+     * @param array<string, mixed> $responseData
      * @param \Generated\Shared\Transfer\UnzerApiMarketplaceAuthorizeResponseTransfer $unzerApiMarketplaceAuthorizeResponseTransfer
      *
      * @return \Generated\Shared\Transfer\UnzerApiMarketplaceAuthorizeResponseTransfer
@@ -77,7 +77,7 @@ class MarketplaceAuthorizeResponseMapper implements UnzerApiResponseMapperInterf
     }
 
     /**
-     * @param array $responseData
+     * @param array<string, mixed> $responseData
      * @param \Generated\Shared\Transfer\UnzerApiMarketplaceAuthorizeResponseTransfer $unzerApiMarketplaceAuthorizeResponseTransfer
      *
      * @return \Generated\Shared\Transfer\UnzerApiMarketplaceAuthorizeResponseTransfer
@@ -99,7 +99,7 @@ class MarketplaceAuthorizeResponseMapper implements UnzerApiResponseMapperInterf
     }
 
     /**
-     * @param array $responseData
+     * @param array<string, mixed> $responseData
      * @param \Generated\Shared\Transfer\UnzerApiMarketplaceAuthorizeResponseTransfer $unzerApiMarketplaceAuthorizeResponseTransfer
      *
      * @return \Generated\Shared\Transfer\UnzerApiMarketplaceAuthorizeResponseTransfer

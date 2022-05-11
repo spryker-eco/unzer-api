@@ -15,7 +15,7 @@ use SprykerEco\Zed\UnzerApi\Business\Api\Request\UnzerApiRequestConstants;
 class MarketplaceRefundResponseMapper implements UnzerApiResponseMapperInterface
 {
     /**
-     * @param array $responseData
+     * @param array<string, mixed> $responseData
      * @param \Generated\Shared\Transfer\UnzerApiResponseTransfer $unzerApiResponseTransfer
      *
      * @return \Generated\Shared\Transfer\UnzerApiResponseTransfer
@@ -56,7 +56,7 @@ class MarketplaceRefundResponseMapper implements UnzerApiResponseMapperInterface
     }
 
     /**
-     * @param array $resourceData
+     * @param array<string, mixed> $resourceData
      * @param \Generated\Shared\Transfer\UnzerApiMarketplaceRefundResponseTransfer $unzerApiMarketplaceRefundResponseTransfer
      *
      * @return \Generated\Shared\Transfer\UnzerApiMarketplaceRefundResponseTransfer
@@ -80,7 +80,7 @@ class MarketplaceRefundResponseMapper implements UnzerApiResponseMapperInterface
     }
 
     /**
-     * @param array $processingData
+     * @param array<string, mixed> $processingData
      * @param \Generated\Shared\Transfer\UnzerApiMarketplaceRefundResponseTransfer $unzerApiMarketplaceRefundResponseTransfer
      *
      * @return \Generated\Shared\Transfer\UnzerApiMarketplaceRefundResponseTransfer
@@ -100,7 +100,7 @@ class MarketplaceRefundResponseMapper implements UnzerApiResponseMapperInterface
     }
 
     /**
-     * @param array $messageData
+     * @param array<string, mixed> $messageData
      * @param \Generated\Shared\Transfer\UnzerApiMarketplaceRefundResponseTransfer $unzerApiMarketplaceRefundResponseTransfer
      *
      * @return \Generated\Shared\Transfer\UnzerApiMarketplaceRefundResponseTransfer

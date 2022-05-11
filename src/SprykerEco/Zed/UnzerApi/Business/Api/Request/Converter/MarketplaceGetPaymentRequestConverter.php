@@ -14,7 +14,7 @@ class MarketplaceGetPaymentRequestConverter implements UnzerApiRequestConverterI
     /**
      * @param \Generated\Shared\Transfer\UnzerApiRequestTransfer $unzerApiRequestTransfer
      *
-     * @return array
+     * @return array<string, mixed>
      */
     public function convertUnzerApiRequestTransferToArray(UnzerApiRequestTransfer $unzerApiRequestTransfer): array
     {

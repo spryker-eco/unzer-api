@@ -67,7 +67,7 @@ class UnzerApiResponseConverter implements UnzerApiResponseConverterInterface
 
     /**
      * @param \Generated\Shared\Transfer\UnzerApiResponseTransfer $unzerApiResponseTransfer
-     * @param array|null $responseData
+     * @param array<string, mixed> $responseData
      *
      * @return \Generated\Shared\Transfer\UnzerApiResponseTransfer
      */
