@@ -14,7 +14,7 @@ use SprykerEco\Zed\UnzerApi\Business\Api\Request\UnzerApiRequestConstants;
 class SetWebhookUrlResponseMapper implements UnzerApiResponseMapperInterface
 {
     /**
-     * @param array $responseData
+     * @param array<string,mixed> $responseData
      * @param \Generated\Shared\Transfer\UnzerApiResponseTransfer $unzerApiResponseTransfer
      *
      * @return \Generated\Shared\Transfer\UnzerApiResponseTransfer

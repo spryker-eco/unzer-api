@@ -15,7 +15,7 @@ use SprykerEco\Zed\UnzerApi\Business\Api\Request\UnzerApiRequestConstants;
 class AuthorizeResponseMapper implements UnzerApiResponseMapperInterface
 {
     /**
-     * @param array $responseData
+     * @param array<string,mixed> $responseData
      * @param \Generated\Shared\Transfer\UnzerApiResponseTransfer $unzerApiResponseTransfer
      *
      * @return \Generated\Shared\Transfer\UnzerApiResponseTransfer
@@ -56,7 +56,7 @@ class AuthorizeResponseMapper implements UnzerApiResponseMapperInterface
     }
 
     /**
-     * @param array $responseData
+     * @param array<string,mixed> $responseData
      * @param \Generated\Shared\Transfer\UnzerApiAuthorizeResponseTransfer $unzerApiAuthorizeResponseTransfer
      *
      * @return \Generated\Shared\Transfer\UnzerApiAuthorizeResponseTransfer
@@ -77,7 +77,7 @@ class AuthorizeResponseMapper implements UnzerApiResponseMapperInterface
     }
 
     /**
-     * @param array $responseData
+     * @param array<string,mixed> $responseData
      * @param \Generated\Shared\Transfer\UnzerApiAuthorizeResponseTransfer $unzerApiAuthorizeResponseTransfer
      *
      * @return \Generated\Shared\Transfer\UnzerApiAuthorizeResponseTransfer
@@ -98,7 +98,7 @@ class AuthorizeResponseMapper implements UnzerApiResponseMapperInterface
     }
 
     /**
-     * @param array $responseData
+     * @param array<string,mixed> $responseData
      * @param \Generated\Shared\Transfer\UnzerApiAuthorizeResponseTransfer $unzerApiAuthorizeResponseTransfer
      *
      * @return \Generated\Shared\Transfer\UnzerApiAuthorizeResponseTransfer

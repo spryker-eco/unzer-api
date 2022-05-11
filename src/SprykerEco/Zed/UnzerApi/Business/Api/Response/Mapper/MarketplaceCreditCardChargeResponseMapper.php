@@ -14,7 +14,7 @@ use SprykerEco\Zed\UnzerApi\Business\Api\Request\UnzerApiRequestConstants;
 class MarketplaceCreditCardChargeResponseMapper implements UnzerApiResponseMapperInterface
 {
     /**
-     * @param array $responseData
+     * @param array<string,mixed> $responseData
      * @param \Generated\Shared\Transfer\UnzerApiResponseTransfer $unzerApiResponseTransfer
      *
      * @return \Generated\Shared\Transfer\UnzerApiResponseTransfer
@@ -39,7 +39,7 @@ class MarketplaceCreditCardChargeResponseMapper implements UnzerApiResponseMappe
     }
 
     /**
-     * @param array $resourcesData
+     * @param array<string,mixed> $resourcesData
      * @param \Generated\Shared\Transfer\UnzerApiChargeResponseTransfer $unzerApiChargeResponseTransfer
      *
      * @return \Generated\Shared\Transfer\UnzerApiChargeResponseTransfer

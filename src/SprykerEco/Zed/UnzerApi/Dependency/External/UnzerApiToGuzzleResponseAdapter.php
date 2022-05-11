@@ -17,13 +17,13 @@ class UnzerApiToGuzzleResponseAdapter implements UnzerApiToHttpResponseInterface
     protected $responseBody;
 
     /**
-     * @var array
+     * @var array<string,mixed>
      */
     protected $headers;
 
     /**
      * @param \Psr\Http\Message\StreamInterface|null $responseBody
-     * @param array $headers
+     * @param array<string,mixed> $headers
      */
     public function __construct(?StreamInterface $responseBody = null, array $headers = [])
     {
