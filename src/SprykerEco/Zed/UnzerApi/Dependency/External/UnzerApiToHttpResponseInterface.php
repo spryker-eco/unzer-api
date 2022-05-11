@@ -15,7 +15,7 @@ interface UnzerApiToHttpResponseInterface
     public function getResponseBody(): string;
 
     /**
-     * @return array<string,mixed>
+     * @return array<string, mixed>
      */
     public function getHeaders(): array;
 

@@ -15,7 +15,7 @@ use SprykerEco\Zed\UnzerApi\Business\Api\Request\UnzerApiRequestConstants;
 class CreditCardChargeResponseMapper implements UnzerApiResponseMapperInterface
 {
     /**
-     * @param array<string,mixed> $responseData
+     * @param array<string, mixed> $responseData
      * @param \Generated\Shared\Transfer\UnzerApiResponseTransfer $unzerApiResponseTransfer
      *
      * @return \Generated\Shared\Transfer\UnzerApiResponseTransfer
@@ -54,7 +54,7 @@ class CreditCardChargeResponseMapper implements UnzerApiResponseMapperInterface
     }
 
     /**
-     * @param array<string,mixed> $resourceData
+     * @param array<string, mixed> $resourceData
      * @param \Generated\Shared\Transfer\UnzerApiChargeResponseTransfer $unzerApiChargeResponseTransfer
      *
      * @return \Generated\Shared\Transfer\UnzerApiChargeResponseTransfer
@@ -77,7 +77,7 @@ class CreditCardChargeResponseMapper implements UnzerApiResponseMapperInterface
     }
 
     /**
-     * @param array<string,mixed> $processingData
+     * @param array<string, mixed> $processingData
      * @param \Generated\Shared\Transfer\UnzerApiChargeResponseTransfer $unzerApiChargeResponseTransfer
      *
      * @return \Generated\Shared\Transfer\UnzerApiChargeResponseTransfer
@@ -97,7 +97,7 @@ class CreditCardChargeResponseMapper implements UnzerApiResponseMapperInterface
     }
 
     /**
-     * @param array<string,mixed> $messageData
+     * @param array<string, mixed> $messageData
      * @param \Generated\Shared\Transfer\UnzerApiChargeResponseTransfer $unzerApiChargeResponseTransfer
      *
      * @return \Generated\Shared\Transfer\UnzerApiChargeResponseTransfer

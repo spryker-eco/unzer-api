@@ -12,7 +12,7 @@ use Generated\Shared\Transfer\UnzerApiResponseTransfer;
 interface UnzerApiResponseMapperInterface
 {
     /**
-     * @param array<string,mixed> $responseData
+     * @param array<string, mixed> $responseData
      * @param \Generated\Shared\Transfer\UnzerApiResponseTransfer $unzerApiResponseTransfer
      *
      * @return \Generated\Shared\Transfer\UnzerApiResponseTransfer

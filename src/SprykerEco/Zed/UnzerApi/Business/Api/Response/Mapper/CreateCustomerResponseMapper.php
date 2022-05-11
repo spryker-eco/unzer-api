@@ -14,7 +14,7 @@ use SprykerEco\Zed\UnzerApi\Business\Api\Request\UnzerApiRequestConstants;
 class CreateCustomerResponseMapper implements UnzerApiResponseMapperInterface
 {
     /**
-     * @param array<string,mixed> $responseData
+     * @param array<string, mixed> $responseData
      * @param \Generated\Shared\Transfer\UnzerApiResponseTransfer $unzerApiResponseTransfer
      *
      * @return \Generated\Shared\Transfer\UnzerApiResponseTransfer

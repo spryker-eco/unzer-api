@@ -16,7 +16,7 @@ use SprykerEco\Zed\UnzerApi\Business\Api\Request\UnzerApiRequestConstants;
 class MarketplaceGetPaymentResponseMapper implements UnzerApiResponseMapperInterface
 {
     /**
-     * @param array<string,mixed> $responseData
+     * @param array<string, mixed> $responseData
      * @param \Generated\Shared\Transfer\UnzerApiResponseTransfer $unzerApiResponseTransfer
      *
      * @return \Generated\Shared\Transfer\UnzerApiResponseTransfer
@@ -56,7 +56,7 @@ class MarketplaceGetPaymentResponseMapper implements UnzerApiResponseMapperInter
     }
 
     /**
-     * @param array<string,mixed> $stateData
+     * @param array<string, mixed> $stateData
      * @param \Generated\Shared\Transfer\UnzerApiGetPaymentResponseTransfer $unzerApiGetPaymentResponseTransfer
      *
      * @return \Generated\Shared\Transfer\UnzerApiGetPaymentResponseTransfer
@@ -71,7 +71,7 @@ class MarketplaceGetPaymentResponseMapper implements UnzerApiResponseMapperInter
     }
 
     /**
-     * @param array<string,mixed> $approveData
+     * @param array<string, mixed> $approveData
      * @param \Generated\Shared\Transfer\UnzerApiGetPaymentResponseTransfer $unzerApiGetPaymentResponseTransfer
      *
      * @return \Generated\Shared\Transfer\UnzerApiGetPaymentResponseTransfer
@@ -88,7 +88,7 @@ class MarketplaceGetPaymentResponseMapper implements UnzerApiResponseMapperInter
     }
 
     /**
-     * @param array<string,mixed> $resourcesData
+     * @param array<string, mixed> $resourcesData
      * @param \Generated\Shared\Transfer\UnzerApiGetPaymentResponseTransfer $unzerApiGetPaymentResponseTransfer
      *
      * @return \Generated\Shared\Transfer\UnzerApiGetPaymentResponseTransfer
@@ -108,7 +108,7 @@ class MarketplaceGetPaymentResponseMapper implements UnzerApiResponseMapperInter
     }
 
     /**
-     * @param array<string,mixed> $transactionsData
+     * @param array<string, mixed> $transactionsData
      * @param \Generated\Shared\Transfer\UnzerApiGetPaymentResponseTransfer $unzerApiGetPaymentResponseTransfer
      *
      * @return \Generated\Shared\Transfer\UnzerApiGetPaymentResponseTransfer
@@ -129,7 +129,7 @@ class MarketplaceGetPaymentResponseMapper implements UnzerApiResponseMapperInter
     }
 
     /**
-     * @param array<string,mixed> $data
+     * @param array<string, mixed> $data
      *
      * @return \Generated\Shared\Transfer\UnzerApiPaymentTransactionTransfer
      */
