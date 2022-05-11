@@ -10,7 +10,7 @@ namespace SprykerEco\Zed\UnzerApi\Business\Api\Request;
 use Generated\Shared\Transfer\UnzerApiRequestTransfer;
 use Symfony\Component\HttpFoundation\Request;
 
-class CreateMarketplaceBasketRequest extends UnzerApiAbstractRequest implements UnzerApiRequestInterface
+class GetPaymentMethodsUnzerApiRequest extends AbstractUnzerApiRequest
 {
     /**
      * @param \Generated\Shared\Transfer\UnzerApiRequestTransfer $unzerApiRequestTransfer
@@ -19,7 +19,7 @@ class CreateMarketplaceBasketRequest extends UnzerApiAbstractRequest implements 
      */
     public function getUrl(UnzerApiRequestTransfer $unzerApiRequestTransfer): string
     {
-        return $this->unzerApiConfig->getUnzerApiCreateMarketplaceBasketUrl();
+        return $this->unzerApiConfig->getUnzerApiGetPaymentMethodsUrl();
     }
 
     /**
@@ -27,7 +27,7 @@ class CreateMarketplaceBasketRequest extends UnzerApiAbstractRequest implements 
      */
     public function getHttpMethod(): string
     {
-        return Request::METHOD_POST;
+        return Request::METHOD_GET;
     }
 
     /**
@@ -37,6 +37,6 @@ class CreateMarketplaceBasketRequest extends UnzerApiAbstractRequest implements 
      */
     public function getRequestBody(UnzerApiRequestTransfer $unzerApiRequestTransfer): string
     {
-        return $this->unzerApiRequestBuilder->buildRequestPayload($unzerApiRequestTransfer);
+        return '';
     }
 }

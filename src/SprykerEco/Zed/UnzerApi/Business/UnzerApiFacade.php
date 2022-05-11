@@ -30,7 +30,7 @@ class UnzerApiFacade extends AbstractFacade implements UnzerApiFacadeInterface
      */
     public function performSetNotificationUrlApiCall(UnzerApiRequestTransfer $unzerApiRequestTransfer): UnzerApiResponseTransfer
     {
-        return $this->getFactory()->createSetWebhookRequest()->sendRequest($unzerApiRequestTransfer);
+        return $this->getFactory()->createSetWebhookUrlUnzerApiRequest()->sendRequest($unzerApiRequestTransfer);
     }
 
     /**

@@ -10,7 +10,7 @@ namespace SprykerEco\Zed\UnzerApi\Business\Api\Request;
 use Generated\Shared\Transfer\UnzerApiRequestTransfer;
 use Symfony\Component\HttpFoundation\Request;
 
-class UpdateCustomerRequest extends UnzerApiAbstractRequest implements UnzerApiRequestInterface
+class AuthorizableChargeUnzerApiRequest extends AbstractUnzerApiRequest
 {
     /**
      * @param \Generated\Shared\Transfer\UnzerApiRequestTransfer $unzerApiRequestTransfer
@@ -20,8 +20,8 @@ class UpdateCustomerRequest extends UnzerApiAbstractRequest implements UnzerApiR
     public function getUrl(UnzerApiRequestTransfer $unzerApiRequestTransfer): string
     {
         return sprintf(
-            $this->unzerApiConfig->getUnzerApiCreateCustomerUrl(),
-            $unzerApiRequestTransfer->getUpdateCustomerRequestOrFail()->getCustomerIdOrFail(),
+            $this->unzerApiConfig->getUnzerApiCreditCardChargeUrl(),
+            $unzerApiRequestTransfer->getChargeRequestOrFail()->getPaymentIdOrFail(),
         );
     }
 

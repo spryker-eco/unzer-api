@@ -187,7 +187,7 @@ class UnzerApiConfig extends AbstractBundleConfig
      *
      * @return bool
      */
-    public function logApiCalls(): bool
+    public function isApiCallLoggingEnabled(): bool
     {
         return $this->get(UnzerApiConstants::LOG_API_CALLS);
     }

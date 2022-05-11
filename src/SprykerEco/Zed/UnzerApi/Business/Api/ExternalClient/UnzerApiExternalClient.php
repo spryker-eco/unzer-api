@@ -90,7 +90,7 @@ class UnzerApiExternalClient implements UnzerApiExternalClientInterface
         $unzerApiResponseTransfer = $this->unzerApiResponseConverter
             ->convertUnzerApiGuzzleResponseToUnzerApiResponseTransfer($unzerApiToHttpResponse, $isSuccessful);
 
-        if ($this->unzerApiConfig->logApiCalls()) {
+        if ($this->unzerApiConfig->isApiCallLoggingEnabled()) {
             $this->unzerApiLogger->logApiCall(
                 $unzerApiResponseTransfer,
                 $requestBody,

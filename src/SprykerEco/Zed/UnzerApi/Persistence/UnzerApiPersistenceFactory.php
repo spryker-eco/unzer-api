@@ -7,9 +7,8 @@
 
 namespace SprykerEco\Zed\UnzerApi\Persistence;
 
-use Orm\Zed\UnzerApi\Persistence\SpyPaymentUnzerApiLog;
 use Spryker\Zed\Kernel\Persistence\AbstractPersistenceFactory;
-use SprykerEco\Zed\UnzerApi\Persistence\Mapper\UnzerApiPersistenceMapper;
+use SprykerEco\Zed\UnzerApi\Persistence\Propel\Mapper\UnzerApiMapper;
 
 /**
  * @method \SprykerEco\Zed\UnzerApi\UnzerApiConfig getConfig()
@@ -18,18 +17,10 @@ use SprykerEco\Zed\UnzerApi\Persistence\Mapper\UnzerApiPersistenceMapper;
 class UnzerApiPersistenceFactory extends AbstractPersistenceFactory
 {
     /**
-     * @return \Orm\Zed\UnzerApi\Persistence\SpyPaymentUnzerApiLog
+     * @return \SprykerEco\Zed\UnzerApi\Persistence\Propel\Mapper\UnzerApiMapper
      */
-    public function createPaymentUnzerApiLogEntity(): SpyPaymentUnzerApiLog
+    public function createUnzerApiPersistenceMapper(): UnzerApiMapper
     {
-        return new SpyPaymentUnzerApiLog();
-    }
-
-    /**
-     * @return \SprykerEco\Zed\UnzerApi\Persistence\Mapper\UnzerApiPersistenceMapper
-     */
-    public function createUnzerApiPersistenceMapper(): UnzerApiPersistenceMapper
-    {
-        return new UnzerApiPersistenceMapper();
+        return new UnzerApiMapper();
     }
 }

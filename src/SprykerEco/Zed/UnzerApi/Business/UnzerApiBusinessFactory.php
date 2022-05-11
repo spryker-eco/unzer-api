@@ -10,11 +10,11 @@ namespace SprykerEco\Zed\UnzerApi\Business;
 use Spryker\Zed\Kernel\Business\AbstractBusinessFactory;
 use SprykerEco\Zed\UnzerApi\Business\Api\Logger\UnzerApiLogger;
 use SprykerEco\Zed\UnzerApi\Business\Api\Logger\UnzerApiLoggerInterface;
-use SprykerEco\Zed\UnzerApi\Business\Api\Request\AuthorizableChargeRequest;
-use SprykerEco\Zed\UnzerApi\Business\Api\Request\AuthorizeRequest;
+use SprykerEco\Zed\UnzerApi\Business\Api\Request\AuthorizableChargeUnzerApiRequest;
+use SprykerEco\Zed\UnzerApi\Business\Api\Request\AuthorizeUnzerApiRequest;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\Builder\UnzerApiRequestBuilder;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\Builder\UnzerApiRequestBuilderInterface;
-use SprykerEco\Zed\UnzerApi\Business\Api\Request\ChargeRequest;
+use SprykerEco\Zed\UnzerApi\Business\Api\Request\ChargeUnzerApiRequest;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter\AuthorizableChargeRequestConverter;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter\AuthorizeRequestConverter;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter\ChargeRequestConverter;
@@ -33,22 +33,22 @@ use SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter\RefundRequestConverte
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter\SetWebhookUrlRequestConverter;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter\UnzerApiRequestConverterInterface;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\Converter\UpdateCustomerRequestConverter;
-use SprykerEco\Zed\UnzerApi\Business\Api\Request\CreateBasketRequest;
-use SprykerEco\Zed\UnzerApi\Business\Api\Request\CreateCustomerRequest;
-use SprykerEco\Zed\UnzerApi\Business\Api\Request\CreateMarketplaceBasketRequest;
-use SprykerEco\Zed\UnzerApi\Business\Api\Request\CreateMetadataRequest;
-use SprykerEco\Zed\UnzerApi\Business\Api\Request\CreatePaymentResourceRequest;
-use SprykerEco\Zed\UnzerApi\Business\Api\Request\GetPaymentMethodsRequest;
-use SprykerEco\Zed\UnzerApi\Business\Api\Request\GetPaymentRequest;
-use SprykerEco\Zed\UnzerApi\Business\Api\Request\MarketplaceAuthorizableChargeRequest;
-use SprykerEco\Zed\UnzerApi\Business\Api\Request\MarketplaceAuthorizeRequest;
-use SprykerEco\Zed\UnzerApi\Business\Api\Request\MarketplaceChargeRequest;
-use SprykerEco\Zed\UnzerApi\Business\Api\Request\MarketplaceGetPaymentRequest;
-use SprykerEco\Zed\UnzerApi\Business\Api\Request\MarketplaceRefundRequest;
-use SprykerEco\Zed\UnzerApi\Business\Api\Request\RefundRequest;
-use SprykerEco\Zed\UnzerApi\Business\Api\Request\SetWebhookUrlRequest;
+use SprykerEco\Zed\UnzerApi\Business\Api\Request\CreateBasketUnzerApiRequest;
+use SprykerEco\Zed\UnzerApi\Business\Api\Request\CreateCustomerUnzerApiRequest;
+use SprykerEco\Zed\UnzerApi\Business\Api\Request\CreateMarketplaceBasketUnzerApiRequest;
+use SprykerEco\Zed\UnzerApi\Business\Api\Request\CreateMetadataUnzerApiRequest;
+use SprykerEco\Zed\UnzerApi\Business\Api\Request\CreatePaymentResourceUnzerApiRequest;
+use SprykerEco\Zed\UnzerApi\Business\Api\Request\GetPaymentMethodsUnzerApiRequest;
+use SprykerEco\Zed\UnzerApi\Business\Api\Request\GetPaymentUnzerApiRequest;
+use SprykerEco\Zed\UnzerApi\Business\Api\Request\MarketplaceAuthorizableChargeUnzerApiRequest;
+use SprykerEco\Zed\UnzerApi\Business\Api\Request\MarketplaceAuthorizeUnzerApiRequest;
+use SprykerEco\Zed\UnzerApi\Business\Api\Request\MarketplaceChargeUnzerApiRequest;
+use SprykerEco\Zed\UnzerApi\Business\Api\Request\MarketplaceGetPaymentUnzerApiRequest;
+use SprykerEco\Zed\UnzerApi\Business\Api\Request\MarketplaceRefundUnzerApiRequest;
+use SprykerEco\Zed\UnzerApi\Business\Api\Request\RefundUnzerApiRequest;
+use SprykerEco\Zed\UnzerApi\Business\Api\Request\SetWebhookUrlUnzerApiRequest;
 use SprykerEco\Zed\UnzerApi\Business\Api\Request\UnzerApiRequestInterface;
-use SprykerEco\Zed\UnzerApi\Business\Api\Request\UpdateCustomerRequest;
+use SprykerEco\Zed\UnzerApi\Business\Api\Request\UpdateCustomerUnzerApiRequest;
 use SprykerEco\Zed\UnzerApi\Business\Api\Response\Converter\UnzerApiResponseConverter;
 use SprykerEco\Zed\UnzerApi\Business\Api\Response\Converter\UnzerApiResponseConverterInterface;
 use SprykerEco\Zed\UnzerApi\Business\Api\Response\Mapper\AuthorizeResponseMapper;
@@ -81,9 +81,9 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     /**
      * @return \SprykerEco\Zed\UnzerApi\Business\Api\Request\UnzerApiRequestInterface
      */
-    public function createSetWebhookRequest(): UnzerApiRequestInterface
+    public function createSetWebhookUrlUnzerApiRequest(): UnzerApiRequestInterface
     {
-        return new SetWebhookUrlRequest(
+        return new SetWebhookUrlUnzerApiRequest(
             $this->getConfig(),
             $this->createSetWebhookUrlRequestBuilder(),
             $this->getUnzerApiHttpClient(),
@@ -127,7 +127,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
      */
     public function createCreateCustomerRequest(): UnzerApiRequestInterface
     {
-        return new CreateCustomerRequest(
+        return new CreateCustomerUnzerApiRequest(
             $this->getConfig(),
             $this->createCreateCustomerRequestBuilder(),
             $this->getUnzerApiHttpClient(),
@@ -141,7 +141,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
      */
     public function createUpdateCustomerRequest(): UnzerApiRequestInterface
     {
-        return new UpdateCustomerRequest(
+        return new UpdateCustomerUnzerApiRequest(
             $this->getConfig(),
             $this->createUpdateCustomerRequestBuilder(),
             $this->getUnzerApiHttpClient(),
@@ -215,7 +215,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
      */
     public function createCreateBasketRequest(): UnzerApiRequestInterface
     {
-        return new CreateBasketRequest(
+        return new CreateBasketUnzerApiRequest(
             $this->getConfig(),
             $this->createCreateBasketRequestBuilder(),
             $this->getUnzerApiHttpClient(),
@@ -229,7 +229,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
      */
     public function createCreateMarketplaceBasketRequest(): UnzerApiRequestInterface
     {
-        return new CreateMarketplaceBasketRequest(
+        return new CreateMarketplaceBasketUnzerApiRequest(
             $this->getConfig(),
             $this->createCreateBasketRequestBuilder(),
             $this->getUnzerApiHttpClient(),
@@ -281,7 +281,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
      */
     public function createCreateMetadataRequest(): UnzerApiRequestInterface
     {
-        return new CreateMetadataRequest(
+        return new CreateMetadataUnzerApiRequest(
             $this->getConfig(),
             $this->createCreateMetadataRequestBuilder(),
             $this->getUnzerApiHttpClient(),
@@ -333,7 +333,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
      */
     public function createMarketplaceAuthorizeRequest(): UnzerApiRequestInterface
     {
-        return new MarketplaceAuthorizeRequest(
+        return new MarketplaceAuthorizeUnzerApiRequest(
             $this->getConfig(),
             $this->createMarketplaceAuthorizeRequestBuilder(),
             $this->getUnzerApiHttpClient(),
@@ -385,7 +385,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
      */
     public function createAuthorizeRequest(): UnzerApiRequestInterface
     {
-        return new AuthorizeRequest(
+        return new AuthorizeUnzerApiRequest(
             $this->getConfig(),
             $this->createAuthorizeRequestBuilder(),
             $this->getUnzerApiHttpClient(),
@@ -477,7 +477,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
      */
     public function getUnzerApiHttpClient(): UnzerApiToGuzzleHttpClientAdapter
     {
-        return $this->getProvidedDependency(UnzerApiDependencyProvider::HTTP_CLIENT);
+        return $this->getProvidedDependency(UnzerApiDependencyProvider::CLIENT_HTTP);
     }
 
     /**
@@ -485,7 +485,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
      */
     public function createMarketplaceGetPaymentRequest(): UnzerApiRequestInterface
     {
-        return new MarketplaceGetPaymentRequest(
+        return new MarketplaceGetPaymentUnzerApiRequest(
             $this->getConfig(),
             $this->createMarketplaceGetPaymentRequestBuilder(),
             $this->getUnzerApiHttpClient(),
@@ -518,7 +518,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
      */
     public function createGetPaymentRequest(): UnzerApiRequestInterface
     {
-        return new GetPaymentRequest(
+        return new GetPaymentUnzerApiRequest(
             $this->getConfig(),
             $this->createGetPaymentRequestBuilder(),
             $this->getUnzerApiHttpClient(),
@@ -570,7 +570,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
      */
     public function createMarketplaceChargeRequest(): UnzerApiRequestInterface
     {
-        return new MarketplaceChargeRequest(
+        return new MarketplaceChargeUnzerApiRequest(
             $this->getConfig(),
             $this->createMarketplaceChargeRequestBuilder(),
             $this->getUnzerApiHttpClient(),
@@ -622,7 +622,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
      */
     public function createMarketplaceAuthorizableChargeRequest(): UnzerApiRequestInterface
     {
-        return new MarketplaceAuthorizableChargeRequest(
+        return new MarketplaceAuthorizableChargeUnzerApiRequest(
             $this->getConfig(),
             $this->createMarketplaceAuthorizableChargeRequestBuilder(),
             $this->getUnzerApiHttpClient(),
@@ -674,7 +674,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
      */
     public function createCreatePaymentResourceRequest(): UnzerApiRequestInterface
     {
-        return new CreatePaymentResourceRequest(
+        return new CreatePaymentResourceUnzerApiRequest(
             $this->getConfig(),
             $this->createCreatePaymentResourceRequestBuilder(),
             $this->getUnzerApiHttpClient(),
@@ -726,7 +726,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
      */
     public function createMarketplaceRefundRequest(): UnzerApiRequestInterface
     {
-        return new MarketplaceRefundRequest(
+        return new MarketplaceRefundUnzerApiRequest(
             $this->getConfig(),
             $this->createMarketplaceRefundRequestBuilder(),
             $this->getUnzerApiHttpClient(),
@@ -778,7 +778,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
      */
     public function createRefundRequest(): UnzerApiRequestInterface
     {
-        return new RefundRequest(
+        return new RefundUnzerApiRequest(
             $this->getConfig(),
             $this->createRefundRequestBuilder(),
             $this->getUnzerApiHttpClient(),
@@ -822,7 +822,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
      */
     public function createChargeRequest(): UnzerApiRequestInterface
     {
-        return new ChargeRequest(
+        return new ChargeUnzerApiRequest(
             $this->getConfig(),
             $this->createChargeRequestBuilder(),
             $this->getUnzerApiHttpClient(),
@@ -874,7 +874,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
      */
     public function createAuthorizableChargeRequest(): UnzerApiRequestInterface
     {
-        return new AuthorizableChargeRequest(
+        return new AuthorizableChargeUnzerApiRequest(
             $this->getConfig(),
             $this->createAuthorizableChargeRequestBuilder(),
             $this->getUnzerApiHttpClient(),
@@ -934,7 +934,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
      */
     public function createGetPaymentMethodsRequest(): UnzerApiRequestInterface
     {
-        return new GetPaymentMethodsRequest(
+        return new GetPaymentMethodsUnzerApiRequest(
             $this->getConfig(),
             $this->createGetPaymentMethodsRequestBuilder(),
             $this->getUnzerApiHttpClient(),

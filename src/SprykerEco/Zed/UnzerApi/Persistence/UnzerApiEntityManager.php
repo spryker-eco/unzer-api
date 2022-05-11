@@ -8,6 +8,7 @@
 namespace SprykerEco\Zed\UnzerApi\Persistence;
 
 use Generated\Shared\Transfer\PaymentUnzerApiLogTransfer;
+use Orm\Zed\UnzerApi\Persistence\SpyPaymentUnzerApiLog;
 use Spryker\Zed\Kernel\Persistence\AbstractEntityManager;
 
 /**
@@ -23,15 +24,13 @@ class UnzerApiEntityManager extends AbstractEntityManager implements UnzerApiEnt
     public function savePaymentUnzerApiLog(
         PaymentUnzerApiLogTransfer $paymentUnzerApiLogTransfer
     ): PaymentUnzerApiLogTransfer {
-        $paymentUnzerApiLogEntity = $this->getFactory()->createPaymentUnzerApiLogEntity();
+        $paymentUnzerApiLogEntity = (new SpyPaymentUnzerApiLog())
+            ->fromArray($paymentUnzerApiLogTransfer->modifiedToArray());
 
-        $paymentUnzerApiLogEntity->fromArray(
-            $paymentUnzerApiLogTransfer->modifiedToArray(),
-        );
         $paymentUnzerApiLogEntity->save();
 
         return $this->getFactory()->createUnzerApiPersistenceMapper()
-            ->mapEntityToPaymentUnzerApiLogTransfer(
+            ->mapPaymentUnzerApiLogEntityToPaymentUnzerApiLogTransfer(
                 $paymentUnzerApiLogEntity,
                 $paymentUnzerApiLogTransfer,
             );

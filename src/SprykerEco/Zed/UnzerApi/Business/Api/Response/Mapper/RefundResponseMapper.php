@@ -39,7 +39,7 @@ class RefundResponseMapper implements UnzerApiResponseMapperInterface
             $unzerApiRefundResponseTransfer,
         );
 
-        $unzerApiRefundResponseTransfer = $this->mapProcessingToUnzerApiRefundResponseTransfer(
+        $unzerApiRefundResponseTransfer = $this->mapProcessingDataToUnzerApiRefundResponseTransfer(
             $responseData[UnzerApiRequestConstants::PARAM_PROCESSING] ?? [],
             $unzerApiRefundResponseTransfer,
         );
@@ -76,22 +76,22 @@ class RefundResponseMapper implements UnzerApiResponseMapperInterface
     }
 
     /**
-     * @param array $data
+     * @param array $processingData
      * @param \Generated\Shared\Transfer\UnzerApiRefundResponseTransfer $unzerApiRefundResponseTransfer
      *
      * @return \Generated\Shared\Transfer\UnzerApiRefundResponseTransfer
      */
-    protected function mapProcessingToUnzerApiRefundResponseTransfer(
-        array $data,
+    protected function mapProcessingDataToUnzerApiRefundResponseTransfer(
+        array $processingData,
         UnzerApiRefundResponseTransfer $unzerApiRefundResponseTransfer
     ): UnzerApiRefundResponseTransfer {
-        if (!$data) {
+        if (!$processingData) {
             return $unzerApiRefundResponseTransfer;
         }
 
         return $unzerApiRefundResponseTransfer
-            ->setUniqueId($data[UnzerApiRequestConstants::PARAM_UNIQUE_ID] ?? null)
-            ->setShortId($data[UnzerApiRequestConstants::PARAM_SHORT_ID] ?? null);
+            ->setUniqueId($processingData[UnzerApiRequestConstants::PARAM_UNIQUE_ID] ?? null)
+            ->setShortId($processingData[UnzerApiRequestConstants::PARAM_SHORT_ID] ?? null);
     }
 
     /**

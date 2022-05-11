@@ -25,7 +25,7 @@ class UnzerApiDependencyProvider extends AbstractBundleDependencyProvider
     /**
      * @var string
      */
-    public const HTTP_CLIENT = 'HTTP_CLIENT';
+    public const CLIENT_HTTP = 'CLIENT_HTTP';
 
     /**
      * @param \Spryker\Zed\Kernel\Container $container
@@ -34,8 +34,10 @@ class UnzerApiDependencyProvider extends AbstractBundleDependencyProvider
      */
     public function provideBusinessLayerDependencies(Container $container): Container
     {
+        $container = parent::provideBusinessLayerDependencies($container);
+
         $container = $this->addUtilEncodingService($container);
-        $container = $this->addHttpClient($container);
+        $container = $this->addClientHttp($container);
 
         return $container;
     }
@@ -59,9 +61,9 @@ class UnzerApiDependencyProvider extends AbstractBundleDependencyProvider
      *
      * @return \Spryker\Zed\Kernel\Container
      */
-    protected function addHttpClient(Container $container): Container
+    protected function addClientHttp(Container $container): Container
     {
-        $container->set(static::HTTP_CLIENT, function () {
+        $container->set(static::CLIENT_HTTP, function () {
             return new UnzerApiToGuzzleHttpClientAdapter();
         });
 

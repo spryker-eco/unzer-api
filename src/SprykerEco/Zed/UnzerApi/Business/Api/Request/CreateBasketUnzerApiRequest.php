@@ -10,7 +10,7 @@ namespace SprykerEco\Zed\UnzerApi\Business\Api\Request;
 use Generated\Shared\Transfer\UnzerApiRequestTransfer;
 use Symfony\Component\HttpFoundation\Request;
 
-class SetWebhookUrlRequest extends UnzerApiAbstractRequest implements UnzerApiRequestInterface
+class CreateBasketUnzerApiRequest extends AbstractUnzerApiRequest
 {
     /**
      * @param \Generated\Shared\Transfer\UnzerApiRequestTransfer $unzerApiRequestTransfer
@@ -19,7 +19,7 @@ class SetWebhookUrlRequest extends UnzerApiAbstractRequest implements UnzerApiRe
      */
     public function getUrl(UnzerApiRequestTransfer $unzerApiRequestTransfer): string
     {
-        return $this->unzerApiConfig->getUnzerApiSetWebhookUrl();
+        return $this->unzerApiConfig->getUnzerApiCreateBasketUrl();
     }
 
     /**
