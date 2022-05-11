@@ -10,7 +10,7 @@ namespace SprykerEco\Zed\UnzerApi\Business\Api\Request;
 use Generated\Shared\Transfer\UnzerApiRequestTransfer;
 use Symfony\Component\HttpFoundation\Request;
 
-class CreatePaymentResourceRequest extends UnzerApiAbstractRequest implements UnzerApiRequestInterface
+class AuthorizeUnzerApiRequest extends AbstractUnzerApiRequest
 {
     /**
      * @param \Generated\Shared\Transfer\UnzerApiRequestTransfer $unzerApiRequestTransfer
@@ -19,10 +19,7 @@ class CreatePaymentResourceRequest extends UnzerApiAbstractRequest implements Un
      */
     public function getUrl(UnzerApiRequestTransfer $unzerApiRequestTransfer): string
     {
-        return sprintf(
-            $this->unzerApiConfig->getUnzerApiCreatePaymentResourceUrl(),
-            $unzerApiRequestTransfer->getCreatePaymentResourceRequestOrFail()->getPaymentMethodOrFail(),
-        );
+        return $this->unzerApiConfig->getUnzerApiAuthorizeUrl();
     }
 
     /**

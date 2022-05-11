@@ -16,7 +16,7 @@ use SprykerEco\Zed\UnzerApi\Dependency\External\UnzerApiToHttpClientInterface;
 use SprykerEco\Zed\UnzerApi\Exception\UnzerApiToHttpClientException;
 use SprykerEco\Zed\UnzerApi\UnzerApiConfig;
 
-abstract class UnzerApiAbstractRequest
+abstract class AbstractUnzerApiRequest implements UnzerApiRequestInterface
 {
     /**
      * @var \SprykerEco\Zed\UnzerApi\UnzerApiConfig

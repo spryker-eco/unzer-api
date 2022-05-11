@@ -10,7 +10,7 @@ namespace SprykerEco\Zed\UnzerApi\Business\Api\Request;
 use Generated\Shared\Transfer\UnzerApiRequestTransfer;
 use Symfony\Component\HttpFoundation\Request;
 
-class ChargeRequest extends UnzerApiAbstractRequest implements UnzerApiRequestInterface
+class CreateMetadataUnzerApiRequest extends AbstractUnzerApiRequest
 {
     /**
      * @param \Generated\Shared\Transfer\UnzerApiRequestTransfer $unzerApiRequestTransfer
@@ -19,7 +19,7 @@ class ChargeRequest extends UnzerApiAbstractRequest implements UnzerApiRequestIn
      */
     public function getUrl(UnzerApiRequestTransfer $unzerApiRequestTransfer): string
     {
-        return $this->unzerApiConfig->getUnzerApiChargeUrl();
+        return $this->unzerApiConfig->getUnzerApiCreateMetadataUrl();
     }
 
     /**

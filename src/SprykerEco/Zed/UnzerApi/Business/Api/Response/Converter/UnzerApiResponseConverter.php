@@ -18,7 +18,7 @@ class UnzerApiResponseConverter implements UnzerApiResponseConverterInterface
     /**
      * @var string
      */
-    protected const RESPONSE_DATA_IS_ERROR_KEY = 'isError';
+    protected const RESPONSE_DATA_KEY_IS_ERROR = 'isError';
 
     /**
      * @var \SprykerEco\Zed\UnzerApi\Dependency\Service\UnzerApiToUtilEncodingServiceInterface
@@ -54,11 +54,11 @@ class UnzerApiResponseConverter implements UnzerApiResponseConverterInterface
     ): UnzerApiResponseTransfer {
         $responseData = $this->utilEncodingService->decodeJson($httpResponse->getResponseBody(), true) ?? [];
         $unzerApiResponseTransfer = $this->createUnzerApiResponseTransfer($isSuccessful);
-        $hasInternalError = isset($responseData[static::RESPONSE_DATA_IS_ERROR_KEY]) &&
-            $responseData[static::RESPONSE_DATA_IS_ERROR_KEY] === true;
+        $hasInternalError = isset($responseData[static::RESPONSE_DATA_KEY_IS_ERROR]) &&
+            $responseData[static::RESPONSE_DATA_KEY_IS_ERROR] === true;
 
         if (!$isSuccessful || $hasInternalError) {
-            return $this->updateResponseTransferWithError($unzerApiResponseTransfer, $responseData);
+            return $this->addErrorToUnzerApiResponseTransfer($unzerApiResponseTransfer, $responseData);
         }
 
         return $this->unzerApiResponseMapper
@@ -71,19 +71,16 @@ class UnzerApiResponseConverter implements UnzerApiResponseConverterInterface
      *
      * @return \Generated\Shared\Transfer\UnzerApiResponseTransfer
      */
-    protected function updateResponseTransferWithError(
+    protected function addErrorToUnzerApiResponseTransfer(
         UnzerApiResponseTransfer $unzerApiResponseTransfer,
-        ?array $responseData
+        array $responseData = []
     ): UnzerApiResponseTransfer {
-        $errorTransfer = new UnzerApiErrorResponseTransfer();
-
-        if ($responseData !== null) {
-            $errorTransfer->fromArray($responseData, true);
-        }
+        $unzerApiErrorResponseTransfer = (new UnzerApiErrorResponseTransfer())
+            ->fromArray($responseData, true);
 
         return $unzerApiResponseTransfer
             ->setIsSuccessful(false)
-            ->setErrorResponse($errorTransfer);
+            ->setErrorResponse($unzerApiErrorResponseTransfer);
     }
 
     /**
