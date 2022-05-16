@@ -487,7 +487,6 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new MarketplaceGetPaymentUnzerApiRequest(
             $this->getConfig(),
-            $this->createMarketplaceGetPaymentRequestBuilder(),
             $this->getUnzerApiHttpClient(),
             $this->createGetPaymentResponseConverter(),
             $this->createUnzerApiLogger(),
@@ -520,7 +519,6 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new GetPaymentUnzerApiRequest(
             $this->getConfig(),
-            $this->createGetPaymentRequestBuilder(),
             $this->getUnzerApiHttpClient(),
             $this->createGetPaymentResponseConverter(),
             $this->createUnzerApiLogger(),
