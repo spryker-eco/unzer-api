@@ -19,7 +19,7 @@ class UnzerApiPersistenceFactory extends AbstractPersistenceFactory
     /**
      * @return \SprykerEco\Zed\UnzerApi\Persistence\Propel\Mapper\UnzerApiMapper
      */
-    public function createUnzerApiPersistenceMapper(): UnzerApiMapper
+    public function createUnzerApiMapper(): UnzerApiMapper
     {
         return new UnzerApiMapper();
     }

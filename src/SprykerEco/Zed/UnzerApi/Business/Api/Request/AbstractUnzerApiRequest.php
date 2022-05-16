@@ -19,16 +19,6 @@ use SprykerEco\Zed\UnzerApi\UnzerApiConfig;
 abstract class AbstractUnzerApiRequest implements UnzerApiRequestInterface
 {
     /**
-     * @var \SprykerEco\Zed\UnzerApi\UnzerApiConfig
-     */
-    protected $unzerApiConfig;
-
-    /**
-     * @var \SprykerEco\Zed\UnzerApi\Business\Api\Request\Builder\UnzerApiRequestBuilderInterface
-     */
-    protected $unzerApiRequestBuilder;
-
-    /**
      * @var \SprykerEco\Zed\UnzerApi\Dependency\External\UnzerApiToHttpClientInterface
      */
     protected $httpClient;
@@ -44,21 +34,15 @@ abstract class AbstractUnzerApiRequest implements UnzerApiRequestInterface
     protected $unzerApiResponseConverter;
 
     /**
-     * @param \SprykerEco\Zed\UnzerApi\UnzerApiConfig $unzerApiConfig
-     * @param \SprykerEco\Zed\UnzerApi\Business\Api\Request\Builder\UnzerApiRequestBuilderInterface $unzerApiRequestBuilder
      * @param \SprykerEco\Zed\UnzerApi\Dependency\External\UnzerApiToHttpClientInterface $httpClient
      * @param \SprykerEco\Zed\UnzerApi\Business\Api\Response\Converter\UnzerApiResponseConverterInterface $unzerApiResponseConverter
      * @param \SprykerEco\Zed\UnzerApi\Business\Api\Logger\UnzerApiLoggerInterface $unzerApiLogger
      */
     public function __construct(
-        UnzerApiConfig $unzerApiConfig,
-        UnzerApiRequestBuilderInterface $unzerApiRequestBuilder,
         UnzerApiToHttpClientInterface $httpClient,
         UnzerApiResponseConverterInterface $unzerApiResponseConverter,
         UnzerApiLoggerInterface $unzerApiLogger
     ) {
-        $this->unzerApiConfig = $unzerApiConfig;
-        $this->unzerApiRequestBuilder = $unzerApiRequestBuilder;
         $this->httpClient = $httpClient;
         $this->unzerApiLogger = $unzerApiLogger;
         $this->unzerApiResponseConverter = $unzerApiResponseConverter;
