@@ -40,8 +40,7 @@ class MarketplaceAuthorizableChargeUnzerApiRequest extends AbstractUnzerApiReque
         UnzerApiToHttpClientInterface $httpClient,
         UnzerApiResponseConverterInterface $unzerApiResponseConverter,
         UnzerApiLoggerInterface $unzerApiLogger
-    )
-    {
+    ) {
         parent::__construct($httpClient, $unzerApiResponseConverter, $unzerApiLogger);
         $this->unzerApiConfig = $unzerApiConfig;
         $this->unzerApiRequestBuilder = $unzerApiRequestBuilder;

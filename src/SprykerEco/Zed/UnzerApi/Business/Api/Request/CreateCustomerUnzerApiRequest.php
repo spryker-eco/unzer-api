@@ -40,8 +40,7 @@ class CreateCustomerUnzerApiRequest extends AbstractUnzerApiRequest
         UnzerApiToHttpClientInterface $httpClient,
         UnzerApiResponseConverterInterface $unzerApiResponseConverter,
         UnzerApiLoggerInterface $unzerApiLogger
-    )
-    {
+    ) {
         parent::__construct($httpClient, $unzerApiResponseConverter, $unzerApiLogger);
         $this->unzerApiConfig = $unzerApiConfig;
         $this->unzerApiRequestBuilder = $unzerApiRequestBuilder;

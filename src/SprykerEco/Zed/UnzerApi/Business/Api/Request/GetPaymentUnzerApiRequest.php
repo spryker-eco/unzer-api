@@ -9,7 +9,6 @@ namespace SprykerEco\Zed\UnzerApi\Business\Api\Request;
 
 use Generated\Shared\Transfer\UnzerApiRequestTransfer;
 use SprykerEco\Zed\UnzerApi\Business\Api\Logger\UnzerApiLoggerInterface;
-use SprykerEco\Zed\UnzerApi\Business\Api\Request\Builder\UnzerApiRequestBuilderInterface;
 use SprykerEco\Zed\UnzerApi\Business\Api\Response\Converter\UnzerApiResponseConverterInterface;
 use SprykerEco\Zed\UnzerApi\Dependency\External\UnzerApiToHttpClientInterface;
 use SprykerEco\Zed\UnzerApi\UnzerApiConfig;
@@ -33,8 +32,7 @@ class GetPaymentUnzerApiRequest extends AbstractUnzerApiRequest
         UnzerApiToHttpClientInterface $httpClient,
         UnzerApiResponseConverterInterface $unzerApiResponseConverter,
         UnzerApiLoggerInterface $unzerApiLogger
-    )
-    {
+    ) {
         parent::__construct($httpClient, $unzerApiResponseConverter, $unzerApiLogger);
         $this->unzerApiConfig = $unzerApiConfig;
     }

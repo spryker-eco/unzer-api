@@ -10,11 +10,9 @@ namespace SprykerEco\Zed\UnzerApi\Business\Api\Request;
 use Generated\Shared\Transfer\UnzerApiRequestTransfer;
 use Generated\Shared\Transfer\UnzerApiResponseTransfer;
 use SprykerEco\Zed\UnzerApi\Business\Api\Logger\UnzerApiLoggerInterface;
-use SprykerEco\Zed\UnzerApi\Business\Api\Request\Builder\UnzerApiRequestBuilderInterface;
 use SprykerEco\Zed\UnzerApi\Business\Api\Response\Converter\UnzerApiResponseConverterInterface;
 use SprykerEco\Zed\UnzerApi\Dependency\External\UnzerApiToHttpClientInterface;
 use SprykerEco\Zed\UnzerApi\Exception\UnzerApiToHttpClientException;
-use SprykerEco\Zed\UnzerApi\UnzerApiConfig;
 
 abstract class AbstractUnzerApiRequest implements UnzerApiRequestInterface
 {
