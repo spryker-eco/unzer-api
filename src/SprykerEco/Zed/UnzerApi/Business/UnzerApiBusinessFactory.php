@@ -85,10 +85,10 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new SetWebhookUrlUnzerApiRequest(
             $this->getUnzerApiHttpClient(),
-            $this->createGetPaymentResponseConverter(),
+            $this->createSetWebhookUrlResponseConverter(),
             $this->createUnzerApiLogger(),
             $this->getConfig(),
-            $this->createMarketplaceChargeRequestBuilder(),
+            $this->createSetWebhookUrlRequestBuilder(),
         );
     }
 
@@ -129,10 +129,10 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new CreateCustomerUnzerApiRequest(
             $this->getUnzerApiHttpClient(),
-            $this->createGetPaymentResponseConverter(),
+            $this->createCreateCustomerResponseConverter(),
             $this->createUnzerApiLogger(),
             $this->getConfig(),
-            $this->createMarketplaceChargeRequestBuilder(),
+            $this->createCreateCustomerRequestBuilder(),
         );
     }
 
@@ -143,10 +143,10 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new UpdateCustomerUnzerApiRequest(
             $this->getUnzerApiHttpClient(),
-            $this->createGetPaymentResponseConverter(),
+            $this->createUpdateCustomerResponseConverter(),
             $this->createUnzerApiLogger(),
             $this->getConfig(),
-            $this->createMarketplaceChargeRequestBuilder(),
+            $this->createUpdateCustomerRequestBuilder(),
         );
     }
 
@@ -217,10 +217,10 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new CreateBasketUnzerApiRequest(
             $this->getUnzerApiHttpClient(),
-            $this->createGetPaymentResponseConverter(),
+            $this->createCreateBasketResponseConverter(),
             $this->createUnzerApiLogger(),
             $this->getConfig(),
-            $this->createMarketplaceChargeRequestBuilder(),
+            $this->createCreateBasketRequestBuilder(),
         );
     }
 
@@ -231,10 +231,10 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new CreateMarketplaceBasketUnzerApiRequest(
             $this->getUnzerApiHttpClient(),
-            $this->createGetPaymentResponseConverter(),
+            $this->createCreateBasketResponseConverter(),
             $this->createUnzerApiLogger(),
             $this->getConfig(),
-            $this->createMarketplaceChargeRequestBuilder(),
+            $this->createCreateBasketRequestBuilder(),
         );
     }
 
@@ -283,10 +283,10 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new CreateMetadataUnzerApiRequest(
             $this->getUnzerApiHttpClient(),
-            $this->createGetPaymentResponseConverter(),
+            $this->createCreateMetadataResponseConverter(),
             $this->createUnzerApiLogger(),
             $this->getConfig(),
-            $this->createMarketplaceChargeRequestBuilder(),
+            $this->createCreateMetadataRequestBuilder(),
         );
     }
 
@@ -335,10 +335,10 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new MarketplaceAuthorizeUnzerApiRequest(
             $this->getUnzerApiHttpClient(),
-            $this->createGetPaymentResponseConverter(),
+            $this->createMarketplaceAuthorizeResponseConverter(),
             $this->createUnzerApiLogger(),
             $this->getConfig(),
-            $this->createMarketplaceChargeRequestBuilder(),
+            $this->createMarketplaceAuthorizeRequestBuilder(),
         );
     }
 
@@ -387,10 +387,10 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new AuthorizeUnzerApiRequest(
             $this->getUnzerApiHttpClient(),
-            $this->createGetPaymentResponseConverter(),
+            $this->createAuthorizeResponseConverter(),
             $this->createUnzerApiLogger(),
             $this->getConfig(),
-            $this->createMarketplaceChargeRequestBuilder(),
+            $this->createAuthorizeRequestBuilder(),
         );
     }
 
@@ -570,7 +570,7 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new MarketplaceChargeUnzerApiRequest(
             $this->getUnzerApiHttpClient(),
-            $this->createGetPaymentResponseConverter(),
+            $this->createMarketplaceChargeResponseConverter(),
             $this->createUnzerApiLogger(),
             $this->getConfig(),
             $this->createMarketplaceChargeRequestBuilder(),
@@ -622,10 +622,10 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new MarketplaceAuthorizableChargeUnzerApiRequest(
             $this->getUnzerApiHttpClient(),
-            $this->createGetPaymentResponseConverter(),
+            $this->createMarketplaceCreditCardChargeResponseConverter(),
             $this->createUnzerApiLogger(),
             $this->getConfig(),
-            $this->createMarketplaceChargeRequestBuilder(),
+            $this->createMarketplaceAuthorizableChargeRequestBuilder(),
         );
     }
 
@@ -674,10 +674,10 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new CreatePaymentResourceUnzerApiRequest(
             $this->getUnzerApiHttpClient(),
-            $this->createGetPaymentResponseConverter(),
+            $this->createCreatePaymentResourceResponseConverter(),
             $this->createUnzerApiLogger(),
             $this->getConfig(),
-            $this->createMarketplaceChargeRequestBuilder(),
+            $this->createCreatePaymentResourceRequestBuilder(),
         );
     }
 
@@ -726,10 +726,10 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new MarketplaceRefundUnzerApiRequest(
             $this->getUnzerApiHttpClient(),
-            $this->createGetPaymentResponseConverter(),
+            $this->createMarketplaceRefundResponseConverter(),
             $this->createUnzerApiLogger(),
             $this->getConfig(),
-            $this->createMarketplaceChargeRequestBuilder(),
+            $this->createMarketplaceRefundRequestBuilder(),
         );
     }
 
@@ -778,10 +778,10 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new RefundUnzerApiRequest(
             $this->getUnzerApiHttpClient(),
-            $this->createGetPaymentResponseConverter(),
+            $this->createRefundResponseConverter(),
             $this->createUnzerApiLogger(),
             $this->getConfig(),
-            $this->createMarketplaceChargeRequestBuilder(),
+            $this->createRefundRequestBuilder(),
         );
     }
 
@@ -822,10 +822,10 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new ChargeUnzerApiRequest(
             $this->getUnzerApiHttpClient(),
-            $this->createGetPaymentResponseConverter(),
+            $this->createChargeResponseConverter(),
             $this->createUnzerApiLogger(),
             $this->getConfig(),
-            $this->createMarketplaceChargeRequestBuilder(),
+            $this->createChargeRequestBuilder(),
         );
     }
 
@@ -874,10 +874,10 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new AuthorizableChargeUnzerApiRequest(
             $this->getUnzerApiHttpClient(),
-            $this->createGetPaymentResponseConverter(),
+            $this->createCreditCardChargeResponseConverter(),
             $this->createUnzerApiLogger(),
             $this->getConfig(),
-            $this->createMarketplaceChargeRequestBuilder(),
+            $this->createAuthorizableChargeRequestBuilder(),
         );
     }
 
@@ -934,10 +934,10 @@ class UnzerApiBusinessFactory extends AbstractBusinessFactory
     {
         return new GetPaymentMethodsUnzerApiRequest(
             $this->getUnzerApiHttpClient(),
-            $this->createGetPaymentResponseConverter(),
+            $this->createGetPaymentMethodsResponseConverter(),
             $this->createUnzerApiLogger(),
             $this->getConfig(),
-            $this->createMarketplaceChargeRequestBuilder(),
+            $this->createGetPaymentMethodsRequestBuilder(),
         );
     }
 
