@@ -19,19 +19,19 @@ class MarketplaceGetPaymentUnzerApiRequest extends AbstractUnzerApiRequest
     /**
      * @var \SprykerEco\Zed\UnzerApi\UnzerApiConfig
      */
-    protected UnzerApiConfig $unzerApiConfig;
+    protected $unzerApiConfig;
 
     /**
-     * @param \SprykerEco\Zed\UnzerApi\UnzerApiConfig $unzerApiConfig
      * @param \SprykerEco\Zed\UnzerApi\Dependency\External\UnzerApiToHttpClientInterface $httpClient
      * @param \SprykerEco\Zed\UnzerApi\Business\Api\Response\Converter\UnzerApiResponseConverterInterface $unzerApiResponseConverter
      * @param \SprykerEco\Zed\UnzerApi\Business\Api\Logger\UnzerApiLoggerInterface $unzerApiLogger
+     * @param \SprykerEco\Zed\UnzerApi\UnzerApiConfig $unzerApiConfig
      */
     public function __construct(
-        UnzerApiConfig $unzerApiConfig,
         UnzerApiToHttpClientInterface $httpClient,
         UnzerApiResponseConverterInterface $unzerApiResponseConverter,
-        UnzerApiLoggerInterface $unzerApiLogger
+        UnzerApiLoggerInterface $unzerApiLogger,
+        UnzerApiConfig $unzerApiConfig
     ) {
         parent::__construct($httpClient, $unzerApiResponseConverter, $unzerApiLogger);
         $this->unzerApiConfig = $unzerApiConfig;

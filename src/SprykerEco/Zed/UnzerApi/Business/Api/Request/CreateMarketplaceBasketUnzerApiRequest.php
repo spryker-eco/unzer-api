@@ -20,26 +20,26 @@ class CreateMarketplaceBasketUnzerApiRequest extends AbstractUnzerApiRequest
     /**
      * @var \SprykerEco\Zed\UnzerApi\UnzerApiConfig
      */
-    protected UnzerApiConfig $unzerApiConfig;
+    protected $unzerApiConfig;
 
     /**
      * @var \SprykerEco\Zed\UnzerApi\Business\Api\Request\Builder\UnzerApiRequestBuilderInterface
      */
-    protected UnzerApiRequestBuilderInterface $unzerApiRequestBuilder;
+    protected $unzerApiRequestBuilder;
 
     /**
-     * @param \SprykerEco\Zed\UnzerApi\UnzerApiConfig $unzerApiConfig
-     * @param \SprykerEco\Zed\UnzerApi\Business\Api\Request\Builder\UnzerApiRequestBuilderInterface $unzerApiRequestBuilder
      * @param \SprykerEco\Zed\UnzerApi\Dependency\External\UnzerApiToHttpClientInterface $httpClient
      * @param \SprykerEco\Zed\UnzerApi\Business\Api\Response\Converter\UnzerApiResponseConverterInterface $unzerApiResponseConverter
      * @param \SprykerEco\Zed\UnzerApi\Business\Api\Logger\UnzerApiLoggerInterface $unzerApiLogger
+     * @param \SprykerEco\Zed\UnzerApi\UnzerApiConfig $unzerApiConfig
+     * @param \SprykerEco\Zed\UnzerApi\Business\Api\Request\Builder\UnzerApiRequestBuilderInterface $unzerApiRequestBuilder
      */
     public function __construct(
-        UnzerApiConfig $unzerApiConfig,
-        UnzerApiRequestBuilderInterface $unzerApiRequestBuilder,
         UnzerApiToHttpClientInterface $httpClient,
         UnzerApiResponseConverterInterface $unzerApiResponseConverter,
-        UnzerApiLoggerInterface $unzerApiLogger
+        UnzerApiLoggerInterface $unzerApiLogger,
+        UnzerApiConfig $unzerApiConfig,
+        UnzerApiRequestBuilderInterface $unzerApiRequestBuilder
     ) {
         parent::__construct($httpClient, $unzerApiResponseConverter, $unzerApiLogger);
         $this->unzerApiConfig = $unzerApiConfig;
