@@ -54,91 +54,6 @@ class UnzerApiZedTester extends Actor
     /**
      * @var string
      */
-    public const UNZER_CUSTOMER_ID = 's-cust-0000';
-
-    /**
-     * @var string
-     */
-    public const CUSTOMER_FIRSTNAME = 'Max';
-
-    /**
-     * @var string
-     */
-    public const CUSTOMER_LASTNAME = 'Mustermann';
-
-    /**
-     * @var string
-     */
-    public const CUSTOMER_CITY = 'Berlin';
-
-    /**
-     * @var string
-     */
-    public const CUSTOMER_COUNTRY = 'Germany';
-
-    /**
-     * @var string
-     */
-    public const CUSTOMER_ZIP = '0000';
-
-    /**
-     * @var string
-     */
-    public const CUSTOMER_STREET = 'Test street';
-
-    /**
-     * @var string
-     */
-    public const CUSTOMER_STATE = 'DE';
-
-    /**
-     * @var string
-     */
-    public const CUSTOMER_MOBILE = '000000';
-
-    /**
-     * @var string
-     */
-    public const CUSTOMER_PHONE = '1111111';
-
-    /**
-     * @var string
-     */
-    public const CUSTOMER_EMAIL = 'max@spryker.local';
-
-    /**
-     * @var string
-     */
-    public const CUSTOMER_BIRTHDATE = '01.01.1970';
-
-    /**
-     * @var string
-     */
-    public const CUSTOMER_COMPANY = 'Spryker';
-
-    /**
-     * @var string
-     */
-    public const CUSTOMER_SALUTATION = 'Mr';
-
-    /**
-     * @var string
-     */
-    public const METADATA_STORE = 'DE';
-
-    /**
-     * @var string
-     */
-    public const METADATA_PRICE_MODE = 'Gross';
-
-    /**
-     * @var string
-     */
-    public const METADATA_LOCALE = 'de';
-
-    /**
-     * @var string
-     */
     public const PAYMENT_METHOD_SOFORT = 'sofort';
 
     /**
@@ -154,67 +69,152 @@ class UnzerApiZedTester extends Actor
     /**
      * @var string
      */
-    public const BASKET_ORDER_ID = 'spryker-order-id-2';
+    protected const UNZER_CUSTOMER_ID = 's-cust-0000';
 
     /**
      * @var string
      */
-    public const AUTHORIZE_ID = 's-auth-1';
+    protected const CUSTOMER_FIRSTNAME = 'Max';
 
     /**
      * @var string
      */
-    public const PAYMENT_ID = 's-pay-133';
+    protected const CUSTOMER_LASTNAME = 'Mustermann';
 
     /**
      * @var string
      */
-    public const CHARGE_ID = 's-crg-133';
+    protected const CUSTOMER_CITY = 'Berlin';
 
     /**
      * @var string
      */
-    public const BASKET_NOTE = 'note';
+    protected const CUSTOMER_COUNTRY = 'Germany';
 
     /**
      * @var string
      */
-    public const BASKET_CURRENCY_CODE = 'EUR';
+    protected const CUSTOMER_ZIP = '0000';
 
     /**
      * @var string
      */
-    public const BASKET_AMOUNT_TOTAL_GROSS = 723.46;
+    protected const CUSTOMER_STREET = 'Test street';
 
     /**
      * @var string
      */
-    public const BASKET_ITEM_TYPE = 'Wire';
+    protected const CUSTOMER_STATE = 'DE';
 
     /**
      * @var string
      */
-    public const BASKET_ITEM_PARTICIPANT_ID = '000000';
+    protected const CUSTOMER_MOBILE = '000000';
 
     /**
      * @var string
      */
-    public const BASKET_ITEM_TITLE = 'Canon Self-Shot';
+    protected const CUSTOMER_PHONE = '1111111';
+
+    /**
+     * @var string
+     */
+    protected const CUSTOMER_EMAIL = 'max@spryker.local';
+
+    /**
+     * @var string
+     */
+    protected const CUSTOMER_BIRTHDATE = '01.01.1970';
+
+    /**
+     * @var string
+     */
+    protected const CUSTOMER_COMPANY = 'Spryker';
+
+    /**
+     * @var string
+     */
+    protected const CUSTOMER_SALUTATION = 'Mr';
+
+    /**
+     * @var string
+     */
+    protected const METADATA_STORE = 'DE';
+
+    /**
+     * @var string
+     */
+    protected const METADATA_PRICE_MODE = 'Gross';
+
+    /**
+     * @var string
+     */
+    protected const METADATA_LOCALE = 'de';
+
+    /**
+     * @var string
+     */
+    protected const BASKET_ORDER_ID = 'spryker-order-id-2';
+
+    /**
+     * @var string
+     */
+    protected const AUTHORIZE_ID = 's-auth-1';
+
+    /**
+     * @var string
+     */
+    protected const PAYMENT_ID = 's-pay-133';
+
+    /**
+     * @var string
+     */
+    protected const CHARGE_ID = 's-crg-133';
+
+    /**
+     * @var string
+     */
+    protected const BASKET_NOTE = 'note';
+
+    /**
+     * @var string
+     */
+    protected const BASKET_CURRENCY_CODE = 'EUR';
+
+    /**
+     * @var string
+     */
+    protected const BASKET_AMOUNT_TOTAL_GROSS = 723.46;
+
+    /**
+     * @var string
+     */
+    protected const BASKET_ITEM_TYPE = 'Wire';
+
+    /**
+     * @var string
+     */
+    protected const BASKET_ITEM_PARTICIPANT_ID = '000000';
+
+    /**
+     * @var string
+     */
+    protected const BASKET_ITEM_TITLE = 'Canon Self-Shot';
 
     /**
      * @var float
      */
-    public const BASKET_ITEM_AMOUNT_PER_UNIT = 123.00;
+    protected const BASKET_ITEM_AMOUNT_PER_UNIT = 123.00;
 
     /**
      * @var float
      */
-    public const BASKET_ITEM_AMOUNT_GROSS = 123.00;
+    protected const BASKET_ITEM_AMOUNT_GROSS = 123.00;
 
     /**
      * @var string
      */
-    public const BASKET_ITEM_REFERENCE_ID = 'spryker-sku-1';
+    protected const BASKET_ITEM_REFERENCE_ID = 'spryker-sku-1';
 
     /**
      * @param \Codeception\Scenario $scenario

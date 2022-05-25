@@ -13,6 +13,9 @@ use SprykerEco\Shared\UnzerApi\UnzerApiConstants;
 class UnzerApiConfig extends AbstractBundleConfig
 {
     /**
+     * Specification:
+     * - Get Unzer API `Set webhook` URL.
+     *
      * @api
      *
      * @return string
@@ -23,6 +26,9 @@ class UnzerApiConfig extends AbstractBundleConfig
     }
 
     /**
+     * Specification:
+     * - Get Unzer API `Create customer` URL.
+     *
      * @api
      *
      * @return string
@@ -33,6 +39,9 @@ class UnzerApiConfig extends AbstractBundleConfig
     }
 
     /**
+     * Specification:
+     * - Get Unzer API `Create basket` URL.
+     *
      * @api
      *
      * @return string
@@ -43,6 +52,9 @@ class UnzerApiConfig extends AbstractBundleConfig
     }
 
     /**
+     * Specification:
+     * - Get Unzer API `Create marketplace basket` URL.
+     *
      * @api
      *
      * @return string
@@ -53,6 +65,9 @@ class UnzerApiConfig extends AbstractBundleConfig
     }
 
     /**
+     * Specification:
+     * - Get Unzer API `Marketplace change` URL.
+     *
      * @api
      *
      * @return string
@@ -63,6 +78,9 @@ class UnzerApiConfig extends AbstractBundleConfig
     }
 
     /**
+     * Specification:
+     * - Get Unzer API `Charge` URL.
+     *
      * @api
      *
      * @return string
@@ -73,6 +91,9 @@ class UnzerApiConfig extends AbstractBundleConfig
     }
 
     /**
+     * Specification:
+     * - Get Unzer API `Marketplace CreditCard charge` URL.
+     *
      * @api
      *
      * @return string
@@ -83,6 +104,9 @@ class UnzerApiConfig extends AbstractBundleConfig
     }
 
     /**
+     * Specification:
+     * - Get Unzer API `CreditCard charge` URL.
+     *
      * @api
      *
      * @return string
@@ -93,6 +117,9 @@ class UnzerApiConfig extends AbstractBundleConfig
     }
 
     /**
+     * Specification:
+     * - Get Unzer API `Get marketplace payment` URL.
+     *
      * @api
      *
      * @return string
@@ -103,6 +130,9 @@ class UnzerApiConfig extends AbstractBundleConfig
     }
 
     /**
+     * Specification:
+     * - Get Unzer API `Get payment` URL.
+     *
      * @api
      *
      * @return string
@@ -113,6 +143,9 @@ class UnzerApiConfig extends AbstractBundleConfig
     }
 
     /**
+     * Specification:
+     * - Get Unzer API `Create metadata` URL.
+     *
      * @api
      *
      * @return string
@@ -123,6 +156,9 @@ class UnzerApiConfig extends AbstractBundleConfig
     }
 
     /**
+     * Specification:
+     * - Get Unzer API `Marketplace authorize` URL.
+     *
      * @api
      *
      * @return string
@@ -133,6 +169,9 @@ class UnzerApiConfig extends AbstractBundleConfig
     }
 
     /**
+     * Specification:
+     * - Get Unzer API `Authorize` URL.
+     *
      * @api
      *
      * @return string
@@ -143,6 +182,9 @@ class UnzerApiConfig extends AbstractBundleConfig
     }
 
     /**
+     * Specification:
+     * - Get Unzer API `Create payment resource` URL.
+     *
      * @api
      *
      * @return string
@@ -153,6 +195,9 @@ class UnzerApiConfig extends AbstractBundleConfig
     }
 
     /**
+     * Specification:
+     * - Get Unzer API `Marketplace refund` URL.
+     *
      * @api
      *
      * @return string
@@ -163,6 +208,9 @@ class UnzerApiConfig extends AbstractBundleConfig
     }
 
     /**
+     * Specification:
+     * - Get Unzer API `Refund` URL.
+     *
      * @api
      *
      * @return string
@@ -173,6 +221,9 @@ class UnzerApiConfig extends AbstractBundleConfig
     }
 
     /**
+     * Specification:
+     * - Get Unzer API `Get payment methods` URL.
+     *
      * @api
      *
      * @return string
@@ -183,6 +234,9 @@ class UnzerApiConfig extends AbstractBundleConfig
     }
 
     /**
+     * Specification:
+     * - Get `is API logging enabled` flag.
+     *
      * @api
      *
      * @return bool
