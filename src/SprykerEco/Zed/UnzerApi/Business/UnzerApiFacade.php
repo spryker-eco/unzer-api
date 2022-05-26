@@ -12,8 +12,6 @@ use Generated\Shared\Transfer\UnzerApiResponseTransfer;
 use Spryker\Zed\Kernel\Business\AbstractFacade;
 
 /**
- * @api
- *
  * @method \SprykerEco\Zed\UnzerApi\Business\UnzerApiBusinessFactory getFactory()
  * @method \SprykerEco\Zed\UnzerApi\Persistence\UnzerApiEntityManagerInterface getEntityManager()
  */
