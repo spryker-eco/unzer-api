@@ -445,12 +445,12 @@
     </transfer>
 
     <transfer name="PaymentUnzerApiLog">
-        <property name="idPaymentUnzerApiLog" type="int" />
-        <property name="requestType" type="string" />
-        <property name="isSuccessful" type="bool" />
-        <property name="request" type="string" />
-        <property name="response" type="string" />
-        <property name="url" type="string" />
+        <property name="idPaymentUnzerApiLog" type="int"/>
+        <property name="requestType" type="string"/>
+        <property name="isSuccessful" type="bool"/>
+        <property name="request" type="string"/>
+        <property name="response" type="string"/>
+        <property name="url" type="string"/>
     </transfer>
 
 </transfers>
