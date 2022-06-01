@@ -17,6 +17,7 @@
         "phpstan/phpstan": "^1.2.0",
         "spryker/application": "^3.0.0",
         "spryker/code-sniffer": "*",
+        "spryker/error-handler": "*",
         "spryker/log": "*",
         "spryker/monolog": "*",
         "spryker/propel": "*",
