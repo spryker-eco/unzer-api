@@ -1,0 +1,24 @@
+{
+    "id": "s-chg-1",
+    "isSuccess": false,
+    "isPending": true,
+    "isError": false,
+    "resources": {
+        "customerId": "s-cst-2765182c090f",
+        "paymentId": "s-pay-133",
+        "basketId": "s-bsk-235",
+        "traceId": "1f2df5380c53c148e5d13ca576363574",
+        "typeId": "s-crd-0qn3kljvoa4s"
+    },
+    "processing": {
+        "uniqueId": "31HA07BC8192E2E977D75B6046B6FB42",
+        "shortId": "5015.1653.6523",
+        "traceId": "1f2df5380c53c148e5d13ca576363574",
+        "participantId": "31HA07BC819373DB2BBE5FE3A09C215D"
+    },
+    "message": {
+        "code": "COR.000.100.112",
+        "merchant": "Request successfully processed in 'Merchant in Connector Test Mode'",
+        "customer": "Your payments have been successfully processed in sandbox mode."
+    }
+}
