@@ -25,6 +25,7 @@ class MarketplaceAuthorizeRequestConverter implements UnzerApiRequestConverterIn
             UnzerApiRequestConstants::PARAM_AMOUNT => (string)$unzerApiMarketplaceAuthorizeRequestTransfer->getAmount(),
             UnzerApiRequestConstants::PARAM_CURRENCY => $unzerApiMarketplaceAuthorizeRequestTransfer->getCurrency(),
             UnzerApiRequestConstants::PARAM_RETURN_URL => $unzerApiMarketplaceAuthorizeRequestTransfer->getReturnUrl(),
+            UnzerApiRequestConstants::PARAM_ORDER_ID => $unzerApiMarketplaceAuthorizeRequestTransfer->getOrderId(),
             UnzerApiRequestConstants::PARAM_RESOURCES => [
                 UnzerApiRequestConstants::PARAM_CUSTOMER_ID => $unzerApiMarketplaceAuthorizeRequestTransfer->getCustomerId(),
                 UnzerApiRequestConstants::PARAM_TYPE_ID => $unzerApiMarketplaceAuthorizeRequestTransfer->getTypeId(),

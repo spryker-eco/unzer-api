@@ -25,6 +25,7 @@ class AuthorizeRequestConverter implements UnzerApiRequestConverterInterface
             UnzerApiRequestConstants::PARAM_AMOUNT => (string)$unzerApiAuthorizeRequestTransfer->getAmount(),
             UnzerApiRequestConstants::PARAM_CURRENCY => $unzerApiAuthorizeRequestTransfer->getCurrency(),
             UnzerApiRequestConstants::PARAM_RETURN_URL => $unzerApiAuthorizeRequestTransfer->getReturnUrl(),
+            UnzerApiRequestConstants::PARAM_ORDER_ID => $unzerApiAuthorizeRequestTransfer->getOrderId(),
             UnzerApiRequestConstants::PARAM_RESOURCES => [
                 UnzerApiRequestConstants::PARAM_CUSTOMER_ID => $unzerApiAuthorizeRequestTransfer->getCustomerId(),
                 UnzerApiRequestConstants::PARAM_TYPE_ID => $unzerApiAuthorizeRequestTransfer->getTypeId(),

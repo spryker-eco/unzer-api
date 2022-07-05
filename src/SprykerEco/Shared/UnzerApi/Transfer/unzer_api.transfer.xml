@@ -101,6 +101,7 @@
         <property name="returnUrl" type="string"/>
         <property name="customerId" type="string"/>
         <property name="typeId" type="string"/>
+        <property name="orderId" type="string"/>
     </transfer>
 
     <transfer name="UnzerApiMarketplaceAuthorizeRequest">
@@ -260,6 +261,7 @@
         <property name="uniqueId" type="string"/>
         <property name="shortId" type="string"/>
         <property name="participantId" type="string"/>
+        <property name="orderId" type="string"/>
     </transfer>
 
     <transfer name="UnzerApiGetPaymentResponse">
@@ -313,6 +315,7 @@
         <property name="uniqueId" type="string"/>
         <property name="shortId" type="string"/>
         <property name="participantId" type="string"/>
+        <property name="orderId" type="string"/>
     </transfer>
 
     <transfer name="UnzerApiChargeResponse">

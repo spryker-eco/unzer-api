@@ -34,7 +34,8 @@ class MarketplaceRefundResponseMapper implements UnzerApiResponseMapperInterface
             ->setPaymentReference($responseData[UnzerApiRequestConstants::PARAM_PAYMENT_REFERENCE] ?? null)
             ->setDate($responseData[UnzerApiRequestConstants::PARAM_DATE] ?? null)
             ->setCard3ds($responseData[UnzerApiRequestConstants::PARAM_CARD3DS] ?? null)
-            ->setPaymentReference($responseData[UnzerApiRequestConstants::PARAM_PAYMENT_REFERENCE] ?? null);
+            ->setPaymentReference($responseData[UnzerApiRequestConstants::PARAM_PAYMENT_REFERENCE] ?? null)
+            ->setOrderId($responseData[UnzerApiRequestConstants::PARAM_ORDER_ID] ?? null);
 
         $unzerApiMarketplaceRefundResponseTransfer = $this->mapResourceDataToUnzerApiMarketplaceRefundResponseTransfer(
             $responseData[UnzerApiRequestConstants::PARAM_RESOURCES] ?? [],
