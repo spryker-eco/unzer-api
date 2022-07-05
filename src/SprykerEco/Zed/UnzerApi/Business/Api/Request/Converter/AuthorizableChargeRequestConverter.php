@@ -23,6 +23,7 @@ class AuthorizableChargeRequestConverter implements UnzerApiRequestConverterInte
 
         return [
             UnzerApiRequestConstants::PARAM_AMOUNT => (string)$unzerApiChargeRequestTransfer->getAmount(),
+            UnzerApiRequestConstants::PARAM_ORDER_ID => $unzerApiChargeRequestTransfer->getOrderId(),
         ];
     }
 }
