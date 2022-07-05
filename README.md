@@ -13,4 +13,4 @@ UnzerApi module provides Unzer API HTTP communication layer.
 composer require spryker-eco/unzer-api
 ```
 ## Documentation
-[Documentation](https://docs.spryker.com/industry_partners/payment/unzer-api/unzer-api-details.htm)
+[Documentation](https://docs.spryker.com/docs/pbc/all/payment/unzer/unzer.html)
