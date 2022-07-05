@@ -32,7 +32,8 @@ class RefundResponseMapper implements UnzerApiResponseMapperInterface
             ->setAmount($responseData[UnzerApiRequestConstants::PARAM_AMOUNT] ?? null)
             ->setCurrency($responseData[UnzerApiRequestConstants::PARAM_CURRENCY] ?? null)
             ->setPaymentReference($responseData[UnzerApiRequestConstants::PARAM_PAYMENT_REFERENCE] ?? null)
-            ->setDate($responseData[UnzerApiRequestConstants::PARAM_DATE] ?? null);
+            ->setDate($responseData[UnzerApiRequestConstants::PARAM_DATE] ?? null)
+            ->setOrderId($responseData[UnzerApiRequestConstants::PARAM_ORDER_ID] ?? null);
 
         $unzerApiRefundResponseTransfer = $this->mapResourcesToUnzerApiRefundResponseTransfer(
             $responseData[UnzerApiRequestConstants::PARAM_RESOURCES] ?? [],

@@ -35,7 +35,8 @@ class AuthorizeResponseMapper implements UnzerApiResponseMapperInterface
             ->setCurrency($responseData[UnzerApiRequestConstants::PARAM_CURRENCY] ?? null)
             ->setReturnUrl($responseData[UnzerApiRequestConstants::PARAM_RETURN_URL] ?? null)
             ->setDate($responseData[UnzerApiRequestConstants::PARAM_DATE] ?? null)
-            ->setPaymentReference($responseData[UnzerApiRequestConstants::PARAM_PAYMENT_REFERENCE] ?? null);
+            ->setPaymentReference($responseData[UnzerApiRequestConstants::PARAM_PAYMENT_REFERENCE] ?? null)
+            ->setOrderId($responseData[UnzerApiRequestConstants::PARAM_ORDER_ID] ?? null);
 
         $unzerApiAuthorizeResponseTransfer = $this->mapMessageDataToUnzerApiAuthorizeResponseTransfer(
             $responseData[UnzerApiRequestConstants::PARAM_MESSAGE] ?? [],
