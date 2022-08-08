@@ -32,7 +32,8 @@ class CreditCardChargeResponseMapper implements UnzerApiResponseMapperInterface
             ->setAmount($responseData[UnzerApiRequestConstants::PARAM_AMOUNT] ?? null)
             ->setCurrency($responseData[UnzerApiRequestConstants::PARAM_CURRENCY] ?? null)
             ->setDate($responseData[UnzerApiRequestConstants::PARAM_DATE] ?? null)
-            ->setPaymentReference($responseData[UnzerApiRequestConstants::PARAM_PAYMENT_REFERENCE] ?? null);
+            ->setPaymentReference($responseData[UnzerApiRequestConstants::PARAM_PAYMENT_REFERENCE] ?? null)
+            ->setOrderId($responseData[UnzerApiRequestConstants::PARAM_ORDER_ID] ?? null);
 
         $unzerApiChargeResponseTransfer = $this->mapResourcesDataToUnzerApiChargeResponseTransfer(
             $responseData[UnzerApiRequestConstants::PARAM_RESOURCES],
